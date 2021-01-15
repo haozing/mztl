@@ -1,8 +1,8 @@
 package code
 
 import (
-	"mztl/pkg/crypto"
-	"mztl/pkg/sync2"
+	"github.com/haozing/mztl/pkg/crypto"
+	"github.com/haozing/mztl/pkg/sync2"
 	"time"
 )
 

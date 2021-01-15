@@ -21,9 +21,9 @@ import (
 	"encoding/binary"
 	"encoding/hex"
 	"fmt"
+	"github.com/haozing/mztl/common"
+	"github.com/haozing/mztl/pkg/crypto"
 	"io"
-	"mztl/common"
-	"mztl/pkg/crypto"
 )
 
 type MTProtoAppCodec struct {

@@ -22,8 +22,8 @@ import (
 	"encoding/binary"
 	"encoding/hex"
 	"fmt"
-	"mztl/pkg/code"
-	"mztl/pkg/crypto"
+	"github.com/haozing/mztl/pkg/code"
+	"github.com/haozing/mztl/pkg/crypto"
 	"reflect"
 )
 

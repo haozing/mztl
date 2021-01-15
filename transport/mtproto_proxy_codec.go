@@ -21,10 +21,10 @@ import (
 	"encoding/hex"
 	"errors"
 	"fmt"
+	"github.com/haozing/mztl/common"
+	mtproto "github.com/haozing/mztl/mtproto-transport"
+	"github.com/haozing/mztl/pkg/crypto"
 	"io"
-	"mztl/common"
-	mtproto "mztl/mtproto-transport"
-	"mztl/pkg/crypto"
 	"net"
 )
 

@@ -20,8 +20,8 @@ package mtproto
 import (
 	"encoding/binary"
 	"fmt"
+	"github.com/haozing/mztl/common"
 	"io"
-	"mztl/common"
 )
 
 type MTProtoFullCodec struct {

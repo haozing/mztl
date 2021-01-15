@@ -19,7 +19,7 @@ package common
 
 import (
 	"fmt"
-	"mztl/pkg/code"
+	"github.com/haozing/mztl/pkg/code"
 )
 
 type MessageBase interface {

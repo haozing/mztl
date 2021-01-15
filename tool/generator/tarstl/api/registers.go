@@ -1,6 +1,6 @@
 package api
 
-import "mztl/pkg/code"
+import "github.com/haozing/mztl/pkg/code"
 
 var registers = map[int32]code.TLObject{
 	59377875:    NewTLhelp_getUserInfo(),

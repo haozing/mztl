@@ -4,8 +4,8 @@ import (
 	"encoding/binary"
 	"encoding/hex"
 	"fmt"
+	"github.com/haozing/mztl/common"
 	"io"
-	"mztl/common"
 )
 
 // https://core.telegram.org/mtproto#tcp-transport

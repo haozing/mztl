@@ -13,15 +13,15 @@ func ToTarsProto() {
 	Goproto.WriteString("package api\n")
 	Goproto.WriteString("import(\n")
 	Goproto.WriteString("  \"fmt\"\n")
-	Goproto.WriteString("  \"mztl/pkg/code\"\n")
+	Goproto.WriteString("  \"github.com/haozing/mztl/pkg/code\"\n")
 	Goproto.WriteString("import )\n")
 	//import (
 	//	"fmt"
-	//	"mztl/pkg/code"
+	//	"github.com/haozing/mztl/pkg/code"
 	//)
 
 	Baseproto.WriteString("package api\n")
-	Baseproto.WriteString("import \"mztl/pkg/code\"\n")
+	Baseproto.WriteString("import \"github.com/haozing/mztl/pkg/code\"\n")
 	//整理参数
 	TarsFieldConversion()
 

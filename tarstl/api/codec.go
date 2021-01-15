@@ -2,7 +2,7 @@ package api
 
 import (
 	"fmt"
-	"mztl/pkg/code"
+	"github.com/haozing/mztl/pkg/code"
 )
 
 func (m *TLinputGameID) Setid(v int64)                                   { m.Data.Id = v }
