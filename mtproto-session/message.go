@@ -23,6 +23,7 @@ import (
 	"encoding/hex"
 	"fmt"
 	"github.com/haozing/mztl/pkg/code"
+	"github.com/haozing/mztl/pkg/common"
 	"github.com/haozing/mztl/pkg/crypto"
 	"reflect"
 )
@@ -71,7 +72,7 @@ type UnencryptedMessage struct {
 	// messageData []byte
 
 	// classID int32
-	Object code.TLObject
+	Object common.TLObject
 }
 
 func (m *UnencryptedMessage) MessageType() int {
@@ -156,7 +157,7 @@ type EncryptedMessage2 struct {
 
 	MessageId int64
 	SeqNo     int32
-	Object    code.TLObject
+	Object    common.TLObject
 }
 
 func NewEncryptedMessage2(authKeyId int64) *EncryptedMessage2 {

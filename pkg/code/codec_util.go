@@ -6,6 +6,10 @@ import (
 	"time"
 )
 
+const (
+	MTPROTO_VERSION = 2
+)
+
 var msgIdSeq = sync2.NewAtomicInt64(0)
 
 func GenerateMessageId() int64 {

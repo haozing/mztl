@@ -383,7 +383,7 @@ func TarsCodec() {
 
 	//Baseproto
 
-	Baseproto.WriteString("var registers = map[int32]code.TLObject{\n")
+	Baseproto.WriteString("var ApiRegisters = map[int32]common.TLObject{\n")
 	for _, mv := range FC.MethodParams {
 
 		//func NewTLMessagesGetMessages() *TLMessagesGetMessages {

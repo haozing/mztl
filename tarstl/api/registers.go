@@ -1,8 +1,10 @@
 package api
 
-import "github.com/haozing/mztl/pkg/code"
+import (
+	"github.com/haozing/mztl/pkg/common"
+)
 
-var registers = map[int32]code.TLObject{
+var ApiRegisters = map[int32]common.TLObject{
 	59377875:    NewTLhelp_getUserInfo(),
 	1723407216:  NewTLhelp_editUserInfo(),
 	-1299661699: NewTLaccount_getAllSecureValues(),
