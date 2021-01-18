@@ -21,7 +21,6 @@ import (
 	"encoding/binary"
 	"errors"
 	"fmt"
-	"frontend/pkg/log"
 	"math"
 	"math/big"
 )
@@ -173,7 +172,7 @@ func (m *DecodeBuf) VectorInt() []int32 {
 	if m.Err != nil {
 		return nil
 	}
-	if constructor != int32(TLConstructor_CRC32_vector) {
+	if constructor != 481674261 {
 		m.Err = fmt.Errorf("DecodeVectorInt: Wrong constructor (0x%08x)", constructor)
 		return nil
 	}
@@ -203,7 +202,7 @@ func (m *DecodeBuf) VectorLong() []int64 {
 	if m.Err != nil {
 		return nil
 	}
-	if constructor != int32(TLConstructor_CRC32_vector) {
+	if constructor != 481674261 {
 		m.Err = fmt.Errorf("DecodeVectorLong: Wrong constructor (0x%08x)", constructor)
 		return nil
 	}
@@ -233,7 +232,7 @@ func (m *DecodeBuf) VectorString() []string {
 	if m.Err != nil {
 		return nil
 	}
-	if constructor != int32(TLConstructor_CRC32_vector) {
+	if constructor != 481674261 {
 		m.Err = fmt.Errorf("DecodeVectorString: Wrong constructor (0x%08x)", constructor)
 		return nil
 	}
@@ -264,9 +263,9 @@ func (m *DecodeBuf) Bool() bool {
 		return false
 	}
 	switch constructor {
-	case int32(TLConstructor_CRC32_BoolTrue):
+	case -1720552011:
 		return true
-	case int32(TLConstructor_CRC32_BoolFalse):
+	case -1132882121:
 		return false
 	}
 	return false
@@ -277,28 +276,28 @@ func (m *DecodeBuf) Object() (r TLObject) {
 	classID := m.Int()
 
 	if m.Err != nil {
-		log.Errorf("classID m.Int():%s", m.Err)
+		fmt.Println("classID m.Int():%s", m.Err)
 		return nil
 	}
 
-	re, ok := registers2[classID]
-	log.Infof("decode classid %s", classID)
+	re, ok := ApiRegisters[classID]
+	fmt.Println("decode classid %s", classID)
 	if !ok {
-		log.Error("registers2[classID] !ok")
+		fmt.Println("registers2[classID] !ok")
 		return nil
 	}
-	r = re.newTLObjectFunc()
+
 	if r == nil {
-		log.Info("re.newTLObjectFunc() !ok")
+		fmt.Println("re.newTLObjectFunc() !ok")
 		m.Err = fmt.Errorf("can't find registed classId: 0x%x", uint32(classID))
 
 		return nil
 	}
 
-	err := r.Decode(m)
+	err := re.Decode(m)
 
 	if err != nil {
-		log.Info("r.(TLObject).Decode(m) !ok")
+		fmt.Println("r.(TLObject).Decode(m) !ok")
 		m.Err = err
 	}
 	return

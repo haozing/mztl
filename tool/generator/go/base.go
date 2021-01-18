@@ -1,6 +1,4 @@
-package common
-
-import "github.com/haozing/mztl/pkg/code"
+package mtproto
 
 type TLObjectHelper struct {
 	newTLObjectFunc func() TLObject
@@ -8,5 +6,5 @@ type TLObjectHelper struct {
 type TLObject interface {
 	Encode() []byte
 	//EncodeToLayer(layer int) []byte
-	Decode(dbuf *code.DecodeBuf) error
+	Decode(dbuf *DecodeBuf) error
 }

@@ -13,7 +13,9 @@ import (
 func ToGoProto() {
 
 	Pbproto.WriteString("package mtproto\n")
-
+	Goproto.WriteString("package mtproto \n")
+	Goproto.WriteString("import  \"fmt\"\n")
+	Baseproto.WriteString("package mtproto\n")
 	//整理参数
 	FieldConversion()
 
@@ -65,26 +67,46 @@ func CodecEncode(fcp FieldConParams) {
 	//	}
 	//	return x.Buf
 	//}
-	Pbproto.WriteString("// CodecEncode:" + fcp.Name + " \n")
-	Pbproto.WriteString("func (m *TL" + fcp.Name + ") Encode() []byte {\n")
-	Pbproto.WriteString("    x := NewEncodeBuf(512)\n")
-	Pbproto.WriteString("    x.Int(" + fcp.Id + ")\n")
+	Goproto.WriteString("// CodecEncode:" + fcp.Name + " \n")
+	Goproto.WriteString("func (m *TL" + fcp.Name + ") Encode() []byte {\n")
+	Goproto.WriteString("    x := NewEncodeBuf(512)\n")
+	Goproto.WriteString("    x.Int(" + fcp.Id + ")\n")
 	//flags
 	if fcp.Flag {
 		//var flags uint32 = 0
-		Pbproto.WriteString("    var flags uint32 = 0\n")
+		Goproto.WriteString("    var flags uint32 = 0\n")
 	}
 	for _, mvv := range fcp.Params {
+		fmt.Println(mvv.Type)
 		if mvv.FlagId != "" {
-			Pbproto.WriteString("    if m.Get" + mvv.Name + "() != " + TransferTypere(mvv.Type) + " {\n")
-			Pbproto.WriteString("        flags |= " + mvv.FlagId + " << 0\n")
-			Pbproto.WriteString("    }\n")
+			switch mvv.Type {
+			case "bool":
+				Goproto.WriteString("    if m.Get" + mvv.Name + "()!=false {\n")
+
+			case "int32", "int64", "float64":
+				Goproto.WriteString("    if m.Get" + mvv.Name + "()!=0 {\n")
+			case "[]byte", "[]string", "[]int32", "[]int64":
+				Goproto.WriteString("    if m.Get" + mvv.Name + "()!=nil {\n")
+			case "string":
+				Goproto.WriteString("    if m.Get" + mvv.Name + "()!=\"\" {\n")
+				//Vector<int>
+			default:
+				r := mvv.Type[:3]
+				if r == "[]*" {
+					Goproto.WriteString("    if len(m.Get" + mvv.Name + "())>0 {\n")
+				} else {
+					Goproto.WriteString("    if m.Get" + mvv.Name + "()!=nil {\n")
+				}
+			}
+
+			Goproto.WriteString("        flags |= 1 << " + mvv.FlagId + "\n")
+			Goproto.WriteString("    }\n")
 
 		}
 	}
 
 	if fcp.Flag {
-		Pbproto.WriteString("    x.UInt(flags)\n")
+		Goproto.WriteString("    x.UInt(flags)\n")
 	}
 	//params
 	for _, mvv := range fcp.Params {
@@ -103,49 +125,297 @@ func CodecEncode(fcp FieldConParams) {
 				continue
 			}
 
-			r := mvv.Type[:3]
+			switch mvv.Type {
+			case "bool":
+				//ss ="Get"+ s + "()!=false"
+				Goproto.WriteString("    if m.Get" + mvv.Name + "() != false {\n")
+				Goproto.WriteString("    x.Bytes(m.Get" + mvv.Name + "())\n")
+			case "int32":
+				//ss ="Get"+ s + "()!=false"
+				Goproto.WriteString("    if m.Get" + mvv.Name + "() != 0 {\n")
+				Goproto.WriteString("    x.Int(m.Get" + mvv.Name + "())\n")
+			case "[]int32":
+				//ss ="Get"+ s + "()!=false"
+				Goproto.WriteString("    if m.Get" + mvv.Name + "() != nil {\n")
+				Goproto.WriteString("    x.VectorInt(m.Get" + mvv.Name + "())\n")
+			case "int64":
+				Goproto.WriteString("    if m.Get" + mvv.Name + "() != 0 {\n")
+				Goproto.WriteString("    x.Long(m.Get" + mvv.Name + "())\n")
+			case "[]int64":
+				Goproto.WriteString("    if m.Get" + mvv.Name + "() != nil {\n")
+				Goproto.WriteString("    x.VectorLong(m.Get" + mvv.Name + "())\n")
+			case "float64":
+				//ss ="Get"+ s + "()!=false"
+				Goproto.WriteString("    if m.Get" + mvv.Name + "() != 0 {\n")
+				Goproto.WriteString("    x.Double(m.Get" + mvv.Name + "())\n")
+			case "string":
+				Goproto.WriteString("    if m.Get" + mvv.Name + "() != \"\" {\n")
+				Goproto.WriteString("    x.String(m.Get" + mvv.Name + "())\n")
+			case "[]string":
+				Goproto.WriteString("    if m.Get" + mvv.Name + "() != nil {\n")
+				Goproto.WriteString("    x.VectorString(m.Get" + mvv.Name + "())\n")
+			case "[]byte":
+				Goproto.WriteString("    if m.Get" + mvv.Name + "() != nil {\n")
+				Goproto.WriteString("    x.Bytes(m.Get" + mvv.Name + "())\n")
+			case "[][]byte":
+				Goproto.WriteString("    if m.Get" + mvv.Name + "()!= nil {\n")
+				Goproto.WriteString("        x.Int(481674261)\n")
+				Goproto.WriteString("        x.Int(int32(len(m.Get" + mvv.Name + "())))\n")
+				Goproto.WriteString("        for _, v := range m.Get" + mvv.Name + "() {\n")
+				Goproto.WriteString("            x.Buf = append(x.Buf, v...)\n")
 
-			if r == "[]*" || r == "[][" {
-				Pbproto.WriteString("    if m.Get" + mvv.Name + "() != " + TransferTypere(mvv.Type) + " {\n")
-				Pbproto.WriteString("        x.Int(481674261)\n")
-				Pbproto.WriteString("        x.Int(int32(len(m.Get" + mvv.Name + "())))\n")
-				Pbproto.WriteString("        for _, v := range m.Get" + mvv.Name + "() {\n")
-				if r == "[][" {
-					Pbproto.WriteString("            x.Buf = append(x.Buf, v...)\n")
+				Goproto.WriteString("        }\n")
+			default:
+				r := mvv.Type[:3]
+				if r == "[]*" {
+					Goproto.WriteString("    if len(m.Get" + mvv.Name + "()) >0  {\n")
+					Goproto.WriteString("        x.Int(481674261)\n")
+					Goproto.WriteString("        x.Int(int32(len(m.Get" + mvv.Name + "())))\n")
+					Goproto.WriteString("        for _, v := range m.Get" + mvv.Name + "() {\n")
+					Goproto.WriteString("            x.Buf = append(x.Buf, v.Encode()...)\n")
+
+					Goproto.WriteString("        }\n")
 				} else {
-
-					Pbproto.WriteString("            x.Buf = append(x.Buf, (*v).Encode()...)\n")
+					Goproto.WriteString("    if m.Get" + mvv.Name + "()!=nil {\n")
+					Goproto.WriteString("    x.Bytes(m.Get" + mvv.Name + "().Encode())\n")
 				}
-
-				Pbproto.WriteString("        }\n")
-			} else {
-				Pbproto.WriteString("    if m.Get" + mvv.Name + "() != " + TransferTypere(mvv.Type) + " {\n")
-				Pbproto.WriteString("    x." + GoTransferType(mvv.Type) + "(m.Get" + TransferName(mvv.Type, mvv.Name) + "())\n")
 			}
-
-			Pbproto.WriteString("    }\n")
+			Goproto.WriteString("    }\n")
 		} else {
-			r := mvv.Type[:3]
-			if r == "[]*" || r == "[][" {
-				Pbproto.WriteString("    x.Int(481674261)\n")
-				Pbproto.WriteString("    x.Int(int32(len(m.Get" + mvv.Name + "())))\n")
-				Pbproto.WriteString("    for _, v := range m.Get" + mvv.Name + "() {\n")
-				if r == "[][" {
-					Pbproto.WriteString("            x.Buf = append(x.Buf, v...)\n")
+
+			switch mvv.Type {
+			case "bool":
+				Goproto.WriteString("    x.Bytes(m.Get" + mvv.Name + "())\n")
+			case "int32":
+
+				Goproto.WriteString("    x.Int(m.Get" + mvv.Name + "())\n")
+			case "[]int32":
+				//ss ="Get"+ s + "()!=false"
+
+				Goproto.WriteString("    x.VectorInt(m.Get" + mvv.Name + "())\n")
+			case "int64":
+
+				Goproto.WriteString("    x.Long(m.Get" + mvv.Name + "())\n")
+			case "[]int64":
+
+				Goproto.WriteString("    x.VectorLong(m.Get" + mvv.Name + "())\n")
+			case "float64":
+
+				Goproto.WriteString("    x.Double(m.Get" + mvv.Name + "())\n")
+			case "string":
+
+				Goproto.WriteString("    x.String(m.Get" + mvv.Name + "())\n")
+			case "[]string":
+
+				Goproto.WriteString("    x.VectorString(m.Get" + mvv.Name + "())\n")
+			case "[]byte":
+				Goproto.WriteString("    x.Bytes(m.Get" + mvv.Name + "())\n")
+			case "[][]byte":
+				Goproto.WriteString("        x.Int(481674261)\n")
+				Goproto.WriteString("        x.Int(int32(len(m.Get" + mvv.Name + "())))\n")
+				Goproto.WriteString("        for _, v := range m.Get" + mvv.Name + "() {\n")
+				Goproto.WriteString("            x.Buf = append(x.Buf, v...)\n")
+
+				Goproto.WriteString("        }\n")
+			default:
+				r := mvv.Type[:3]
+				if r == "[]*" {
+					Goproto.WriteString("        x.Int(481674261)\n")
+					Goproto.WriteString("        x.Int(int32(len(m.Get" + mvv.Name + "())))\n")
+					Goproto.WriteString("        for _, v := range m.Get" + mvv.Name + "() {\n")
+					Goproto.WriteString("            x.Buf = append(x.Buf, v.Encode()...)\n")
+
+					Goproto.WriteString("        }\n")
 				} else {
-
-					Pbproto.WriteString("            x.Buf = append(x.Buf, (*v).Encode()...)\n")
+					Goproto.WriteString("    x.Bytes(m.Get" + mvv.Name + "().Encode())\n")
 				}
-				Pbproto.WriteString("       }\n")
-			} else {
-
-				Pbproto.WriteString("    x." + GoTransferType(mvv.Type) + "(m.Get" + TransferName(mvv.Type, mvv.Name) + "())\n")
 			}
 		}
 
 	}
-	Pbproto.WriteString("    return x.Buf\n")
-	Pbproto.WriteString("}\n")
+	Goproto.WriteString("    return x.Buf\n")
+	Goproto.WriteString("}\n")
+}
+func CodecDecode(fcp FieldConParams) {
+	//func (m *TLMessagesGetMessages) Encode() []byte {
+	//	x := NewEncodeBuf(512)
+	//	x.Int(int32(TLConstructor_CRC32_MessagesGetMessages))
+	//	x.Int(int32(TLConstructor_CRC32_vector))
+	//	x.Int(int32(len(m.Id)))
+	//	for _, v := range m.Id {
+	//		x.Buf = append(x.Buf, (*v).Encode()...)
+	//	}
+	//	return x.Buf
+	//}
+	Goproto.WriteString("// CodecDecode:" + fcp.Name + " \n")
+	Goproto.WriteString("func (m *TL" + fcp.Name + ") Decode(dbuf *DecodeBuf) error {\n")
+	//flags
+	if fcp.Flag {
+		//var flags uint32 = 0
+		Goproto.WriteString("    flags := dbuf.UInt()\n")
+		Goproto.WriteString("    _ = flags\n")
+	}
+
+	//params
+	for kkk, mvv := range fcp.Params {
+		if mvv.FlagId != "" {
+
+			//	if m.Entities != nil {
+			//		x.Int(int32(TLConstructor_CRC32_vector))
+			//		x.Int(int32(len(m.Entities)))
+			//		for _, v := range m.Entities {
+			//			x.Buf = append(x.Buf, (*v).Encode()...)
+			//		}
+			//	}
+
+			switch mvv.Type {
+			case "float64":
+				//if (flags & (1 << 0)) != 0 {
+				Goproto.WriteString("    if (flags & (1 << " + mvv.FlagId + ")) != 0 {\n")
+				//m.RequestedInfoId = dbuf.String()
+				Goproto.WriteString("    m.Set" + mvv.Name + "(dbuf.Double())\n")
+			case "bool":
+				//if (flags & (1 << 0)) != 0 {
+				Goproto.WriteString("    if (flags & (1 << " + mvv.FlagId + ")) != 0 {\n")
+				//m.RequestedInfoId = dbuf.String()
+				Goproto.WriteString("    m.Set" + mvv.Name + "(true)\n")
+			case "int32":
+				//if (flags & (1 << 0)) != 0 {
+				Goproto.WriteString("    if (flags & (1 << " + mvv.FlagId + ")) != 0 {\n")
+				//m.RequestedInfoId = dbuf.String()
+				Goproto.WriteString("    m.Set" + mvv.Name + "(dbuf.Int())\n")
+			case "int64":
+				Goproto.WriteString("    if (flags & (1 << " + mvv.FlagId + ")) != 0 {\n")
+				Goproto.WriteString("    m.Set" + mvv.Name + "(dbuf.Long())\n")
+			case "[]int64":
+				Goproto.WriteString("    if (flags & (1 << " + mvv.FlagId + ")) != 0 {\n")
+				Goproto.WriteString("    m.Set" + mvv.Name + "(dbuf.VectorLong())\n")
+			case "[]int32":
+				Goproto.WriteString("    if (flags & (1 << " + mvv.FlagId + ")) != 0 {\n")
+				Goproto.WriteString("    m.Set" + mvv.Name + "(dbuf.VectorInt())\n")
+			case "[]string":
+				Goproto.WriteString("    if (flags & (1 << " + mvv.FlagId + ")) != 0 {\n")
+				Goproto.WriteString("    m.Set" + mvv.Name + "(dbuf.VectorString())\n")
+			case "string":
+				Goproto.WriteString("    if (flags & (1 << " + mvv.FlagId + ")) != 0 {\n")
+				Goproto.WriteString("    m.Set" + mvv.Name + "(dbuf.String())\n")
+			case "[]byte":
+				Goproto.WriteString("    if (flags & (1 << " + mvv.FlagId + ")) != 0 {\n")
+				Goproto.WriteString("    m.Set" + mvv.Name + "(dbuf.StringBytes())\n")
+			case "[][]byte":
+				Goproto.WriteString("    if (flags & (1 << " + mvv.FlagId + ")) != 0 {\n")
+				Goproto.WriteString("        c" + strconv.Itoa(kkk) + " := dbuf.Int()\n")
+				Goproto.WriteString("        if c" + strconv.Itoa(kkk) + " != 481674261 {\n")
+				Goproto.WriteString("       	return dbuf.Err\n")
+				Goproto.WriteString("        }\n")
+				Goproto.WriteString("        l" + strconv.Itoa(kkk) + " := dbuf.Int()\n")
+				Goproto.WriteString("        v" + strconv.Itoa(kkk) + " := make([][]byte, l" + strconv.Itoa(kkk) + ")\n")
+				Goproto.WriteString("        for i := int32(0); i < l" + strconv.Itoa(kkk) + "; i++ {\n")
+				Goproto.WriteString("            v" + strconv.Itoa(kkk) + "[i]= dbuf.StringBytes()\n")
+				Goproto.WriteString("        }\n")
+				Goproto.WriteString("    m.Set" + mvv.Name + "(v" + strconv.Itoa(kkk) + ")\n")
+			default:
+				r := mvv.Type[:3]
+				if r == "[]*" {
+					Goproto.WriteString("    if (flags & (1 << " + mvv.FlagId + ")) != 0 {\n")
+					Goproto.WriteString("        c" + strconv.Itoa(kkk) + " := dbuf.Int()\n")
+					Goproto.WriteString("        if c" + strconv.Itoa(kkk) + " != 481674261 {\n")
+					Goproto.WriteString("       	return dbuf.Err\n")
+					Goproto.WriteString("        }\n")
+					Goproto.WriteString("        l" + strconv.Itoa(kkk) + " := dbuf.Int()\n")
+					Goproto.WriteString("        v" + strconv.Itoa(kkk) + " := make(" + mvv.Type + ", l" + strconv.Itoa(kkk) + ")\n")
+					Goproto.WriteString("        for i := int32(0); i < l" + strconv.Itoa(kkk) + "; i++ {\n")
+					Goproto.WriteString("        v" + strconv.Itoa(kkk) + "[i] = &" + mvv.Type[3:] + "{}\n")
+					Goproto.WriteString("            v" + strconv.Itoa(kkk) + "[i].Decode(dbuf)\n")
+					Goproto.WriteString("        }\n")
+					Goproto.WriteString("    m.Set" + mvv.Name + "(v" + strconv.Itoa(kkk) + ")\n")
+
+				} else {
+					Goproto.WriteString("    if (flags & (1 << " + mvv.FlagId + ")) != 0 {\n")
+					//	m5 := &InputPaymentCredentials{}
+					//	m5.Decode(dbuf)
+					//	m.Credentials = m5
+
+					Goproto.WriteString("    m" + strconv.Itoa(kkk) + " := &" + mvv.Type + "{}\n")
+					Goproto.WriteString("    m" + strconv.Itoa(kkk) + ".Decode(dbuf)\n")
+					Goproto.WriteString("    m.Set" + mvv.Name + "(m" + strconv.Itoa(kkk) + ")\n")
+				}
+			}
+			Goproto.WriteString("    }\n")
+		} else {
+			switch mvv.Type {
+			case "float64":
+				//m.RequestedInfoId = dbuf.String()
+				Goproto.WriteString("    m.Set" + mvv.Name + "(dbuf.Double())\n")
+			case "bool":
+				//m.RequestedInfoId = dbuf.String()
+				Goproto.WriteString("    m.Set" + mvv.Name + "(true)\n")
+			case "int32":
+				//if (flags & (1 << 0)) != 0 {
+
+				//m.RequestedInfoId = dbuf.String()
+				Goproto.WriteString("    m.Set" + mvv.Name + "(dbuf.Int())\n")
+			case "int64":
+				Goproto.WriteString("    m.Set" + mvv.Name + "(dbuf.Long())\n")
+			case "[]int64":
+
+				Goproto.WriteString("    m.Set" + mvv.Name + "(dbuf.VectorLong())\n")
+			case "[]int32":
+
+				Goproto.WriteString("    m.Set" + mvv.Name + "(dbuf.VectorInt())\n")
+			case "[]string":
+
+				Goproto.WriteString("    m.Set" + mvv.Name + "(dbuf.VectorString())\n")
+
+			case "string":
+
+				Goproto.WriteString("    m.Set" + mvv.Name + "(dbuf.String())\n")
+			case "[]byte":
+
+				Goproto.WriteString("    m.Set" + mvv.Name + "(dbuf.StringBytes())\n")
+			case "[][]byte":
+
+				Goproto.WriteString("        c" + strconv.Itoa(kkk) + " := dbuf.Int()\n")
+				Goproto.WriteString("        if c" + strconv.Itoa(kkk) + " != 481674261 {\n")
+				Goproto.WriteString("       	return dbuf.Err\n")
+				Goproto.WriteString("        }\n")
+				Goproto.WriteString("        l" + strconv.Itoa(kkk) + " := dbuf.Int()\n")
+				Goproto.WriteString("        v" + strconv.Itoa(kkk) + " := make([][]byte, l" + strconv.Itoa(kkk) + ")\n")
+				Goproto.WriteString("        for i := int32(0); i < l" + strconv.Itoa(kkk) + "; i++ {\n")
+				Goproto.WriteString("                v" + strconv.Itoa(kkk) + "[i]= dbuf.StringBytes()\n")
+				Goproto.WriteString("        }\n")
+				Goproto.WriteString("    m.Set" + mvv.Name + "(v" + strconv.Itoa(kkk) + ")\n")
+			default:
+				r := mvv.Type[:3]
+				if r == "[]*" {
+
+					Goproto.WriteString("        c" + strconv.Itoa(kkk) + " := dbuf.Int()\n")
+					Goproto.WriteString("        if c" + strconv.Itoa(kkk) + " != 481674261 {\n")
+					Goproto.WriteString("       	return dbuf.Err\n")
+					Goproto.WriteString("        }\n")
+					Goproto.WriteString("        l" + strconv.Itoa(kkk) + " := dbuf.Int()\n")
+					Goproto.WriteString("        v" + strconv.Itoa(kkk) + " := make(" + mvv.Type + ", l" + strconv.Itoa(kkk) + ")\n")
+					Goproto.WriteString("        for i := int32(0); i < l" + strconv.Itoa(kkk) + "; i++ {\n")
+					Goproto.WriteString("        v" + strconv.Itoa(kkk) + "[i] = &" + mvv.Type[3:] + "{}\n")
+					Goproto.WriteString("            v" + strconv.Itoa(kkk) + "[i].Decode(dbuf)\n")
+					Goproto.WriteString("        }\n")
+					Goproto.WriteString("    m.Set" + mvv.Name + "(v" + strconv.Itoa(kkk) + ")\n")
+
+				} else {
+					//	m5 := &InputPaymentCredentials{}
+					//	m5.Decode(dbuf)
+					//	m.Credentials = m5
+
+					Goproto.WriteString("    m" + strconv.Itoa(kkk) + " := &" + mvv.Type + "{}\n")
+					Goproto.WriteString("    m" + strconv.Itoa(kkk) + ".Decode(dbuf)\n")
+					Goproto.WriteString("    m.Set" + mvv.Name + "(m" + strconv.Itoa(kkk) + ")\n")
+				}
+			}
+		}
+
+	}
+	Goproto.WriteString("    return dbuf.Err\n")
+	Goproto.WriteString("}\n")
 }
 func FieldConversion() {
 
@@ -292,8 +562,11 @@ func GoCodec() {
 			Pbproto.WriteString("///////////////////////////////////////////////////////////////////////////////\n")
 			Pbproto.WriteString("// MethodCodec:New:" + mmv.Name + " \n")
 			Pbproto.WriteString("//\n")
-
+			Goproto.WriteString("func NewTL" + mmv.Name + "() *TL" + mmv.Name + " {\n")
+			Goproto.WriteString("return &TL" + mmv.Name + "{}\n")
+			Goproto.WriteString("}\n")
 			CodecEncode(mmv)
+			CodecDecode(mmv)
 		}
 	}
 	for _, mv := range FC.ConstructorsParams {
@@ -305,16 +578,16 @@ func GoCodec() {
 			Pbproto.WriteString("///////////////////////////////////////////////////////////////////////////////\n")
 			Pbproto.WriteString("// ConstructorsCodec:New:" + mmv.Name + " \n")
 			Pbproto.WriteString("//\n")
-
 			CodecEncode(mmv)
+			CodecDecode(mmv)
 		}
 	}
 
 	//大类型
 	for dk, dv := range FC.ConstructorsParams {
-		Pbproto.WriteString("///////////////////////////////////////////////////////////////////////////////\n")
-		Pbproto.WriteString("// ConstructorsCodec:Type:" + dk + " \n")
-		Pbproto.WriteString("//\n")
+		Goproto.WriteString("///////////////////////////////////////////////////////////////////////////////\n")
+		Goproto.WriteString("// ConstructorsCodec:Type:" + dk + " \n")
+		Goproto.WriteString("//\n")
 		//func (m *Bool) Encode() []byte {
 		//	switch m.GetConstructor() {
 		//	case TLConstructor_CRC32_BoolFalse:
@@ -328,33 +601,80 @@ func GoCodec() {
 		//	}
 		//
 		//}
-		Pbproto.WriteString("func (m *" + dk + ") Encode() []byte {\n")
-		Pbproto.WriteString("    switch m.constructor {\n")
+		Goproto.WriteString("func (m " + dk + ") Encode() []byte {\n")
+		Goproto.WriteString("    switch m.constructor {\n")
 		for _, dvv := range dv {
-			Pbproto.WriteString("    case " + dvv.Id + ":\n")
-			Pbproto.WriteString("        t := m.To_" + dvv.Name + "()\n")
-			Pbproto.WriteString("        return t.Encode()\n")
+			Goproto.WriteString("    case " + dvv.Id + ":\n")
+			Goproto.WriteString("        t := m.To_" + dvv.Name + "()\n")
+			Goproto.WriteString("        return t.Encode()\n")
 		}
 
-		Pbproto.WriteString("	default:\n")
-		Pbproto.WriteString("		return nil\n")
-		Pbproto.WriteString("	}\n")
-		Pbproto.WriteString("}\n")
+		Goproto.WriteString("	default:\n")
+		Goproto.WriteString("		return nil\n")
+		Goproto.WriteString("	}\n")
+		Goproto.WriteString("}\n")
+
+		Goproto.WriteString("func (m " + dk + ") Decode(dbuf *DecodeBuf) error {\n")
+		Goproto.WriteString("    m.constructor = dbuf.Int()\n")
+		Goproto.WriteString("    switch m.constructor {\n")
+		for _, dvv := range dv {
+			//case TLConstructor_CRC32_InputCheckPasswordEmpty:
+			//		m2 := &TLInputCheckPasswordEmpty{Data2: &InputCheckPasswordSRP_Data{}}
+			//		m2.Decode(dbuf)
+			//		m.Data2 = m2.Data2
+			Goproto.WriteString("    case " + dvv.Id + ":\n")
+			Goproto.WriteString("    	m2 := &TL" + dvv.Name + "{data: &" + dk + "_Data{}}\n")
+			Goproto.WriteString("        m2.Decode(dbuf)\n")
+			Goproto.WriteString("        m.data = m2.data\n")
+		}
+
+		Goproto.WriteString("	default:\n")
+		Goproto.WriteString("		return  fmt.Errorf(\"Invalid constructorId: %d\", m.constructor)\n")
+		Goproto.WriteString("	}\n")
+		Goproto.WriteString("	return dbuf.Err\n")
+
+		Goproto.WriteString("}\n")
+
 		//func (m *Bool) To_BoolFalse() *TLBoolFalse {
 		//	return &TLBoolFalse{
 		//		Data2: m.Data2,
 		//	}
 		//}
 		for _, dvv := range dv {
-			Pbproto.WriteString("func (m *" + dk + ") To_" + dvv.Name + "() *TL" + dvv.Name + " {\n")
-			Pbproto.WriteString("    return &TL" + dvv.Name + "{\n")
-			Pbproto.WriteString("        data: m.data,\n")
-			Pbproto.WriteString("    }\n")
-			Pbproto.WriteString("}\n")
+			Goproto.WriteString("func (m " + dk + ") To_" + dvv.Name + "() *TL" + dvv.Name + " {\n")
+			Goproto.WriteString("    return &TL" + dvv.Name + "{\n")
+			Goproto.WriteString("        data: m.data,\n")
+			Goproto.WriteString("    }\n")
+			Goproto.WriteString("}\n")
 		}
 
 	}
 
+	//Baseproto
+
+	Baseproto.WriteString("var ApiRegisters = map[int32]TLObject{\n")
+	for _, mv := range FC.MethodParams {
+
+		//func NewTLMessagesGetMessages() *TLMessagesGetMessages {
+		//	return &TLMessagesGetMessages{}
+		//}
+		for _, mmv := range mv {
+			//	33373783:  NewTLchannels_exportMessageLink(),
+
+			Baseproto.WriteString(mmv.Id + ":  NewTL" + mmv.Name + "(),\n")
+
+		}
+	}
+	for _, mv := range FC.ConstructorsParams {
+
+		//func NewTLMessagesGetMessages() *TLMessagesGetMessages {
+		//	return &TLMessagesGetMessages{}
+		//}
+		for _, mmv := range mv {
+			Baseproto.WriteString(mmv.Id + ":  NewTL" + mmv.Name + "(),\n")
+		}
+	}
+	Baseproto.WriteString("}\n")
 }
 func TransferTypere(s string) string {
 
@@ -709,7 +1029,7 @@ func GoSaveFile(filename string) {
 	if err != nil {
 		fmt.Println("go fmt fail. " + filename + " " + err.Error())
 	}
-	err = ioutil.WriteFile("tarstl/api/codec.go", beauty, 0666)
+	err = ioutil.WriteFile("go/codec.go", beauty, 0666)
 	if err != nil {
 		fmt.Println(err)
 	}
@@ -718,5 +1038,5 @@ func GoSaveFile(filename string) {
 	if err != nil {
 		fmt.Println("go fmt fail. " + filename + " " + err.Error())
 	}
-	err = ioutil.WriteFile("tarstl/api/registers.go", Basebeauty, 0666)
+	err = ioutil.WriteFile("go/registers.go", Basebeauty, 0666)
 }

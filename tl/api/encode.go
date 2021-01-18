@@ -15,7 +15,7 @@
 
 // Author: Benqi (wubenqi@gmail.com)
 
-package code
+package api
 
 import (
 	"encoding/binary"

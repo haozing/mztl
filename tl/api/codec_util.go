@@ -1,4 +1,4 @@
-package code
+package api
 
 import (
 	"github.com/haozing/mztl/pkg/crypto"

@@ -15,14 +15,12 @@
 
 // Author: Benqi (wubenqi@gmail.com)
 
-package code
+package api
 
 import (
 	"encoding/binary"
 	"errors"
 	"fmt"
-	"github.com/haozing/mztl/pkg/common"
-	"github.com/haozing/mztl/tarstl/api"
 	"math"
 	"math/big"
 )
@@ -273,7 +271,7 @@ func (m *DecodeBuf) Bool() bool {
 	return false
 }
 
-func (m *DecodeBuf) Object() (r common.TLObject) {
+func (m *DecodeBuf) Object() (r TLObject) {
 
 	classID := m.Int()
 
@@ -282,7 +280,7 @@ func (m *DecodeBuf) Object() (r common.TLObject) {
 		return nil
 	}
 
-	re, ok := api.ApiRegisters[classID]
+	re, ok := ApiRegisters[classID]
 	fmt.Println("decode classid %s", classID)
 	if !ok {
 		fmt.Println("registers2[classID] !ok")

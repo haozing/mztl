@@ -22,9 +22,8 @@ import (
 	"encoding/binary"
 	"encoding/hex"
 	"fmt"
-	"github.com/haozing/mztl/pkg/code"
-	"github.com/haozing/mztl/pkg/common"
 	"github.com/haozing/mztl/pkg/crypto"
+	"github.com/haozing/mztl/tl/api"
 	"reflect"
 )
 
@@ -72,7 +71,7 @@ type UnencryptedMessage struct {
 	// messageData []byte
 
 	// classID int32
-	Object common.TLObject
+	Object api.TLObject
 }
 
 func (m *UnencryptedMessage) MessageType() int {
@@ -90,9 +89,9 @@ func (m *UnencryptedMessage) EncodeToLayer(int) []byte {
 }
 
 func (m *UnencryptedMessage) encode() ([]byte, error) {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Long(0)
-	m.MessageId = code.GenerateMessageId()
+	m.MessageId = api.GenerateMessageId()
 	x.Long(m.MessageId)
 
 	if m.Object == nil {
@@ -110,7 +109,7 @@ func (m *UnencryptedMessage) Decode(b []byte) error {
 }
 
 func (m *UnencryptedMessage) decode(b []byte) error {
-	dbuf := code.NewDecodeBuf(b)
+	dbuf := api.NewDecodeBuf(b)
 	// m.authKeyId = dbuf.Long()
 	m.MessageId = dbuf.Long()
 
@@ -157,7 +156,7 @@ type EncryptedMessage2 struct {
 
 	MessageId int64
 	SeqNo     int32
-	Object    common.TLObject
+	Object    api.TLObject
 }
 
 func NewEncryptedMessage2(authKeyId int64) *EncryptedMessage2 {
@@ -195,14 +194,14 @@ func (m *EncryptedMessage2) encodeToLayer(authKeyId int64, authKey []byte, layer
 		additionalSize += 16
 	}
 
-	x := code.NewEncodeBuf(32 + len(objData) + additionalSize)
+	x := api.NewEncodeBuf(32 + len(objData) + additionalSize)
 	// x.Long(authKeyId)
 	// msgKey := make([]byte, 16)
 	// x.Bytes(msgKey)
 	x.Long(m.Salt)
 	x.Long(m.SessionId)
 	if m.MessageId == 0 {
-		m.MessageId = code.GenerateMessageId()
+		m.MessageId = api.GenerateMessageId()
 	}
 	x.Long(m.MessageId)
 	x.Int(m.SeqNo)
@@ -210,7 +209,7 @@ func (m *EncryptedMessage2) encodeToLayer(authKeyId int64, authKey []byte, layer
 	x.Bytes(objData)
 	x.Bytes(crypto.GenerateNonce(additionalSize))
 	encryptedData, _ := m.encrypt(authKey, x.Buf, len(objData))
-	x2 := code.NewEncodeBuf(56 + len(objData) + additionalSize)
+	x2 := api.NewEncodeBuf(56 + len(objData) + additionalSize)
 	x2.Long(authKeyId)
 	x2.Bytes(m.msgKey)
 	x2.Bytes(encryptedData)
@@ -227,14 +226,14 @@ func (m *EncryptedMessage2) encode(authKeyId int64, authKey []byte) ([]byte, err
 		additionalSize += 16
 	}
 
-	x := code.NewEncodeBuf(32 + len(objData) + additionalSize)
+	x := api.NewEncodeBuf(32 + len(objData) + additionalSize)
 	// x.Long(authKeyId)
 	// msgKey := make([]byte, 16)
 	// x.Bytes(msgKey)
 	x.Long(m.Salt)
 	x.Long(m.SessionId)
 	if m.MessageId == 0 {
-		m.MessageId = code.GenerateMessageId()
+		m.MessageId = api.GenerateMessageId()
 	}
 	x.Long(m.MessageId)
 	x.Int(m.SeqNo)
@@ -245,7 +244,7 @@ func (m *EncryptedMessage2) encode(authKeyId int64, authKey []byte) ([]byte, err
 	// glog.Info("Encode object: ", m.Object)
 
 	encryptedData, _ := m.encrypt(authKey, x.Buf, len(objData))
-	x2 := code.NewEncodeBuf(56 + len(objData) + additionalSize)
+	x2 := api.NewEncodeBuf(56 + len(objData) + additionalSize)
 	x2.Long(authKeyId)
 	x2.Bytes(m.msgKey)
 	x2.Bytes(encryptedData)
@@ -268,7 +267,7 @@ func (m *EncryptedMessage2) decode(authKey []byte, b []byte) error {
 		return err
 	}
 
-	dbuf := code.NewDecodeBuf(x)
+	dbuf := api.NewDecodeBuf(x)
 
 	m.Salt = dbuf.Long()      // salt
 	m.SessionId = dbuf.Long() // session_id
@@ -303,7 +302,7 @@ func (m *EncryptedMessage2) decrypt(msgKey, authKey, data []byte) ([]byte, error
 	var dataLen = uint32(len(data))
 
 	// 创建aesKey, aesIV
-	aesKey, aesIV := code.GenerateMessageKey(msgKey, authKey, false)
+	aesKey, aesIV := api.GenerateMessageKey(msgKey, authKey, false)
 	d := crypto.NewAES256IGECryptor(aesKey, aesIV)
 
 	//解密后的数据
@@ -362,7 +361,7 @@ func (m *EncryptedMessage2) encrypt(authKey []byte, data []byte, messageSize int
 		copy(messageKey[4:], crypto.Sha1Digest(data[:32+messageSize]))
 	}
 
-	aesKey, aesIV := code.GenerateMessageKey(messageKey[8:8+16], authKey, true)
+	aesKey, aesIV := api.GenerateMessageKey(messageKey[8:8+16], authKey, true)
 	e := crypto.NewAES256IGECryptor(aesKey, aesIV)
 
 	x, err := e.Encrypt(data)

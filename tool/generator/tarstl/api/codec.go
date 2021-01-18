@@ -2,7 +2,7 @@ package api
 
 import (
 	"fmt"
-	"github.com/haozing/mztl/pkg/code"
+	"github.com/haozing/mztl/tl/api"
 )
 
 func (m *TLinputGameID) Setid(v int64)                                   { m.Data.Id = v }
@@ -6421,7 +6421,7 @@ func NewTLmessages_searchStickerSets() *TLmessages_searchStickerSets {
 
 // CodecEncode:messages_searchStickerSets
 func (m *TLmessages_searchStickerSets) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1028140917)
 	var flags uint32 = 0
 	if m.Getexclude_featured() != false {
@@ -6434,7 +6434,7 @@ func (m *TLmessages_searchStickerSets) Encode() []byte {
 }
 
 // CodecDecode:messages_searchStickerSets
-func (m *TLmessages_searchStickerSets) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessages_searchStickerSets) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	if (flags & (1 << 0)) != 0 {
@@ -6454,13 +6454,13 @@ func NewTLaccount_getPassword() *TLaccount_getPassword {
 
 // CodecEncode:account_getPassword
 func (m *TLaccount_getPassword) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1418342645)
 	return x.Buf
 }
 
 // CodecDecode:account_getPassword
-func (m *TLaccount_getPassword) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLaccount_getPassword) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -6473,7 +6473,7 @@ func NewTLstats_getMessageStats() *TLstats_getMessageStats {
 
 // CodecEncode:stats_getMessageStats
 func (m *TLstats_getMessageStats) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1226791947)
 	var flags uint32 = 0
 	if m.Getdark() != false {
@@ -6486,7 +6486,7 @@ func (m *TLstats_getMessageStats) Encode() []byte {
 }
 
 // CodecDecode:stats_getMessageStats
-func (m *TLstats_getMessageStats) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLstats_getMessageStats) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	if (flags & (1 << 0)) != 0 {
@@ -6508,7 +6508,7 @@ func NewTLmessages_getDiscussionMessage() *TLmessages_getDiscussionMessage {
 
 // CodecEncode:messages_getDiscussionMessage
 func (m *TLmessages_getDiscussionMessage) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1147761405)
 	x.Bytes(m.Getpeer().Encode())
 	x.Int(m.Getmsg_id())
@@ -6516,7 +6516,7 @@ func (m *TLmessages_getDiscussionMessage) Encode() []byte {
 }
 
 // CodecDecode:messages_getDiscussionMessage
-func (m *TLmessages_getDiscussionMessage) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessages_getDiscussionMessage) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &InputPeer{}
 	m0.Decode(dbuf)
 	m.Setpeer(m0)
@@ -6533,7 +6533,7 @@ func NewTLmessages_getBotCallbackAnswer() *TLmessages_getBotCallbackAnswer {
 
 // CodecEncode:messages_getBotCallbackAnswer
 func (m *TLmessages_getBotCallbackAnswer) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1824339449)
 	var flags uint32 = 0
 	if m.Getgame() != false {
@@ -6558,7 +6558,7 @@ func (m *TLmessages_getBotCallbackAnswer) Encode() []byte {
 }
 
 // CodecDecode:messages_getBotCallbackAnswer
-func (m *TLmessages_getBotCallbackAnswer) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessages_getBotCallbackAnswer) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	if (flags & (1 << 0)) != 0 {
@@ -6588,7 +6588,7 @@ func NewTLmessages_getArchivedStickers() *TLmessages_getArchivedStickers {
 
 // CodecEncode:messages_getArchivedStickers
 func (m *TLmessages_getArchivedStickers) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1475442322)
 	var flags uint32 = 0
 	if m.Getmasks() != false {
@@ -6601,7 +6601,7 @@ func (m *TLmessages_getArchivedStickers) Encode() []byte {
 }
 
 // CodecDecode:messages_getArchivedStickers
-func (m *TLmessages_getArchivedStickers) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessages_getArchivedStickers) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	if (flags & (1 << 0)) != 0 {
@@ -6621,7 +6621,7 @@ func NewTLaccount_getTmpPassword() *TLaccount_getTmpPassword {
 
 // CodecEncode:account_getTmpPassword
 func (m *TLaccount_getTmpPassword) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1151208273)
 	x.Bytes(m.Getpassword().Encode())
 	x.Int(m.Getperiod())
@@ -6629,7 +6629,7 @@ func (m *TLaccount_getTmpPassword) Encode() []byte {
 }
 
 // CodecDecode:account_getTmpPassword
-func (m *TLaccount_getTmpPassword) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLaccount_getTmpPassword) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &InputCheckPasswordSRP{}
 	m0.Decode(dbuf)
 	m.Setpassword(m0)
@@ -6646,7 +6646,7 @@ func NewTLmessages_getGameHighScores() *TLmessages_getGameHighScores {
 
 // CodecEncode:messages_getGameHighScores
 func (m *TLmessages_getGameHighScores) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-400399203)
 	x.Bytes(m.Getpeer().Encode())
 	x.Int(m.Getid())
@@ -6655,7 +6655,7 @@ func (m *TLmessages_getGameHighScores) Encode() []byte {
 }
 
 // CodecDecode:messages_getGameHighScores
-func (m *TLmessages_getGameHighScores) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessages_getGameHighScores) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &InputPeer{}
 	m0.Decode(dbuf)
 	m.Setpeer(m0)
@@ -6675,7 +6675,7 @@ func NewTLmessages_getInlineGameHighScores() *TLmessages_getInlineGameHighScores
 
 // CodecEncode:messages_getInlineGameHighScores
 func (m *TLmessages_getInlineGameHighScores) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(258170395)
 	x.Bytes(m.Getid().Encode())
 	x.Bytes(m.Getuser_id().Encode())
@@ -6683,7 +6683,7 @@ func (m *TLmessages_getInlineGameHighScores) Encode() []byte {
 }
 
 // CodecDecode:messages_getInlineGameHighScores
-func (m *TLmessages_getInlineGameHighScores) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessages_getInlineGameHighScores) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &InputBotInlineMessageID{}
 	m0.Decode(dbuf)
 	m.Setid(m0)
@@ -6702,14 +6702,14 @@ func NewTLcontacts_resolveUsername() *TLcontacts_resolveUsername {
 
 // CodecEncode:contacts_resolveUsername
 func (m *TLcontacts_resolveUsername) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-113456221)
 	x.String(m.Getusername())
 	return x.Buf
 }
 
 // CodecDecode:contacts_resolveUsername
-func (m *TLcontacts_resolveUsername) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLcontacts_resolveUsername) Decode(dbuf *api.DecodeBuf) error {
 	m.Setusername(dbuf.String())
 	return dbuf.Err
 }
@@ -6723,13 +6723,13 @@ func NewTLpayments_getSavedInfo() *TLpayments_getSavedInfo {
 
 // CodecEncode:payments_getSavedInfo
 func (m *TLpayments_getSavedInfo) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(578650699)
 	return x.Buf
 }
 
 // CodecDecode:payments_getSavedInfo
-func (m *TLpayments_getSavedInfo) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLpayments_getSavedInfo) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -6742,7 +6742,7 @@ func NewTLmessages_getEmojiKeywordsLanguages() *TLmessages_getEmojiKeywordsLangu
 
 // CodecEncode:messages_getEmojiKeywordsLanguages
 func (m *TLmessages_getEmojiKeywordsLanguages) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1318675378)
 	x.Int(481674261)
 	x.Int(int32(len(m.Getlang_codes())))
@@ -6753,7 +6753,7 @@ func (m *TLmessages_getEmojiKeywordsLanguages) Encode() []byte {
 }
 
 // CodecDecode:messages_getEmojiKeywordsLanguages
-func (m *TLmessages_getEmojiKeywordsLanguages) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessages_getEmojiKeywordsLanguages) Decode(dbuf *api.DecodeBuf) error {
 	m.Setlang_codes(dbuf.VectorString())
 	return dbuf.Err
 }
@@ -6767,14 +6767,14 @@ func NewTLaccount_getWallPaper() *TLaccount_getWallPaper {
 
 // CodecEncode:account_getWallPaper
 func (m *TLaccount_getWallPaper) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-57811990)
 	x.Bytes(m.Getwallpaper().Encode())
 	return x.Buf
 }
 
 // CodecDecode:account_getWallPaper
-func (m *TLaccount_getWallPaper) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLaccount_getWallPaper) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &InputWallPaper{}
 	m0.Decode(dbuf)
 	m.Setwallpaper(m0)
@@ -6790,7 +6790,7 @@ func NewTLaccount_uploadWallPaper() *TLaccount_uploadWallPaper {
 
 // CodecEncode:account_uploadWallPaper
 func (m *TLaccount_uploadWallPaper) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-578472351)
 	x.Bytes(m.Getfile().Encode())
 	x.String(m.Getmime_type())
@@ -6799,7 +6799,7 @@ func (m *TLaccount_uploadWallPaper) Encode() []byte {
 }
 
 // CodecDecode:account_uploadWallPaper
-func (m *TLaccount_uploadWallPaper) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLaccount_uploadWallPaper) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &InputFile{}
 	m0.Decode(dbuf)
 	m.Setfile(m0)
@@ -6819,14 +6819,14 @@ func NewTLmessages_getSavedGifs() *TLmessages_getSavedGifs {
 
 // CodecEncode:messages_getSavedGifs
 func (m *TLmessages_getSavedGifs) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-2084618926)
 	x.Int(m.Gethash())
 	return x.Buf
 }
 
 // CodecDecode:messages_getSavedGifs
-func (m *TLmessages_getSavedGifs) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessages_getSavedGifs) Decode(dbuf *api.DecodeBuf) error {
 	m.Sethash(dbuf.Int())
 	return dbuf.Err
 }
@@ -6840,14 +6840,14 @@ func NewTLaccount_getNotifySettings() *TLaccount_getNotifySettings {
 
 // CodecEncode:account_getNotifySettings
 func (m *TLaccount_getNotifySettings) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(313765169)
 	x.Bytes(m.Getpeer().Encode())
 	return x.Buf
 }
 
 // CodecDecode:account_getNotifySettings
-func (m *TLaccount_getNotifySettings) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLaccount_getNotifySettings) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &InputNotifyPeer{}
 	m0.Decode(dbuf)
 	m.Setpeer(m0)
@@ -6863,13 +6863,13 @@ func NewTLmessages_getDialogFilters() *TLmessages_getDialogFilters {
 
 // CodecEncode:messages_getDialogFilters
 func (m *TLmessages_getDialogFilters) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-241247891)
 	return x.Buf
 }
 
 // CodecDecode:messages_getDialogFilters
-func (m *TLmessages_getDialogFilters) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessages_getDialogFilters) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -6882,7 +6882,7 @@ func NewTLlangpack_getLanguage() *TLlangpack_getLanguage {
 
 // CodecEncode:langpack_getLanguage
 func (m *TLlangpack_getLanguage) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1784243458)
 	x.String(m.Getlang_pack())
 	x.String(m.Getlang_code())
@@ -6890,7 +6890,7 @@ func (m *TLlangpack_getLanguage) Encode() []byte {
 }
 
 // CodecDecode:langpack_getLanguage
-func (m *TLlangpack_getLanguage) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLlangpack_getLanguage) Decode(dbuf *api.DecodeBuf) error {
 	m.Setlang_pack(dbuf.String())
 	m.Setlang_code(dbuf.String())
 	return dbuf.Err
@@ -6905,7 +6905,7 @@ func NewTLupdates_getChannelDifference() *TLupdates_getChannelDifference {
 
 // CodecEncode:updates_getChannelDifference
 func (m *TLupdates_getChannelDifference) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(51854712)
 	var flags uint32 = 0
 	if m.Getforce() != false {
@@ -6920,7 +6920,7 @@ func (m *TLupdates_getChannelDifference) Encode() []byte {
 }
 
 // CodecDecode:updates_getChannelDifference
-func (m *TLupdates_getChannelDifference) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLupdates_getChannelDifference) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	if (flags & (1 << 0)) != 0 {
@@ -6946,7 +6946,7 @@ func NewTLmessages_getMessages() *TLmessages_getMessages {
 
 // CodecEncode:messages_getMessages
 func (m *TLmessages_getMessages) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1673946374)
 	x.Int(481674261)
 	x.Int(int32(len(m.Getid())))
@@ -6957,7 +6957,7 @@ func (m *TLmessages_getMessages) Encode() []byte {
 }
 
 // CodecDecode:messages_getMessages
-func (m *TLmessages_getMessages) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessages_getMessages) Decode(dbuf *api.DecodeBuf) error {
 	c0 := dbuf.Int()
 	if c0 != 481674261 {
 		return dbuf.Err
@@ -6981,7 +6981,7 @@ func NewTLmessages_getHistory() *TLmessages_getHistory {
 
 // CodecEncode:messages_getHistory
 func (m *TLmessages_getHistory) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-591691168)
 	x.Bytes(m.Getpeer().Encode())
 	x.Int(m.Getoffset_id())
@@ -6995,7 +6995,7 @@ func (m *TLmessages_getHistory) Encode() []byte {
 }
 
 // CodecDecode:messages_getHistory
-func (m *TLmessages_getHistory) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessages_getHistory) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &InputPeer{}
 	m0.Decode(dbuf)
 	m.Setpeer(m0)
@@ -7018,7 +7018,7 @@ func NewTLmessages_search() *TLmessages_search {
 
 // CodecEncode:messages_search
 func (m *TLmessages_search) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(204812012)
 	var flags uint32 = 0
 	if m.Getfrom_id().Constructor != 0 {
@@ -7049,7 +7049,7 @@ func (m *TLmessages_search) Encode() []byte {
 }
 
 // CodecDecode:messages_search
-func (m *TLmessages_search) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessages_search) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	m0 := &InputPeer{}
@@ -7087,7 +7087,7 @@ func NewTLchannels_getMessages() *TLchannels_getMessages {
 
 // CodecEncode:channels_getMessages
 func (m *TLchannels_getMessages) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1383294429)
 	x.Bytes(m.Getchannel().Encode())
 	x.Int(481674261)
@@ -7099,7 +7099,7 @@ func (m *TLchannels_getMessages) Encode() []byte {
 }
 
 // CodecDecode:channels_getMessages
-func (m *TLchannels_getMessages) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLchannels_getMessages) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &InputChannel{}
 	m0.Decode(dbuf)
 	m.Setchannel(m0)
@@ -7126,7 +7126,7 @@ func NewTLmessages_searchGlobal() *TLmessages_searchGlobal {
 
 // CodecEncode:messages_searchGlobal
 func (m *TLmessages_searchGlobal) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1271290010)
 	var flags uint32 = 0
 	if m.Getfolder_id() != 0 {
@@ -7148,7 +7148,7 @@ func (m *TLmessages_searchGlobal) Encode() []byte {
 }
 
 // CodecDecode:messages_searchGlobal
-func (m *TLmessages_searchGlobal) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessages_searchGlobal) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	if (flags & (1 << 0)) != 0 {
@@ -7178,7 +7178,7 @@ func NewTLmessages_getUnreadMentions() *TLmessages_getUnreadMentions {
 
 // CodecEncode:messages_getUnreadMentions
 func (m *TLmessages_getUnreadMentions) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1180140658)
 	x.Bytes(m.Getpeer().Encode())
 	x.Int(m.Getoffset_id())
@@ -7190,7 +7190,7 @@ func (m *TLmessages_getUnreadMentions) Encode() []byte {
 }
 
 // CodecDecode:messages_getUnreadMentions
-func (m *TLmessages_getUnreadMentions) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessages_getUnreadMentions) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &InputPeer{}
 	m0.Decode(dbuf)
 	m.Setpeer(m0)
@@ -7211,7 +7211,7 @@ func NewTLmessages_getRecentLocations() *TLmessages_getRecentLocations {
 
 // CodecEncode:messages_getRecentLocations
 func (m *TLmessages_getRecentLocations) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1144759543)
 	x.Bytes(m.Getpeer().Encode())
 	x.Int(m.Getlimit())
@@ -7220,7 +7220,7 @@ func (m *TLmessages_getRecentLocations) Encode() []byte {
 }
 
 // CodecDecode:messages_getRecentLocations
-func (m *TLmessages_getRecentLocations) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessages_getRecentLocations) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &InputPeer{}
 	m0.Decode(dbuf)
 	m.Setpeer(m0)
@@ -7238,7 +7238,7 @@ func NewTLmessages_getScheduledHistory() *TLmessages_getScheduledHistory {
 
 // CodecEncode:messages_getScheduledHistory
 func (m *TLmessages_getScheduledHistory) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-490575781)
 	x.Bytes(m.Getpeer().Encode())
 	x.Int(m.Gethash())
@@ -7246,7 +7246,7 @@ func (m *TLmessages_getScheduledHistory) Encode() []byte {
 }
 
 // CodecDecode:messages_getScheduledHistory
-func (m *TLmessages_getScheduledHistory) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessages_getScheduledHistory) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &InputPeer{}
 	m0.Decode(dbuf)
 	m.Setpeer(m0)
@@ -7263,7 +7263,7 @@ func NewTLmessages_getScheduledMessages() *TLmessages_getScheduledMessages {
 
 // CodecEncode:messages_getScheduledMessages
 func (m *TLmessages_getScheduledMessages) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1111817116)
 	x.Bytes(m.Getpeer().Encode())
 	x.Int(481674261)
@@ -7275,7 +7275,7 @@ func (m *TLmessages_getScheduledMessages) Encode() []byte {
 }
 
 // CodecDecode:messages_getScheduledMessages
-func (m *TLmessages_getScheduledMessages) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessages_getScheduledMessages) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &InputPeer{}
 	m0.Decode(dbuf)
 	m.Setpeer(m0)
@@ -7292,7 +7292,7 @@ func NewTLmessages_getReplies() *TLmessages_getReplies {
 
 // CodecEncode:messages_getReplies
 func (m *TLmessages_getReplies) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(615875002)
 	x.Bytes(m.Getpeer().Encode())
 	x.Int(m.Getmsg_id())
@@ -7307,7 +7307,7 @@ func (m *TLmessages_getReplies) Encode() []byte {
 }
 
 // CodecDecode:messages_getReplies
-func (m *TLmessages_getReplies) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessages_getReplies) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &InputPeer{}
 	m0.Decode(dbuf)
 	m.Setpeer(m0)
@@ -7331,7 +7331,7 @@ func NewTLstats_getMessagePublicForwards() *TLstats_getMessagePublicForwards {
 
 // CodecEncode:stats_getMessagePublicForwards
 func (m *TLstats_getMessagePublicForwards) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1445996571)
 	x.Bytes(m.Getchannel().Encode())
 	x.Int(m.Getmsg_id())
@@ -7343,7 +7343,7 @@ func (m *TLstats_getMessagePublicForwards) Encode() []byte {
 }
 
 // CodecDecode:stats_getMessagePublicForwards
-func (m *TLstats_getMessagePublicForwards) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLstats_getMessagePublicForwards) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &InputChannel{}
 	m0.Decode(dbuf)
 	m.Setchannel(m0)
@@ -7366,7 +7366,7 @@ func NewTLupload_reuploadCdnFile() *TLupload_reuploadCdnFile {
 
 // CodecEncode:upload_reuploadCdnFile
 func (m *TLupload_reuploadCdnFile) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1691921240)
 	x.Bytes(m.Getfile_token())
 	x.Bytes(m.Getrequest_token())
@@ -7374,7 +7374,7 @@ func (m *TLupload_reuploadCdnFile) Encode() []byte {
 }
 
 // CodecDecode:upload_reuploadCdnFile
-func (m *TLupload_reuploadCdnFile) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLupload_reuploadCdnFile) Decode(dbuf *api.DecodeBuf) error {
 	m.Setfile_token(dbuf.StringBytes())
 	m.Setrequest_token(dbuf.StringBytes())
 	return dbuf.Err
@@ -7389,7 +7389,7 @@ func NewTLupload_getCdnFileHashes() *TLupload_getCdnFileHashes {
 
 // CodecEncode:upload_getCdnFileHashes
 func (m *TLupload_getCdnFileHashes) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1302676017)
 	x.Bytes(m.Getfile_token())
 	x.Int(m.Getoffset())
@@ -7397,7 +7397,7 @@ func (m *TLupload_getCdnFileHashes) Encode() []byte {
 }
 
 // CodecDecode:upload_getCdnFileHashes
-func (m *TLupload_getCdnFileHashes) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLupload_getCdnFileHashes) Decode(dbuf *api.DecodeBuf) error {
 	m.Setfile_token(dbuf.StringBytes())
 	m.Setoffset(dbuf.Int())
 	return dbuf.Err
@@ -7412,7 +7412,7 @@ func NewTLupload_getFileHashes() *TLupload_getFileHashes {
 
 // CodecEncode:upload_getFileHashes
 func (m *TLupload_getFileHashes) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-956147407)
 	x.Bytes(m.Getlocation().Encode())
 	x.Int(m.Getoffset())
@@ -7420,7 +7420,7 @@ func (m *TLupload_getFileHashes) Encode() []byte {
 }
 
 // CodecDecode:upload_getFileHashes
-func (m *TLupload_getFileHashes) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLupload_getFileHashes) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &InputFileLocation{}
 	m0.Decode(dbuf)
 	m.Setlocation(m0)
@@ -7437,7 +7437,7 @@ func NewTLmessages_getDialogs() *TLmessages_getDialogs {
 
 // CodecEncode:messages_getDialogs
 func (m *TLmessages_getDialogs) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1594999949)
 	var flags uint32 = 0
 	if m.Getexclude_pinned() != false {
@@ -7459,7 +7459,7 @@ func (m *TLmessages_getDialogs) Encode() []byte {
 }
 
 // CodecDecode:messages_getDialogs
-func (m *TLmessages_getDialogs) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessages_getDialogs) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	if (flags & (1 << 0)) != 0 {
@@ -7487,7 +7487,7 @@ func NewTLcontacts_getTopPeers() *TLcontacts_getTopPeers {
 
 // CodecEncode:contacts_getTopPeers
 func (m *TLcontacts_getTopPeers) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-728224331)
 	var flags uint32 = 0
 	if m.Getcorrespondents() != false {
@@ -7522,7 +7522,7 @@ func (m *TLcontacts_getTopPeers) Encode() []byte {
 }
 
 // CodecDecode:contacts_getTopPeers
-func (m *TLcontacts_getTopPeers) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLcontacts_getTopPeers) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	if (flags & (1 << 0)) != 0 {
@@ -7564,14 +7564,14 @@ func NewTLaccount_sendVerifyEmailCode() *TLaccount_sendVerifyEmailCode {
 
 // CodecEncode:account_sendVerifyEmailCode
 func (m *TLaccount_sendVerifyEmailCode) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1880182943)
 	x.String(m.Getemail())
 	return x.Buf
 }
 
 // CodecDecode:account_sendVerifyEmailCode
-func (m *TLaccount_sendVerifyEmailCode) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLaccount_sendVerifyEmailCode) Decode(dbuf *api.DecodeBuf) error {
 	m.Setemail(dbuf.String())
 	return dbuf.Err
 }
@@ -7585,13 +7585,13 @@ func NewTLmessages_getDialogUnreadMarks() *TLmessages_getDialogUnreadMarks {
 
 // CodecEncode:messages_getDialogUnreadMarks
 func (m *TLmessages_getDialogUnreadMarks) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(585256482)
 	return x.Buf
 }
 
 // CodecDecode:messages_getDialogUnreadMarks
-func (m *TLmessages_getDialogUnreadMarks) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessages_getDialogUnreadMarks) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -7604,7 +7604,7 @@ func NewTLauth_exportLoginToken() *TLauth_exportLoginToken {
 
 // CodecEncode:auth_exportLoginToken
 func (m *TLauth_exportLoginToken) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1313598185)
 	x.Int(m.Getapi_id())
 	x.String(m.Getapi_hash())
@@ -7617,7 +7617,7 @@ func (m *TLauth_exportLoginToken) Encode() []byte {
 }
 
 // CodecDecode:auth_exportLoginToken
-func (m *TLauth_exportLoginToken) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLauth_exportLoginToken) Decode(dbuf *api.DecodeBuf) error {
 	m.Setapi_id(dbuf.Int())
 	m.Setapi_hash(dbuf.String())
 	m.Setexcept_ids(dbuf.VectorInt())
@@ -7633,14 +7633,14 @@ func NewTLauth_importLoginToken() *TLauth_importLoginToken {
 
 // CodecEncode:auth_importLoginToken
 func (m *TLauth_importLoginToken) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1783866140)
 	x.Bytes(m.Gettoken())
 	return x.Buf
 }
 
 // CodecDecode:auth_importLoginToken
-func (m *TLauth_importLoginToken) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLauth_importLoginToken) Decode(dbuf *api.DecodeBuf) error {
 	m.Settoken(dbuf.StringBytes())
 	return dbuf.Err
 }
@@ -7654,13 +7654,13 @@ func NewTLaccount_getGlobalPrivacySettings() *TLaccount_getGlobalPrivacySettings
 
 // CodecEncode:account_getGlobalPrivacySettings
 func (m *TLaccount_getGlobalPrivacySettings) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-349483786)
 	return x.Buf
 }
 
 // CodecDecode:account_getGlobalPrivacySettings
-func (m *TLaccount_getGlobalPrivacySettings) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLaccount_getGlobalPrivacySettings) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -7673,14 +7673,14 @@ func NewTLaccount_setGlobalPrivacySettings() *TLaccount_setGlobalPrivacySettings
 
 // CodecEncode:account_setGlobalPrivacySettings
 func (m *TLaccount_setGlobalPrivacySettings) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(517647042)
 	x.Bytes(m.Getsettings().Encode())
 	return x.Buf
 }
 
 // CodecDecode:account_setGlobalPrivacySettings
-func (m *TLaccount_setGlobalPrivacySettings) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLaccount_setGlobalPrivacySettings) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &GlobalPrivacySettings{}
 	m0.Decode(dbuf)
 	m.Setsettings(m0)
@@ -7696,7 +7696,7 @@ func NewTLmessages_getWebPagePreview() *TLmessages_getWebPagePreview {
 
 // CodecEncode:messages_getWebPagePreview
 func (m *TLmessages_getWebPagePreview) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1956073268)
 	var flags uint32 = 0
 	if len(m.Getentities()) > 0 {
@@ -7715,7 +7715,7 @@ func (m *TLmessages_getWebPagePreview) Encode() []byte {
 }
 
 // CodecDecode:messages_getWebPagePreview
-func (m *TLmessages_getWebPagePreview) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessages_getWebPagePreview) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	m.Setmessage(dbuf.String())
@@ -7744,7 +7744,7 @@ func NewTLmessages_uploadMedia() *TLmessages_uploadMedia {
 
 // CodecEncode:messages_uploadMedia
 func (m *TLmessages_uploadMedia) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1369162417)
 	x.Bytes(m.Getpeer().Encode())
 	x.Bytes(m.Getmedia().Encode())
@@ -7752,7 +7752,7 @@ func (m *TLmessages_uploadMedia) Encode() []byte {
 }
 
 // CodecDecode:messages_uploadMedia
-func (m *TLmessages_uploadMedia) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessages_uploadMedia) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &InputPeer{}
 	m0.Decode(dbuf)
 	m.Setpeer(m0)
@@ -7771,7 +7771,7 @@ func NewTLmessages_deleteHistory() *TLmessages_deleteHistory {
 
 // CodecEncode:messages_deleteHistory
 func (m *TLmessages_deleteHistory) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(469850889)
 	var flags uint32 = 0
 	if m.Getjust_clear() != false {
@@ -7787,7 +7787,7 @@ func (m *TLmessages_deleteHistory) Encode() []byte {
 }
 
 // CodecDecode:messages_deleteHistory
-func (m *TLmessages_deleteHistory) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessages_deleteHistory) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	if (flags & (1 << 0)) != 0 {
@@ -7812,7 +7812,7 @@ func NewTLchannels_deleteUserHistory() *TLchannels_deleteUserHistory {
 
 // CodecEncode:channels_deleteUserHistory
 func (m *TLchannels_deleteUserHistory) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-787622117)
 	x.Bytes(m.Getchannel().Encode())
 	x.Bytes(m.Getuser_id().Encode())
@@ -7820,7 +7820,7 @@ func (m *TLchannels_deleteUserHistory) Encode() []byte {
 }
 
 // CodecDecode:channels_deleteUserHistory
-func (m *TLchannels_deleteUserHistory) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLchannels_deleteUserHistory) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &InputChannel{}
 	m0.Decode(dbuf)
 	m.Setchannel(m0)
@@ -7839,14 +7839,14 @@ func NewTLmessages_readMentions() *TLmessages_readMentions {
 
 // CodecEncode:messages_readMentions
 func (m *TLmessages_readMentions) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(251759059)
 	x.Bytes(m.Getpeer().Encode())
 	return x.Buf
 }
 
 // CodecDecode:messages_readMentions
-func (m *TLmessages_readMentions) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessages_readMentions) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &InputPeer{}
 	m0.Decode(dbuf)
 	m.Setpeer(m0)
@@ -7862,14 +7862,14 @@ func NewTLmessages_unpinAllMessages() *TLmessages_unpinAllMessages {
 
 // CodecEncode:messages_unpinAllMessages
 func (m *TLmessages_unpinAllMessages) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-265962357)
 	x.Bytes(m.Getpeer().Encode())
 	return x.Buf
 }
 
 // CodecDecode:messages_unpinAllMessages
-func (m *TLmessages_unpinAllMessages) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessages_unpinAllMessages) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &InputPeer{}
 	m0.Decode(dbuf)
 	m.Setpeer(m0)
@@ -7885,7 +7885,7 @@ func NewTLmessages_installStickerSet() *TLmessages_installStickerSet {
 
 // CodecEncode:messages_installStickerSet
 func (m *TLmessages_installStickerSet) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-946871200)
 	x.Bytes(m.Getstickerset().Encode())
 	x.Bytes(m.Getarchived().Encode())
@@ -7893,7 +7893,7 @@ func (m *TLmessages_installStickerSet) Encode() []byte {
 }
 
 // CodecDecode:messages_installStickerSet
-func (m *TLmessages_installStickerSet) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessages_installStickerSet) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &InputStickerSet{}
 	m0.Decode(dbuf)
 	m.Setstickerset(m0)
@@ -7912,7 +7912,7 @@ func NewTLmessages_getStickers() *TLmessages_getStickers {
 
 // CodecEncode:messages_getStickers
 func (m *TLmessages_getStickers) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(71126828)
 	x.String(m.Getemoticon())
 	x.Int(m.Gethash())
@@ -7920,7 +7920,7 @@ func (m *TLmessages_getStickers) Encode() []byte {
 }
 
 // CodecDecode:messages_getStickers
-func (m *TLmessages_getStickers) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessages_getStickers) Decode(dbuf *api.DecodeBuf) error {
 	m.Setemoticon(dbuf.String())
 	m.Sethash(dbuf.Int())
 	return dbuf.Err
@@ -7935,7 +7935,7 @@ func NewTLhelp_getCountriesList() *TLhelp_getCountriesList {
 
 // CodecEncode:help_getCountriesList
 func (m *TLhelp_getCountriesList) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1935116200)
 	x.String(m.Getlang_code())
 	x.Int(m.Gethash())
@@ -7943,7 +7943,7 @@ func (m *TLhelp_getCountriesList) Encode() []byte {
 }
 
 // CodecDecode:help_getCountriesList
-func (m *TLhelp_getCountriesList) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLhelp_getCountriesList) Decode(dbuf *api.DecodeBuf) error {
 	m.Setlang_code(dbuf.String())
 	m.Sethash(dbuf.Int())
 	return dbuf.Err
@@ -7958,14 +7958,14 @@ func NewTLhelp_getPassportConfig() *TLhelp_getPassportConfig {
 
 // CodecEncode:help_getPassportConfig
 func (m *TLhelp_getPassportConfig) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-966677240)
 	x.Int(m.Gethash())
 	return x.Buf
 }
 
 // CodecDecode:help_getPassportConfig
-func (m *TLhelp_getPassportConfig) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLhelp_getPassportConfig) Decode(dbuf *api.DecodeBuf) error {
 	m.Sethash(dbuf.Int())
 	return dbuf.Err
 }
@@ -7979,7 +7979,7 @@ func NewTLaccount_getThemes() *TLaccount_getThemes {
 
 // CodecEncode:account_getThemes
 func (m *TLaccount_getThemes) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(676939512)
 	x.String(m.Getformat())
 	x.Int(m.Gethash())
@@ -7987,7 +7987,7 @@ func (m *TLaccount_getThemes) Encode() []byte {
 }
 
 // CodecDecode:account_getThemes
-func (m *TLaccount_getThemes) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLaccount_getThemes) Decode(dbuf *api.DecodeBuf) error {
 	m.Setformat(dbuf.String())
 	m.Sethash(dbuf.Int())
 	return dbuf.Err
@@ -8002,14 +8002,14 @@ func NewTLmessages_getEmojiKeywords() *TLmessages_getEmojiKeywords {
 
 // CodecEncode:messages_getEmojiKeywords
 func (m *TLmessages_getEmojiKeywords) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(899735650)
 	x.String(m.Getlang_code())
 	return x.Buf
 }
 
 // CodecDecode:messages_getEmojiKeywords
-func (m *TLmessages_getEmojiKeywords) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessages_getEmojiKeywords) Decode(dbuf *api.DecodeBuf) error {
 	m.Setlang_code(dbuf.String())
 	return dbuf.Err
 }
@@ -8023,7 +8023,7 @@ func NewTLmessages_getEmojiKeywordsDifference() *TLmessages_getEmojiKeywordsDiff
 
 // CodecEncode:messages_getEmojiKeywordsDifference
 func (m *TLmessages_getEmojiKeywordsDifference) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(352892591)
 	x.String(m.Getlang_code())
 	x.Int(m.Getfrom_version())
@@ -8031,7 +8031,7 @@ func (m *TLmessages_getEmojiKeywordsDifference) Encode() []byte {
 }
 
 // CodecDecode:messages_getEmojiKeywordsDifference
-func (m *TLmessages_getEmojiKeywordsDifference) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessages_getEmojiKeywordsDifference) Decode(dbuf *api.DecodeBuf) error {
 	m.Setlang_code(dbuf.String())
 	m.Setfrom_version(dbuf.Int())
 	return dbuf.Err
@@ -8046,7 +8046,7 @@ func NewTLmessages_getChats() *TLmessages_getChats {
 
 // CodecEncode:messages_getChats
 func (m *TLmessages_getChats) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1013621127)
 	x.Int(481674261)
 	x.Int(int32(len(m.Getid())))
@@ -8057,7 +8057,7 @@ func (m *TLmessages_getChats) Encode() []byte {
 }
 
 // CodecDecode:messages_getChats
-func (m *TLmessages_getChats) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessages_getChats) Decode(dbuf *api.DecodeBuf) error {
 	m.Setid(dbuf.VectorInt())
 	return dbuf.Err
 }
@@ -8071,7 +8071,7 @@ func NewTLchannels_getChannels() *TLchannels_getChannels {
 
 // CodecEncode:channels_getChannels
 func (m *TLchannels_getChannels) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(176122811)
 	x.Int(481674261)
 	x.Int(int32(len(m.Getid())))
@@ -8082,7 +8082,7 @@ func (m *TLchannels_getChannels) Encode() []byte {
 }
 
 // CodecDecode:channels_getChannels
-func (m *TLchannels_getChannels) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLchannels_getChannels) Decode(dbuf *api.DecodeBuf) error {
 	c0 := dbuf.Int()
 	if c0 != 481674261 {
 		return dbuf.Err
@@ -8106,7 +8106,7 @@ func NewTLchannels_getAdminedPublicChannels() *TLchannels_getAdminedPublicChanne
 
 // CodecEncode:channels_getAdminedPublicChannels
 func (m *TLchannels_getAdminedPublicChannels) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-122669393)
 	var flags uint32 = 0
 	if m.Getby_location() != false {
@@ -8120,7 +8120,7 @@ func (m *TLchannels_getAdminedPublicChannels) Encode() []byte {
 }
 
 // CodecDecode:channels_getAdminedPublicChannels
-func (m *TLchannels_getAdminedPublicChannels) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLchannels_getAdminedPublicChannels) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	if (flags & (1 << 0)) != 0 {
@@ -8141,7 +8141,7 @@ func NewTLmessages_getCommonChats() *TLmessages_getCommonChats {
 
 // CodecEncode:messages_getCommonChats
 func (m *TLmessages_getCommonChats) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(218777796)
 	x.Bytes(m.Getuser_id().Encode())
 	x.Int(m.Getmax_id())
@@ -8150,7 +8150,7 @@ func (m *TLmessages_getCommonChats) Encode() []byte {
 }
 
 // CodecDecode:messages_getCommonChats
-func (m *TLmessages_getCommonChats) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessages_getCommonChats) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &InputUser{}
 	m0.Decode(dbuf)
 	m.Setuser_id(m0)
@@ -8168,7 +8168,7 @@ func NewTLmessages_getAllChats() *TLmessages_getAllChats {
 
 // CodecEncode:messages_getAllChats
 func (m *TLmessages_getAllChats) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-341307408)
 	x.Int(481674261)
 	x.Int(int32(len(m.Getexcept_ids())))
@@ -8179,7 +8179,7 @@ func (m *TLmessages_getAllChats) Encode() []byte {
 }
 
 // CodecDecode:messages_getAllChats
-func (m *TLmessages_getAllChats) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessages_getAllChats) Decode(dbuf *api.DecodeBuf) error {
 	m.Setexcept_ids(dbuf.VectorInt())
 	return dbuf.Err
 }
@@ -8193,14 +8193,14 @@ func NewTLchannels_getLeftChannels() *TLchannels_getLeftChannels {
 
 // CodecEncode:channels_getLeftChannels
 func (m *TLchannels_getLeftChannels) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-2092831552)
 	x.Int(m.Getoffset())
 	return x.Buf
 }
 
 // CodecDecode:channels_getLeftChannels
-func (m *TLchannels_getLeftChannels) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLchannels_getLeftChannels) Decode(dbuf *api.DecodeBuf) error {
 	m.Setoffset(dbuf.Int())
 	return dbuf.Err
 }
@@ -8214,13 +8214,13 @@ func NewTLchannels_getGroupsForDiscussion() *TLchannels_getGroupsForDiscussion {
 
 // CodecEncode:channels_getGroupsForDiscussion
 func (m *TLchannels_getGroupsForDiscussion) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-170208392)
 	return x.Buf
 }
 
 // CodecDecode:channels_getGroupsForDiscussion
-func (m *TLchannels_getGroupsForDiscussion) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLchannels_getGroupsForDiscussion) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -8233,13 +8233,13 @@ func NewTLhelp_getConfig() *TLhelp_getConfig {
 
 // CodecEncode:help_getConfig
 func (m *TLhelp_getConfig) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-990308245)
 	return x.Buf
 }
 
 // CodecDecode:help_getConfig
-func (m *TLhelp_getConfig) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLhelp_getConfig) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -8252,7 +8252,7 @@ func NewTLcontacts_getBlocked() *TLcontacts_getBlocked {
 
 // CodecEncode:contacts_getBlocked
 func (m *TLcontacts_getBlocked) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-176409329)
 	x.Int(m.Getoffset())
 	x.Int(m.Getlimit())
@@ -8260,7 +8260,7 @@ func (m *TLcontacts_getBlocked) Encode() []byte {
 }
 
 // CodecDecode:contacts_getBlocked
-func (m *TLcontacts_getBlocked) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLcontacts_getBlocked) Decode(dbuf *api.DecodeBuf) error {
 	m.Setoffset(dbuf.Int())
 	m.Setlimit(dbuf.Int())
 	return dbuf.Err
@@ -8275,13 +8275,13 @@ func NewTLhelp_getNearestDc() *TLhelp_getNearestDc {
 
 // CodecEncode:help_getNearestDc
 func (m *TLhelp_getNearestDc) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(531836966)
 	return x.Buf
 }
 
 // CodecDecode:help_getNearestDc
-func (m *TLhelp_getNearestDc) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLhelp_getNearestDc) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -8294,14 +8294,14 @@ func NewTLcontacts_getContactIDs() *TLcontacts_getContactIDs {
 
 // CodecEncode:contacts_getContactIDs
 func (m *TLcontacts_getContactIDs) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(749357634)
 	x.Int(m.Gethash())
 	return x.Buf
 }
 
 // CodecDecode:contacts_getContactIDs
-func (m *TLcontacts_getContactIDs) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLcontacts_getContactIDs) Decode(dbuf *api.DecodeBuf) error {
 	m.Sethash(dbuf.Int())
 	return dbuf.Err
 }
@@ -8315,7 +8315,7 @@ func NewTLaccount_createTheme() *TLaccount_createTheme {
 
 // CodecEncode:account_createTheme
 func (m *TLaccount_createTheme) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-2077048289)
 	var flags uint32 = 0
 	if m.Getdocument().Constructor != 0 {
@@ -8337,7 +8337,7 @@ func (m *TLaccount_createTheme) Encode() []byte {
 }
 
 // CodecDecode:account_createTheme
-func (m *TLaccount_createTheme) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLaccount_createTheme) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	m.Setslug(dbuf.String())
@@ -8364,7 +8364,7 @@ func NewTLaccount_updateTheme() *TLaccount_updateTheme {
 
 // CodecEncode:account_updateTheme
 func (m *TLaccount_updateTheme) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1555261397)
 	var flags uint32 = 0
 	if m.Getslug() != "" {
@@ -8398,7 +8398,7 @@ func (m *TLaccount_updateTheme) Encode() []byte {
 }
 
 // CodecDecode:account_updateTheme
-func (m *TLaccount_updateTheme) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLaccount_updateTheme) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	m.Setformat(dbuf.String())
@@ -8433,7 +8433,7 @@ func NewTLaccount_getTheme() *TLaccount_getTheme {
 
 // CodecEncode:account_getTheme
 func (m *TLaccount_getTheme) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1919060949)
 	x.String(m.Getformat())
 	x.Bytes(m.Gettheme().Encode())
@@ -8442,7 +8442,7 @@ func (m *TLaccount_getTheme) Encode() []byte {
 }
 
 // CodecDecode:account_getTheme
-func (m *TLaccount_getTheme) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLaccount_getTheme) Decode(dbuf *api.DecodeBuf) error {
 	m.Setformat(dbuf.String())
 	m1 := &InputTheme{}
 	m1.Decode(dbuf)
@@ -8460,7 +8460,7 @@ func NewTLphotos_getUserPhotos() *TLphotos_getUserPhotos {
 
 // CodecEncode:photos_getUserPhotos
 func (m *TLphotos_getUserPhotos) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1848823128)
 	x.Bytes(m.Getuser_id().Encode())
 	x.Int(m.Getoffset())
@@ -8470,7 +8470,7 @@ func (m *TLphotos_getUserPhotos) Encode() []byte {
 }
 
 // CodecDecode:photos_getUserPhotos
-func (m *TLphotos_getUserPhotos) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLphotos_getUserPhotos) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &InputUser{}
 	m0.Decode(dbuf)
 	m.Setuser_id(m0)
@@ -8489,13 +8489,13 @@ func NewTLhelp_getSupportName() *TLhelp_getSupportName {
 
 // CodecEncode:help_getSupportName
 func (m *TLhelp_getSupportName) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-748624084)
 	return x.Buf
 }
 
 // CodecDecode:help_getSupportName
-func (m *TLhelp_getSupportName) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLhelp_getSupportName) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -8508,7 +8508,7 @@ func NewTLupload_getCdnFile() *TLupload_getCdnFile {
 
 // CodecEncode:upload_getCdnFile
 func (m *TLupload_getCdnFile) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(536919235)
 	x.Bytes(m.Getfile_token())
 	x.Int(m.Getoffset())
@@ -8517,7 +8517,7 @@ func (m *TLupload_getCdnFile) Encode() []byte {
 }
 
 // CodecDecode:upload_getCdnFile
-func (m *TLupload_getCdnFile) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLupload_getCdnFile) Decode(dbuf *api.DecodeBuf) error {
 	m.Setfile_token(dbuf.StringBytes())
 	m.Setoffset(dbuf.Int())
 	m.Setlimit(dbuf.Int())
@@ -8533,7 +8533,7 @@ func NewTLinvokeAfterMsg() *TLinvokeAfterMsg {
 
 // CodecEncode:invokeAfterMsg
 func (m *TLinvokeAfterMsg) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-878758099)
 	x.Long(m.Getmsg_id())
 	x.Bytes(m.Getquery())
@@ -8541,7 +8541,7 @@ func (m *TLinvokeAfterMsg) Encode() []byte {
 }
 
 // CodecDecode:invokeAfterMsg
-func (m *TLinvokeAfterMsg) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLinvokeAfterMsg) Decode(dbuf *api.DecodeBuf) error {
 	m.Setmsg_id(dbuf.Long())
 	m.Setquery(dbuf.StringBytes())
 	return dbuf.Err
@@ -8556,7 +8556,7 @@ func NewTLinvokeAfterMsgs() *TLinvokeAfterMsgs {
 
 // CodecEncode:invokeAfterMsgs
 func (m *TLinvokeAfterMsgs) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1036301552)
 	x.Int(481674261)
 	x.Int(int32(len(m.Getmsg_ids())))
@@ -8568,7 +8568,7 @@ func (m *TLinvokeAfterMsgs) Encode() []byte {
 }
 
 // CodecDecode:invokeAfterMsgs
-func (m *TLinvokeAfterMsgs) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLinvokeAfterMsgs) Decode(dbuf *api.DecodeBuf) error {
 	m.Setmsg_ids(dbuf.VectorLong())
 	m.Setquery(dbuf.StringBytes())
 	return dbuf.Err
@@ -8583,7 +8583,7 @@ func NewTLinitConnection() *TLinitConnection {
 
 // CodecEncode:initConnection
 func (m *TLinitConnection) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1043505495)
 	var flags uint32 = 0
 	if m.Getproxy().Constructor != 0 {
@@ -8611,7 +8611,7 @@ func (m *TLinitConnection) Encode() []byte {
 }
 
 // CodecDecode:initConnection
-func (m *TLinitConnection) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLinitConnection) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	m.Setapi_id(dbuf.Int())
@@ -8644,7 +8644,7 @@ func NewTLinvokeWithLayer() *TLinvokeWithLayer {
 
 // CodecEncode:invokeWithLayer
 func (m *TLinvokeWithLayer) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-627372787)
 	x.Int(m.Getlayer())
 	x.Bytes(m.Getquery())
@@ -8652,7 +8652,7 @@ func (m *TLinvokeWithLayer) Encode() []byte {
 }
 
 // CodecDecode:invokeWithLayer
-func (m *TLinvokeWithLayer) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLinvokeWithLayer) Decode(dbuf *api.DecodeBuf) error {
 	m.Setlayer(dbuf.Int())
 	m.Setquery(dbuf.StringBytes())
 	return dbuf.Err
@@ -8667,14 +8667,14 @@ func NewTLinvokeWithoutUpdates() *TLinvokeWithoutUpdates {
 
 // CodecEncode:invokeWithoutUpdates
 func (m *TLinvokeWithoutUpdates) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1080796745)
 	x.Bytes(m.Getquery())
 	return x.Buf
 }
 
 // CodecDecode:invokeWithoutUpdates
-func (m *TLinvokeWithoutUpdates) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLinvokeWithoutUpdates) Decode(dbuf *api.DecodeBuf) error {
 	m.Setquery(dbuf.StringBytes())
 	return dbuf.Err
 }
@@ -8688,7 +8688,7 @@ func NewTLinvokeWithMessagesRange() *TLinvokeWithMessagesRange {
 
 // CodecEncode:invokeWithMessagesRange
 func (m *TLinvokeWithMessagesRange) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(911373810)
 	x.Bytes(m.Getrange().Encode())
 	x.Bytes(m.Getquery())
@@ -8696,7 +8696,7 @@ func (m *TLinvokeWithMessagesRange) Encode() []byte {
 }
 
 // CodecDecode:invokeWithMessagesRange
-func (m *TLinvokeWithMessagesRange) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLinvokeWithMessagesRange) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &MessageRange{}
 	m0.Decode(dbuf)
 	m.Setrange(m0)
@@ -8713,7 +8713,7 @@ func NewTLinvokeWithTakeout() *TLinvokeWithTakeout {
 
 // CodecEncode:invokeWithTakeout
 func (m *TLinvokeWithTakeout) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1398145746)
 	x.Long(m.Gettakeout_id())
 	x.Bytes(m.Getquery())
@@ -8721,7 +8721,7 @@ func (m *TLinvokeWithTakeout) Encode() []byte {
 }
 
 // CodecDecode:invokeWithTakeout
-func (m *TLinvokeWithTakeout) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLinvokeWithTakeout) Decode(dbuf *api.DecodeBuf) error {
 	m.Settakeout_id(dbuf.Long())
 	m.Setquery(dbuf.StringBytes())
 	return dbuf.Err
@@ -8736,14 +8736,14 @@ func NewTLmessages_getEmojiURL() *TLmessages_getEmojiURL {
 
 // CodecEncode:messages_getEmojiURL
 func (m *TLmessages_getEmojiURL) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-709817306)
 	x.String(m.Getlang_code())
 	return x.Buf
 }
 
 // CodecDecode:messages_getEmojiURL
-func (m *TLmessages_getEmojiURL) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessages_getEmojiURL) Decode(dbuf *api.DecodeBuf) error {
 	m.Setlang_code(dbuf.String())
 	return dbuf.Err
 }
@@ -8757,14 +8757,14 @@ func NewTLmessages_getPeerSettings() *TLmessages_getPeerSettings {
 
 // CodecEncode:messages_getPeerSettings
 func (m *TLmessages_getPeerSettings) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(913498268)
 	x.Bytes(m.Getpeer().Encode())
 	return x.Buf
 }
 
 // CodecDecode:messages_getPeerSettings
-func (m *TLmessages_getPeerSettings) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessages_getPeerSettings) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &InputPeer{}
 	m0.Decode(dbuf)
 	m.Setpeer(m0)
@@ -8780,14 +8780,14 @@ func NewTLmessages_getOnlines() *TLmessages_getOnlines {
 
 // CodecEncode:messages_getOnlines
 func (m *TLmessages_getOnlines) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1848369232)
 	x.Bytes(m.Getpeer().Encode())
 	return x.Buf
 }
 
 // CodecDecode:messages_getOnlines
-func (m *TLmessages_getOnlines) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessages_getOnlines) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &InputPeer{}
 	m0.Decode(dbuf)
 	m.Setpeer(m0)
@@ -8803,7 +8803,7 @@ func NewTLaccount_saveSecureValue() *TLaccount_saveSecureValue {
 
 // CodecEncode:account_saveSecureValue
 func (m *TLaccount_saveSecureValue) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1986010339)
 	x.Bytes(m.Getvalue().Encode())
 	x.Long(m.Getsecure_secret_id())
@@ -8811,7 +8811,7 @@ func (m *TLaccount_saveSecureValue) Encode() []byte {
 }
 
 // CodecDecode:account_saveSecureValue
-func (m *TLaccount_saveSecureValue) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLaccount_saveSecureValue) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &InputSecureValue{}
 	m0.Decode(dbuf)
 	m.Setvalue(m0)
@@ -8828,7 +8828,7 @@ func NewTLmessages_getRecentStickers() *TLmessages_getRecentStickers {
 
 // CodecEncode:messages_getRecentStickers
 func (m *TLmessages_getRecentStickers) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1587647177)
 	var flags uint32 = 0
 	if m.Getattached() != false {
@@ -8840,7 +8840,7 @@ func (m *TLmessages_getRecentStickers) Encode() []byte {
 }
 
 // CodecDecode:messages_getRecentStickers
-func (m *TLmessages_getRecentStickers) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessages_getRecentStickers) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	if (flags & (1 << 0)) != 0 {
@@ -8859,14 +8859,14 @@ func NewTLcontacts_getContacts() *TLcontacts_getContacts {
 
 // CodecEncode:contacts_getContacts
 func (m *TLcontacts_getContacts) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1071414113)
 	x.Int(m.Gethash())
 	return x.Buf
 }
 
 // CodecDecode:contacts_getContacts
-func (m *TLcontacts_getContacts) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLcontacts_getContacts) Decode(dbuf *api.DecodeBuf) error {
 	m.Sethash(dbuf.Int())
 	return dbuf.Err
 }
@@ -8880,7 +8880,7 @@ func NewTLcontacts_search() *TLcontacts_search {
 
 // CodecEncode:contacts_search
 func (m *TLcontacts_search) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(301470424)
 	x.String(m.Getq())
 	x.Int(m.Getlimit())
@@ -8888,7 +8888,7 @@ func (m *TLcontacts_search) Encode() []byte {
 }
 
 // CodecDecode:contacts_search
-func (m *TLcontacts_search) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLcontacts_search) Decode(dbuf *api.DecodeBuf) error {
 	m.Setq(dbuf.String())
 	m.Setlimit(dbuf.Int())
 	return dbuf.Err
@@ -8903,14 +8903,14 @@ func NewTLhelp_getUserInfo() *TLhelp_getUserInfo {
 
 // CodecEncode:help_getUserInfo
 func (m *TLhelp_getUserInfo) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(59377875)
 	x.Bytes(m.Getuser_id().Encode())
 	return x.Buf
 }
 
 // CodecDecode:help_getUserInfo
-func (m *TLhelp_getUserInfo) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLhelp_getUserInfo) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &InputUser{}
 	m0.Decode(dbuf)
 	m.Setuser_id(m0)
@@ -8926,7 +8926,7 @@ func NewTLhelp_editUserInfo() *TLhelp_editUserInfo {
 
 // CodecEncode:help_editUserInfo
 func (m *TLhelp_editUserInfo) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1723407216)
 	x.Bytes(m.Getuser_id().Encode())
 	x.String(m.Getmessage())
@@ -8939,7 +8939,7 @@ func (m *TLhelp_editUserInfo) Encode() []byte {
 }
 
 // CodecDecode:help_editUserInfo
-func (m *TLhelp_editUserInfo) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLhelp_editUserInfo) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &InputUser{}
 	m0.Decode(dbuf)
 	m.Setuser_id(m0)
@@ -8967,13 +8967,13 @@ func NewTLaccount_getAllSecureValues() *TLaccount_getAllSecureValues {
 
 // CodecEncode:account_getAllSecureValues
 func (m *TLaccount_getAllSecureValues) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1299661699)
 	return x.Buf
 }
 
 // CodecDecode:account_getAllSecureValues
-func (m *TLaccount_getAllSecureValues) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLaccount_getAllSecureValues) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -8986,7 +8986,7 @@ func NewTLaccount_getSecureValue() *TLaccount_getSecureValue {
 
 // CodecEncode:account_getSecureValue
 func (m *TLaccount_getSecureValue) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1936088002)
 	x.Int(481674261)
 	x.Int(int32(len(m.Gettypes())))
@@ -8997,7 +8997,7 @@ func (m *TLaccount_getSecureValue) Encode() []byte {
 }
 
 // CodecDecode:account_getSecureValue
-func (m *TLaccount_getSecureValue) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLaccount_getSecureValue) Decode(dbuf *api.DecodeBuf) error {
 	c0 := dbuf.Int()
 	if c0 != 481674261 {
 		return dbuf.Err
@@ -9021,14 +9021,14 @@ func NewTLmessages_receivedMessages() *TLmessages_receivedMessages {
 
 // CodecEncode:messages_receivedMessages
 func (m *TLmessages_receivedMessages) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(94983360)
 	x.Int(m.Getmax_id())
 	return x.Buf
 }
 
 // CodecDecode:messages_receivedMessages
-func (m *TLmessages_receivedMessages) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessages_receivedMessages) Decode(dbuf *api.DecodeBuf) error {
 	m.Setmax_id(dbuf.Int())
 	return dbuf.Err
 }
@@ -9042,13 +9042,13 @@ func NewTLhelp_getInviteText() *TLhelp_getInviteText {
 
 // CodecEncode:help_getInviteText
 func (m *TLhelp_getInviteText) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1295590211)
 	return x.Buf
 }
 
 // CodecDecode:help_getInviteText
-func (m *TLhelp_getInviteText) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLhelp_getInviteText) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -9061,7 +9061,7 @@ func NewTLaccount_getMultiWallPapers() *TLaccount_getMultiWallPapers {
 
 // CodecEncode:account_getMultiWallPapers
 func (m *TLaccount_getMultiWallPapers) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1705865692)
 	x.Int(481674261)
 	x.Int(int32(len(m.Getwallpapers())))
@@ -9072,7 +9072,7 @@ func (m *TLaccount_getMultiWallPapers) Encode() []byte {
 }
 
 // CodecDecode:account_getMultiWallPapers
-func (m *TLaccount_getMultiWallPapers) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLaccount_getMultiWallPapers) Decode(dbuf *api.DecodeBuf) error {
 	c0 := dbuf.Int()
 	if c0 != 481674261 {
 		return dbuf.Err
@@ -9096,7 +9096,7 @@ func NewTLmessages_requestEncryption() *TLmessages_requestEncryption {
 
 // CodecEncode:messages_requestEncryption
 func (m *TLmessages_requestEncryption) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-162681021)
 	x.Bytes(m.Getuser_id().Encode())
 	x.Int(m.Getrandom_id())
@@ -9105,7 +9105,7 @@ func (m *TLmessages_requestEncryption) Encode() []byte {
 }
 
 // CodecDecode:messages_requestEncryption
-func (m *TLmessages_requestEncryption) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessages_requestEncryption) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &InputUser{}
 	m0.Decode(dbuf)
 	m.Setuser_id(m0)
@@ -9123,7 +9123,7 @@ func NewTLmessages_acceptEncryption() *TLmessages_acceptEncryption {
 
 // CodecEncode:messages_acceptEncryption
 func (m *TLmessages_acceptEncryption) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1035731989)
 	x.Bytes(m.Getpeer().Encode())
 	x.Bytes(m.Getg_b())
@@ -9132,7 +9132,7 @@ func (m *TLmessages_acceptEncryption) Encode() []byte {
 }
 
 // CodecDecode:messages_acceptEncryption
-func (m *TLmessages_acceptEncryption) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessages_acceptEncryption) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &InputEncryptedChat{}
 	m0.Decode(dbuf)
 	m.Setpeer(m0)
@@ -9150,14 +9150,14 @@ func NewTLmessages_getFeaturedStickers() *TLmessages_getFeaturedStickers {
 
 // CodecEncode:messages_getFeaturedStickers
 func (m *TLmessages_getFeaturedStickers) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(766298703)
 	x.Int(m.Gethash())
 	return x.Buf
 }
 
 // CodecDecode:messages_getFeaturedStickers
-func (m *TLmessages_getFeaturedStickers) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessages_getFeaturedStickers) Decode(dbuf *api.DecodeBuf) error {
 	m.Sethash(dbuf.Int())
 	return dbuf.Err
 }
@@ -9171,7 +9171,7 @@ func NewTLmessages_getOldFeaturedStickers() *TLmessages_getOldFeaturedStickers {
 
 // CodecEncode:messages_getOldFeaturedStickers
 func (m *TLmessages_getOldFeaturedStickers) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1608974939)
 	x.Int(m.Getoffset())
 	x.Int(m.Getlimit())
@@ -9180,7 +9180,7 @@ func (m *TLmessages_getOldFeaturedStickers) Encode() []byte {
 }
 
 // CodecDecode:messages_getOldFeaturedStickers
-func (m *TLmessages_getOldFeaturedStickers) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessages_getOldFeaturedStickers) Decode(dbuf *api.DecodeBuf) error {
 	m.Setoffset(dbuf.Int())
 	m.Setlimit(dbuf.Int())
 	m.Sethash(dbuf.Int())
@@ -9196,13 +9196,13 @@ func NewTLhelp_getAppConfig() *TLhelp_getAppConfig {
 
 // CodecEncode:help_getAppConfig
 func (m *TLhelp_getAppConfig) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1735311088)
 	return x.Buf
 }
 
 // CodecDecode:help_getAppConfig
-func (m *TLhelp_getAppConfig) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLhelp_getAppConfig) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -9215,14 +9215,14 @@ func NewTLmessages_getAllStickers() *TLmessages_getAllStickers {
 
 // CodecEncode:messages_getAllStickers
 func (m *TLmessages_getAllStickers) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(479598769)
 	x.Int(m.Gethash())
 	return x.Buf
 }
 
 // CodecDecode:messages_getAllStickers
-func (m *TLmessages_getAllStickers) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessages_getAllStickers) Decode(dbuf *api.DecodeBuf) error {
 	m.Sethash(dbuf.Int())
 	return dbuf.Err
 }
@@ -9236,14 +9236,14 @@ func NewTLmessages_getMaskStickers() *TLmessages_getMaskStickers {
 
 // CodecEncode:messages_getMaskStickers
 func (m *TLmessages_getMaskStickers) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1706608543)
 	x.Int(m.Gethash())
 	return x.Buf
 }
 
 // CodecDecode:messages_getMaskStickers
-func (m *TLmessages_getMaskStickers) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessages_getMaskStickers) Decode(dbuf *api.DecodeBuf) error {
 	m.Sethash(dbuf.Int())
 	return dbuf.Err
 }
@@ -9257,7 +9257,7 @@ func NewTLmessages_getSearchCounters() *TLmessages_getSearchCounters {
 
 // CodecEncode:messages_getSearchCounters
 func (m *TLmessages_getSearchCounters) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1932455680)
 	x.Bytes(m.Getpeer().Encode())
 	x.Int(481674261)
@@ -9269,7 +9269,7 @@ func (m *TLmessages_getSearchCounters) Encode() []byte {
 }
 
 // CodecDecode:messages_getSearchCounters
-func (m *TLmessages_getSearchCounters) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessages_getSearchCounters) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &InputPeer{}
 	m0.Decode(dbuf)
 	m.Setpeer(m0)
@@ -9296,14 +9296,14 @@ func NewTLmessages_getAttachedStickers() *TLmessages_getAttachedStickers {
 
 // CodecEncode:messages_getAttachedStickers
 func (m *TLmessages_getAttachedStickers) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-866424884)
 	x.Bytes(m.Getmedia().Encode())
 	return x.Buf
 }
 
 // CodecDecode:messages_getAttachedStickers
-func (m *TLmessages_getAttachedStickers) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessages_getAttachedStickers) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &InputStickeredMedia{}
 	m0.Decode(dbuf)
 	m.Setmedia(m0)
@@ -9319,7 +9319,7 @@ func NewTLcontacts_deleteContacts() *TLcontacts_deleteContacts {
 
 // CodecEncode:contacts_deleteContacts
 func (m *TLcontacts_deleteContacts) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(157945344)
 	x.Int(481674261)
 	x.Int(int32(len(m.Getid())))
@@ -9330,7 +9330,7 @@ func (m *TLcontacts_deleteContacts) Encode() []byte {
 }
 
 // CodecDecode:contacts_deleteContacts
-func (m *TLcontacts_deleteContacts) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLcontacts_deleteContacts) Decode(dbuf *api.DecodeBuf) error {
 	c0 := dbuf.Int()
 	if c0 != 481674261 {
 		return dbuf.Err
@@ -9354,7 +9354,7 @@ func NewTLmessages_sendMessage() *TLmessages_sendMessage {
 
 // CodecEncode:messages_sendMessage
 func (m *TLmessages_sendMessage) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1376532592)
 	var flags uint32 = 0
 	if m.Getno_webpage() != false {
@@ -9405,7 +9405,7 @@ func (m *TLmessages_sendMessage) Encode() []byte {
 }
 
 // CodecDecode:messages_sendMessage
-func (m *TLmessages_sendMessage) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessages_sendMessage) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	if (flags & (1 << 0)) != 0 {
@@ -9461,7 +9461,7 @@ func NewTLmessages_sendMedia() *TLmessages_sendMedia {
 
 // CodecEncode:messages_sendMedia
 func (m *TLmessages_sendMedia) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(881978281)
 	var flags uint32 = 0
 	if m.Getsilent() != false {
@@ -9510,7 +9510,7 @@ func (m *TLmessages_sendMedia) Encode() []byte {
 }
 
 // CodecDecode:messages_sendMedia
-func (m *TLmessages_sendMedia) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessages_sendMedia) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	if (flags & (1 << 0)) != 0 {
@@ -9566,7 +9566,7 @@ func NewTLmessages_forwardMessages() *TLmessages_forwardMessages {
 
 // CodecEncode:messages_forwardMessages
 func (m *TLmessages_forwardMessages) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-637606386)
 	var flags uint32 = 0
 	if m.Getsilent() != false {
@@ -9601,7 +9601,7 @@ func (m *TLmessages_forwardMessages) Encode() []byte {
 }
 
 // CodecDecode:messages_forwardMessages
-func (m *TLmessages_forwardMessages) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessages_forwardMessages) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	if (flags & (1 << 0)) != 0 {
@@ -9636,7 +9636,7 @@ func NewTLmessages_editChatTitle() *TLmessages_editChatTitle {
 
 // CodecEncode:messages_editChatTitle
 func (m *TLmessages_editChatTitle) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-599447467)
 	x.Int(m.Getchat_id())
 	x.String(m.Gettitle())
@@ -9644,7 +9644,7 @@ func (m *TLmessages_editChatTitle) Encode() []byte {
 }
 
 // CodecDecode:messages_editChatTitle
-func (m *TLmessages_editChatTitle) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessages_editChatTitle) Decode(dbuf *api.DecodeBuf) error {
 	m.Setchat_id(dbuf.Int())
 	m.Settitle(dbuf.String())
 	return dbuf.Err
@@ -9659,7 +9659,7 @@ func NewTLmessages_editChatPhoto() *TLmessages_editChatPhoto {
 
 // CodecEncode:messages_editChatPhoto
 func (m *TLmessages_editChatPhoto) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-900957736)
 	x.Int(m.Getchat_id())
 	x.Bytes(m.Getphoto().Encode())
@@ -9667,7 +9667,7 @@ func (m *TLmessages_editChatPhoto) Encode() []byte {
 }
 
 // CodecDecode:messages_editChatPhoto
-func (m *TLmessages_editChatPhoto) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessages_editChatPhoto) Decode(dbuf *api.DecodeBuf) error {
 	m.Setchat_id(dbuf.Int())
 	m1 := &InputChatPhoto{}
 	m1.Decode(dbuf)
@@ -9684,7 +9684,7 @@ func NewTLmessages_addChatUser() *TLmessages_addChatUser {
 
 // CodecEncode:messages_addChatUser
 func (m *TLmessages_addChatUser) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-106911223)
 	x.Int(m.Getchat_id())
 	x.Bytes(m.Getuser_id().Encode())
@@ -9693,7 +9693,7 @@ func (m *TLmessages_addChatUser) Encode() []byte {
 }
 
 // CodecDecode:messages_addChatUser
-func (m *TLmessages_addChatUser) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessages_addChatUser) Decode(dbuf *api.DecodeBuf) error {
 	m.Setchat_id(dbuf.Int())
 	m1 := &InputUser{}
 	m1.Decode(dbuf)
@@ -9711,7 +9711,7 @@ func NewTLmessages_deleteChatUser() *TLmessages_deleteChatUser {
 
 // CodecEncode:messages_deleteChatUser
 func (m *TLmessages_deleteChatUser) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-530505962)
 	x.Int(m.Getchat_id())
 	x.Bytes(m.Getuser_id().Encode())
@@ -9719,7 +9719,7 @@ func (m *TLmessages_deleteChatUser) Encode() []byte {
 }
 
 // CodecDecode:messages_deleteChatUser
-func (m *TLmessages_deleteChatUser) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessages_deleteChatUser) Decode(dbuf *api.DecodeBuf) error {
 	m.Setchat_id(dbuf.Int())
 	m1 := &InputUser{}
 	m1.Decode(dbuf)
@@ -9736,7 +9736,7 @@ func NewTLmessages_createChat() *TLmessages_createChat {
 
 // CodecEncode:messages_createChat
 func (m *TLmessages_createChat) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(164303470)
 	x.Int(481674261)
 	x.Int(int32(len(m.Getusers())))
@@ -9748,7 +9748,7 @@ func (m *TLmessages_createChat) Encode() []byte {
 }
 
 // CodecDecode:messages_createChat
-func (m *TLmessages_createChat) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessages_createChat) Decode(dbuf *api.DecodeBuf) error {
 	c0 := dbuf.Int()
 	if c0 != 481674261 {
 		return dbuf.Err
@@ -9773,14 +9773,14 @@ func NewTLmessages_importChatInvite() *TLmessages_importChatInvite {
 
 // CodecEncode:messages_importChatInvite
 func (m *TLmessages_importChatInvite) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1817183516)
 	x.String(m.Gethash())
 	return x.Buf
 }
 
 // CodecDecode:messages_importChatInvite
-func (m *TLmessages_importChatInvite) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessages_importChatInvite) Decode(dbuf *api.DecodeBuf) error {
 	m.Sethash(dbuf.String())
 	return dbuf.Err
 }
@@ -9794,7 +9794,7 @@ func NewTLmessages_startBot() *TLmessages_startBot {
 
 // CodecEncode:messages_startBot
 func (m *TLmessages_startBot) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-421563528)
 	x.Bytes(m.Getbot().Encode())
 	x.Bytes(m.Getpeer().Encode())
@@ -9804,7 +9804,7 @@ func (m *TLmessages_startBot) Encode() []byte {
 }
 
 // CodecDecode:messages_startBot
-func (m *TLmessages_startBot) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessages_startBot) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &InputUser{}
 	m0.Decode(dbuf)
 	m.Setbot(m0)
@@ -9825,14 +9825,14 @@ func NewTLhelp_getAppChangelog() *TLhelp_getAppChangelog {
 
 // CodecEncode:help_getAppChangelog
 func (m *TLhelp_getAppChangelog) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1877938321)
 	x.String(m.Getprev_app_version())
 	return x.Buf
 }
 
 // CodecDecode:help_getAppChangelog
-func (m *TLhelp_getAppChangelog) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLhelp_getAppChangelog) Decode(dbuf *api.DecodeBuf) error {
 	m.Setprev_app_version(dbuf.String())
 	return dbuf.Err
 }
@@ -9846,7 +9846,7 @@ func NewTLchannels_createChannel() *TLchannels_createChannel {
 
 // CodecEncode:channels_createChannel
 func (m *TLchannels_createChannel) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1029681423)
 	var flags uint32 = 0
 	if m.Getbroadcast() != false {
@@ -9874,7 +9874,7 @@ func (m *TLchannels_createChannel) Encode() []byte {
 }
 
 // CodecDecode:channels_createChannel
-func (m *TLchannels_createChannel) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLchannels_createChannel) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	if (flags & (1 << 0)) != 0 {
@@ -9905,7 +9905,7 @@ func NewTLchannels_editAdmin() *TLchannels_editAdmin {
 
 // CodecEncode:channels_editAdmin
 func (m *TLchannels_editAdmin) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-751007486)
 	x.Bytes(m.Getchannel().Encode())
 	x.Bytes(m.Getuser_id().Encode())
@@ -9915,7 +9915,7 @@ func (m *TLchannels_editAdmin) Encode() []byte {
 }
 
 // CodecDecode:channels_editAdmin
-func (m *TLchannels_editAdmin) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLchannels_editAdmin) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &InputChannel{}
 	m0.Decode(dbuf)
 	m.Setchannel(m0)
@@ -9938,7 +9938,7 @@ func NewTLchannels_editTitle() *TLchannels_editTitle {
 
 // CodecEncode:channels_editTitle
 func (m *TLchannels_editTitle) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1450044624)
 	x.Bytes(m.Getchannel().Encode())
 	x.String(m.Gettitle())
@@ -9946,7 +9946,7 @@ func (m *TLchannels_editTitle) Encode() []byte {
 }
 
 // CodecDecode:channels_editTitle
-func (m *TLchannels_editTitle) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLchannels_editTitle) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &InputChannel{}
 	m0.Decode(dbuf)
 	m.Setchannel(m0)
@@ -9963,7 +9963,7 @@ func NewTLchannels_editPhoto() *TLchannels_editPhoto {
 
 // CodecEncode:channels_editPhoto
 func (m *TLchannels_editPhoto) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-248621111)
 	x.Bytes(m.Getchannel().Encode())
 	x.Bytes(m.Getphoto().Encode())
@@ -9971,7 +9971,7 @@ func (m *TLchannels_editPhoto) Encode() []byte {
 }
 
 // CodecDecode:channels_editPhoto
-func (m *TLchannels_editPhoto) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLchannels_editPhoto) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &InputChannel{}
 	m0.Decode(dbuf)
 	m.Setchannel(m0)
@@ -9990,14 +9990,14 @@ func NewTLchannels_joinChannel() *TLchannels_joinChannel {
 
 // CodecEncode:channels_joinChannel
 func (m *TLchannels_joinChannel) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(615851205)
 	x.Bytes(m.Getchannel().Encode())
 	return x.Buf
 }
 
 // CodecDecode:channels_joinChannel
-func (m *TLchannels_joinChannel) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLchannels_joinChannel) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &InputChannel{}
 	m0.Decode(dbuf)
 	m.Setchannel(m0)
@@ -10013,14 +10013,14 @@ func NewTLchannels_leaveChannel() *TLchannels_leaveChannel {
 
 // CodecEncode:channels_leaveChannel
 func (m *TLchannels_leaveChannel) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-130635115)
 	x.Bytes(m.Getchannel().Encode())
 	return x.Buf
 }
 
 // CodecDecode:channels_leaveChannel
-func (m *TLchannels_leaveChannel) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLchannels_leaveChannel) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &InputChannel{}
 	m0.Decode(dbuf)
 	m.Setchannel(m0)
@@ -10036,7 +10036,7 @@ func NewTLchannels_inviteToChannel() *TLchannels_inviteToChannel {
 
 // CodecEncode:channels_inviteToChannel
 func (m *TLchannels_inviteToChannel) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(429865580)
 	x.Bytes(m.Getchannel().Encode())
 	x.Int(481674261)
@@ -10048,7 +10048,7 @@ func (m *TLchannels_inviteToChannel) Encode() []byte {
 }
 
 // CodecDecode:channels_inviteToChannel
-func (m *TLchannels_inviteToChannel) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLchannels_inviteToChannel) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &InputChannel{}
 	m0.Decode(dbuf)
 	m.Setchannel(m0)
@@ -10075,14 +10075,14 @@ func NewTLchannels_deleteChannel() *TLchannels_deleteChannel {
 
 // CodecEncode:channels_deleteChannel
 func (m *TLchannels_deleteChannel) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1072619549)
 	x.Bytes(m.Getchannel().Encode())
 	return x.Buf
 }
 
 // CodecDecode:channels_deleteChannel
-func (m *TLchannels_deleteChannel) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLchannels_deleteChannel) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &InputChannel{}
 	m0.Decode(dbuf)
 	m.Setchannel(m0)
@@ -10098,14 +10098,14 @@ func NewTLmessages_migrateChat() *TLmessages_migrateChat {
 
 // CodecEncode:messages_migrateChat
 func (m *TLmessages_migrateChat) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(363051235)
 	x.Int(m.Getchat_id())
 	return x.Buf
 }
 
 // CodecDecode:messages_migrateChat
-func (m *TLmessages_migrateChat) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessages_migrateChat) Decode(dbuf *api.DecodeBuf) error {
 	m.Setchat_id(dbuf.Int())
 	return dbuf.Err
 }
@@ -10119,7 +10119,7 @@ func NewTLmessages_sendInlineBotResult() *TLmessages_sendInlineBotResult {
 
 // CodecEncode:messages_sendInlineBotResult
 func (m *TLmessages_sendInlineBotResult) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(570955184)
 	var flags uint32 = 0
 	if m.Getsilent() != false {
@@ -10155,7 +10155,7 @@ func (m *TLmessages_sendInlineBotResult) Encode() []byte {
 }
 
 // CodecDecode:messages_sendInlineBotResult
-func (m *TLmessages_sendInlineBotResult) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessages_sendInlineBotResult) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	if (flags & (1 << 0)) != 0 {
@@ -10194,7 +10194,7 @@ func NewTLchannels_toggleSignatures() *TLchannels_toggleSignatures {
 
 // CodecEncode:channels_toggleSignatures
 func (m *TLchannels_toggleSignatures) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(527021574)
 	x.Bytes(m.Getchannel().Encode())
 	x.Bytes(m.Getenabled().Encode())
@@ -10202,7 +10202,7 @@ func (m *TLchannels_toggleSignatures) Encode() []byte {
 }
 
 // CodecDecode:channels_toggleSignatures
-func (m *TLchannels_toggleSignatures) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLchannels_toggleSignatures) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &InputChannel{}
 	m0.Decode(dbuf)
 	m.Setchannel(m0)
@@ -10221,7 +10221,7 @@ func NewTLmessages_editMessage() *TLmessages_editMessage {
 
 // CodecEncode:messages_editMessage
 func (m *TLmessages_editMessage) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1224152952)
 	var flags uint32 = 0
 	if m.Getno_webpage() != false {
@@ -10268,7 +10268,7 @@ func (m *TLmessages_editMessage) Encode() []byte {
 }
 
 // CodecDecode:messages_editMessage
-func (m *TLmessages_editMessage) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessages_editMessage) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	if (flags & (1 << 0)) != 0 {
@@ -10319,13 +10319,13 @@ func NewTLmessages_getAllDrafts() *TLmessages_getAllDrafts {
 
 // CodecEncode:messages_getAllDrafts
 func (m *TLmessages_getAllDrafts) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1782549861)
 	return x.Buf
 }
 
 // CodecDecode:messages_getAllDrafts
-func (m *TLmessages_getAllDrafts) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessages_getAllDrafts) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -10338,7 +10338,7 @@ func NewTLmessages_setGameScore() *TLmessages_setGameScore {
 
 // CodecEncode:messages_setGameScore
 func (m *TLmessages_setGameScore) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1896289088)
 	var flags uint32 = 0
 	if m.Getedit_message() != false {
@@ -10356,7 +10356,7 @@ func (m *TLmessages_setGameScore) Encode() []byte {
 }
 
 // CodecDecode:messages_setGameScore
-func (m *TLmessages_setGameScore) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessages_setGameScore) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	if (flags & (1 << 0)) != 0 {
@@ -10385,7 +10385,7 @@ func NewTLphone_discardCall() *TLphone_discardCall {
 
 // CodecEncode:phone_discardCall
 func (m *TLphone_discardCall) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1295269440)
 	var flags uint32 = 0
 	if m.Getvideo() != false {
@@ -10400,7 +10400,7 @@ func (m *TLphone_discardCall) Encode() []byte {
 }
 
 // CodecDecode:phone_discardCall
-func (m *TLphone_discardCall) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLphone_discardCall) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	if (flags & (1 << 0)) != 0 {
@@ -10426,7 +10426,7 @@ func NewTLphone_setCallRating() *TLphone_setCallRating {
 
 // CodecEncode:phone_setCallRating
 func (m *TLphone_setCallRating) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1508562471)
 	var flags uint32 = 0
 	if m.Getuser_initiative() != false {
@@ -10440,7 +10440,7 @@ func (m *TLphone_setCallRating) Encode() []byte {
 }
 
 // CodecDecode:phone_setCallRating
-func (m *TLphone_setCallRating) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLphone_setCallRating) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	if (flags & (1 << 0)) != 0 {
@@ -10463,7 +10463,7 @@ func NewTLchannels_editBanned() *TLchannels_editBanned {
 
 // CodecEncode:channels_editBanned
 func (m *TLchannels_editBanned) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1920559378)
 	x.Bytes(m.Getchannel().Encode())
 	x.Bytes(m.Getuser_id().Encode())
@@ -10472,7 +10472,7 @@ func (m *TLchannels_editBanned) Encode() []byte {
 }
 
 // CodecDecode:channels_editBanned
-func (m *TLchannels_editBanned) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLchannels_editBanned) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &InputChannel{}
 	m0.Decode(dbuf)
 	m.Setchannel(m0)
@@ -10494,7 +10494,7 @@ func NewTLmessages_sendScreenshotNotification() *TLmessages_sendScreenshotNotifi
 
 // CodecEncode:messages_sendScreenshotNotification
 func (m *TLmessages_sendScreenshotNotification) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-914493408)
 	x.Bytes(m.Getpeer().Encode())
 	x.Int(m.Getreply_to_msg_id())
@@ -10503,7 +10503,7 @@ func (m *TLmessages_sendScreenshotNotification) Encode() []byte {
 }
 
 // CodecDecode:messages_sendScreenshotNotification
-func (m *TLmessages_sendScreenshotNotification) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessages_sendScreenshotNotification) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &InputPeer{}
 	m0.Decode(dbuf)
 	m.Setpeer(m0)
@@ -10521,7 +10521,7 @@ func NewTLchannels_togglePreHistoryHidden() *TLchannels_togglePreHistoryHidden {
 
 // CodecEncode:channels_togglePreHistoryHidden
 func (m *TLchannels_togglePreHistoryHidden) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-356796084)
 	x.Bytes(m.Getchannel().Encode())
 	x.Bytes(m.Getenabled().Encode())
@@ -10529,7 +10529,7 @@ func (m *TLchannels_togglePreHistoryHidden) Encode() []byte {
 }
 
 // CodecDecode:channels_togglePreHistoryHidden
-func (m *TLchannels_togglePreHistoryHidden) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLchannels_togglePreHistoryHidden) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &InputChannel{}
 	m0.Decode(dbuf)
 	m.Setchannel(m0)
@@ -10548,7 +10548,7 @@ func NewTLmessages_sendMultiMedia() *TLmessages_sendMultiMedia {
 
 // CodecEncode:messages_sendMultiMedia
 func (m *TLmessages_sendMultiMedia) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-872345397)
 	var flags uint32 = 0
 	if m.Getsilent() != false {
@@ -10583,7 +10583,7 @@ func (m *TLmessages_sendMultiMedia) Encode() []byte {
 }
 
 // CodecDecode:messages_sendMultiMedia
-func (m *TLmessages_sendMultiMedia) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessages_sendMultiMedia) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	if (flags & (1 << 0)) != 0 {
@@ -10627,7 +10627,7 @@ func NewTLmessages_updatePinnedMessage() *TLmessages_updatePinnedMessage {
 
 // CodecEncode:messages_updatePinnedMessage
 func (m *TLmessages_updatePinnedMessage) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-760547348)
 	var flags uint32 = 0
 	if m.Getsilent() != false {
@@ -10646,7 +10646,7 @@ func (m *TLmessages_updatePinnedMessage) Encode() []byte {
 }
 
 // CodecDecode:messages_updatePinnedMessage
-func (m *TLmessages_updatePinnedMessage) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessages_updatePinnedMessage) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	if (flags & (1 << 0)) != 0 {
@@ -10674,7 +10674,7 @@ func NewTLaccount_getNotifyExceptions() *TLaccount_getNotifyExceptions {
 
 // CodecEncode:account_getNotifyExceptions
 func (m *TLaccount_getNotifyExceptions) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1398240377)
 	var flags uint32 = 0
 	if m.Getcompare_sound() != false {
@@ -10691,7 +10691,7 @@ func (m *TLaccount_getNotifyExceptions) Encode() []byte {
 }
 
 // CodecDecode:account_getNotifyExceptions
-func (m *TLaccount_getNotifyExceptions) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLaccount_getNotifyExceptions) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	if (flags & (1 << 0)) != 0 {
@@ -10714,7 +10714,7 @@ func NewTLmessages_sendVote() *TLmessages_sendVote {
 
 // CodecEncode:messages_sendVote
 func (m *TLmessages_sendVote) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(283795844)
 	x.Bytes(m.Getpeer().Encode())
 	x.Int(m.Getmsg_id())
@@ -10727,7 +10727,7 @@ func (m *TLmessages_sendVote) Encode() []byte {
 }
 
 // CodecDecode:messages_sendVote
-func (m *TLmessages_sendVote) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessages_sendVote) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &InputPeer{}
 	m0.Decode(dbuf)
 	m.Setpeer(m0)
@@ -10754,7 +10754,7 @@ func NewTLmessages_getPollResults() *TLmessages_getPollResults {
 
 // CodecEncode:messages_getPollResults
 func (m *TLmessages_getPollResults) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1941660731)
 	x.Bytes(m.Getpeer().Encode())
 	x.Int(m.Getmsg_id())
@@ -10762,7 +10762,7 @@ func (m *TLmessages_getPollResults) Encode() []byte {
 }
 
 // CodecDecode:messages_getPollResults
-func (m *TLmessages_getPollResults) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessages_getPollResults) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &InputPeer{}
 	m0.Decode(dbuf)
 	m.Setpeer(m0)
@@ -10779,7 +10779,7 @@ func NewTLmessages_editChatDefaultBannedRights() *TLmessages_editChatDefaultBann
 
 // CodecEncode:messages_editChatDefaultBannedRights
 func (m *TLmessages_editChatDefaultBannedRights) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1517917375)
 	x.Bytes(m.Getpeer().Encode())
 	x.Bytes(m.Getbanned_rights().Encode())
@@ -10787,7 +10787,7 @@ func (m *TLmessages_editChatDefaultBannedRights) Encode() []byte {
 }
 
 // CodecDecode:messages_editChatDefaultBannedRights
-func (m *TLmessages_editChatDefaultBannedRights) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessages_editChatDefaultBannedRights) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &InputPeer{}
 	m0.Decode(dbuf)
 	m.Setpeer(m0)
@@ -10806,7 +10806,7 @@ func NewTLfolders_editPeerFolders() *TLfolders_editPeerFolders {
 
 // CodecEncode:folders_editPeerFolders
 func (m *TLfolders_editPeerFolders) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1749536939)
 	x.Int(481674261)
 	x.Int(int32(len(m.Getfolder_peers())))
@@ -10817,7 +10817,7 @@ func (m *TLfolders_editPeerFolders) Encode() []byte {
 }
 
 // CodecDecode:folders_editPeerFolders
-func (m *TLfolders_editPeerFolders) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLfolders_editPeerFolders) Decode(dbuf *api.DecodeBuf) error {
 	c0 := dbuf.Int()
 	if c0 != 481674261 {
 		return dbuf.Err
@@ -10841,14 +10841,14 @@ func NewTLfolders_deleteFolder() *TLfolders_deleteFolder {
 
 // CodecEncode:folders_deleteFolder
 func (m *TLfolders_deleteFolder) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(472471681)
 	x.Int(m.Getfolder_id())
 	return x.Buf
 }
 
 // CodecDecode:folders_deleteFolder
-func (m *TLfolders_deleteFolder) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLfolders_deleteFolder) Decode(dbuf *api.DecodeBuf) error {
 	m.Setfolder_id(dbuf.Int())
 	return dbuf.Err
 }
@@ -10862,7 +10862,7 @@ func NewTLcontacts_addContact() *TLcontacts_addContact {
 
 // CodecEncode:contacts_addContact
 func (m *TLcontacts_addContact) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-386636848)
 	var flags uint32 = 0
 	if m.Getadd_phone_privacy_exception() != false {
@@ -10877,7 +10877,7 @@ func (m *TLcontacts_addContact) Encode() []byte {
 }
 
 // CodecDecode:contacts_addContact
-func (m *TLcontacts_addContact) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLcontacts_addContact) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	if (flags & (1 << 0)) != 0 {
@@ -10901,14 +10901,14 @@ func NewTLcontacts_acceptContact() *TLcontacts_acceptContact {
 
 // CodecEncode:contacts_acceptContact
 func (m *TLcontacts_acceptContact) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-130964977)
 	x.Bytes(m.Getid().Encode())
 	return x.Buf
 }
 
 // CodecDecode:contacts_acceptContact
-func (m *TLcontacts_acceptContact) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLcontacts_acceptContact) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &InputUser{}
 	m0.Decode(dbuf)
 	m.Setid(m0)
@@ -10924,7 +10924,7 @@ func NewTLchannels_editCreator() *TLchannels_editCreator {
 
 // CodecEncode:channels_editCreator
 func (m *TLchannels_editCreator) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1892102881)
 	x.Bytes(m.Getchannel().Encode())
 	x.Bytes(m.Getuser_id().Encode())
@@ -10933,7 +10933,7 @@ func (m *TLchannels_editCreator) Encode() []byte {
 }
 
 // CodecDecode:channels_editCreator
-func (m *TLchannels_editCreator) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLchannels_editCreator) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &InputChannel{}
 	m0.Decode(dbuf)
 	m.Setchannel(m0)
@@ -10955,7 +10955,7 @@ func NewTLcontacts_getLocated() *TLcontacts_getLocated {
 
 // CodecEncode:contacts_getLocated
 func (m *TLcontacts_getLocated) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-750207932)
 	var flags uint32 = 0
 	if m.Getbackground() != false {
@@ -10973,7 +10973,7 @@ func (m *TLcontacts_getLocated) Encode() []byte {
 }
 
 // CodecDecode:contacts_getLocated
-func (m *TLcontacts_getLocated) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLcontacts_getLocated) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	if (flags & (1 << 0)) != 0 {
@@ -10997,7 +10997,7 @@ func NewTLchannels_toggleSlowMode() *TLchannels_toggleSlowMode {
 
 // CodecEncode:channels_toggleSlowMode
 func (m *TLchannels_toggleSlowMode) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-304832784)
 	x.Bytes(m.Getchannel().Encode())
 	x.Int(m.Getseconds())
@@ -11005,7 +11005,7 @@ func (m *TLchannels_toggleSlowMode) Encode() []byte {
 }
 
 // CodecDecode:channels_toggleSlowMode
-func (m *TLchannels_toggleSlowMode) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLchannels_toggleSlowMode) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &InputChannel{}
 	m0.Decode(dbuf)
 	m.Setchannel(m0)
@@ -11022,7 +11022,7 @@ func NewTLmessages_sendScheduledMessages() *TLmessages_sendScheduledMessages {
 
 // CodecEncode:messages_sendScheduledMessages
 func (m *TLmessages_sendScheduledMessages) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1120369398)
 	x.Bytes(m.Getpeer().Encode())
 	x.Int(481674261)
@@ -11034,7 +11034,7 @@ func (m *TLmessages_sendScheduledMessages) Encode() []byte {
 }
 
 // CodecDecode:messages_sendScheduledMessages
-func (m *TLmessages_sendScheduledMessages) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessages_sendScheduledMessages) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &InputPeer{}
 	m0.Decode(dbuf)
 	m.Setpeer(m0)
@@ -11051,7 +11051,7 @@ func NewTLmessages_deleteScheduledMessages() *TLmessages_deleteScheduledMessages
 
 // CodecEncode:messages_deleteScheduledMessages
 func (m *TLmessages_deleteScheduledMessages) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1504586518)
 	x.Bytes(m.Getpeer().Encode())
 	x.Int(481674261)
@@ -11063,7 +11063,7 @@ func (m *TLmessages_deleteScheduledMessages) Encode() []byte {
 }
 
 // CodecDecode:messages_deleteScheduledMessages
-func (m *TLmessages_deleteScheduledMessages) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessages_deleteScheduledMessages) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &InputPeer{}
 	m0.Decode(dbuf)
 	m.Setpeer(m0)
@@ -11080,7 +11080,7 @@ func NewTLcontacts_blockFromReplies() *TLcontacts_blockFromReplies {
 
 // CodecEncode:contacts_blockFromReplies
 func (m *TLcontacts_blockFromReplies) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(698914348)
 	var flags uint32 = 0
 	if m.Getdelete_message() != false {
@@ -11098,7 +11098,7 @@ func (m *TLcontacts_blockFromReplies) Encode() []byte {
 }
 
 // CodecDecode:contacts_blockFromReplies
-func (m *TLcontacts_blockFromReplies) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLcontacts_blockFromReplies) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	if (flags & (1 << 0)) != 0 {
@@ -11123,14 +11123,14 @@ func NewTLmessages_exportChatInvite() *TLmessages_exportChatInvite {
 
 // CodecEncode:messages_exportChatInvite
 func (m *TLmessages_exportChatInvite) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(234312524)
 	x.Bytes(m.Getpeer().Encode())
 	return x.Buf
 }
 
 // CodecDecode:messages_exportChatInvite
-func (m *TLmessages_exportChatInvite) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessages_exportChatInvite) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &InputPeer{}
 	m0.Decode(dbuf)
 	m.Setpeer(m0)
@@ -11146,7 +11146,7 @@ func NewTLlangpack_getStrings() *TLlangpack_getStrings {
 
 // CodecEncode:langpack_getStrings
 func (m *TLlangpack_getStrings) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-269862909)
 	x.String(m.Getlang_pack())
 	x.String(m.Getlang_code())
@@ -11159,7 +11159,7 @@ func (m *TLlangpack_getStrings) Encode() []byte {
 }
 
 // CodecDecode:langpack_getStrings
-func (m *TLlangpack_getStrings) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLlangpack_getStrings) Decode(dbuf *api.DecodeBuf) error {
 	m.Setlang_pack(dbuf.String())
 	m.Setlang_code(dbuf.String())
 	m.Setkeys(dbuf.VectorString())
@@ -11175,13 +11175,13 @@ func NewTLhelp_getPromoData() *TLhelp_getPromoData {
 
 // CodecEncode:help_getPromoData
 func (m *TLhelp_getPromoData) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1063816159)
 	return x.Buf
 }
 
 // CodecDecode:help_getPromoData
-func (m *TLhelp_getPromoData) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLhelp_getPromoData) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -11194,7 +11194,7 @@ func NewTLmessages_getMessagesViews() *TLmessages_getMessagesViews {
 
 // CodecEncode:messages_getMessagesViews
 func (m *TLmessages_getMessagesViews) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1468322785)
 	x.Bytes(m.Getpeer().Encode())
 	x.Int(481674261)
@@ -11207,7 +11207,7 @@ func (m *TLmessages_getMessagesViews) Encode() []byte {
 }
 
 // CodecDecode:messages_getMessagesViews
-func (m *TLmessages_getMessagesViews) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessages_getMessagesViews) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &InputPeer{}
 	m0.Decode(dbuf)
 	m.Setpeer(m0)
@@ -11227,7 +11227,7 @@ func NewTLauth_signUp() *TLauth_signUp {
 
 // CodecEncode:auth_signUp
 func (m *TLauth_signUp) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-2131827673)
 	x.String(m.Getphone_number())
 	x.String(m.Getphone_code_hash())
@@ -11237,7 +11237,7 @@ func (m *TLauth_signUp) Encode() []byte {
 }
 
 // CodecDecode:auth_signUp
-func (m *TLauth_signUp) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLauth_signUp) Decode(dbuf *api.DecodeBuf) error {
 	m.Setphone_number(dbuf.String())
 	m.Setphone_code_hash(dbuf.String())
 	m.Setfirst_name(dbuf.String())
@@ -11254,7 +11254,7 @@ func NewTLauth_signIn() *TLauth_signIn {
 
 // CodecEncode:auth_signIn
 func (m *TLauth_signIn) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1126886015)
 	x.String(m.Getphone_number())
 	x.String(m.Getphone_code_hash())
@@ -11263,7 +11263,7 @@ func (m *TLauth_signIn) Encode() []byte {
 }
 
 // CodecDecode:auth_signIn
-func (m *TLauth_signIn) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLauth_signIn) Decode(dbuf *api.DecodeBuf) error {
 	m.Setphone_number(dbuf.String())
 	m.Setphone_code_hash(dbuf.String())
 	m.Setphone_code(dbuf.String())
@@ -11279,7 +11279,7 @@ func NewTLauth_importAuthorization() *TLauth_importAuthorization {
 
 // CodecEncode:auth_importAuthorization
 func (m *TLauth_importAuthorization) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-470837741)
 	x.Int(m.Getid())
 	x.Bytes(m.Getbytes())
@@ -11287,7 +11287,7 @@ func (m *TLauth_importAuthorization) Encode() []byte {
 }
 
 // CodecDecode:auth_importAuthorization
-func (m *TLauth_importAuthorization) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLauth_importAuthorization) Decode(dbuf *api.DecodeBuf) error {
 	m.Setid(dbuf.Int())
 	m.Setbytes(dbuf.StringBytes())
 	return dbuf.Err
@@ -11302,7 +11302,7 @@ func NewTLauth_importBotAuthorization() *TLauth_importBotAuthorization {
 
 // CodecEncode:auth_importBotAuthorization
 func (m *TLauth_importBotAuthorization) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1738800940)
 	x.Int(m.Getflags())
 	x.Int(m.Getapi_id())
@@ -11312,7 +11312,7 @@ func (m *TLauth_importBotAuthorization) Encode() []byte {
 }
 
 // CodecDecode:auth_importBotAuthorization
-func (m *TLauth_importBotAuthorization) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLauth_importBotAuthorization) Decode(dbuf *api.DecodeBuf) error {
 	m.Setflags(dbuf.Int())
 	m.Setapi_id(dbuf.Int())
 	m.Setapi_hash(dbuf.String())
@@ -11329,14 +11329,14 @@ func NewTLauth_checkPassword() *TLauth_checkPassword {
 
 // CodecEncode:auth_checkPassword
 func (m *TLauth_checkPassword) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-779399914)
 	x.Bytes(m.Getpassword().Encode())
 	return x.Buf
 }
 
 // CodecDecode:auth_checkPassword
-func (m *TLauth_checkPassword) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLauth_checkPassword) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &InputCheckPasswordSRP{}
 	m0.Decode(dbuf)
 	m.Setpassword(m0)
@@ -11352,14 +11352,14 @@ func NewTLauth_recoverPassword() *TLauth_recoverPassword {
 
 // CodecEncode:auth_recoverPassword
 func (m *TLauth_recoverPassword) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1319464594)
 	x.String(m.Getcode())
 	return x.Buf
 }
 
 // CodecDecode:auth_recoverPassword
-func (m *TLauth_recoverPassword) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLauth_recoverPassword) Decode(dbuf *api.DecodeBuf) error {
 	m.Setcode(dbuf.String())
 	return dbuf.Err
 }
@@ -11373,14 +11373,14 @@ func NewTLmessages_getFavedStickers() *TLmessages_getFavedStickers {
 
 // CodecEncode:messages_getFavedStickers
 func (m *TLmessages_getFavedStickers) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(567151374)
 	x.Int(m.Gethash())
 	return x.Buf
 }
 
 // CodecDecode:messages_getFavedStickers
-func (m *TLmessages_getFavedStickers) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessages_getFavedStickers) Decode(dbuf *api.DecodeBuf) error {
 	m.Sethash(dbuf.Int())
 	return dbuf.Err
 }
@@ -11394,14 +11394,14 @@ func NewTLaccount_getPasswordSettings() *TLaccount_getPasswordSettings {
 
 // CodecEncode:account_getPasswordSettings
 func (m *TLaccount_getPasswordSettings) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1663767815)
 	x.Bytes(m.Getpassword().Encode())
 	return x.Buf
 }
 
 // CodecDecode:account_getPasswordSettings
-func (m *TLaccount_getPasswordSettings) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLaccount_getPasswordSettings) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &InputCheckPasswordSRP{}
 	m0.Decode(dbuf)
 	m.Setpassword(m0)
@@ -11417,14 +11417,14 @@ func NewTLmessages_getFullChat() *TLmessages_getFullChat {
 
 // CodecEncode:messages_getFullChat
 func (m *TLmessages_getFullChat) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(998448230)
 	x.Int(m.Getchat_id())
 	return x.Buf
 }
 
 // CodecDecode:messages_getFullChat
-func (m *TLmessages_getFullChat) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessages_getFullChat) Decode(dbuf *api.DecodeBuf) error {
 	m.Setchat_id(dbuf.Int())
 	return dbuf.Err
 }
@@ -11438,14 +11438,14 @@ func NewTLchannels_getFullChannel() *TLchannels_getFullChannel {
 
 // CodecEncode:channels_getFullChannel
 func (m *TLchannels_getFullChannel) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(141781513)
 	x.Bytes(m.Getchannel().Encode())
 	return x.Buf
 }
 
 // CodecDecode:channels_getFullChannel
-func (m *TLchannels_getFullChannel) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLchannels_getFullChannel) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &InputChannel{}
 	m0.Decode(dbuf)
 	m.Setchannel(m0)
@@ -11461,7 +11461,7 @@ func NewTLchannels_getAdminLog() *TLchannels_getAdminLog {
 
 // CodecEncode:channels_getAdminLog
 func (m *TLchannels_getAdminLog) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(870184064)
 	var flags uint32 = 0
 	if m.Getevents_filter().Constructor != 0 {
@@ -11490,7 +11490,7 @@ func (m *TLchannels_getAdminLog) Encode() []byte {
 }
 
 // CodecDecode:channels_getAdminLog
-func (m *TLchannels_getAdminLog) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLchannels_getAdminLog) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	m0 := &InputChannel{}
@@ -11530,13 +11530,13 @@ func NewTLaccount_getAutoDownloadSettings() *TLaccount_getAutoDownloadSettings {
 
 // CodecEncode:account_getAutoDownloadSettings
 func (m *TLaccount_getAutoDownloadSettings) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1457130303)
 	return x.Buf
 }
 
 // CodecDecode:account_getAutoDownloadSettings
-func (m *TLaccount_getAutoDownloadSettings) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLaccount_getAutoDownloadSettings) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -11549,14 +11549,14 @@ func NewTLaccount_getPrivacy() *TLaccount_getPrivacy {
 
 // CodecEncode:account_getPrivacy
 func (m *TLaccount_getPrivacy) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-623130288)
 	x.Bytes(m.Getkey_key().Encode())
 	return x.Buf
 }
 
 // CodecDecode:account_getPrivacy
-func (m *TLaccount_getPrivacy) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLaccount_getPrivacy) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &InputPrivacyKey{}
 	m0.Decode(dbuf)
 	m.Setkey_key(m0)
@@ -11572,7 +11572,7 @@ func NewTLaccount_setPrivacy() *TLaccount_setPrivacy {
 
 // CodecEncode:account_setPrivacy
 func (m *TLaccount_setPrivacy) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-906486552)
 	x.Bytes(m.Getkey_key().Encode())
 	x.Int(481674261)
@@ -11584,7 +11584,7 @@ func (m *TLaccount_setPrivacy) Encode() []byte {
 }
 
 // CodecDecode:account_setPrivacy
-func (m *TLaccount_setPrivacy) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLaccount_setPrivacy) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &InputPrivacyKey{}
 	m0.Decode(dbuf)
 	m.Setkey_key(m0)
@@ -11611,14 +11611,14 @@ func NewTLphotos_updateProfilePhoto() *TLphotos_updateProfilePhoto {
 
 // CodecEncode:photos_updateProfilePhoto
 func (m *TLphotos_updateProfilePhoto) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1926525996)
 	x.Bytes(m.Getid().Encode())
 	return x.Buf
 }
 
 // CodecDecode:photos_updateProfilePhoto
-func (m *TLphotos_updateProfilePhoto) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLphotos_updateProfilePhoto) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &InputPhoto{}
 	m0.Decode(dbuf)
 	m.Setid(m0)
@@ -11634,7 +11634,7 @@ func NewTLphotos_uploadProfilePhoto() *TLphotos_uploadProfilePhoto {
 
 // CodecEncode:photos_uploadProfilePhoto
 func (m *TLphotos_uploadProfilePhoto) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1980559511)
 	var flags uint32 = 0
 	if m.Getfile().Constructor != 0 {
@@ -11660,7 +11660,7 @@ func (m *TLphotos_uploadProfilePhoto) Encode() []byte {
 }
 
 // CodecDecode:photos_uploadProfilePhoto
-func (m *TLphotos_uploadProfilePhoto) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLphotos_uploadProfilePhoto) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	if (flags & (1 << 0)) != 0 {
@@ -11688,13 +11688,13 @@ func NewTLcontacts_getStatuses() *TLcontacts_getStatuses {
 
 // CodecEncode:contacts_getStatuses
 func (m *TLcontacts_getStatuses) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-995929106)
 	return x.Buf
 }
 
 // CodecDecode:contacts_getStatuses
-func (m *TLcontacts_getStatuses) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLcontacts_getStatuses) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -11707,13 +11707,13 @@ func NewTLaccount_getAuthorizations() *TLaccount_getAuthorizations {
 
 // CodecEncode:account_getAuthorizations
 func (m *TLaccount_getAuthorizations) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-484392616)
 	return x.Buf
 }
 
 // CodecDecode:account_getAuthorizations
-func (m *TLaccount_getAuthorizations) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLaccount_getAuthorizations) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -11726,14 +11726,14 @@ func NewTLpayments_getPaymentForm() *TLpayments_getPaymentForm {
 
 // CodecEncode:payments_getPaymentForm
 func (m *TLpayments_getPaymentForm) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1712285883)
 	x.Int(m.Getmsg_id())
 	return x.Buf
 }
 
 // CodecDecode:payments_getPaymentForm
-func (m *TLpayments_getPaymentForm) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLpayments_getPaymentForm) Decode(dbuf *api.DecodeBuf) error {
 	m.Setmsg_id(dbuf.Int())
 	return dbuf.Err
 }
@@ -11747,13 +11747,13 @@ func NewTLhelp_getCdnConfig() *TLhelp_getCdnConfig {
 
 // CodecEncode:help_getCdnConfig
 func (m *TLhelp_getCdnConfig) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1375900482)
 	return x.Buf
 }
 
 // CodecDecode:help_getCdnConfig
-func (m *TLhelp_getCdnConfig) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLhelp_getCdnConfig) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -11766,7 +11766,7 @@ func NewTLmessages_getDocumentByHash() *TLmessages_getDocumentByHash {
 
 // CodecEncode:messages_getDocumentByHash
 func (m *TLmessages_getDocumentByHash) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(864953444)
 	x.Bytes(m.Getsha256())
 	x.Int(m.Getsize())
@@ -11775,7 +11775,7 @@ func (m *TLmessages_getDocumentByHash) Encode() []byte {
 }
 
 // CodecDecode:messages_getDocumentByHash
-func (m *TLmessages_getDocumentByHash) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessages_getDocumentByHash) Decode(dbuf *api.DecodeBuf) error {
 	m.Setsha256(dbuf.StringBytes())
 	m.Setsize(dbuf.Int())
 	m.Setmime_type(dbuf.String())
@@ -11791,7 +11791,7 @@ func NewTLaccount_uploadTheme() *TLaccount_uploadTheme {
 
 // CodecEncode:account_uploadTheme
 func (m *TLaccount_uploadTheme) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(473805619)
 	var flags uint32 = 0
 	if m.Getthumb().Constructor != 0 {
@@ -11808,7 +11808,7 @@ func (m *TLaccount_uploadTheme) Encode() []byte {
 }
 
 // CodecDecode:account_uploadTheme
-func (m *TLaccount_uploadTheme) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLaccount_uploadTheme) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	m0 := &InputFile{}
@@ -11833,13 +11833,13 @@ func NewTLmessages_getSuggestedDialogFilters() *TLmessages_getSuggestedDialogFil
 
 // CodecEncode:messages_getSuggestedDialogFilters
 func (m *TLmessages_getSuggestedDialogFilters) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1566780372)
 	return x.Buf
 }
 
 // CodecDecode:messages_getSuggestedDialogFilters
-func (m *TLmessages_getSuggestedDialogFilters) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessages_getSuggestedDialogFilters) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -11852,13 +11852,13 @@ func NewTLauth_logOut() *TLauth_logOut {
 
 // CodecEncode:auth_logOut
 func (m *TLauth_logOut) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1461180992)
 	return x.Buf
 }
 
 // CodecDecode:auth_logOut
-func (m *TLauth_logOut) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLauth_logOut) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -11871,13 +11871,13 @@ func NewTLauth_resetAuthorizations() *TLauth_resetAuthorizations {
 
 // CodecEncode:auth_resetAuthorizations
 func (m *TLauth_resetAuthorizations) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1616179942)
 	return x.Buf
 }
 
 // CodecDecode:auth_resetAuthorizations
-func (m *TLauth_resetAuthorizations) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLauth_resetAuthorizations) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -11890,7 +11890,7 @@ func NewTLauth_bindTempAuthKey() *TLauth_bindTempAuthKey {
 
 // CodecEncode:auth_bindTempAuthKey
 func (m *TLauth_bindTempAuthKey) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-841733627)
 	x.Long(m.Getperm_auth_key_id())
 	x.Long(m.Getnonce())
@@ -11900,7 +11900,7 @@ func (m *TLauth_bindTempAuthKey) Encode() []byte {
 }
 
 // CodecDecode:auth_bindTempAuthKey
-func (m *TLauth_bindTempAuthKey) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLauth_bindTempAuthKey) Decode(dbuf *api.DecodeBuf) error {
 	m.Setperm_auth_key_id(dbuf.Long())
 	m.Setnonce(dbuf.Long())
 	m.Setexpires_at(dbuf.Int())
@@ -11917,7 +11917,7 @@ func NewTLaccount_registerDevice() *TLaccount_registerDevice {
 
 // CodecEncode:account_registerDevice
 func (m *TLaccount_registerDevice) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1754754159)
 	var flags uint32 = 0
 	if m.Getno_muted() != false {
@@ -11937,7 +11937,7 @@ func (m *TLaccount_registerDevice) Encode() []byte {
 }
 
 // CodecDecode:account_registerDevice
-func (m *TLaccount_registerDevice) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLaccount_registerDevice) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	if (flags & (1 << 0)) != 0 {
@@ -11962,7 +11962,7 @@ func NewTLaccount_unregisterDevice() *TLaccount_unregisterDevice {
 
 // CodecEncode:account_unregisterDevice
 func (m *TLaccount_unregisterDevice) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(813089983)
 	x.Int(m.Gettoken_type())
 	x.String(m.Gettoken())
@@ -11975,7 +11975,7 @@ func (m *TLaccount_unregisterDevice) Encode() []byte {
 }
 
 // CodecDecode:account_unregisterDevice
-func (m *TLaccount_unregisterDevice) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLaccount_unregisterDevice) Decode(dbuf *api.DecodeBuf) error {
 	m.Settoken_type(dbuf.Int())
 	m.Settoken(dbuf.String())
 	m.Setother_uids(dbuf.VectorInt())
@@ -11991,7 +11991,7 @@ func NewTLaccount_updateNotifySettings() *TLaccount_updateNotifySettings {
 
 // CodecEncode:account_updateNotifySettings
 func (m *TLaccount_updateNotifySettings) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-2067899501)
 	x.Bytes(m.Getpeer().Encode())
 	x.Bytes(m.Getsettings().Encode())
@@ -11999,7 +11999,7 @@ func (m *TLaccount_updateNotifySettings) Encode() []byte {
 }
 
 // CodecDecode:account_updateNotifySettings
-func (m *TLaccount_updateNotifySettings) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLaccount_updateNotifySettings) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &InputNotifyPeer{}
 	m0.Decode(dbuf)
 	m.Setpeer(m0)
@@ -12018,13 +12018,13 @@ func NewTLaccount_resetNotifySettings() *TLaccount_resetNotifySettings {
 
 // CodecEncode:account_resetNotifySettings
 func (m *TLaccount_resetNotifySettings) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-612493497)
 	return x.Buf
 }
 
 // CodecDecode:account_resetNotifySettings
-func (m *TLaccount_resetNotifySettings) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLaccount_resetNotifySettings) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -12037,14 +12037,14 @@ func NewTLaccount_updateStatus() *TLaccount_updateStatus {
 
 // CodecEncode:account_updateStatus
 func (m *TLaccount_updateStatus) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1713919532)
 	x.Bytes(m.Getoffline().Encode())
 	return x.Buf
 }
 
 // CodecDecode:account_updateStatus
-func (m *TLaccount_updateStatus) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLaccount_updateStatus) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &Bool{}
 	m0.Decode(dbuf)
 	m.Setoffline(m0)
@@ -12060,7 +12060,7 @@ func NewTLaccount_reportPeer() *TLaccount_reportPeer {
 
 // CodecEncode:account_reportPeer
 func (m *TLaccount_reportPeer) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1374118561)
 	x.Bytes(m.Getpeer().Encode())
 	x.Bytes(m.Getreason().Encode())
@@ -12068,7 +12068,7 @@ func (m *TLaccount_reportPeer) Encode() []byte {
 }
 
 // CodecDecode:account_reportPeer
-func (m *TLaccount_reportPeer) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLaccount_reportPeer) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &InputPeer{}
 	m0.Decode(dbuf)
 	m.Setpeer(m0)
@@ -12087,7 +12087,7 @@ func NewTLcontacts_deleteByPhones() *TLcontacts_deleteByPhones {
 
 // CodecEncode:contacts_deleteByPhones
 func (m *TLcontacts_deleteByPhones) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(269745566)
 	x.Int(481674261)
 	x.Int(int32(len(m.Getphones())))
@@ -12098,7 +12098,7 @@ func (m *TLcontacts_deleteByPhones) Encode() []byte {
 }
 
 // CodecDecode:contacts_deleteByPhones
-func (m *TLcontacts_deleteByPhones) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLcontacts_deleteByPhones) Decode(dbuf *api.DecodeBuf) error {
 	m.Setphones(dbuf.VectorString())
 	return dbuf.Err
 }
@@ -12112,14 +12112,14 @@ func NewTLcontacts_block() *TLcontacts_block {
 
 // CodecEncode:contacts_block
 func (m *TLcontacts_block) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1758204945)
 	x.Bytes(m.Getid().Encode())
 	return x.Buf
 }
 
 // CodecDecode:contacts_block
-func (m *TLcontacts_block) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLcontacts_block) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &InputPeer{}
 	m0.Decode(dbuf)
 	m.Setid(m0)
@@ -12135,14 +12135,14 @@ func NewTLcontacts_unblock() *TLcontacts_unblock {
 
 // CodecEncode:contacts_unblock
 func (m *TLcontacts_unblock) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1096393392)
 	x.Bytes(m.Getid().Encode())
 	return x.Buf
 }
 
 // CodecDecode:contacts_unblock
-func (m *TLcontacts_unblock) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLcontacts_unblock) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &InputPeer{}
 	m0.Decode(dbuf)
 	m.Setid(m0)
@@ -12158,7 +12158,7 @@ func NewTLmessages_setTyping() *TLmessages_setTyping {
 
 // CodecEncode:messages_setTyping
 func (m *TLmessages_setTyping) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1486110434)
 	var flags uint32 = 0
 	if m.Gettop_msg_id() != 0 {
@@ -12174,7 +12174,7 @@ func (m *TLmessages_setTyping) Encode() []byte {
 }
 
 // CodecDecode:messages_setTyping
-func (m *TLmessages_setTyping) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessages_setTyping) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	m0 := &InputPeer{}
@@ -12198,14 +12198,14 @@ func NewTLmessages_reportSpam() *TLmessages_reportSpam {
 
 // CodecEncode:messages_reportSpam
 func (m *TLmessages_reportSpam) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-820669733)
 	x.Bytes(m.Getpeer().Encode())
 	return x.Buf
 }
 
 // CodecDecode:messages_reportSpam
-func (m *TLmessages_reportSpam) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessages_reportSpam) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &InputPeer{}
 	m0.Decode(dbuf)
 	m.Setpeer(m0)
@@ -12221,7 +12221,7 @@ func NewTLmessages_report() *TLmessages_report {
 
 // CodecEncode:messages_report
 func (m *TLmessages_report) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1115507112)
 	x.Bytes(m.Getpeer().Encode())
 	x.Int(481674261)
@@ -12234,7 +12234,7 @@ func (m *TLmessages_report) Encode() []byte {
 }
 
 // CodecDecode:messages_report
-func (m *TLmessages_report) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessages_report) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &InputPeer{}
 	m0.Decode(dbuf)
 	m.Setpeer(m0)
@@ -12254,7 +12254,7 @@ func NewTLupload_saveFilePart() *TLupload_saveFilePart {
 
 // CodecEncode:upload_saveFilePart
 func (m *TLupload_saveFilePart) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1291540959)
 	x.Long(m.Getfile_id())
 	x.Int(m.Getfile_part())
@@ -12263,7 +12263,7 @@ func (m *TLupload_saveFilePart) Encode() []byte {
 }
 
 // CodecDecode:upload_saveFilePart
-func (m *TLupload_saveFilePart) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLupload_saveFilePart) Decode(dbuf *api.DecodeBuf) error {
 	m.Setfile_id(dbuf.Long())
 	m.Setfile_part(dbuf.Int())
 	m.Setbytes(dbuf.StringBytes())
@@ -12279,14 +12279,14 @@ func NewTLmessages_discardEncryption() *TLmessages_discardEncryption {
 
 // CodecEncode:messages_discardEncryption
 func (m *TLmessages_discardEncryption) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-304536635)
 	x.Int(m.Getchat_id())
 	return x.Buf
 }
 
 // CodecDecode:messages_discardEncryption
-func (m *TLmessages_discardEncryption) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessages_discardEncryption) Decode(dbuf *api.DecodeBuf) error {
 	m.Setchat_id(dbuf.Int())
 	return dbuf.Err
 }
@@ -12300,7 +12300,7 @@ func NewTLmessages_setEncryptedTyping() *TLmessages_setEncryptedTyping {
 
 // CodecEncode:messages_setEncryptedTyping
 func (m *TLmessages_setEncryptedTyping) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(2031374829)
 	x.Bytes(m.Getpeer().Encode())
 	x.Bytes(m.Gettyping().Encode())
@@ -12308,7 +12308,7 @@ func (m *TLmessages_setEncryptedTyping) Encode() []byte {
 }
 
 // CodecDecode:messages_setEncryptedTyping
-func (m *TLmessages_setEncryptedTyping) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessages_setEncryptedTyping) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &InputEncryptedChat{}
 	m0.Decode(dbuf)
 	m.Setpeer(m0)
@@ -12327,7 +12327,7 @@ func NewTLmessages_readEncryptedHistory() *TLmessages_readEncryptedHistory {
 
 // CodecEncode:messages_readEncryptedHistory
 func (m *TLmessages_readEncryptedHistory) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(2135648522)
 	x.Bytes(m.Getpeer().Encode())
 	x.Int(m.Getmax_date())
@@ -12335,7 +12335,7 @@ func (m *TLmessages_readEncryptedHistory) Encode() []byte {
 }
 
 // CodecDecode:messages_readEncryptedHistory
-func (m *TLmessages_readEncryptedHistory) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessages_readEncryptedHistory) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &InputEncryptedChat{}
 	m0.Decode(dbuf)
 	m.Setpeer(m0)
@@ -12352,14 +12352,14 @@ func NewTLmessages_reportEncryptedSpam() *TLmessages_reportEncryptedSpam {
 
 // CodecEncode:messages_reportEncryptedSpam
 func (m *TLmessages_reportEncryptedSpam) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1259113487)
 	x.Bytes(m.Getpeer().Encode())
 	return x.Buf
 }
 
 // CodecDecode:messages_reportEncryptedSpam
-func (m *TLmessages_reportEncryptedSpam) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessages_reportEncryptedSpam) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &InputEncryptedChat{}
 	m0.Decode(dbuf)
 	m.Setpeer(m0)
@@ -12375,7 +12375,7 @@ func NewTLupload_saveBigFilePart() *TLupload_saveBigFilePart {
 
 // CodecEncode:upload_saveBigFilePart
 func (m *TLupload_saveBigFilePart) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-562337987)
 	x.Long(m.Getfile_id())
 	x.Int(m.Getfile_part())
@@ -12385,7 +12385,7 @@ func (m *TLupload_saveBigFilePart) Encode() []byte {
 }
 
 // CodecDecode:upload_saveBigFilePart
-func (m *TLupload_saveBigFilePart) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLupload_saveBigFilePart) Decode(dbuf *api.DecodeBuf) error {
 	m.Setfile_id(dbuf.Long())
 	m.Setfile_part(dbuf.Int())
 	m.Setfile_total_parts(dbuf.Int())
@@ -12402,14 +12402,14 @@ func NewTLaccount_checkUsername() *TLaccount_checkUsername {
 
 // CodecEncode:account_checkUsername
 func (m *TLaccount_checkUsername) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(655677548)
 	x.String(m.Getusername())
 	return x.Buf
 }
 
 // CodecDecode:account_checkUsername
-func (m *TLaccount_checkUsername) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLaccount_checkUsername) Decode(dbuf *api.DecodeBuf) error {
 	m.Setusername(dbuf.String())
 	return dbuf.Err
 }
@@ -12423,14 +12423,14 @@ func NewTLaccount_deleteAccount() *TLaccount_deleteAccount {
 
 // CodecEncode:account_deleteAccount
 func (m *TLaccount_deleteAccount) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1099779595)
 	x.String(m.Getreason())
 	return x.Buf
 }
 
 // CodecDecode:account_deleteAccount
-func (m *TLaccount_deleteAccount) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLaccount_deleteAccount) Decode(dbuf *api.DecodeBuf) error {
 	m.Setreason(dbuf.String())
 	return dbuf.Err
 }
@@ -12444,14 +12444,14 @@ func NewTLaccount_setAccountTTL() *TLaccount_setAccountTTL {
 
 // CodecEncode:account_setAccountTTL
 func (m *TLaccount_setAccountTTL) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(608323678)
 	x.Bytes(m.Getttl().Encode())
 	return x.Buf
 }
 
 // CodecDecode:account_setAccountTTL
-func (m *TLaccount_setAccountTTL) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLaccount_setAccountTTL) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &AccountDaysTTL{}
 	m0.Decode(dbuf)
 	m.Setttl(m0)
@@ -12467,14 +12467,14 @@ func NewTLaccount_updateDeviceLocked() *TLaccount_updateDeviceLocked {
 
 // CodecEncode:account_updateDeviceLocked
 func (m *TLaccount_updateDeviceLocked) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(954152242)
 	x.Int(m.Getperiod())
 	return x.Buf
 }
 
 // CodecDecode:account_updateDeviceLocked
-func (m *TLaccount_updateDeviceLocked) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLaccount_updateDeviceLocked) Decode(dbuf *api.DecodeBuf) error {
 	m.Setperiod(dbuf.Int())
 	return dbuf.Err
 }
@@ -12488,14 +12488,14 @@ func NewTLaccount_resetAuthorization() *TLaccount_resetAuthorization {
 
 // CodecEncode:account_resetAuthorization
 func (m *TLaccount_resetAuthorization) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-545786948)
 	x.Long(m.Gethash())
 	return x.Buf
 }
 
 // CodecDecode:account_resetAuthorization
-func (m *TLaccount_resetAuthorization) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLaccount_resetAuthorization) Decode(dbuf *api.DecodeBuf) error {
 	m.Sethash(dbuf.Long())
 	return dbuf.Err
 }
@@ -12509,7 +12509,7 @@ func NewTLaccount_updatePasswordSettings() *TLaccount_updatePasswordSettings {
 
 // CodecEncode:account_updatePasswordSettings
 func (m *TLaccount_updatePasswordSettings) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1516564433)
 	x.Bytes(m.Getpassword().Encode())
 	x.Bytes(m.Getnew_settings().Encode())
@@ -12517,7 +12517,7 @@ func (m *TLaccount_updatePasswordSettings) Encode() []byte {
 }
 
 // CodecDecode:account_updatePasswordSettings
-func (m *TLaccount_updatePasswordSettings) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLaccount_updatePasswordSettings) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &InputCheckPasswordSRP{}
 	m0.Decode(dbuf)
 	m.Setpassword(m0)
@@ -12536,14 +12536,14 @@ func NewTLmessages_uninstallStickerSet() *TLmessages_uninstallStickerSet {
 
 // CodecEncode:messages_uninstallStickerSet
 func (m *TLmessages_uninstallStickerSet) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-110209570)
 	x.Bytes(m.Getstickerset().Encode())
 	return x.Buf
 }
 
 // CodecDecode:messages_uninstallStickerSet
-func (m *TLmessages_uninstallStickerSet) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessages_uninstallStickerSet) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &InputStickerSet{}
 	m0.Decode(dbuf)
 	m.Setstickerset(m0)
@@ -12559,7 +12559,7 @@ func NewTLchannels_readHistory() *TLchannels_readHistory {
 
 // CodecEncode:channels_readHistory
 func (m *TLchannels_readHistory) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-871347913)
 	x.Bytes(m.Getchannel().Encode())
 	x.Int(m.Getmax_id())
@@ -12567,7 +12567,7 @@ func (m *TLchannels_readHistory) Encode() []byte {
 }
 
 // CodecDecode:channels_readHistory
-func (m *TLchannels_readHistory) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLchannels_readHistory) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &InputChannel{}
 	m0.Decode(dbuf)
 	m.Setchannel(m0)
@@ -12584,7 +12584,7 @@ func NewTLchannels_reportSpam() *TLchannels_reportSpam {
 
 // CodecEncode:channels_reportSpam
 func (m *TLchannels_reportSpam) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-32999408)
 	x.Bytes(m.Getchannel().Encode())
 	x.Bytes(m.Getuser_id().Encode())
@@ -12597,7 +12597,7 @@ func (m *TLchannels_reportSpam) Encode() []byte {
 }
 
 // CodecDecode:channels_reportSpam
-func (m *TLchannels_reportSpam) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLchannels_reportSpam) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &InputChannel{}
 	m0.Decode(dbuf)
 	m.Setchannel(m0)
@@ -12617,7 +12617,7 @@ func NewTLchannels_checkUsername() *TLchannels_checkUsername {
 
 // CodecEncode:channels_checkUsername
 func (m *TLchannels_checkUsername) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(283557164)
 	x.Bytes(m.Getchannel().Encode())
 	x.String(m.Getusername())
@@ -12625,7 +12625,7 @@ func (m *TLchannels_checkUsername) Encode() []byte {
 }
 
 // CodecDecode:channels_checkUsername
-func (m *TLchannels_checkUsername) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLchannels_checkUsername) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &InputChannel{}
 	m0.Decode(dbuf)
 	m.Setchannel(m0)
@@ -12642,7 +12642,7 @@ func NewTLchannels_updateUsername() *TLchannels_updateUsername {
 
 // CodecEncode:channels_updateUsername
 func (m *TLchannels_updateUsername) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(890549214)
 	x.Bytes(m.Getchannel().Encode())
 	x.String(m.Getusername())
@@ -12650,7 +12650,7 @@ func (m *TLchannels_updateUsername) Encode() []byte {
 }
 
 // CodecDecode:channels_updateUsername
-func (m *TLchannels_updateUsername) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLchannels_updateUsername) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &InputChannel{}
 	m0.Decode(dbuf)
 	m.Setchannel(m0)
@@ -12667,7 +12667,7 @@ func NewTLmessages_editChatAdmin() *TLmessages_editChatAdmin {
 
 // CodecEncode:messages_editChatAdmin
 func (m *TLmessages_editChatAdmin) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1444503762)
 	x.Int(m.Getchat_id())
 	x.Bytes(m.Getuser_id().Encode())
@@ -12676,7 +12676,7 @@ func (m *TLmessages_editChatAdmin) Encode() []byte {
 }
 
 // CodecDecode:messages_editChatAdmin
-func (m *TLmessages_editChatAdmin) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessages_editChatAdmin) Decode(dbuf *api.DecodeBuf) error {
 	m.Setchat_id(dbuf.Int())
 	m1 := &InputUser{}
 	m1.Decode(dbuf)
@@ -12696,7 +12696,7 @@ func NewTLmessages_reorderStickerSets() *TLmessages_reorderStickerSets {
 
 // CodecEncode:messages_reorderStickerSets
 func (m *TLmessages_reorderStickerSets) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(2016638777)
 	var flags uint32 = 0
 	if m.Getmasks() != false {
@@ -12712,7 +12712,7 @@ func (m *TLmessages_reorderStickerSets) Encode() []byte {
 }
 
 // CodecDecode:messages_reorderStickerSets
-func (m *TLmessages_reorderStickerSets) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessages_reorderStickerSets) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	if (flags & (1 << 0)) != 0 {
@@ -12731,7 +12731,7 @@ func NewTLmessages_saveGif() *TLmessages_saveGif {
 
 // CodecEncode:messages_saveGif
 func (m *TLmessages_saveGif) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(846868683)
 	x.Bytes(m.Getid().Encode())
 	x.Bytes(m.Getunsave().Encode())
@@ -12739,7 +12739,7 @@ func (m *TLmessages_saveGif) Encode() []byte {
 }
 
 // CodecDecode:messages_saveGif
-func (m *TLmessages_saveGif) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessages_saveGif) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &InputDocument{}
 	m0.Decode(dbuf)
 	m.Setid(m0)
@@ -12758,7 +12758,7 @@ func NewTLmessages_setInlineBotResults() *TLmessages_setInlineBotResults {
 
 // CodecEncode:messages_setInlineBotResults
 func (m *TLmessages_setInlineBotResults) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-346119674)
 	var flags uint32 = 0
 	if m.Getgallery() != false {
@@ -12791,7 +12791,7 @@ func (m *TLmessages_setInlineBotResults) Encode() []byte {
 }
 
 // CodecDecode:messages_setInlineBotResults
-func (m *TLmessages_setInlineBotResults) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessages_setInlineBotResults) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	if (flags & (1 << 0)) != 0 {
@@ -12833,7 +12833,7 @@ func NewTLauth_cancelCode() *TLauth_cancelCode {
 
 // CodecEncode:auth_cancelCode
 func (m *TLauth_cancelCode) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(520357240)
 	x.String(m.Getphone_number())
 	x.String(m.Getphone_code_hash())
@@ -12841,7 +12841,7 @@ func (m *TLauth_cancelCode) Encode() []byte {
 }
 
 // CodecDecode:auth_cancelCode
-func (m *TLauth_cancelCode) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLauth_cancelCode) Decode(dbuf *api.DecodeBuf) error {
 	m.Setphone_number(dbuf.String())
 	m.Setphone_code_hash(dbuf.String())
 	return dbuf.Err
@@ -12856,7 +12856,7 @@ func NewTLmessages_editInlineBotMessage() *TLmessages_editInlineBotMessage {
 
 // CodecEncode:messages_editInlineBotMessage
 func (m *TLmessages_editInlineBotMessage) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-2091549254)
 	var flags uint32 = 0
 	if m.Getno_webpage() != false {
@@ -12896,7 +12896,7 @@ func (m *TLmessages_editInlineBotMessage) Encode() []byte {
 }
 
 // CodecDecode:messages_editInlineBotMessage
-func (m *TLmessages_editInlineBotMessage) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessages_editInlineBotMessage) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	if (flags & (1 << 0)) != 0 {
@@ -12943,7 +12943,7 @@ func NewTLmessages_setBotCallbackAnswer() *TLmessages_setBotCallbackAnswer {
 
 // CodecEncode:messages_setBotCallbackAnswer
 func (m *TLmessages_setBotCallbackAnswer) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-712043766)
 	var flags uint32 = 0
 	if m.Getalert() != false {
@@ -12968,7 +12968,7 @@ func (m *TLmessages_setBotCallbackAnswer) Encode() []byte {
 }
 
 // CodecDecode:messages_setBotCallbackAnswer
-func (m *TLmessages_setBotCallbackAnswer) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessages_setBotCallbackAnswer) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	if (flags & (1 << 0)) != 0 {
@@ -12994,7 +12994,7 @@ func NewTLcontacts_resetTopPeerRating() *TLcontacts_resetTopPeerRating {
 
 // CodecEncode:contacts_resetTopPeerRating
 func (m *TLcontacts_resetTopPeerRating) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(451113900)
 	x.Bytes(m.Getcategory().Encode())
 	x.Bytes(m.Getpeer().Encode())
@@ -13002,7 +13002,7 @@ func (m *TLcontacts_resetTopPeerRating) Encode() []byte {
 }
 
 // CodecDecode:contacts_resetTopPeerRating
-func (m *TLcontacts_resetTopPeerRating) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLcontacts_resetTopPeerRating) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &TopPeerCategory{}
 	m0.Decode(dbuf)
 	m.Setcategory(m0)
@@ -13021,7 +13021,7 @@ func NewTLmessages_saveDraft() *TLmessages_saveDraft {
 
 // CodecEncode:messages_saveDraft
 func (m *TLmessages_saveDraft) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1137057461)
 	var flags uint32 = 0
 	if m.Getno_webpage() != false {
@@ -13050,7 +13050,7 @@ func (m *TLmessages_saveDraft) Encode() []byte {
 }
 
 // CodecDecode:messages_saveDraft
-func (m *TLmessages_saveDraft) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessages_saveDraft) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	if (flags & (1 << 0)) != 0 {
@@ -13088,7 +13088,7 @@ func NewTLmessages_readFeaturedStickers() *TLmessages_readFeaturedStickers {
 
 // CodecEncode:messages_readFeaturedStickers
 func (m *TLmessages_readFeaturedStickers) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1527873830)
 	x.Int(481674261)
 	x.Int(int32(len(m.Getid())))
@@ -13099,7 +13099,7 @@ func (m *TLmessages_readFeaturedStickers) Encode() []byte {
 }
 
 // CodecDecode:messages_readFeaturedStickers
-func (m *TLmessages_readFeaturedStickers) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessages_readFeaturedStickers) Decode(dbuf *api.DecodeBuf) error {
 	m.Setid(dbuf.VectorLong())
 	return dbuf.Err
 }
@@ -13113,7 +13113,7 @@ func NewTLmessages_saveRecentSticker() *TLmessages_saveRecentSticker {
 
 // CodecEncode:messages_saveRecentSticker
 func (m *TLmessages_saveRecentSticker) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(958863608)
 	var flags uint32 = 0
 	if m.Getattached() != false {
@@ -13126,7 +13126,7 @@ func (m *TLmessages_saveRecentSticker) Encode() []byte {
 }
 
 // CodecDecode:messages_saveRecentSticker
-func (m *TLmessages_saveRecentSticker) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessages_saveRecentSticker) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	if (flags & (1 << 0)) != 0 {
@@ -13150,7 +13150,7 @@ func NewTLmessages_clearRecentStickers() *TLmessages_clearRecentStickers {
 
 // CodecEncode:messages_clearRecentStickers
 func (m *TLmessages_clearRecentStickers) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1986437075)
 	var flags uint32 = 0
 	if m.Getattached() != false {
@@ -13161,7 +13161,7 @@ func (m *TLmessages_clearRecentStickers) Encode() []byte {
 }
 
 // CodecDecode:messages_clearRecentStickers
-func (m *TLmessages_clearRecentStickers) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessages_clearRecentStickers) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	if (flags & (1 << 0)) != 0 {
@@ -13179,7 +13179,7 @@ func NewTLaccount_confirmPhone() *TLaccount_confirmPhone {
 
 // CodecEncode:account_confirmPhone
 func (m *TLaccount_confirmPhone) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1596029123)
 	x.String(m.Getphone_code_hash())
 	x.String(m.Getphone_code())
@@ -13187,7 +13187,7 @@ func (m *TLaccount_confirmPhone) Encode() []byte {
 }
 
 // CodecDecode:account_confirmPhone
-func (m *TLaccount_confirmPhone) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLaccount_confirmPhone) Decode(dbuf *api.DecodeBuf) error {
 	m.Setphone_code_hash(dbuf.String())
 	m.Setphone_code(dbuf.String())
 	return dbuf.Err
@@ -13202,7 +13202,7 @@ func NewTLauth_dropTempAuthKeys() *TLauth_dropTempAuthKeys {
 
 // CodecEncode:auth_dropTempAuthKeys
 func (m *TLauth_dropTempAuthKeys) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1907842680)
 	x.Int(481674261)
 	x.Int(int32(len(m.Getexcept_auth_keys())))
@@ -13213,7 +13213,7 @@ func (m *TLauth_dropTempAuthKeys) Encode() []byte {
 }
 
 // CodecDecode:auth_dropTempAuthKeys
-func (m *TLauth_dropTempAuthKeys) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLauth_dropTempAuthKeys) Decode(dbuf *api.DecodeBuf) error {
 	m.Setexcept_auth_keys(dbuf.VectorLong())
 	return dbuf.Err
 }
@@ -13227,7 +13227,7 @@ func NewTLmessages_setInlineGameScore() *TLmessages_setInlineGameScore {
 
 // CodecEncode:messages_setInlineGameScore
 func (m *TLmessages_setInlineGameScore) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(363700068)
 	var flags uint32 = 0
 	if m.Getedit_message() != false {
@@ -13244,7 +13244,7 @@ func (m *TLmessages_setInlineGameScore) Encode() []byte {
 }
 
 // CodecDecode:messages_setInlineGameScore
-func (m *TLmessages_setInlineGameScore) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessages_setInlineGameScore) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	if (flags & (1 << 0)) != 0 {
@@ -13272,7 +13272,7 @@ func NewTLhelp_setBotUpdatesStatus() *TLhelp_setBotUpdatesStatus {
 
 // CodecEncode:help_setBotUpdatesStatus
 func (m *TLhelp_setBotUpdatesStatus) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-333262899)
 	x.Int(m.Getpending_updates_count())
 	x.String(m.Getmessage())
@@ -13280,7 +13280,7 @@ func (m *TLhelp_setBotUpdatesStatus) Encode() []byte {
 }
 
 // CodecDecode:help_setBotUpdatesStatus
-func (m *TLhelp_setBotUpdatesStatus) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLhelp_setBotUpdatesStatus) Decode(dbuf *api.DecodeBuf) error {
 	m.Setpending_updates_count(dbuf.Int())
 	m.Setmessage(dbuf.String())
 	return dbuf.Err
@@ -13295,7 +13295,7 @@ func NewTLmessages_toggleDialogPin() *TLmessages_toggleDialogPin {
 
 // CodecEncode:messages_toggleDialogPin
 func (m *TLmessages_toggleDialogPin) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1489903017)
 	var flags uint32 = 0
 	if m.Getpinned() != false {
@@ -13307,7 +13307,7 @@ func (m *TLmessages_toggleDialogPin) Encode() []byte {
 }
 
 // CodecDecode:messages_toggleDialogPin
-func (m *TLmessages_toggleDialogPin) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessages_toggleDialogPin) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	if (flags & (1 << 0)) != 0 {
@@ -13328,7 +13328,7 @@ func NewTLmessages_reorderPinnedDialogs() *TLmessages_reorderPinnedDialogs {
 
 // CodecEncode:messages_reorderPinnedDialogs
 func (m *TLmessages_reorderPinnedDialogs) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(991616823)
 	var flags uint32 = 0
 	if m.Getforce() != false {
@@ -13345,7 +13345,7 @@ func (m *TLmessages_reorderPinnedDialogs) Encode() []byte {
 }
 
 // CodecDecode:messages_reorderPinnedDialogs
-func (m *TLmessages_reorderPinnedDialogs) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessages_reorderPinnedDialogs) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	if (flags & (1 << 0)) != 0 {
@@ -13375,7 +13375,7 @@ func NewTLbots_answerWebhookJSONQuery() *TLbots_answerWebhookJSONQuery {
 
 // CodecEncode:bots_answerWebhookJSONQuery
 func (m *TLbots_answerWebhookJSONQuery) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-434028723)
 	x.Long(m.Getquery_id())
 	x.Bytes(m.Getdata().Encode())
@@ -13383,7 +13383,7 @@ func (m *TLbots_answerWebhookJSONQuery) Encode() []byte {
 }
 
 // CodecDecode:bots_answerWebhookJSONQuery
-func (m *TLbots_answerWebhookJSONQuery) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLbots_answerWebhookJSONQuery) Decode(dbuf *api.DecodeBuf) error {
 	m.Setquery_id(dbuf.Long())
 	m1 := &DataJSON{}
 	m1.Decode(dbuf)
@@ -13400,7 +13400,7 @@ func NewTLpayments_clearSavedInfo() *TLpayments_clearSavedInfo {
 
 // CodecEncode:payments_clearSavedInfo
 func (m *TLpayments_clearSavedInfo) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-667062079)
 	var flags uint32 = 0
 	if m.Getcredentials() != false {
@@ -13414,7 +13414,7 @@ func (m *TLpayments_clearSavedInfo) Encode() []byte {
 }
 
 // CodecDecode:payments_clearSavedInfo
-func (m *TLpayments_clearSavedInfo) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLpayments_clearSavedInfo) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	if (flags & (1 << 0)) != 0 {
@@ -13435,7 +13435,7 @@ func NewTLmessages_setBotShippingResults() *TLmessages_setBotShippingResults {
 
 // CodecEncode:messages_setBotShippingResults
 func (m *TLmessages_setBotShippingResults) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-436833542)
 	var flags uint32 = 0
 	if m.Geterror() != "" {
@@ -13460,7 +13460,7 @@ func (m *TLmessages_setBotShippingResults) Encode() []byte {
 }
 
 // CodecDecode:messages_setBotShippingResults
-func (m *TLmessages_setBotShippingResults) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessages_setBotShippingResults) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	m.Setquery_id(dbuf.Long())
@@ -13492,7 +13492,7 @@ func NewTLmessages_setBotPrecheckoutResults() *TLmessages_setBotPrecheckoutResul
 
 // CodecEncode:messages_setBotPrecheckoutResults
 func (m *TLmessages_setBotPrecheckoutResults) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(163765653)
 	var flags uint32 = 0
 	if m.Getsuccess() != false {
@@ -13510,7 +13510,7 @@ func (m *TLmessages_setBotPrecheckoutResults) Encode() []byte {
 }
 
 // CodecDecode:messages_setBotPrecheckoutResults
-func (m *TLmessages_setBotPrecheckoutResults) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessages_setBotPrecheckoutResults) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	if (flags & (1 << 0)) != 0 {
@@ -13532,14 +13532,14 @@ func NewTLphone_receivedCall() *TLphone_receivedCall {
 
 // CodecEncode:phone_receivedCall
 func (m *TLphone_receivedCall) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(399855457)
 	x.Bytes(m.Getpeer().Encode())
 	return x.Buf
 }
 
 // CodecDecode:phone_receivedCall
-func (m *TLphone_receivedCall) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLphone_receivedCall) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &InputPhoneCall{}
 	m0.Decode(dbuf)
 	m.Setpeer(m0)
@@ -13555,7 +13555,7 @@ func NewTLphone_saveCallDebug() *TLphone_saveCallDebug {
 
 // CodecEncode:phone_saveCallDebug
 func (m *TLphone_saveCallDebug) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(662363518)
 	x.Bytes(m.Getpeer().Encode())
 	x.Bytes(m.Getdebug().Encode())
@@ -13563,7 +13563,7 @@ func (m *TLphone_saveCallDebug) Encode() []byte {
 }
 
 // CodecDecode:phone_saveCallDebug
-func (m *TLphone_saveCallDebug) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLphone_saveCallDebug) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &InputPhoneCall{}
 	m0.Decode(dbuf)
 	m.Setpeer(m0)
@@ -13582,7 +13582,7 @@ func NewTLchannels_setStickers() *TLchannels_setStickers {
 
 // CodecEncode:channels_setStickers
 func (m *TLchannels_setStickers) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-359881479)
 	x.Bytes(m.Getchannel().Encode())
 	x.Bytes(m.Getstickerset().Encode())
@@ -13590,7 +13590,7 @@ func (m *TLchannels_setStickers) Encode() []byte {
 }
 
 // CodecDecode:channels_setStickers
-func (m *TLchannels_setStickers) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLchannels_setStickers) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &InputChannel{}
 	m0.Decode(dbuf)
 	m.Setchannel(m0)
@@ -13609,7 +13609,7 @@ func NewTLmessages_faveSticker() *TLmessages_faveSticker {
 
 // CodecEncode:messages_faveSticker
 func (m *TLmessages_faveSticker) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1174420133)
 	x.Bytes(m.Getid().Encode())
 	x.Bytes(m.Getunfave().Encode())
@@ -13617,7 +13617,7 @@ func (m *TLmessages_faveSticker) Encode() []byte {
 }
 
 // CodecDecode:messages_faveSticker
-func (m *TLmessages_faveSticker) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessages_faveSticker) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &InputDocument{}
 	m0.Decode(dbuf)
 	m.Setid(m0)
@@ -13636,7 +13636,7 @@ func NewTLchannels_readMessageContents() *TLchannels_readMessageContents {
 
 // CodecEncode:channels_readMessageContents
 func (m *TLchannels_readMessageContents) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-357180360)
 	x.Bytes(m.Getchannel().Encode())
 	x.Int(481674261)
@@ -13648,7 +13648,7 @@ func (m *TLchannels_readMessageContents) Encode() []byte {
 }
 
 // CodecDecode:channels_readMessageContents
-func (m *TLchannels_readMessageContents) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLchannels_readMessageContents) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &InputChannel{}
 	m0.Decode(dbuf)
 	m.Setchannel(m0)
@@ -13665,13 +13665,13 @@ func NewTLcontacts_resetSaved() *TLcontacts_resetSaved {
 
 // CodecEncode:contacts_resetSaved
 func (m *TLcontacts_resetSaved) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-2020263951)
 	return x.Buf
 }
 
 // CodecDecode:contacts_resetSaved
-func (m *TLcontacts_resetSaved) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLcontacts_resetSaved) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -13684,7 +13684,7 @@ func NewTLchannels_deleteHistory() *TLchannels_deleteHistory {
 
 // CodecEncode:channels_deleteHistory
 func (m *TLchannels_deleteHistory) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1355375294)
 	x.Bytes(m.Getchannel().Encode())
 	x.Int(m.Getmax_id())
@@ -13692,7 +13692,7 @@ func (m *TLchannels_deleteHistory) Encode() []byte {
 }
 
 // CodecDecode:channels_deleteHistory
-func (m *TLchannels_deleteHistory) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLchannels_deleteHistory) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &InputChannel{}
 	m0.Decode(dbuf)
 	m.Setchannel(m0)
@@ -13709,14 +13709,14 @@ func NewTLaccount_resetWebAuthorization() *TLaccount_resetWebAuthorization {
 
 // CodecEncode:account_resetWebAuthorization
 func (m *TLaccount_resetWebAuthorization) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(755087855)
 	x.Long(m.Gethash())
 	return x.Buf
 }
 
 // CodecDecode:account_resetWebAuthorization
-func (m *TLaccount_resetWebAuthorization) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLaccount_resetWebAuthorization) Decode(dbuf *api.DecodeBuf) error {
 	m.Sethash(dbuf.Long())
 	return dbuf.Err
 }
@@ -13730,13 +13730,13 @@ func NewTLaccount_resetWebAuthorizations() *TLaccount_resetWebAuthorizations {
 
 // CodecEncode:account_resetWebAuthorizations
 func (m *TLaccount_resetWebAuthorizations) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1747789204)
 	return x.Buf
 }
 
 // CodecDecode:account_resetWebAuthorizations
-func (m *TLaccount_resetWebAuthorizations) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLaccount_resetWebAuthorizations) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -13749,14 +13749,14 @@ func NewTLhelp_acceptTermsOfService() *TLhelp_acceptTermsOfService {
 
 // CodecEncode:help_acceptTermsOfService
 func (m *TLhelp_acceptTermsOfService) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-294455398)
 	x.Bytes(m.Getid().Encode())
 	return x.Buf
 }
 
 // CodecDecode:help_acceptTermsOfService
-func (m *TLhelp_acceptTermsOfService) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLhelp_acceptTermsOfService) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &DataJSON{}
 	m0.Decode(dbuf)
 	m.Setid(m0)
@@ -13772,7 +13772,7 @@ func NewTLaccount_deleteSecureValue() *TLaccount_deleteSecureValue {
 
 // CodecEncode:account_deleteSecureValue
 func (m *TLaccount_deleteSecureValue) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1199522741)
 	x.Int(481674261)
 	x.Int(int32(len(m.Gettypes())))
@@ -13783,7 +13783,7 @@ func (m *TLaccount_deleteSecureValue) Encode() []byte {
 }
 
 // CodecDecode:account_deleteSecureValue
-func (m *TLaccount_deleteSecureValue) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLaccount_deleteSecureValue) Decode(dbuf *api.DecodeBuf) error {
 	c0 := dbuf.Int()
 	if c0 != 481674261 {
 		return dbuf.Err
@@ -13807,7 +13807,7 @@ func NewTLusers_setSecureValueErrors() *TLusers_setSecureValueErrors {
 
 // CodecEncode:users_setSecureValueErrors
 func (m *TLusers_setSecureValueErrors) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1865902923)
 	x.Bytes(m.Getid().Encode())
 	x.Int(481674261)
@@ -13819,7 +13819,7 @@ func (m *TLusers_setSecureValueErrors) Encode() []byte {
 }
 
 // CodecDecode:users_setSecureValueErrors
-func (m *TLusers_setSecureValueErrors) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLusers_setSecureValueErrors) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &InputUser{}
 	m0.Decode(dbuf)
 	m.Setid(m0)
@@ -13846,7 +13846,7 @@ func NewTLaccount_acceptAuthorization() *TLaccount_acceptAuthorization {
 
 // CodecEncode:account_acceptAuthorization
 func (m *TLaccount_acceptAuthorization) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-419267436)
 	x.Int(m.Getbot_id())
 	x.String(m.Getscope())
@@ -13861,7 +13861,7 @@ func (m *TLaccount_acceptAuthorization) Encode() []byte {
 }
 
 // CodecDecode:account_acceptAuthorization
-func (m *TLaccount_acceptAuthorization) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLaccount_acceptAuthorization) Decode(dbuf *api.DecodeBuf) error {
 	m.Setbot_id(dbuf.Int())
 	m.Setscope(dbuf.String())
 	m.Setpublic_key(dbuf.String())
@@ -13891,7 +13891,7 @@ func NewTLaccount_verifyPhone() *TLaccount_verifyPhone {
 
 // CodecEncode:account_verifyPhone
 func (m *TLaccount_verifyPhone) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1305716726)
 	x.String(m.Getphone_number())
 	x.String(m.Getphone_code_hash())
@@ -13900,7 +13900,7 @@ func (m *TLaccount_verifyPhone) Encode() []byte {
 }
 
 // CodecDecode:account_verifyPhone
-func (m *TLaccount_verifyPhone) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLaccount_verifyPhone) Decode(dbuf *api.DecodeBuf) error {
 	m.Setphone_number(dbuf.String())
 	m.Setphone_code_hash(dbuf.String())
 	m.Setphone_code(dbuf.String())
@@ -13916,7 +13916,7 @@ func NewTLaccount_verifyEmail() *TLaccount_verifyEmail {
 
 // CodecEncode:account_verifyEmail
 func (m *TLaccount_verifyEmail) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-323339813)
 	x.String(m.Getemail())
 	x.String(m.Getcode())
@@ -13924,7 +13924,7 @@ func (m *TLaccount_verifyEmail) Encode() []byte {
 }
 
 // CodecDecode:account_verifyEmail
-func (m *TLaccount_verifyEmail) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLaccount_verifyEmail) Decode(dbuf *api.DecodeBuf) error {
 	m.Setemail(dbuf.String())
 	m.Setcode(dbuf.String())
 	return dbuf.Err
@@ -13939,7 +13939,7 @@ func NewTLaccount_finishTakeoutSession() *TLaccount_finishTakeoutSession {
 
 // CodecEncode:account_finishTakeoutSession
 func (m *TLaccount_finishTakeoutSession) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(489050862)
 	var flags uint32 = 0
 	if m.Getsuccess() != false {
@@ -13950,7 +13950,7 @@ func (m *TLaccount_finishTakeoutSession) Encode() []byte {
 }
 
 // CodecDecode:account_finishTakeoutSession
-func (m *TLaccount_finishTakeoutSession) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLaccount_finishTakeoutSession) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	if (flags & (1 << 0)) != 0 {
@@ -13968,7 +13968,7 @@ func NewTLmessages_markDialogUnread() *TLmessages_markDialogUnread {
 
 // CodecEncode:messages_markDialogUnread
 func (m *TLmessages_markDialogUnread) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1031349873)
 	var flags uint32 = 0
 	if m.Getunread() != false {
@@ -13980,7 +13980,7 @@ func (m *TLmessages_markDialogUnread) Encode() []byte {
 }
 
 // CodecDecode:messages_markDialogUnread
-func (m *TLmessages_markDialogUnread) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessages_markDialogUnread) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	if (flags & (1 << 0)) != 0 {
@@ -14001,14 +14001,14 @@ func NewTLcontacts_toggleTopPeers() *TLcontacts_toggleTopPeers {
 
 // CodecEncode:contacts_toggleTopPeers
 func (m *TLcontacts_toggleTopPeers) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-2062238246)
 	x.Bytes(m.Getenabled().Encode())
 	return x.Buf
 }
 
 // CodecDecode:contacts_toggleTopPeers
-func (m *TLcontacts_toggleTopPeers) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLcontacts_toggleTopPeers) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &Bool{}
 	m0.Decode(dbuf)
 	m.Setenabled(m0)
@@ -14024,13 +14024,13 @@ func NewTLmessages_clearAllDrafts() *TLmessages_clearAllDrafts {
 
 // CodecEncode:messages_clearAllDrafts
 func (m *TLmessages_clearAllDrafts) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(2119757468)
 	return x.Buf
 }
 
 // CodecDecode:messages_clearAllDrafts
-func (m *TLmessages_clearAllDrafts) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessages_clearAllDrafts) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -14043,7 +14043,7 @@ func NewTLhelp_saveAppLog() *TLhelp_saveAppLog {
 
 // CodecEncode:help_saveAppLog
 func (m *TLhelp_saveAppLog) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1862465352)
 	x.Int(481674261)
 	x.Int(int32(len(m.Getevents())))
@@ -14054,7 +14054,7 @@ func (m *TLhelp_saveAppLog) Encode() []byte {
 }
 
 // CodecDecode:help_saveAppLog
-func (m *TLhelp_saveAppLog) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLhelp_saveAppLog) Decode(dbuf *api.DecodeBuf) error {
 	c0 := dbuf.Int()
 	if c0 != 481674261 {
 		return dbuf.Err
@@ -14078,14 +14078,14 @@ func NewTLaccount_confirmPasswordEmail() *TLaccount_confirmPasswordEmail {
 
 // CodecEncode:account_confirmPasswordEmail
 func (m *TLaccount_confirmPasswordEmail) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1881204448)
 	x.String(m.Getcode())
 	return x.Buf
 }
 
 // CodecDecode:account_confirmPasswordEmail
-func (m *TLaccount_confirmPasswordEmail) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLaccount_confirmPasswordEmail) Decode(dbuf *api.DecodeBuf) error {
 	m.Setcode(dbuf.String())
 	return dbuf.Err
 }
@@ -14099,13 +14099,13 @@ func NewTLaccount_resendPasswordEmail() *TLaccount_resendPasswordEmail {
 
 // CodecEncode:account_resendPasswordEmail
 func (m *TLaccount_resendPasswordEmail) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(2055154197)
 	return x.Buf
 }
 
 // CodecDecode:account_resendPasswordEmail
-func (m *TLaccount_resendPasswordEmail) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLaccount_resendPasswordEmail) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -14118,13 +14118,13 @@ func NewTLaccount_cancelPasswordEmail() *TLaccount_cancelPasswordEmail {
 
 // CodecEncode:account_cancelPasswordEmail
 func (m *TLaccount_cancelPasswordEmail) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1043606090)
 	return x.Buf
 }
 
 // CodecDecode:account_cancelPasswordEmail
-func (m *TLaccount_cancelPasswordEmail) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLaccount_cancelPasswordEmail) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -14137,13 +14137,13 @@ func NewTLaccount_getContactSignUpNotification() *TLaccount_getContactSignUpNoti
 
 // CodecEncode:account_getContactSignUpNotification
 func (m *TLaccount_getContactSignUpNotification) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1626880216)
 	return x.Buf
 }
 
 // CodecDecode:account_getContactSignUpNotification
-func (m *TLaccount_getContactSignUpNotification) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLaccount_getContactSignUpNotification) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -14156,14 +14156,14 @@ func NewTLaccount_setContactSignUpNotification() *TLaccount_setContactSignUpNoti
 
 // CodecEncode:account_setContactSignUpNotification
 func (m *TLaccount_setContactSignUpNotification) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-806076575)
 	x.Bytes(m.Getsilent().Encode())
 	return x.Buf
 }
 
 // CodecDecode:account_setContactSignUpNotification
-func (m *TLaccount_setContactSignUpNotification) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLaccount_setContactSignUpNotification) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &Bool{}
 	m0.Decode(dbuf)
 	m.Setsilent(m0)
@@ -14179,7 +14179,7 @@ func NewTLmessages_editChatAbout() *TLmessages_editChatAbout {
 
 // CodecEncode:messages_editChatAbout
 func (m *TLmessages_editChatAbout) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-554301545)
 	x.Bytes(m.Getpeer().Encode())
 	x.String(m.Getabout())
@@ -14187,7 +14187,7 @@ func (m *TLmessages_editChatAbout) Encode() []byte {
 }
 
 // CodecDecode:messages_editChatAbout
-func (m *TLmessages_editChatAbout) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessages_editChatAbout) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &InputPeer{}
 	m0.Decode(dbuf)
 	m.Setpeer(m0)
@@ -14204,7 +14204,7 @@ func NewTLaccount_saveWallPaper() *TLaccount_saveWallPaper {
 
 // CodecEncode:account_saveWallPaper
 func (m *TLaccount_saveWallPaper) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1817860919)
 	x.Bytes(m.Getwallpaper().Encode())
 	x.Bytes(m.Getunsave().Encode())
@@ -14213,7 +14213,7 @@ func (m *TLaccount_saveWallPaper) Encode() []byte {
 }
 
 // CodecDecode:account_saveWallPaper
-func (m *TLaccount_saveWallPaper) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLaccount_saveWallPaper) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &InputWallPaper{}
 	m0.Decode(dbuf)
 	m.Setwallpaper(m0)
@@ -14235,7 +14235,7 @@ func NewTLaccount_installWallPaper() *TLaccount_installWallPaper {
 
 // CodecEncode:account_installWallPaper
 func (m *TLaccount_installWallPaper) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-18000023)
 	x.Bytes(m.Getwallpaper().Encode())
 	x.Bytes(m.Getsettings().Encode())
@@ -14243,7 +14243,7 @@ func (m *TLaccount_installWallPaper) Encode() []byte {
 }
 
 // CodecDecode:account_installWallPaper
-func (m *TLaccount_installWallPaper) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLaccount_installWallPaper) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &InputWallPaper{}
 	m0.Decode(dbuf)
 	m.Setwallpaper(m0)
@@ -14262,13 +14262,13 @@ func NewTLaccount_resetWallPapers() *TLaccount_resetWallPapers {
 
 // CodecEncode:account_resetWallPapers
 func (m *TLaccount_resetWallPapers) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1153722364)
 	return x.Buf
 }
 
 // CodecDecode:account_resetWallPapers
-func (m *TLaccount_resetWallPapers) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLaccount_resetWallPapers) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -14281,7 +14281,7 @@ func NewTLaccount_saveAutoDownloadSettings() *TLaccount_saveAutoDownloadSettings
 
 // CodecEncode:account_saveAutoDownloadSettings
 func (m *TLaccount_saveAutoDownloadSettings) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1995661875)
 	var flags uint32 = 0
 	if m.Getlow() != false {
@@ -14296,7 +14296,7 @@ func (m *TLaccount_saveAutoDownloadSettings) Encode() []byte {
 }
 
 // CodecDecode:account_saveAutoDownloadSettings
-func (m *TLaccount_saveAutoDownloadSettings) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLaccount_saveAutoDownloadSettings) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	if (flags & (1 << 0)) != 0 {
@@ -14320,7 +14320,7 @@ func NewTLchannels_setDiscussionGroup() *TLchannels_setDiscussionGroup {
 
 // CodecEncode:channels_setDiscussionGroup
 func (m *TLchannels_setDiscussionGroup) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1079520178)
 	x.Bytes(m.Getbroadcast().Encode())
 	x.Bytes(m.Getgroup().Encode())
@@ -14328,7 +14328,7 @@ func (m *TLchannels_setDiscussionGroup) Encode() []byte {
 }
 
 // CodecDecode:channels_setDiscussionGroup
-func (m *TLchannels_setDiscussionGroup) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLchannels_setDiscussionGroup) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &InputChannel{}
 	m0.Decode(dbuf)
 	m.Setbroadcast(m0)
@@ -14347,14 +14347,14 @@ func NewTLmessages_hidePeerSettingsBar() *TLmessages_hidePeerSettingsBar {
 
 // CodecEncode:messages_hidePeerSettingsBar
 func (m *TLmessages_hidePeerSettingsBar) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1336717624)
 	x.Bytes(m.Getpeer().Encode())
 	return x.Buf
 }
 
 // CodecDecode:messages_hidePeerSettingsBar
-func (m *TLmessages_hidePeerSettingsBar) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessages_hidePeerSettingsBar) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &InputPeer{}
 	m0.Decode(dbuf)
 	m.Setpeer(m0)
@@ -14370,7 +14370,7 @@ func NewTLchannels_editLocation() *TLchannels_editLocation {
 
 // CodecEncode:channels_editLocation
 func (m *TLchannels_editLocation) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1491484525)
 	x.Bytes(m.Getchannel().Encode())
 	x.Bytes(m.Getgeo_point().Encode())
@@ -14379,7 +14379,7 @@ func (m *TLchannels_editLocation) Encode() []byte {
 }
 
 // CodecDecode:channels_editLocation
-func (m *TLchannels_editLocation) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLchannels_editLocation) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &InputChannel{}
 	m0.Decode(dbuf)
 	m.Setchannel(m0)
@@ -14399,7 +14399,7 @@ func NewTLaccount_saveTheme() *TLaccount_saveTheme {
 
 // CodecEncode:account_saveTheme
 func (m *TLaccount_saveTheme) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-229175188)
 	x.Bytes(m.Gettheme().Encode())
 	x.Bytes(m.Getunsave().Encode())
@@ -14407,7 +14407,7 @@ func (m *TLaccount_saveTheme) Encode() []byte {
 }
 
 // CodecDecode:account_saveTheme
-func (m *TLaccount_saveTheme) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLaccount_saveTheme) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &InputTheme{}
 	m0.Decode(dbuf)
 	m.Settheme(m0)
@@ -14426,7 +14426,7 @@ func NewTLaccount_installTheme() *TLaccount_installTheme {
 
 // CodecEncode:account_installTheme
 func (m *TLaccount_installTheme) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(2061776695)
 	var flags uint32 = 0
 	if m.Getdark() != false {
@@ -14449,7 +14449,7 @@ func (m *TLaccount_installTheme) Encode() []byte {
 }
 
 // CodecDecode:account_installTheme
-func (m *TLaccount_installTheme) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLaccount_installTheme) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	if (flags & (1 << 0)) != 0 {
@@ -14475,7 +14475,7 @@ func NewTLaccount_setContentSettings() *TLaccount_setContentSettings {
 
 // CodecEncode:account_setContentSettings
 func (m *TLaccount_setContentSettings) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1250643605)
 	var flags uint32 = 0
 	if m.Getsensitive_enabled() != false {
@@ -14486,7 +14486,7 @@ func (m *TLaccount_setContentSettings) Encode() []byte {
 }
 
 // CodecDecode:account_setContentSettings
-func (m *TLaccount_setContentSettings) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLaccount_setContentSettings) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	if (flags & (1 << 0)) != 0 {
@@ -14504,7 +14504,7 @@ func NewTLmessages_toggleStickerSets() *TLmessages_toggleStickerSets {
 
 // CodecEncode:messages_toggleStickerSets
 func (m *TLmessages_toggleStickerSets) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1257951254)
 	var flags uint32 = 0
 	if m.Getuninstall() != false {
@@ -14526,7 +14526,7 @@ func (m *TLmessages_toggleStickerSets) Encode() []byte {
 }
 
 // CodecDecode:messages_toggleStickerSets
-func (m *TLmessages_toggleStickerSets) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessages_toggleStickerSets) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	if (flags & (1 << 0)) != 0 {
@@ -14561,7 +14561,7 @@ func NewTLmessages_updateDialogFilter() *TLmessages_updateDialogFilter {
 
 // CodecEncode:messages_updateDialogFilter
 func (m *TLmessages_updateDialogFilter) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(450142282)
 	var flags uint32 = 0
 	if m.Getfilter().Constructor != 0 {
@@ -14576,7 +14576,7 @@ func (m *TLmessages_updateDialogFilter) Encode() []byte {
 }
 
 // CodecDecode:messages_updateDialogFilter
-func (m *TLmessages_updateDialogFilter) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessages_updateDialogFilter) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	m.Setid(dbuf.Int())
@@ -14597,7 +14597,7 @@ func NewTLmessages_updateDialogFiltersOrder() *TLmessages_updateDialogFiltersOrd
 
 // CodecEncode:messages_updateDialogFiltersOrder
 func (m *TLmessages_updateDialogFiltersOrder) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-983318044)
 	x.Int(481674261)
 	x.Int(int32(len(m.Getorder())))
@@ -14608,7 +14608,7 @@ func (m *TLmessages_updateDialogFiltersOrder) Encode() []byte {
 }
 
 // CodecDecode:messages_updateDialogFiltersOrder
-func (m *TLmessages_updateDialogFiltersOrder) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessages_updateDialogFiltersOrder) Decode(dbuf *api.DecodeBuf) error {
 	m.Setorder(dbuf.VectorInt())
 	return dbuf.Err
 }
@@ -14622,7 +14622,7 @@ func NewTLbots_setBotCommands() *TLbots_setBotCommands {
 
 // CodecEncode:bots_setBotCommands
 func (m *TLbots_setBotCommands) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-2141370634)
 	x.Int(481674261)
 	x.Int(int32(len(m.Getcommands())))
@@ -14633,7 +14633,7 @@ func (m *TLbots_setBotCommands) Encode() []byte {
 }
 
 // CodecDecode:bots_setBotCommands
-func (m *TLbots_setBotCommands) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLbots_setBotCommands) Decode(dbuf *api.DecodeBuf) error {
 	c0 := dbuf.Int()
 	if c0 != 481674261 {
 		return dbuf.Err
@@ -14657,14 +14657,14 @@ func NewTLhelp_hidePromoData() *TLhelp_hidePromoData {
 
 // CodecEncode:help_hidePromoData
 func (m *TLhelp_hidePromoData) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(505748629)
 	x.Bytes(m.Getpeer().Encode())
 	return x.Buf
 }
 
 // CodecDecode:help_hidePromoData
-func (m *TLhelp_hidePromoData) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLhelp_hidePromoData) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &InputPeer{}
 	m0.Decode(dbuf)
 	m.Setpeer(m0)
@@ -14680,7 +14680,7 @@ func NewTLphone_sendSignalingData() *TLphone_sendSignalingData {
 
 // CodecEncode:phone_sendSignalingData
 func (m *TLphone_sendSignalingData) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-8744061)
 	x.Bytes(m.Getpeer().Encode())
 	x.Bytes(m.Getdata())
@@ -14688,7 +14688,7 @@ func (m *TLphone_sendSignalingData) Encode() []byte {
 }
 
 // CodecDecode:phone_sendSignalingData
-func (m *TLphone_sendSignalingData) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLphone_sendSignalingData) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &InputPhoneCall{}
 	m0.Decode(dbuf)
 	m.Setpeer(m0)
@@ -14705,14 +14705,14 @@ func NewTLhelp_dismissSuggestion() *TLhelp_dismissSuggestion {
 
 // CodecEncode:help_dismissSuggestion
 func (m *TLhelp_dismissSuggestion) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(125807007)
 	x.String(m.Getsuggestion())
 	return x.Buf
 }
 
 // CodecDecode:help_dismissSuggestion
-func (m *TLhelp_dismissSuggestion) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLhelp_dismissSuggestion) Decode(dbuf *api.DecodeBuf) error {
 	m.Setsuggestion(dbuf.String())
 	return dbuf.Err
 }
@@ -14726,7 +14726,7 @@ func NewTLmessages_readDiscussion() *TLmessages_readDiscussion {
 
 // CodecEncode:messages_readDiscussion
 func (m *TLmessages_readDiscussion) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-147740172)
 	x.Bytes(m.Getpeer().Encode())
 	x.Int(m.Getmsg_id())
@@ -14735,7 +14735,7 @@ func (m *TLmessages_readDiscussion) Encode() []byte {
 }
 
 // CodecDecode:messages_readDiscussion
-func (m *TLmessages_readDiscussion) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessages_readDiscussion) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &InputPeer{}
 	m0.Decode(dbuf)
 	m.Setpeer(m0)
@@ -14753,7 +14753,7 @@ func NewTLbots_sendCustomRequest() *TLbots_sendCustomRequest {
 
 // CodecEncode:bots_sendCustomRequest
 func (m *TLbots_sendCustomRequest) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1440257555)
 	x.String(m.Getcustom_method())
 	x.Bytes(m.Getparams().Encode())
@@ -14761,7 +14761,7 @@ func (m *TLbots_sendCustomRequest) Encode() []byte {
 }
 
 // CodecDecode:bots_sendCustomRequest
-func (m *TLbots_sendCustomRequest) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLbots_sendCustomRequest) Decode(dbuf *api.DecodeBuf) error {
 	m.Setcustom_method(dbuf.String())
 	m1 := &DataJSON{}
 	m1.Decode(dbuf)
@@ -14778,13 +14778,13 @@ func NewTLphone_getCallConfig() *TLphone_getCallConfig {
 
 // CodecEncode:phone_getCallConfig
 func (m *TLphone_getCallConfig) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1430593449)
 	return x.Buf
 }
 
 // CodecDecode:phone_getCallConfig
-func (m *TLphone_getCallConfig) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLphone_getCallConfig) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -14797,7 +14797,7 @@ func NewTLpayments_validateRequestedInfo() *TLpayments_validateRequestedInfo {
 
 // CodecEncode:payments_validateRequestedInfo
 func (m *TLpayments_validateRequestedInfo) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1997180532)
 	var flags uint32 = 0
 	if m.Getsave() != false {
@@ -14810,7 +14810,7 @@ func (m *TLpayments_validateRequestedInfo) Encode() []byte {
 }
 
 // CodecDecode:payments_validateRequestedInfo
-func (m *TLpayments_validateRequestedInfo) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLpayments_validateRequestedInfo) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	if (flags & (1 << 0)) != 0 {
@@ -14832,7 +14832,7 @@ func NewTLupload_getWebFile() *TLupload_getWebFile {
 
 // CodecEncode:upload_getWebFile
 func (m *TLupload_getWebFile) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(619086221)
 	x.Bytes(m.Getlocation().Encode())
 	x.Int(m.Getoffset())
@@ -14841,7 +14841,7 @@ func (m *TLupload_getWebFile) Encode() []byte {
 }
 
 // CodecDecode:upload_getWebFile
-func (m *TLupload_getWebFile) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLupload_getWebFile) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &InputWebFileLocation{}
 	m0.Decode(dbuf)
 	m.Setlocation(m0)
@@ -14859,14 +14859,14 @@ func NewTLmessages_checkChatInvite() *TLmessages_checkChatInvite {
 
 // CodecEncode:messages_checkChatInvite
 func (m *TLmessages_checkChatInvite) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1051570619)
 	x.String(m.Gethash())
 	return x.Buf
 }
 
 // CodecDecode:messages_checkChatInvite
-func (m *TLmessages_checkChatInvite) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessages_checkChatInvite) Decode(dbuf *api.DecodeBuf) error {
 	m.Sethash(dbuf.String())
 	return dbuf.Err
 }
@@ -14880,7 +14880,7 @@ func NewTLaccount_getAuthorizationForm() *TLaccount_getAuthorizationForm {
 
 // CodecEncode:account_getAuthorizationForm
 func (m *TLaccount_getAuthorizationForm) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1200903967)
 	x.Int(m.Getbot_id())
 	x.String(m.Getscope())
@@ -14889,7 +14889,7 @@ func (m *TLaccount_getAuthorizationForm) Encode() []byte {
 }
 
 // CodecDecode:account_getAuthorizationForm
-func (m *TLaccount_getAuthorizationForm) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLaccount_getAuthorizationForm) Decode(dbuf *api.DecodeBuf) error {
 	m.Setbot_id(dbuf.Int())
 	m.Setscope(dbuf.String())
 	m.Setpublic_key(dbuf.String())
@@ -14905,7 +14905,7 @@ func NewTLmessages_getMessageEditData() *TLmessages_getMessageEditData {
 
 // CodecEncode:messages_getMessageEditData
 func (m *TLmessages_getMessageEditData) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-39416522)
 	x.Bytes(m.Getpeer().Encode())
 	x.Int(m.Getid())
@@ -14913,7 +14913,7 @@ func (m *TLmessages_getMessageEditData) Encode() []byte {
 }
 
 // CodecDecode:messages_getMessageEditData
-func (m *TLmessages_getMessageEditData) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessages_getMessageEditData) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &InputPeer{}
 	m0.Decode(dbuf)
 	m.Setpeer(m0)
@@ -14930,14 +14930,14 @@ func NewTLusers_getFullUser() *TLusers_getFullUser {
 
 // CodecEncode:users_getFullUser
 func (m *TLusers_getFullUser) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-902781519)
 	x.Bytes(m.Getid().Encode())
 	return x.Buf
 }
 
 // CodecDecode:users_getFullUser
-func (m *TLusers_getFullUser) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLusers_getFullUser) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &InputUser{}
 	m0.Decode(dbuf)
 	m.Setid(m0)
@@ -14953,7 +14953,7 @@ func NewTLstats_getMegagroupStats() *TLstats_getMegagroupStats {
 
 // CodecEncode:stats_getMegagroupStats
 func (m *TLstats_getMegagroupStats) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-589330937)
 	var flags uint32 = 0
 	if m.Getdark() != false {
@@ -14965,7 +14965,7 @@ func (m *TLstats_getMegagroupStats) Encode() []byte {
 }
 
 // CodecDecode:stats_getMegagroupStats
-func (m *TLstats_getMegagroupStats) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLstats_getMegagroupStats) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	if (flags & (1 << 0)) != 0 {
@@ -14986,13 +14986,13 @@ func NewTLchannels_getInactiveChannels() *TLchannels_getInactiveChannels {
 
 // CodecEncode:channels_getInactiveChannels
 func (m *TLchannels_getInactiveChannels) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(300429806)
 	return x.Buf
 }
 
 // CodecDecode:channels_getInactiveChannels
-func (m *TLchannels_getInactiveChannels) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLchannels_getInactiveChannels) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -15005,7 +15005,7 @@ func NewTLusers_getUsers() *TLusers_getUsers {
 
 // CodecEncode:users_getUsers
 func (m *TLusers_getUsers) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(227648840)
 	x.Int(481674261)
 	x.Int(int32(len(m.Getid())))
@@ -15016,7 +15016,7 @@ func (m *TLusers_getUsers) Encode() []byte {
 }
 
 // CodecDecode:users_getUsers
-func (m *TLusers_getUsers) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLusers_getUsers) Decode(dbuf *api.DecodeBuf) error {
 	c0 := dbuf.Int()
 	if c0 != 481674261 {
 		return dbuf.Err
@@ -15040,7 +15040,7 @@ func NewTLchannels_exportMessageLink() *TLchannels_exportMessageLink {
 
 // CodecEncode:channels_exportMessageLink
 func (m *TLchannels_exportMessageLink) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-432034325)
 	var flags uint32 = 0
 	if m.Getgrouped() != false {
@@ -15056,7 +15056,7 @@ func (m *TLchannels_exportMessageLink) Encode() []byte {
 }
 
 // CodecDecode:channels_exportMessageLink
-func (m *TLchannels_exportMessageLink) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLchannels_exportMessageLink) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	if (flags & (1 << 0)) != 0 {
@@ -15081,13 +15081,13 @@ func NewTLupdates_getState() *TLupdates_getState {
 
 // CodecEncode:updates_getState
 func (m *TLupdates_getState) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-304838614)
 	return x.Buf
 }
 
 // CodecDecode:updates_getState
-func (m *TLupdates_getState) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLupdates_getState) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -15100,14 +15100,14 @@ func NewTLpayments_getPaymentReceipt() *TLpayments_getPaymentReceipt {
 
 // CodecEncode:payments_getPaymentReceipt
 func (m *TLpayments_getPaymentReceipt) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1601001088)
 	x.Int(m.Getmsg_id())
 	return x.Buf
 }
 
 // CodecDecode:payments_getPaymentReceipt
-func (m *TLpayments_getPaymentReceipt) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLpayments_getPaymentReceipt) Decode(dbuf *api.DecodeBuf) error {
 	m.Setmsg_id(dbuf.Int())
 	return dbuf.Err
 }
@@ -15121,7 +15121,7 @@ func NewTLphotos_deletePhotos() *TLphotos_deletePhotos {
 
 // CodecEncode:photos_deletePhotos
 func (m *TLphotos_deletePhotos) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-2016444625)
 	x.Int(481674261)
 	x.Int(int32(len(m.Getid())))
@@ -15132,7 +15132,7 @@ func (m *TLphotos_deletePhotos) Encode() []byte {
 }
 
 // CodecDecode:photos_deletePhotos
-func (m *TLphotos_deletePhotos) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLphotos_deletePhotos) Decode(dbuf *api.DecodeBuf) error {
 	c0 := dbuf.Int()
 	if c0 != 481674261 {
 		return dbuf.Err
@@ -15156,14 +15156,14 @@ func NewTLmessages_receivedQueue() *TLmessages_receivedQueue {
 
 // CodecEncode:messages_receivedQueue
 func (m *TLmessages_receivedQueue) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1436924774)
 	x.Int(m.Getmax_qts())
 	return x.Buf
 }
 
 // CodecDecode:messages_receivedQueue
-func (m *TLmessages_receivedQueue) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessages_receivedQueue) Decode(dbuf *api.DecodeBuf) error {
 	m.Setmax_qts(dbuf.Int())
 	return dbuf.Err
 }
@@ -15177,14 +15177,14 @@ func NewTLhelp_getRecentMeUrls() *TLhelp_getRecentMeUrls {
 
 // CodecEncode:help_getRecentMeUrls
 func (m *TLhelp_getRecentMeUrls) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1036054804)
 	x.String(m.Getreferer())
 	return x.Buf
 }
 
 // CodecDecode:help_getRecentMeUrls
-func (m *TLhelp_getRecentMeUrls) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLhelp_getRecentMeUrls) Decode(dbuf *api.DecodeBuf) error {
 	m.Setreferer(dbuf.String())
 	return dbuf.Err
 }
@@ -15198,7 +15198,7 @@ func NewTLmessages_sendEncrypted() *TLmessages_sendEncrypted {
 
 // CodecEncode:messages_sendEncrypted
 func (m *TLmessages_sendEncrypted) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1157265941)
 	var flags uint32 = 0
 	if m.Getsilent() != false {
@@ -15212,7 +15212,7 @@ func (m *TLmessages_sendEncrypted) Encode() []byte {
 }
 
 // CodecDecode:messages_sendEncrypted
-func (m *TLmessages_sendEncrypted) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessages_sendEncrypted) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	if (flags & (1 << 0)) != 0 {
@@ -15235,7 +15235,7 @@ func NewTLmessages_sendEncryptedFile() *TLmessages_sendEncryptedFile {
 
 // CodecEncode:messages_sendEncryptedFile
 func (m *TLmessages_sendEncryptedFile) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1431914525)
 	var flags uint32 = 0
 	if m.Getsilent() != false {
@@ -15250,7 +15250,7 @@ func (m *TLmessages_sendEncryptedFile) Encode() []byte {
 }
 
 // CodecDecode:messages_sendEncryptedFile
-func (m *TLmessages_sendEncryptedFile) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessages_sendEncryptedFile) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	if (flags & (1 << 0)) != 0 {
@@ -15276,7 +15276,7 @@ func NewTLmessages_sendEncryptedService() *TLmessages_sendEncryptedService {
 
 // CodecEncode:messages_sendEncryptedService
 func (m *TLmessages_sendEncryptedService) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(852769188)
 	x.Bytes(m.Getpeer().Encode())
 	x.Long(m.Getrandom_id())
@@ -15285,7 +15285,7 @@ func (m *TLmessages_sendEncryptedService) Encode() []byte {
 }
 
 // CodecDecode:messages_sendEncryptedService
-func (m *TLmessages_sendEncryptedService) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessages_sendEncryptedService) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &InputEncryptedChat{}
 	m0.Decode(dbuf)
 	m.Setpeer(m0)
@@ -15303,13 +15303,13 @@ func NewTLaccount_getContentSettings() *TLaccount_getContentSettings {
 
 // CodecEncode:account_getContentSettings
 func (m *TLaccount_getContentSettings) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1952756306)
 	return x.Buf
 }
 
 // CodecDecode:account_getContentSettings
-func (m *TLaccount_getContentSettings) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLaccount_getContentSettings) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -15322,14 +15322,14 @@ func NewTLmessages_getStickerSet() *TLmessages_getStickerSet {
 
 // CodecEncode:messages_getStickerSet
 func (m *TLmessages_getStickerSet) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(639215886)
 	x.Bytes(m.Getstickerset().Encode())
 	return x.Buf
 }
 
 // CodecDecode:messages_getStickerSet
-func (m *TLmessages_getStickerSet) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessages_getStickerSet) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &InputStickerSet{}
 	m0.Decode(dbuf)
 	m.Setstickerset(m0)
@@ -15345,7 +15345,7 @@ func NewTLstickers_createStickerSet() *TLstickers_createStickerSet {
 
 // CodecEncode:stickers_createStickerSet
 func (m *TLstickers_createStickerSet) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-251435136)
 	var flags uint32 = 0
 	if m.Getmasks() != false {
@@ -15373,7 +15373,7 @@ func (m *TLstickers_createStickerSet) Encode() []byte {
 }
 
 // CodecDecode:stickers_createStickerSet
-func (m *TLstickers_createStickerSet) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLstickers_createStickerSet) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	if (flags & (1 << 0)) != 0 {
@@ -15415,14 +15415,14 @@ func NewTLstickers_removeStickerFromSet() *TLstickers_removeStickerFromSet {
 
 // CodecEncode:stickers_removeStickerFromSet
 func (m *TLstickers_removeStickerFromSet) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-143257775)
 	x.Bytes(m.Getsticker().Encode())
 	return x.Buf
 }
 
 // CodecDecode:stickers_removeStickerFromSet
-func (m *TLstickers_removeStickerFromSet) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLstickers_removeStickerFromSet) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &InputDocument{}
 	m0.Decode(dbuf)
 	m.Setsticker(m0)
@@ -15438,7 +15438,7 @@ func NewTLstickers_changeStickerPosition() *TLstickers_changeStickerPosition {
 
 // CodecEncode:stickers_changeStickerPosition
 func (m *TLstickers_changeStickerPosition) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-4795190)
 	x.Bytes(m.Getsticker().Encode())
 	x.Int(m.Getposition())
@@ -15446,7 +15446,7 @@ func (m *TLstickers_changeStickerPosition) Encode() []byte {
 }
 
 // CodecDecode:stickers_changeStickerPosition
-func (m *TLstickers_changeStickerPosition) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLstickers_changeStickerPosition) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &InputDocument{}
 	m0.Decode(dbuf)
 	m.Setsticker(m0)
@@ -15463,7 +15463,7 @@ func NewTLstickers_addStickerToSet() *TLstickers_addStickerToSet {
 
 // CodecEncode:stickers_addStickerToSet
 func (m *TLstickers_addStickerToSet) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-2041315650)
 	x.Bytes(m.Getstickerset().Encode())
 	x.Bytes(m.Getsticker().Encode())
@@ -15471,7 +15471,7 @@ func (m *TLstickers_addStickerToSet) Encode() []byte {
 }
 
 // CodecDecode:stickers_addStickerToSet
-func (m *TLstickers_addStickerToSet) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLstickers_addStickerToSet) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &InputStickerSet{}
 	m0.Decode(dbuf)
 	m.Setstickerset(m0)
@@ -15490,7 +15490,7 @@ func NewTLstickers_setStickerSetThumb() *TLstickers_setStickerSetThumb {
 
 // CodecEncode:stickers_setStickerSetThumb
 func (m *TLstickers_setStickerSetThumb) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1707717072)
 	x.Bytes(m.Getstickerset().Encode())
 	x.Bytes(m.Getthumb().Encode())
@@ -15498,7 +15498,7 @@ func (m *TLstickers_setStickerSetThumb) Encode() []byte {
 }
 
 // CodecDecode:stickers_setStickerSetThumb
-func (m *TLstickers_setStickerSetThumb) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLstickers_setStickerSetThumb) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &InputStickerSet{}
 	m0.Decode(dbuf)
 	m.Setstickerset(m0)
@@ -15517,7 +15517,7 @@ func NewTLphone_requestCall() *TLphone_requestCall {
 
 // CodecEncode:phone_requestCall
 func (m *TLphone_requestCall) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1124046573)
 	var flags uint32 = 0
 	if m.Getvideo() != false {
@@ -15532,7 +15532,7 @@ func (m *TLphone_requestCall) Encode() []byte {
 }
 
 // CodecDecode:phone_requestCall
-func (m *TLphone_requestCall) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLphone_requestCall) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	if (flags & (1 << 0)) != 0 {
@@ -15558,7 +15558,7 @@ func NewTLphone_acceptCall() *TLphone_acceptCall {
 
 // CodecEncode:phone_acceptCall
 func (m *TLphone_acceptCall) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1003664544)
 	x.Bytes(m.Getpeer().Encode())
 	x.Bytes(m.Getg_b())
@@ -15567,7 +15567,7 @@ func (m *TLphone_acceptCall) Encode() []byte {
 }
 
 // CodecDecode:phone_acceptCall
-func (m *TLphone_acceptCall) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLphone_acceptCall) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &InputPhoneCall{}
 	m0.Decode(dbuf)
 	m.Setpeer(m0)
@@ -15587,7 +15587,7 @@ func NewTLphone_confirmCall() *TLphone_confirmCall {
 
 // CodecEncode:phone_confirmCall
 func (m *TLphone_confirmCall) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(788404002)
 	x.Bytes(m.Getpeer().Encode())
 	x.Bytes(m.Getg_a())
@@ -15597,7 +15597,7 @@ func (m *TLphone_confirmCall) Encode() []byte {
 }
 
 // CodecDecode:phone_confirmCall
-func (m *TLphone_confirmCall) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLphone_confirmCall) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &InputPhoneCall{}
 	m0.Decode(dbuf)
 	m.Setpeer(m0)
@@ -15618,7 +15618,7 @@ func NewTLpayments_sendPaymentForm() *TLpayments_sendPaymentForm {
 
 // CodecEncode:payments_sendPaymentForm
 func (m *TLpayments_sendPaymentForm) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(730364339)
 	var flags uint32 = 0
 	if m.Getrequested_info_id() != "" {
@@ -15640,7 +15640,7 @@ func (m *TLpayments_sendPaymentForm) Encode() []byte {
 }
 
 // CodecDecode:payments_sendPaymentForm
-func (m *TLpayments_sendPaymentForm) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLpayments_sendPaymentForm) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	m.Setmsg_id(dbuf.Int())
@@ -15665,14 +15665,14 @@ func NewTLhelp_getDeepLinkInfo() *TLhelp_getDeepLinkInfo {
 
 // CodecEncode:help_getDeepLinkInfo
 func (m *TLhelp_getDeepLinkInfo) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1072547679)
 	x.String(m.Getpath())
 	return x.Buf
 }
 
 // CodecDecode:help_getDeepLinkInfo
-func (m *TLhelp_getDeepLinkInfo) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLhelp_getDeepLinkInfo) Decode(dbuf *api.DecodeBuf) error {
 	m.Setpath(dbuf.String())
 	return dbuf.Err
 }
@@ -15686,13 +15686,13 @@ func NewTLhelp_getSupport() *TLhelp_getSupport {
 
 // CodecEncode:help_getSupport
 func (m *TLhelp_getSupport) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1663104819)
 	return x.Buf
 }
 
 // CodecDecode:help_getSupport
-func (m *TLhelp_getSupport) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLhelp_getSupport) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -15705,7 +15705,7 @@ func NewTLmessages_uploadEncryptedFile() *TLmessages_uploadEncryptedFile {
 
 // CodecEncode:messages_uploadEncryptedFile
 func (m *TLmessages_uploadEncryptedFile) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1347929239)
 	x.Bytes(m.Getpeer().Encode())
 	x.Bytes(m.Getfile().Encode())
@@ -15713,7 +15713,7 @@ func (m *TLmessages_uploadEncryptedFile) Encode() []byte {
 }
 
 // CodecDecode:messages_uploadEncryptedFile
-func (m *TLmessages_uploadEncryptedFile) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessages_uploadEncryptedFile) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &InputEncryptedChat{}
 	m0.Decode(dbuf)
 	m.Setpeer(m0)
@@ -15732,7 +15732,7 @@ func NewTLmessages_getStatsURL() *TLmessages_getStatsURL {
 
 // CodecEncode:messages_getStatsURL
 func (m *TLmessages_getStatsURL) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-2127811866)
 	var flags uint32 = 0
 	if m.Getdark() != false {
@@ -15745,7 +15745,7 @@ func (m *TLmessages_getStatsURL) Encode() []byte {
 }
 
 // CodecDecode:messages_getStatsURL
-func (m *TLmessages_getStatsURL) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessages_getStatsURL) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	if (flags & (1 << 0)) != 0 {
@@ -15767,7 +15767,7 @@ func NewTLchannels_getParticipants() *TLchannels_getParticipants {
 
 // CodecEncode:channels_getParticipants
 func (m *TLchannels_getParticipants) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(306054633)
 	x.Bytes(m.Getchannel().Encode())
 	x.Bytes(m.Getfilter().Encode())
@@ -15778,7 +15778,7 @@ func (m *TLchannels_getParticipants) Encode() []byte {
 }
 
 // CodecDecode:channels_getParticipants
-func (m *TLchannels_getParticipants) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLchannels_getParticipants) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &InputChannel{}
 	m0.Decode(dbuf)
 	m.Setchannel(m0)
@@ -15800,7 +15800,7 @@ func NewTLmessages_readHistory() *TLmessages_readHistory {
 
 // CodecEncode:messages_readHistory
 func (m *TLmessages_readHistory) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(238054714)
 	x.Bytes(m.Getpeer().Encode())
 	x.Int(m.Getmax_id())
@@ -15808,7 +15808,7 @@ func (m *TLmessages_readHistory) Encode() []byte {
 }
 
 // CodecDecode:messages_readHistory
-func (m *TLmessages_readHistory) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessages_readHistory) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &InputPeer{}
 	m0.Decode(dbuf)
 	m.Setpeer(m0)
@@ -15825,7 +15825,7 @@ func NewTLmessages_deleteMessages() *TLmessages_deleteMessages {
 
 // CodecEncode:messages_deleteMessages
 func (m *TLmessages_deleteMessages) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-443640366)
 	var flags uint32 = 0
 	if m.Getrevoke() != false {
@@ -15841,7 +15841,7 @@ func (m *TLmessages_deleteMessages) Encode() []byte {
 }
 
 // CodecDecode:messages_deleteMessages
-func (m *TLmessages_deleteMessages) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessages_deleteMessages) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	if (flags & (1 << 0)) != 0 {
@@ -15860,7 +15860,7 @@ func NewTLmessages_readMessageContents() *TLmessages_readMessageContents {
 
 // CodecEncode:messages_readMessageContents
 func (m *TLmessages_readMessageContents) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(916930423)
 	x.Int(481674261)
 	x.Int(int32(len(m.Getid())))
@@ -15871,7 +15871,7 @@ func (m *TLmessages_readMessageContents) Encode() []byte {
 }
 
 // CodecDecode:messages_readMessageContents
-func (m *TLmessages_readMessageContents) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessages_readMessageContents) Decode(dbuf *api.DecodeBuf) error {
 	m.Setid(dbuf.VectorInt())
 	return dbuf.Err
 }
@@ -15885,7 +15885,7 @@ func NewTLchannels_deleteMessages() *TLchannels_deleteMessages {
 
 // CodecEncode:channels_deleteMessages
 func (m *TLchannels_deleteMessages) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-2067661490)
 	x.Bytes(m.Getchannel().Encode())
 	x.Int(481674261)
@@ -15897,7 +15897,7 @@ func (m *TLchannels_deleteMessages) Encode() []byte {
 }
 
 // CodecDecode:channels_deleteMessages
-func (m *TLchannels_deleteMessages) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLchannels_deleteMessages) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &InputChannel{}
 	m0.Decode(dbuf)
 	m.Setchannel(m0)
@@ -15914,7 +15914,7 @@ func NewTLstats_getBroadcastStats() *TLstats_getBroadcastStats {
 
 // CodecEncode:stats_getBroadcastStats
 func (m *TLstats_getBroadcastStats) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1421720550)
 	var flags uint32 = 0
 	if m.Getdark() != false {
@@ -15926,7 +15926,7 @@ func (m *TLstats_getBroadcastStats) Encode() []byte {
 }
 
 // CodecDecode:stats_getBroadcastStats
-func (m *TLstats_getBroadcastStats) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLstats_getBroadcastStats) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	if (flags & (1 << 0)) != 0 {
@@ -15947,14 +15947,14 @@ func NewTLauth_acceptLoginToken() *TLauth_acceptLoginToken {
 
 // CodecEncode:auth_acceptLoginToken
 func (m *TLauth_acceptLoginToken) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-392909491)
 	x.Bytes(m.Gettoken())
 	return x.Buf
 }
 
 // CodecDecode:auth_acceptLoginToken
-func (m *TLauth_acceptLoginToken) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLauth_acceptLoginToken) Decode(dbuf *api.DecodeBuf) error {
 	m.Settoken(dbuf.StringBytes())
 	return dbuf.Err
 }
@@ -15968,7 +15968,7 @@ func NewTLaccount_initTakeoutSession() *TLaccount_initTakeoutSession {
 
 // CodecEncode:account_initTakeoutSession
 func (m *TLaccount_initTakeoutSession) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-262453244)
 	var flags uint32 = 0
 	if m.Getcontacts() != false {
@@ -16000,7 +16000,7 @@ func (m *TLaccount_initTakeoutSession) Encode() []byte {
 }
 
 // CodecDecode:account_initTakeoutSession
-func (m *TLaccount_initTakeoutSession) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLaccount_initTakeoutSession) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	if (flags & (1 << 0)) != 0 {
@@ -16036,13 +16036,13 @@ func NewTLaccount_getAccountTTL() *TLaccount_getAccountTTL {
 
 // CodecEncode:account_getAccountTTL
 func (m *TLaccount_getAccountTTL) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(150761757)
 	return x.Buf
 }
 
 // CodecDecode:account_getAccountTTL
-func (m *TLaccount_getAccountTTL) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLaccount_getAccountTTL) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -16055,13 +16055,13 @@ func NewTLmessages_getSplitRanges() *TLmessages_getSplitRanges {
 
 // CodecEncode:messages_getSplitRanges
 func (m *TLmessages_getSplitRanges) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(486505992)
 	return x.Buf
 }
 
 // CodecDecode:messages_getSplitRanges
-func (m *TLmessages_getSplitRanges) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessages_getSplitRanges) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -16074,14 +16074,14 @@ func NewTLaccount_getWallPapers() *TLaccount_getWallPapers {
 
 // CodecEncode:account_getWallPapers
 func (m *TLaccount_getWallPapers) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1430579357)
 	x.Int(m.Gethash())
 	return x.Buf
 }
 
 // CodecDecode:account_getWallPapers
-func (m *TLaccount_getWallPapers) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLaccount_getWallPapers) Decode(dbuf *api.DecodeBuf) error {
 	m.Sethash(dbuf.Int())
 	return dbuf.Err
 }
@@ -16095,7 +16095,7 @@ func NewTLlangpack_getLangPack() *TLlangpack_getLangPack {
 
 // CodecEncode:langpack_getLangPack
 func (m *TLlangpack_getLangPack) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-219008246)
 	x.String(m.Getlang_pack())
 	x.String(m.Getlang_code())
@@ -16103,7 +16103,7 @@ func (m *TLlangpack_getLangPack) Encode() []byte {
 }
 
 // CodecDecode:langpack_getLangPack
-func (m *TLlangpack_getLangPack) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLlangpack_getLangPack) Decode(dbuf *api.DecodeBuf) error {
 	m.Setlang_pack(dbuf.String())
 	m.Setlang_code(dbuf.String())
 	return dbuf.Err
@@ -16118,7 +16118,7 @@ func NewTLlangpack_getDifference() *TLlangpack_getDifference {
 
 // CodecEncode:langpack_getDifference
 func (m *TLlangpack_getDifference) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-845657435)
 	x.String(m.Getlang_pack())
 	x.String(m.Getlang_code())
@@ -16127,7 +16127,7 @@ func (m *TLlangpack_getDifference) Encode() []byte {
 }
 
 // CodecDecode:langpack_getDifference
-func (m *TLlangpack_getDifference) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLlangpack_getDifference) Decode(dbuf *api.DecodeBuf) error {
 	m.Setlang_pack(dbuf.String())
 	m.Setlang_code(dbuf.String())
 	m.Setfrom_version(dbuf.Int())
@@ -16143,7 +16143,7 @@ func NewTLmessages_getDhConfig() *TLmessages_getDhConfig {
 
 // CodecEncode:messages_getDhConfig
 func (m *TLmessages_getDhConfig) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(651135312)
 	x.Int(m.Getversion())
 	x.Int(m.Getrandom_length())
@@ -16151,7 +16151,7 @@ func (m *TLmessages_getDhConfig) Encode() []byte {
 }
 
 // CodecDecode:messages_getDhConfig
-func (m *TLmessages_getDhConfig) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessages_getDhConfig) Decode(dbuf *api.DecodeBuf) error {
 	m.Setversion(dbuf.Int())
 	m.Setrandom_length(dbuf.Int())
 	return dbuf.Err
@@ -16166,7 +16166,7 @@ func NewTLaccount_updateProfile() *TLaccount_updateProfile {
 
 // CodecEncode:account_updateProfile
 func (m *TLaccount_updateProfile) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(2018596725)
 	var flags uint32 = 0
 	if m.Getfirst_name() != "" {
@@ -16192,7 +16192,7 @@ func (m *TLaccount_updateProfile) Encode() []byte {
 }
 
 // CodecDecode:account_updateProfile
-func (m *TLaccount_updateProfile) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLaccount_updateProfile) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	if (flags & (1 << 0)) != 0 {
@@ -16216,14 +16216,14 @@ func NewTLaccount_updateUsername() *TLaccount_updateUsername {
 
 // CodecEncode:account_updateUsername
 func (m *TLaccount_updateUsername) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1040964988)
 	x.String(m.Getusername())
 	return x.Buf
 }
 
 // CodecDecode:account_updateUsername
-func (m *TLaccount_updateUsername) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLaccount_updateUsername) Decode(dbuf *api.DecodeBuf) error {
 	m.Setusername(dbuf.String())
 	return dbuf.Err
 }
@@ -16237,7 +16237,7 @@ func NewTLaccount_changePhone() *TLaccount_changePhone {
 
 // CodecEncode:account_changePhone
 func (m *TLaccount_changePhone) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1891839707)
 	x.String(m.Getphone_number())
 	x.String(m.Getphone_code_hash())
@@ -16246,7 +16246,7 @@ func (m *TLaccount_changePhone) Encode() []byte {
 }
 
 // CodecDecode:account_changePhone
-func (m *TLaccount_changePhone) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLaccount_changePhone) Decode(dbuf *api.DecodeBuf) error {
 	m.Setphone_number(dbuf.String())
 	m.Setphone_code_hash(dbuf.String())
 	m.Setphone_code(dbuf.String())
@@ -16262,7 +16262,7 @@ func NewTLmessages_getInlineBotResults() *TLmessages_getInlineBotResults {
 
 // CodecEncode:messages_getInlineBotResults
 func (m *TLmessages_getInlineBotResults) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1364105629)
 	var flags uint32 = 0
 	if m.Getgeo_point().Constructor != 0 {
@@ -16280,7 +16280,7 @@ func (m *TLmessages_getInlineBotResults) Encode() []byte {
 }
 
 // CodecDecode:messages_getInlineBotResults
-func (m *TLmessages_getInlineBotResults) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessages_getInlineBotResults) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	m0 := &InputUser{}
@@ -16308,13 +16308,13 @@ func NewTLaccount_getWebAuthorizations() *TLaccount_getWebAuthorizations {
 
 // CodecEncode:account_getWebAuthorizations
 func (m *TLaccount_getWebAuthorizations) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(405695855)
 	return x.Buf
 }
 
 // CodecDecode:account_getWebAuthorizations
-func (m *TLaccount_getWebAuthorizations) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLaccount_getWebAuthorizations) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -16327,7 +16327,7 @@ func NewTLmessages_getPollVotes() *TLmessages_getPollVotes {
 
 // CodecEncode:messages_getPollVotes
 func (m *TLmessages_getPollVotes) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1200736242)
 	var flags uint32 = 0
 	if len(m.Getoption()) > 0 {
@@ -16350,7 +16350,7 @@ func (m *TLmessages_getPollVotes) Encode() []byte {
 }
 
 // CodecDecode:messages_getPollVotes
-func (m *TLmessages_getPollVotes) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessages_getPollVotes) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	m0 := &InputPeer{}
@@ -16376,13 +16376,13 @@ func NewTLauth_requestPasswordRecovery() *TLauth_requestPasswordRecovery {
 
 // CodecEncode:auth_requestPasswordRecovery
 func (m *TLauth_requestPasswordRecovery) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-661144474)
 	return x.Buf
 }
 
 // CodecDecode:auth_requestPasswordRecovery
-func (m *TLauth_requestPasswordRecovery) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLauth_requestPasswordRecovery) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -16395,14 +16395,14 @@ func NewTLpayments_getBankCardData() *TLpayments_getBankCardData {
 
 // CodecEncode:payments_getBankCardData
 func (m *TLpayments_getBankCardData) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(779736953)
 	x.String(m.Getnumber())
 	return x.Buf
 }
 
 // CodecDecode:payments_getBankCardData
-func (m *TLpayments_getBankCardData) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLpayments_getBankCardData) Decode(dbuf *api.DecodeBuf) error {
 	m.Setnumber(dbuf.String())
 	return dbuf.Err
 }
@@ -16416,7 +16416,7 @@ func NewTLmessages_requestUrlAuth() *TLmessages_requestUrlAuth {
 
 // CodecEncode:messages_requestUrlAuth
 func (m *TLmessages_requestUrlAuth) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-482388461)
 	x.Bytes(m.Getpeer().Encode())
 	x.Int(m.Getmsg_id())
@@ -16425,7 +16425,7 @@ func (m *TLmessages_requestUrlAuth) Encode() []byte {
 }
 
 // CodecDecode:messages_requestUrlAuth
-func (m *TLmessages_requestUrlAuth) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessages_requestUrlAuth) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &InputPeer{}
 	m0.Decode(dbuf)
 	m.Setpeer(m0)
@@ -16443,7 +16443,7 @@ func NewTLmessages_acceptUrlAuth() *TLmessages_acceptUrlAuth {
 
 // CodecEncode:messages_acceptUrlAuth
 func (m *TLmessages_acceptUrlAuth) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-148247912)
 	var flags uint32 = 0
 	if m.Getwrite_allowed() != false {
@@ -16457,7 +16457,7 @@ func (m *TLmessages_acceptUrlAuth) Encode() []byte {
 }
 
 // CodecDecode:messages_acceptUrlAuth
-func (m *TLmessages_acceptUrlAuth) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessages_acceptUrlAuth) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	if (flags & (1 << 0)) != 0 {
@@ -16480,7 +16480,7 @@ func NewTLmessages_getPeerDialogs() *TLmessages_getPeerDialogs {
 
 // CodecEncode:messages_getPeerDialogs
 func (m *TLmessages_getPeerDialogs) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-462373635)
 	x.Int(481674261)
 	x.Int(int32(len(m.Getpeers())))
@@ -16491,7 +16491,7 @@ func (m *TLmessages_getPeerDialogs) Encode() []byte {
 }
 
 // CodecDecode:messages_getPeerDialogs
-func (m *TLmessages_getPeerDialogs) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessages_getPeerDialogs) Decode(dbuf *api.DecodeBuf) error {
 	c0 := dbuf.Int()
 	if c0 != 481674261 {
 		return dbuf.Err
@@ -16515,14 +16515,14 @@ func NewTLmessages_getPinnedDialogs() *TLmessages_getPinnedDialogs {
 
 // CodecEncode:messages_getPinnedDialogs
 func (m *TLmessages_getPinnedDialogs) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-692498958)
 	x.Int(m.Getfolder_id())
 	return x.Buf
 }
 
 // CodecDecode:messages_getPinnedDialogs
-func (m *TLmessages_getPinnedDialogs) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessages_getPinnedDialogs) Decode(dbuf *api.DecodeBuf) error {
 	m.Setfolder_id(dbuf.Int())
 	return dbuf.Err
 }
@@ -16536,14 +16536,14 @@ func NewTLlangpack_getLanguages() *TLlangpack_getLanguages {
 
 // CodecEncode:langpack_getLanguages
 func (m *TLlangpack_getLanguages) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1120311183)
 	x.String(m.Getlang_pack())
 	return x.Buf
 }
 
 // CodecDecode:langpack_getLanguages
-func (m *TLlangpack_getLanguages) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLlangpack_getLanguages) Decode(dbuf *api.DecodeBuf) error {
 	m.Setlang_pack(dbuf.String())
 	return dbuf.Err
 }
@@ -16557,14 +16557,14 @@ func NewTLhelp_getAppUpdate() *TLhelp_getAppUpdate {
 
 // CodecEncode:help_getAppUpdate
 func (m *TLhelp_getAppUpdate) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1378703997)
 	x.String(m.Getsource())
 	return x.Buf
 }
 
 // CodecDecode:help_getAppUpdate
-func (m *TLhelp_getAppUpdate) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLhelp_getAppUpdate) Decode(dbuf *api.DecodeBuf) error {
 	m.Setsource(dbuf.String())
 	return dbuf.Err
 }
@@ -16578,14 +16578,14 @@ func NewTLauth_exportAuthorization() *TLauth_exportAuthorization {
 
 // CodecEncode:auth_exportAuthorization
 func (m *TLauth_exportAuthorization) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-440401971)
 	x.Int(m.Getdc_id())
 	return x.Buf
 }
 
 // CodecDecode:auth_exportAuthorization
-func (m *TLauth_exportAuthorization) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLauth_exportAuthorization) Decode(dbuf *api.DecodeBuf) error {
 	m.Setdc_id(dbuf.Int())
 	return dbuf.Err
 }
@@ -16599,7 +16599,7 @@ func NewTLmessages_getWebPage() *TLmessages_getWebPage {
 
 // CodecEncode:messages_getWebPage
 func (m *TLmessages_getWebPage) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(852135825)
 	x.String(m.Geturl())
 	x.Int(m.Gethash())
@@ -16607,7 +16607,7 @@ func (m *TLmessages_getWebPage) Encode() []byte {
 }
 
 // CodecDecode:messages_getWebPage
-func (m *TLmessages_getWebPage) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessages_getWebPage) Decode(dbuf *api.DecodeBuf) error {
 	m.Seturl(dbuf.String())
 	m.Sethash(dbuf.Int())
 	return dbuf.Err
@@ -16622,7 +16622,7 @@ func NewTLchannels_getParticipant() *TLchannels_getParticipant {
 
 // CodecEncode:channels_getParticipant
 func (m *TLchannels_getParticipant) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1416484774)
 	x.Bytes(m.Getchannel().Encode())
 	x.Bytes(m.Getuser_id().Encode())
@@ -16630,7 +16630,7 @@ func (m *TLchannels_getParticipant) Encode() []byte {
 }
 
 // CodecDecode:channels_getParticipant
-func (m *TLchannels_getParticipant) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLchannels_getParticipant) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &InputChannel{}
 	m0.Decode(dbuf)
 	m.Setchannel(m0)
@@ -16649,7 +16649,7 @@ func NewTLupload_getFile() *TLupload_getFile {
 
 // CodecEncode:upload_getFile
 func (m *TLupload_getFile) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1319462148)
 	var flags uint32 = 0
 	if m.Getprecise() != false {
@@ -16666,7 +16666,7 @@ func (m *TLupload_getFile) Encode() []byte {
 }
 
 // CodecDecode:upload_getFile
-func (m *TLupload_getFile) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLupload_getFile) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	if (flags & (1 << 0)) != 0 {
@@ -16692,7 +16692,7 @@ func NewTLstats_loadAsyncGraph() *TLstats_loadAsyncGraph {
 
 // CodecEncode:stats_loadAsyncGraph
 func (m *TLstats_loadAsyncGraph) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1646092192)
 	var flags uint32 = 0
 	if m.Getx().Constructor != 0 {
@@ -16707,7 +16707,7 @@ func (m *TLstats_loadAsyncGraph) Encode() []byte {
 }
 
 // CodecDecode:stats_loadAsyncGraph
-func (m *TLstats_loadAsyncGraph) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLstats_loadAsyncGraph) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	m.Settoken(dbuf.String())
@@ -16726,7 +16726,7 @@ func NewTLauth_sendCode() *TLauth_sendCode {
 
 // CodecEncode:auth_sendCode
 func (m *TLauth_sendCode) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1502141361)
 	x.String(m.Getphone_number())
 	x.Int(m.Getapi_id())
@@ -16736,7 +16736,7 @@ func (m *TLauth_sendCode) Encode() []byte {
 }
 
 // CodecDecode:auth_sendCode
-func (m *TLauth_sendCode) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLauth_sendCode) Decode(dbuf *api.DecodeBuf) error {
 	m.Setphone_number(dbuf.String())
 	m.Setapi_id(dbuf.Int())
 	m.Setapi_hash(dbuf.String())
@@ -16755,7 +16755,7 @@ func NewTLaccount_sendChangePhoneCode() *TLaccount_sendChangePhoneCode {
 
 // CodecEncode:account_sendChangePhoneCode
 func (m *TLaccount_sendChangePhoneCode) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-2108208411)
 	x.String(m.Getphone_number())
 	x.Bytes(m.Getsettings().Encode())
@@ -16763,7 +16763,7 @@ func (m *TLaccount_sendChangePhoneCode) Encode() []byte {
 }
 
 // CodecDecode:account_sendChangePhoneCode
-func (m *TLaccount_sendChangePhoneCode) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLaccount_sendChangePhoneCode) Decode(dbuf *api.DecodeBuf) error {
 	m.Setphone_number(dbuf.String())
 	m1 := &CodeSettings{}
 	m1.Decode(dbuf)
@@ -16780,7 +16780,7 @@ func NewTLauth_resendCode() *TLauth_resendCode {
 
 // CodecEncode:auth_resendCode
 func (m *TLauth_resendCode) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1056025023)
 	x.String(m.Getphone_number())
 	x.String(m.Getphone_code_hash())
@@ -16788,7 +16788,7 @@ func (m *TLauth_resendCode) Encode() []byte {
 }
 
 // CodecDecode:auth_resendCode
-func (m *TLauth_resendCode) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLauth_resendCode) Decode(dbuf *api.DecodeBuf) error {
 	m.Setphone_number(dbuf.String())
 	m.Setphone_code_hash(dbuf.String())
 	return dbuf.Err
@@ -16803,7 +16803,7 @@ func NewTLaccount_sendConfirmPhoneCode() *TLaccount_sendConfirmPhoneCode {
 
 // CodecEncode:account_sendConfirmPhoneCode
 func (m *TLaccount_sendConfirmPhoneCode) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(457157256)
 	x.String(m.Gethash())
 	x.Bytes(m.Getsettings().Encode())
@@ -16811,7 +16811,7 @@ func (m *TLaccount_sendConfirmPhoneCode) Encode() []byte {
 }
 
 // CodecDecode:account_sendConfirmPhoneCode
-func (m *TLaccount_sendConfirmPhoneCode) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLaccount_sendConfirmPhoneCode) Decode(dbuf *api.DecodeBuf) error {
 	m.Sethash(dbuf.String())
 	m1 := &CodeSettings{}
 	m1.Decode(dbuf)
@@ -16828,7 +16828,7 @@ func NewTLaccount_sendVerifyPhoneCode() *TLaccount_sendVerifyPhoneCode {
 
 // CodecEncode:account_sendVerifyPhoneCode
 func (m *TLaccount_sendVerifyPhoneCode) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1516022023)
 	x.String(m.Getphone_number())
 	x.Bytes(m.Getsettings().Encode())
@@ -16836,7 +16836,7 @@ func (m *TLaccount_sendVerifyPhoneCode) Encode() []byte {
 }
 
 // CodecDecode:account_sendVerifyPhoneCode
-func (m *TLaccount_sendVerifyPhoneCode) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLaccount_sendVerifyPhoneCode) Decode(dbuf *api.DecodeBuf) error {
 	m.Setphone_number(dbuf.String())
 	m1 := &CodeSettings{}
 	m1.Decode(dbuf)
@@ -16853,13 +16853,13 @@ func NewTLcontacts_getSaved() *TLcontacts_getSaved {
 
 // CodecEncode:contacts_getSaved
 func (m *TLcontacts_getSaved) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-2098076769)
 	return x.Buf
 }
 
 // CodecDecode:contacts_getSaved
-func (m *TLcontacts_getSaved) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLcontacts_getSaved) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -16872,7 +16872,7 @@ func NewTLcontacts_importContacts() *TLcontacts_importContacts {
 
 // CodecEncode:contacts_importContacts
 func (m *TLcontacts_importContacts) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(746589157)
 	x.Int(481674261)
 	x.Int(int32(len(m.Getcontacts())))
@@ -16883,7 +16883,7 @@ func (m *TLcontacts_importContacts) Encode() []byte {
 }
 
 // CodecDecode:contacts_importContacts
-func (m *TLcontacts_importContacts) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLcontacts_importContacts) Decode(dbuf *api.DecodeBuf) error {
 	c0 := dbuf.Int()
 	if c0 != 481674261 {
 		return dbuf.Err
@@ -16907,7 +16907,7 @@ func NewTLupdates_getDifference() *TLupdates_getDifference {
 
 // CodecEncode:updates_getDifference
 func (m *TLupdates_getDifference) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(630429265)
 	var flags uint32 = 0
 	if m.Getpts_total_limit() != 0 {
@@ -16924,7 +16924,7 @@ func (m *TLupdates_getDifference) Encode() []byte {
 }
 
 // CodecDecode:updates_getDifference
-func (m *TLupdates_getDifference) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLupdates_getDifference) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	m.Setpts(dbuf.Int())
@@ -16945,13 +16945,13 @@ func NewTLhelp_getTermsOfServiceUpdate() *TLhelp_getTermsOfServiceUpdate {
 
 // CodecEncode:help_getTermsOfServiceUpdate
 func (m *TLhelp_getTermsOfServiceUpdate) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(749019089)
 	return x.Buf
 }
 
 // CodecDecode:help_getTermsOfServiceUpdate
-func (m *TLhelp_getTermsOfServiceUpdate) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLhelp_getTermsOfServiceUpdate) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -16964,14 +16964,14 @@ func NewTLmessageEmpty() *TLmessageEmpty {
 
 // CodecEncode:messageEmpty
 func (m *TLmessageEmpty) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-2082087340)
 	x.Int(m.Getid())
 	return x.Buf
 }
 
 // CodecDecode:messageEmpty
-func (m *TLmessageEmpty) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessageEmpty) Decode(dbuf *api.DecodeBuf) error {
 	m.Setid(dbuf.Int())
 	return dbuf.Err
 }
@@ -16985,7 +16985,7 @@ func NewTLmessage() *TLmessage {
 
 // CodecEncode:message
 func (m *TLmessage) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1487813065)
 	var flags uint32 = 0
 	if m.Getout_key() != false {
@@ -17116,7 +17116,7 @@ func (m *TLmessage) Encode() []byte {
 }
 
 // CodecDecode:message
-func (m *TLmessage) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessage) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	if (flags & (1 << 0)) != 0 {
@@ -17238,7 +17238,7 @@ func NewTLmessageService() *TLmessageService {
 
 // CodecEncode:messageService
 func (m *TLmessageService) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(678405636)
 	var flags uint32 = 0
 	if m.Getout_key() != false {
@@ -17280,7 +17280,7 @@ func (m *TLmessageService) Encode() []byte {
 }
 
 // CodecDecode:messageService
-func (m *TLmessageService) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessageService) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	if (flags & (1 << 0)) != 0 {
@@ -17331,14 +17331,14 @@ func NewTLkeyboardButton() *TLkeyboardButton {
 
 // CodecEncode:keyboardButton
 func (m *TLkeyboardButton) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1560655744)
 	x.String(m.Gettext())
 	return x.Buf
 }
 
 // CodecDecode:keyboardButton
-func (m *TLkeyboardButton) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLkeyboardButton) Decode(dbuf *api.DecodeBuf) error {
 	m.Settext(dbuf.String())
 	return dbuf.Err
 }
@@ -17352,7 +17352,7 @@ func NewTLkeyboardButtonUrl() *TLkeyboardButtonUrl {
 
 // CodecEncode:keyboardButtonUrl
 func (m *TLkeyboardButtonUrl) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(629866245)
 	x.String(m.Gettext())
 	x.String(m.Geturl())
@@ -17360,7 +17360,7 @@ func (m *TLkeyboardButtonUrl) Encode() []byte {
 }
 
 // CodecDecode:keyboardButtonUrl
-func (m *TLkeyboardButtonUrl) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLkeyboardButtonUrl) Decode(dbuf *api.DecodeBuf) error {
 	m.Settext(dbuf.String())
 	m.Seturl(dbuf.String())
 	return dbuf.Err
@@ -17375,7 +17375,7 @@ func NewTLkeyboardButtonCallback() *TLkeyboardButtonCallback {
 
 // CodecEncode:keyboardButtonCallback
 func (m *TLkeyboardButtonCallback) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(901503851)
 	var flags uint32 = 0
 	if m.Getrequires_password() != false {
@@ -17388,7 +17388,7 @@ func (m *TLkeyboardButtonCallback) Encode() []byte {
 }
 
 // CodecDecode:keyboardButtonCallback
-func (m *TLkeyboardButtonCallback) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLkeyboardButtonCallback) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	if (flags & (1 << 0)) != 0 {
@@ -17408,14 +17408,14 @@ func NewTLkeyboardButtonRequestPhone() *TLkeyboardButtonRequestPhone {
 
 // CodecEncode:keyboardButtonRequestPhone
 func (m *TLkeyboardButtonRequestPhone) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1318425559)
 	x.String(m.Gettext())
 	return x.Buf
 }
 
 // CodecDecode:keyboardButtonRequestPhone
-func (m *TLkeyboardButtonRequestPhone) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLkeyboardButtonRequestPhone) Decode(dbuf *api.DecodeBuf) error {
 	m.Settext(dbuf.String())
 	return dbuf.Err
 }
@@ -17429,14 +17429,14 @@ func NewTLkeyboardButtonRequestGeoLocation() *TLkeyboardButtonRequestGeoLocation
 
 // CodecEncode:keyboardButtonRequestGeoLocation
 func (m *TLkeyboardButtonRequestGeoLocation) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-59151553)
 	x.String(m.Gettext())
 	return x.Buf
 }
 
 // CodecDecode:keyboardButtonRequestGeoLocation
-func (m *TLkeyboardButtonRequestGeoLocation) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLkeyboardButtonRequestGeoLocation) Decode(dbuf *api.DecodeBuf) error {
 	m.Settext(dbuf.String())
 	return dbuf.Err
 }
@@ -17450,7 +17450,7 @@ func NewTLkeyboardButtonSwitchInline() *TLkeyboardButtonSwitchInline {
 
 // CodecEncode:keyboardButtonSwitchInline
 func (m *TLkeyboardButtonSwitchInline) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(90744648)
 	var flags uint32 = 0
 	if m.Getsame_peer() != false {
@@ -17463,7 +17463,7 @@ func (m *TLkeyboardButtonSwitchInline) Encode() []byte {
 }
 
 // CodecDecode:keyboardButtonSwitchInline
-func (m *TLkeyboardButtonSwitchInline) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLkeyboardButtonSwitchInline) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	if (flags & (1 << 0)) != 0 {
@@ -17483,14 +17483,14 @@ func NewTLkeyboardButtonGame() *TLkeyboardButtonGame {
 
 // CodecEncode:keyboardButtonGame
 func (m *TLkeyboardButtonGame) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1358175439)
 	x.String(m.Gettext())
 	return x.Buf
 }
 
 // CodecDecode:keyboardButtonGame
-func (m *TLkeyboardButtonGame) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLkeyboardButtonGame) Decode(dbuf *api.DecodeBuf) error {
 	m.Settext(dbuf.String())
 	return dbuf.Err
 }
@@ -17504,14 +17504,14 @@ func NewTLkeyboardButtonBuy() *TLkeyboardButtonBuy {
 
 // CodecEncode:keyboardButtonBuy
 func (m *TLkeyboardButtonBuy) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1344716869)
 	x.String(m.Gettext())
 	return x.Buf
 }
 
 // CodecDecode:keyboardButtonBuy
-func (m *TLkeyboardButtonBuy) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLkeyboardButtonBuy) Decode(dbuf *api.DecodeBuf) error {
 	m.Settext(dbuf.String())
 	return dbuf.Err
 }
@@ -17525,7 +17525,7 @@ func NewTLkeyboardButtonUrlAuth() *TLkeyboardButtonUrlAuth {
 
 // CodecEncode:keyboardButtonUrlAuth
 func (m *TLkeyboardButtonUrlAuth) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(280464681)
 	var flags uint32 = 0
 	if m.Getfwd_text() != "" {
@@ -17542,7 +17542,7 @@ func (m *TLkeyboardButtonUrlAuth) Encode() []byte {
 }
 
 // CodecDecode:keyboardButtonUrlAuth
-func (m *TLkeyboardButtonUrlAuth) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLkeyboardButtonUrlAuth) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	m.Settext(dbuf.String())
@@ -17563,7 +17563,7 @@ func NewTLinputKeyboardButtonUrlAuth() *TLinputKeyboardButtonUrlAuth {
 
 // CodecEncode:inputKeyboardButtonUrlAuth
 func (m *TLinputKeyboardButtonUrlAuth) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-802258988)
 	var flags uint32 = 0
 	if m.Getrequest_write_access() != false {
@@ -17583,7 +17583,7 @@ func (m *TLinputKeyboardButtonUrlAuth) Encode() []byte {
 }
 
 // CodecDecode:inputKeyboardButtonUrlAuth
-func (m *TLinputKeyboardButtonUrlAuth) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLinputKeyboardButtonUrlAuth) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	if (flags & (1 << 0)) != 0 {
@@ -17609,7 +17609,7 @@ func NewTLkeyboardButtonRequestPoll() *TLkeyboardButtonRequestPoll {
 
 // CodecEncode:keyboardButtonRequestPoll
 func (m *TLkeyboardButtonRequestPoll) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1144565411)
 	var flags uint32 = 0
 	if m.Getquiz().Constructor != 0 {
@@ -17624,7 +17624,7 @@ func (m *TLkeyboardButtonRequestPoll) Encode() []byte {
 }
 
 // CodecDecode:keyboardButtonRequestPoll
-func (m *TLkeyboardButtonRequestPoll) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLkeyboardButtonRequestPoll) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	if (flags & (1 << 0)) != 0 {
@@ -17645,13 +17645,13 @@ func NewTLinputChannelEmpty() *TLinputChannelEmpty {
 
 // CodecEncode:inputChannelEmpty
 func (m *TLinputChannelEmpty) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-292807034)
 	return x.Buf
 }
 
 // CodecDecode:inputChannelEmpty
-func (m *TLinputChannelEmpty) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLinputChannelEmpty) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -17664,7 +17664,7 @@ func NewTLinputChannel() *TLinputChannel {
 
 // CodecEncode:inputChannel
 func (m *TLinputChannel) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1343524562)
 	x.Int(m.Getchannel_id())
 	x.Long(m.Getaccess_hash())
@@ -17672,7 +17672,7 @@ func (m *TLinputChannel) Encode() []byte {
 }
 
 // CodecDecode:inputChannel
-func (m *TLinputChannel) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLinputChannel) Decode(dbuf *api.DecodeBuf) error {
 	m.Setchannel_id(dbuf.Int())
 	m.Setaccess_hash(dbuf.Long())
 	return dbuf.Err
@@ -17687,7 +17687,7 @@ func NewTLinputChannelFromMessage() *TLinputChannelFromMessage {
 
 // CodecEncode:inputChannelFromMessage
 func (m *TLinputChannelFromMessage) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(707290417)
 	x.Bytes(m.Getpeer().Encode())
 	x.Int(m.Getmsg_id())
@@ -17696,7 +17696,7 @@ func (m *TLinputChannelFromMessage) Encode() []byte {
 }
 
 // CodecDecode:inputChannelFromMessage
-func (m *TLinputChannelFromMessage) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLinputChannelFromMessage) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &InputPeer{}
 	m0.Decode(dbuf)
 	m.Setpeer(m0)
@@ -17714,14 +17714,14 @@ func NewTLstatsGraphAsync() *TLstatsGraphAsync {
 
 // CodecEncode:statsGraphAsync
 func (m *TLstatsGraphAsync) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1244130093)
 	x.String(m.Gettoken())
 	return x.Buf
 }
 
 // CodecDecode:statsGraphAsync
-func (m *TLstatsGraphAsync) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLstatsGraphAsync) Decode(dbuf *api.DecodeBuf) error {
 	m.Settoken(dbuf.String())
 	return dbuf.Err
 }
@@ -17735,14 +17735,14 @@ func NewTLstatsGraphError() *TLstatsGraphError {
 
 // CodecEncode:statsGraphError
 func (m *TLstatsGraphError) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1092839390)
 	x.String(m.Geterror())
 	return x.Buf
 }
 
 // CodecDecode:statsGraphError
-func (m *TLstatsGraphError) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLstatsGraphError) Decode(dbuf *api.DecodeBuf) error {
 	m.Seterror(dbuf.String())
 	return dbuf.Err
 }
@@ -17756,7 +17756,7 @@ func NewTLstatsGraph() *TLstatsGraph {
 
 // CodecEncode:statsGraph
 func (m *TLstatsGraph) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1901828938)
 	var flags uint32 = 0
 	if m.Getzoom_token() != "" {
@@ -17771,7 +17771,7 @@ func (m *TLstatsGraph) Encode() []byte {
 }
 
 // CodecDecode:statsGraph
-func (m *TLstatsGraph) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLstatsGraph) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	m0 := &DataJSON{}
@@ -17792,7 +17792,7 @@ func NewTLtopPeerCategoryPeers() *TLtopPeerCategoryPeers {
 
 // CodecEncode:topPeerCategoryPeers
 func (m *TLtopPeerCategoryPeers) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-75283823)
 	x.Bytes(m.Getcategory().Encode())
 	x.Int(m.Getcount())
@@ -17805,7 +17805,7 @@ func (m *TLtopPeerCategoryPeers) Encode() []byte {
 }
 
 // CodecDecode:topPeerCategoryPeers
-func (m *TLtopPeerCategoryPeers) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLtopPeerCategoryPeers) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &TopPeerCategory{}
 	m0.Decode(dbuf)
 	m.Setcategory(m0)
@@ -17833,7 +17833,7 @@ func NewTLemojiKeyword() *TLemojiKeyword {
 
 // CodecEncode:emojiKeyword
 func (m *TLemojiKeyword) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-709641735)
 	x.String(m.Getkeyword())
 	x.Int(481674261)
@@ -17845,7 +17845,7 @@ func (m *TLemojiKeyword) Encode() []byte {
 }
 
 // CodecDecode:emojiKeyword
-func (m *TLemojiKeyword) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLemojiKeyword) Decode(dbuf *api.DecodeBuf) error {
 	m.Setkeyword(dbuf.String())
 	m.Setemoticons(dbuf.VectorString())
 	return dbuf.Err
@@ -17860,7 +17860,7 @@ func NewTLemojiKeywordDeleted() *TLemojiKeywordDeleted {
 
 // CodecEncode:emojiKeywordDeleted
 func (m *TLemojiKeywordDeleted) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(594408994)
 	x.String(m.Getkeyword())
 	x.Int(481674261)
@@ -17872,7 +17872,7 @@ func (m *TLemojiKeywordDeleted) Encode() []byte {
 }
 
 // CodecDecode:emojiKeywordDeleted
-func (m *TLemojiKeywordDeleted) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLemojiKeywordDeleted) Decode(dbuf *api.DecodeBuf) error {
 	m.Setkeyword(dbuf.String())
 	m.Setemoticons(dbuf.VectorString())
 	return dbuf.Err
@@ -17887,7 +17887,7 @@ func NewTLinputAppEvent() *TLinputAppEvent {
 
 // CodecEncode:inputAppEvent
 func (m *TLinputAppEvent) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(488313413)
 	x.Bytes(m.Gettime().Encode())
 	x.String(m.Gettype())
@@ -17897,7 +17897,7 @@ func (m *TLinputAppEvent) Encode() []byte {
 }
 
 // CodecDecode:inputAppEvent
-func (m *TLinputAppEvent) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLinputAppEvent) Decode(dbuf *api.DecodeBuf) error {
 	m.Settime(dbuf.Double())
 	m.Settype(dbuf.String())
 	m.Setpeer(dbuf.Long())
@@ -17916,13 +17916,13 @@ func NewTLencryptedFileEmpty() *TLencryptedFileEmpty {
 
 // CodecEncode:encryptedFileEmpty
 func (m *TLencryptedFileEmpty) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1038136962)
 	return x.Buf
 }
 
 // CodecDecode:encryptedFileEmpty
-func (m *TLencryptedFileEmpty) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLencryptedFileEmpty) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -17935,7 +17935,7 @@ func NewTLencryptedFile() *TLencryptedFile {
 
 // CodecEncode:encryptedFile
 func (m *TLencryptedFile) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1248893260)
 	x.Long(m.Getid())
 	x.Long(m.Getaccess_hash())
@@ -17946,7 +17946,7 @@ func (m *TLencryptedFile) Encode() []byte {
 }
 
 // CodecDecode:encryptedFile
-func (m *TLencryptedFile) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLencryptedFile) Decode(dbuf *api.DecodeBuf) error {
 	m.Setid(dbuf.Long())
 	m.Setaccess_hash(dbuf.Long())
 	m.Setsize(dbuf.Int())
@@ -17964,13 +17964,13 @@ func NewTLinputPeerEmpty() *TLinputPeerEmpty {
 
 // CodecEncode:inputPeerEmpty
 func (m *TLinputPeerEmpty) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(2134579434)
 	return x.Buf
 }
 
 // CodecDecode:inputPeerEmpty
-func (m *TLinputPeerEmpty) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLinputPeerEmpty) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -17983,13 +17983,13 @@ func NewTLinputPeerSelf() *TLinputPeerSelf {
 
 // CodecEncode:inputPeerSelf
 func (m *TLinputPeerSelf) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(2107670217)
 	return x.Buf
 }
 
 // CodecDecode:inputPeerSelf
-func (m *TLinputPeerSelf) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLinputPeerSelf) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -18002,14 +18002,14 @@ func NewTLinputPeerChat() *TLinputPeerChat {
 
 // CodecEncode:inputPeerChat
 func (m *TLinputPeerChat) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(396093539)
 	x.Int(m.Getchat_id())
 	return x.Buf
 }
 
 // CodecDecode:inputPeerChat
-func (m *TLinputPeerChat) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLinputPeerChat) Decode(dbuf *api.DecodeBuf) error {
 	m.Setchat_id(dbuf.Int())
 	return dbuf.Err
 }
@@ -18023,7 +18023,7 @@ func NewTLinputPeerUser() *TLinputPeerUser {
 
 // CodecEncode:inputPeerUser
 func (m *TLinputPeerUser) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(2072935910)
 	x.Int(m.Getuser_id())
 	x.Long(m.Getaccess_hash())
@@ -18031,7 +18031,7 @@ func (m *TLinputPeerUser) Encode() []byte {
 }
 
 // CodecDecode:inputPeerUser
-func (m *TLinputPeerUser) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLinputPeerUser) Decode(dbuf *api.DecodeBuf) error {
 	m.Setuser_id(dbuf.Int())
 	m.Setaccess_hash(dbuf.Long())
 	return dbuf.Err
@@ -18046,7 +18046,7 @@ func NewTLinputPeerChannel() *TLinputPeerChannel {
 
 // CodecEncode:inputPeerChannel
 func (m *TLinputPeerChannel) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(548253432)
 	x.Int(m.Getchannel_id())
 	x.Long(m.Getaccess_hash())
@@ -18054,7 +18054,7 @@ func (m *TLinputPeerChannel) Encode() []byte {
 }
 
 // CodecDecode:inputPeerChannel
-func (m *TLinputPeerChannel) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLinputPeerChannel) Decode(dbuf *api.DecodeBuf) error {
 	m.Setchannel_id(dbuf.Int())
 	m.Setaccess_hash(dbuf.Long())
 	return dbuf.Err
@@ -18069,7 +18069,7 @@ func NewTLinputPeerUserFromMessage() *TLinputPeerUserFromMessage {
 
 // CodecEncode:inputPeerUserFromMessage
 func (m *TLinputPeerUserFromMessage) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(398123750)
 	x.Bytes(m.Getpeer().Encode())
 	x.Int(m.Getmsg_id())
@@ -18078,7 +18078,7 @@ func (m *TLinputPeerUserFromMessage) Encode() []byte {
 }
 
 // CodecDecode:inputPeerUserFromMessage
-func (m *TLinputPeerUserFromMessage) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLinputPeerUserFromMessage) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &InputPeer{}
 	m0.Decode(dbuf)
 	m.Setpeer(m0)
@@ -18096,7 +18096,7 @@ func NewTLinputPeerChannelFromMessage() *TLinputPeerChannelFromMessage {
 
 // CodecEncode:inputPeerChannelFromMessage
 func (m *TLinputPeerChannelFromMessage) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1667893317)
 	x.Bytes(m.Getpeer().Encode())
 	x.Int(m.Getmsg_id())
@@ -18105,7 +18105,7 @@ func (m *TLinputPeerChannelFromMessage) Encode() []byte {
 }
 
 // CodecDecode:inputPeerChannelFromMessage
-func (m *TLinputPeerChannelFromMessage) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLinputPeerChannelFromMessage) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &InputPeer{}
 	m0.Decode(dbuf)
 	m.Setpeer(m0)
@@ -18123,7 +18123,7 @@ func NewTLinlineBotSwitchPM() *TLinlineBotSwitchPM {
 
 // CodecEncode:inlineBotSwitchPM
 func (m *TLinlineBotSwitchPM) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1008755359)
 	x.String(m.Gettext())
 	x.String(m.Getstart_param())
@@ -18131,7 +18131,7 @@ func (m *TLinlineBotSwitchPM) Encode() []byte {
 }
 
 // CodecDecode:inlineBotSwitchPM
-func (m *TLinlineBotSwitchPM) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLinlineBotSwitchPM) Decode(dbuf *api.DecodeBuf) error {
 	m.Settext(dbuf.String())
 	m.Setstart_param(dbuf.String())
 	return dbuf.Err
@@ -18146,7 +18146,7 @@ func NewTLcontact() *TLcontact {
 
 // CodecEncode:contact
 func (m *TLcontact) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-116274796)
 	x.Int(m.Getuser_id())
 	x.Bytes(m.Getmutual().Encode())
@@ -18154,7 +18154,7 @@ func (m *TLcontact) Encode() []byte {
 }
 
 // CodecDecode:contact
-func (m *TLcontact) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLcontact) Decode(dbuf *api.DecodeBuf) error {
 	m.Setuser_id(dbuf.Int())
 	m1 := &Bool{}
 	m1.Decode(dbuf)
@@ -18171,7 +18171,7 @@ func NewTLinputSecureValue() *TLinputSecureValue {
 
 // CodecEncode:inputSecureValue
 func (m *TLinputSecureValue) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-618540889)
 	var flags uint32 = 0
 	if m.Getdata().Constructor != 0 {
@@ -18230,7 +18230,7 @@ func (m *TLinputSecureValue) Encode() []byte {
 }
 
 // CodecDecode:inputSecureValue
-func (m *TLinputSecureValue) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLinputSecureValue) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	m0 := &SecureValueType{}
@@ -18299,7 +18299,7 @@ func NewTLupdates_channelDifferenceEmpty() *TLupdates_channelDifferenceEmpty {
 
 // CodecEncode:updates_channelDifferenceEmpty
 func (m *TLupdates_channelDifferenceEmpty) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1041346555)
 	var flags uint32 = 0
 	if m.Getfinal() != false {
@@ -18317,7 +18317,7 @@ func (m *TLupdates_channelDifferenceEmpty) Encode() []byte {
 }
 
 // CodecDecode:updates_channelDifferenceEmpty
-func (m *TLupdates_channelDifferenceEmpty) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLupdates_channelDifferenceEmpty) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	if (flags & (1 << 0)) != 0 {
@@ -18339,7 +18339,7 @@ func NewTLupdates_channelDifferenceTooLong() *TLupdates_channelDifferenceTooLong
 
 // CodecEncode:updates_channelDifferenceTooLong
 func (m *TLupdates_channelDifferenceTooLong) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1531132162)
 	var flags uint32 = 0
 	if m.Getfinal() != false {
@@ -18372,7 +18372,7 @@ func (m *TLupdates_channelDifferenceTooLong) Encode() []byte {
 }
 
 // CodecDecode:updates_channelDifferenceTooLong
-func (m *TLupdates_channelDifferenceTooLong) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLupdates_channelDifferenceTooLong) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	if (flags & (1 << 0)) != 0 {
@@ -18429,7 +18429,7 @@ func NewTLupdates_channelDifference() *TLupdates_channelDifference {
 
 // CodecEncode:updates_channelDifference
 func (m *TLupdates_channelDifference) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(543450958)
 	var flags uint32 = 0
 	if m.Getfinal() != false {
@@ -18467,7 +18467,7 @@ func (m *TLupdates_channelDifference) Encode() []byte {
 }
 
 // CodecDecode:updates_channelDifference
-func (m *TLupdates_channelDifference) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLupdates_channelDifference) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	if (flags & (1 << 0)) != 0 {
@@ -18533,7 +18533,7 @@ func NewTLbotInlineResult() *TLbotInlineResult {
 
 // CodecEncode:botInlineResult
 func (m *TLbotInlineResult) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(295067450)
 	var flags uint32 = 0
 	if m.Gettitle() != "" {
@@ -18574,7 +18574,7 @@ func (m *TLbotInlineResult) Encode() []byte {
 }
 
 // CodecDecode:botInlineResult
-func (m *TLbotInlineResult) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLbotInlineResult) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	m.Setid(dbuf.String())
@@ -18613,7 +18613,7 @@ func NewTLbotInlineMediaResult() *TLbotInlineMediaResult {
 
 // CodecEncode:botInlineMediaResult
 func (m *TLbotInlineMediaResult) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(400266251)
 	var flags uint32 = 0
 	if m.Getphoto().Constructor != 0 {
@@ -18648,7 +18648,7 @@ func (m *TLbotInlineMediaResult) Encode() []byte {
 }
 
 // CodecDecode:botInlineMediaResult
-func (m *TLbotInlineMediaResult) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLbotInlineMediaResult) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	m.Setid(dbuf.String())
@@ -18684,14 +18684,14 @@ func NewTLpayments_paymentResult() *TLpayments_paymentResult {
 
 // CodecEncode:payments_paymentResult
 func (m *TLpayments_paymentResult) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1314881805)
 	x.Bytes(m.Getupdates().Encode())
 	return x.Buf
 }
 
 // CodecDecode:payments_paymentResult
-func (m *TLpayments_paymentResult) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLpayments_paymentResult) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &Updates{}
 	m0.Decode(dbuf)
 	m.Setupdates(m0)
@@ -18707,14 +18707,14 @@ func NewTLpayments_paymentVerificationNeeded() *TLpayments_paymentVerificationNe
 
 // CodecEncode:payments_paymentVerificationNeeded
 func (m *TLpayments_paymentVerificationNeeded) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-666824391)
 	x.String(m.Geturl())
 	return x.Buf
 }
 
 // CodecDecode:payments_paymentVerificationNeeded
-func (m *TLpayments_paymentVerificationNeeded) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLpayments_paymentVerificationNeeded) Decode(dbuf *api.DecodeBuf) error {
 	m.Seturl(dbuf.String())
 	return dbuf.Err
 }
@@ -18728,7 +18728,7 @@ func NewTLsecureCredentialsEncrypted() *TLsecureCredentialsEncrypted {
 
 // CodecEncode:secureCredentialsEncrypted
 func (m *TLsecureCredentialsEncrypted) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(871426631)
 	x.Bytes(m.Getdata())
 	x.Bytes(m.Gethash())
@@ -18737,7 +18737,7 @@ func (m *TLsecureCredentialsEncrypted) Encode() []byte {
 }
 
 // CodecDecode:secureCredentialsEncrypted
-func (m *TLsecureCredentialsEncrypted) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLsecureCredentialsEncrypted) Decode(dbuf *api.DecodeBuf) error {
 	m.Setdata(dbuf.StringBytes())
 	m.Sethash(dbuf.StringBytes())
 	m.Setsecret(dbuf.StringBytes())
@@ -18753,7 +18753,7 @@ func NewTLinputPeerNotifySettings() *TLinputPeerNotifySettings {
 
 // CodecEncode:inputPeerNotifySettings
 func (m *TLinputPeerNotifySettings) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1673717362)
 	var flags uint32 = 0
 	if m.Getshow_previews().Constructor != 0 {
@@ -18785,7 +18785,7 @@ func (m *TLinputPeerNotifySettings) Encode() []byte {
 }
 
 // CodecDecode:inputPeerNotifySettings
-func (m *TLinputPeerNotifySettings) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLinputPeerNotifySettings) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	if (flags & (1 << 0)) != 0 {
@@ -18816,7 +18816,7 @@ func NewTLchatFull() *TLchatFull {
 
 // CodecEncode:chatFull
 func (m *TLchatFull) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(461151667)
 	var flags uint32 = 0
 	if m.Getcan_set_username() != false {
@@ -18863,7 +18863,7 @@ func (m *TLchatFull) Encode() []byte {
 }
 
 // CodecDecode:chatFull
-func (m *TLchatFull) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLchatFull) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	if (flags & (1 << 0)) != 0 {
@@ -18919,7 +18919,7 @@ func NewTLchannelFull() *TLchannelFull {
 
 // CodecEncode:channelFull
 func (m *TLchannelFull) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-253335766)
 	var flags uint32 = 0
 	if m.Getcan_view_participants() != false {
@@ -19061,7 +19061,7 @@ func (m *TLchannelFull) Encode() []byte {
 }
 
 // CodecDecode:channelFull
-func (m *TLchannelFull) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLchannelFull) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	if (flags & (1 << 0)) != 0 {
@@ -19178,7 +19178,7 @@ func NewTLencryptedMessage() *TLencryptedMessage {
 
 // CodecEncode:encryptedMessage
 func (m *TLencryptedMessage) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-317144808)
 	x.Long(m.Getrandom_id())
 	x.Int(m.Getchat_id())
@@ -19189,7 +19189,7 @@ func (m *TLencryptedMessage) Encode() []byte {
 }
 
 // CodecDecode:encryptedMessage
-func (m *TLencryptedMessage) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLencryptedMessage) Decode(dbuf *api.DecodeBuf) error {
 	m.Setrandom_id(dbuf.Long())
 	m.Setchat_id(dbuf.Int())
 	m.Setdate(dbuf.Int())
@@ -19209,7 +19209,7 @@ func NewTLencryptedMessageService() *TLencryptedMessageService {
 
 // CodecEncode:encryptedMessageService
 func (m *TLencryptedMessageService) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(594758406)
 	x.Long(m.Getrandom_id())
 	x.Int(m.Getchat_id())
@@ -19219,7 +19219,7 @@ func (m *TLencryptedMessageService) Encode() []byte {
 }
 
 // CodecDecode:encryptedMessageService
-func (m *TLencryptedMessageService) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLencryptedMessageService) Decode(dbuf *api.DecodeBuf) error {
 	m.Setrandom_id(dbuf.Long())
 	m.Setchat_id(dbuf.Int())
 	m.Setdate(dbuf.Int())
@@ -19236,7 +19236,7 @@ func NewTLhighScore() *TLhighScore {
 
 // CodecEncode:highScore
 func (m *TLhighScore) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1493171408)
 	x.Int(m.Getpos())
 	x.Int(m.Getuser_id())
@@ -19245,7 +19245,7 @@ func (m *TLhighScore) Encode() []byte {
 }
 
 // CodecDecode:highScore
-func (m *TLhighScore) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLhighScore) Decode(dbuf *api.DecodeBuf) error {
 	m.Setpos(dbuf.Int())
 	m.Setuser_id(dbuf.Int())
 	m.Setscore(dbuf.Int())
@@ -19261,13 +19261,13 @@ func NewTLupdatesTooLong() *TLupdatesTooLong {
 
 // CodecEncode:updatesTooLong
 func (m *TLupdatesTooLong) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-484987010)
 	return x.Buf
 }
 
 // CodecDecode:updatesTooLong
-func (m *TLupdatesTooLong) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLupdatesTooLong) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -19280,7 +19280,7 @@ func NewTLupdateShortMessage() *TLupdateShortMessage {
 
 // CodecEncode:updateShortMessage
 func (m *TLupdateShortMessage) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(580309704)
 	var flags uint32 = 0
 	if m.Getout_key() != false {
@@ -19334,7 +19334,7 @@ func (m *TLupdateShortMessage) Encode() []byte {
 }
 
 // CodecDecode:updateShortMessage
-func (m *TLupdateShortMessage) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLupdateShortMessage) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	if (flags & (1 << 0)) != 0 {
@@ -19393,7 +19393,7 @@ func NewTLupdateShortChatMessage() *TLupdateShortChatMessage {
 
 // CodecEncode:updateShortChatMessage
 func (m *TLupdateShortChatMessage) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1076714939)
 	var flags uint32 = 0
 	if m.Getout_key() != false {
@@ -19448,7 +19448,7 @@ func (m *TLupdateShortChatMessage) Encode() []byte {
 }
 
 // CodecDecode:updateShortChatMessage
-func (m *TLupdateShortChatMessage) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLupdateShortChatMessage) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	if (flags & (1 << 0)) != 0 {
@@ -19508,7 +19508,7 @@ func NewTLupdateShort() *TLupdateShort {
 
 // CodecEncode:updateShort
 func (m *TLupdateShort) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(2027216577)
 	x.Bytes(m.Getupdate().Encode())
 	x.Int(m.Getdate())
@@ -19516,7 +19516,7 @@ func (m *TLupdateShort) Encode() []byte {
 }
 
 // CodecDecode:updateShort
-func (m *TLupdateShort) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLupdateShort) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &Update{}
 	m0.Decode(dbuf)
 	m.Setupdate(m0)
@@ -19533,7 +19533,7 @@ func NewTLupdatesCombined() *TLupdatesCombined {
 
 // CodecEncode:updatesCombined
 func (m *TLupdatesCombined) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1918567619)
 	x.Int(481674261)
 	x.Int(int32(len(m.Getupdates())))
@@ -19557,7 +19557,7 @@ func (m *TLupdatesCombined) Encode() []byte {
 }
 
 // CodecDecode:updatesCombined
-func (m *TLupdatesCombined) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLupdatesCombined) Decode(dbuf *api.DecodeBuf) error {
 	c0 := dbuf.Int()
 	if c0 != 481674261 {
 		return dbuf.Err
@@ -19606,7 +19606,7 @@ func NewTLupdates() *TLupdates {
 
 // CodecEncode:updates
 func (m *TLupdates) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1957577280)
 	x.Int(481674261)
 	x.Int(int32(len(m.Getupdates())))
@@ -19629,7 +19629,7 @@ func (m *TLupdates) Encode() []byte {
 }
 
 // CodecDecode:updates
-func (m *TLupdates) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLupdates) Decode(dbuf *api.DecodeBuf) error {
 	c0 := dbuf.Int()
 	if c0 != 481674261 {
 		return dbuf.Err
@@ -19677,7 +19677,7 @@ func NewTLupdateShortSentMessage() *TLupdateShortSentMessage {
 
 // CodecEncode:updateShortSentMessage
 func (m *TLupdateShortSentMessage) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(301019932)
 	var flags uint32 = 0
 	if m.Getout_key() != false {
@@ -19708,7 +19708,7 @@ func (m *TLupdateShortSentMessage) Encode() []byte {
 }
 
 // CodecDecode:updateShortSentMessage
-func (m *TLupdateShortSentMessage) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLupdateShortSentMessage) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	if (flags & (1 << 0)) != 0 {
@@ -19748,7 +19748,7 @@ func NewTLstatsGroupTopInviter() *TLstatsGroupTopInviter {
 
 // CodecEncode:statsGroupTopInviter
 func (m *TLstatsGroupTopInviter) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(831924812)
 	x.Int(m.Getuser_id())
 	x.Int(m.Getinvitations())
@@ -19756,7 +19756,7 @@ func (m *TLstatsGroupTopInviter) Encode() []byte {
 }
 
 // CodecDecode:statsGroupTopInviter
-func (m *TLstatsGroupTopInviter) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLstatsGroupTopInviter) Decode(dbuf *api.DecodeBuf) error {
 	m.Setuser_id(dbuf.Int())
 	m.Setinvitations(dbuf.Int())
 	return dbuf.Err
@@ -19771,7 +19771,7 @@ func NewTLshippingOption() *TLshippingOption {
 
 // CodecEncode:shippingOption
 func (m *TLshippingOption) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1239335713)
 	x.String(m.Getid())
 	x.String(m.Gettitle())
@@ -19784,7 +19784,7 @@ func (m *TLshippingOption) Encode() []byte {
 }
 
 // CodecDecode:shippingOption
-func (m *TLshippingOption) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLshippingOption) Decode(dbuf *api.DecodeBuf) error {
 	m.Setid(dbuf.String())
 	m.Settitle(dbuf.String())
 	c2 := dbuf.Int()
@@ -19810,7 +19810,7 @@ func NewTLinputSingleMedia() *TLinputSingleMedia {
 
 // CodecEncode:inputSingleMedia
 func (m *TLinputSingleMedia) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(482797855)
 	var flags uint32 = 0
 	if len(m.Getentities()) > 0 {
@@ -19831,7 +19831,7 @@ func (m *TLinputSingleMedia) Encode() []byte {
 }
 
 // CodecDecode:inputSingleMedia
-func (m *TLinputSingleMedia) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLinputSingleMedia) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	m0 := &InputMedia{}
@@ -19864,7 +19864,7 @@ func NewTLpollAnswerVoters() *TLpollAnswerVoters {
 
 // CodecEncode:pollAnswerVoters
 func (m *TLpollAnswerVoters) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(997055186)
 	var flags uint32 = 0
 	if m.Getchosen() != false {
@@ -19880,7 +19880,7 @@ func (m *TLpollAnswerVoters) Encode() []byte {
 }
 
 // CodecDecode:pollAnswerVoters
-func (m *TLpollAnswerVoters) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLpollAnswerVoters) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	if (flags & (1 << 0)) != 0 {
@@ -19903,7 +19903,7 @@ func NewTLaccount_password() *TLaccount_password {
 
 // CodecEncode:account_password
 func (m *TLaccount_password) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1390001672)
 	var flags uint32 = 0
 	if m.Gethas_recovery() != false {
@@ -19953,7 +19953,7 @@ func (m *TLaccount_password) Encode() []byte {
 }
 
 // CodecDecode:account_password
-func (m *TLaccount_password) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLaccount_password) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	if (flags & (1 << 0)) != 0 {
@@ -20001,13 +20001,13 @@ func NewTLcontacts_topPeersNotModified() *TLcontacts_topPeersNotModified {
 
 // CodecEncode:contacts_topPeersNotModified
 func (m *TLcontacts_topPeersNotModified) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-567906571)
 	return x.Buf
 }
 
 // CodecDecode:contacts_topPeersNotModified
-func (m *TLcontacts_topPeersNotModified) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLcontacts_topPeersNotModified) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -20020,7 +20020,7 @@ func NewTLcontacts_topPeers() *TLcontacts_topPeers {
 
 // CodecEncode:contacts_topPeers
 func (m *TLcontacts_topPeers) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1891070632)
 	x.Int(481674261)
 	x.Int(int32(len(m.Getcategories())))
@@ -20041,7 +20041,7 @@ func (m *TLcontacts_topPeers) Encode() []byte {
 }
 
 // CodecDecode:contacts_topPeers
-func (m *TLcontacts_topPeers) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLcontacts_topPeers) Decode(dbuf *api.DecodeBuf) error {
 	c0 := dbuf.Int()
 	if c0 != 481674261 {
 		return dbuf.Err
@@ -20087,13 +20087,13 @@ func NewTLcontacts_topPeersDisabled() *TLcontacts_topPeersDisabled {
 
 // CodecEncode:contacts_topPeersDisabled
 func (m *TLcontacts_topPeersDisabled) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1255369827)
 	return x.Buf
 }
 
 // CodecDecode:contacts_topPeersDisabled
-func (m *TLcontacts_topPeersDisabled) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLcontacts_topPeersDisabled) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -20106,14 +20106,14 @@ func NewTLuserEmpty() *TLuserEmpty {
 
 // CodecEncode:userEmpty
 func (m *TLuserEmpty) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(537022650)
 	x.Int(m.Getid())
 	return x.Buf
 }
 
 // CodecDecode:userEmpty
-func (m *TLuserEmpty) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLuserEmpty) Decode(dbuf *api.DecodeBuf) error {
 	m.Setid(dbuf.Int())
 	return dbuf.Err
 }
@@ -20127,7 +20127,7 @@ func NewTLuser() *TLuser {
 
 // CodecEncode:user
 func (m *TLuser) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1820043071)
 	var flags uint32 = 0
 	if m.Getself() != false {
@@ -20248,7 +20248,7 @@ func (m *TLuser) Encode() []byte {
 }
 
 // CodecDecode:user
-func (m *TLuser) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLuser) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	if (flags & (1 << 0)) != 0 {
@@ -20353,7 +20353,7 @@ func NewTLmessages_votesList() *TLmessages_votesList {
 
 // CodecEncode:messages_votesList
 func (m *TLmessages_votesList) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(136574537)
 	var flags uint32 = 0
 	if m.Getnext_offset() != "" {
@@ -20378,7 +20378,7 @@ func (m *TLmessages_votesList) Encode() []byte {
 }
 
 // CodecDecode:messages_votesList
-func (m *TLmessages_votesList) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessages_votesList) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	m.Setcount(dbuf.Int())
@@ -20419,7 +20419,7 @@ func NewTLmessages_dialogs() *TLmessages_dialogs {
 
 // CodecEncode:messages_dialogs
 func (m *TLmessages_dialogs) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(364538944)
 	x.Int(481674261)
 	x.Int(int32(len(m.Getdialogs())))
@@ -20445,7 +20445,7 @@ func (m *TLmessages_dialogs) Encode() []byte {
 }
 
 // CodecDecode:messages_dialogs
-func (m *TLmessages_dialogs) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessages_dialogs) Decode(dbuf *api.DecodeBuf) error {
 	c0 := dbuf.Int()
 	if c0 != 481674261 {
 		return dbuf.Err
@@ -20502,7 +20502,7 @@ func NewTLmessages_dialogsSlice() *TLmessages_dialogsSlice {
 
 // CodecEncode:messages_dialogsSlice
 func (m *TLmessages_dialogsSlice) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1910543603)
 	x.Int(m.Getcount())
 	x.Int(481674261)
@@ -20529,7 +20529,7 @@ func (m *TLmessages_dialogsSlice) Encode() []byte {
 }
 
 // CodecDecode:messages_dialogsSlice
-func (m *TLmessages_dialogsSlice) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessages_dialogsSlice) Decode(dbuf *api.DecodeBuf) error {
 	m.Setcount(dbuf.Int())
 	c1 := dbuf.Int()
 	if c1 != 481674261 {
@@ -20587,14 +20587,14 @@ func NewTLmessages_dialogsNotModified() *TLmessages_dialogsNotModified {
 
 // CodecEncode:messages_dialogsNotModified
 func (m *TLmessages_dialogsNotModified) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-253500010)
 	x.Int(m.Getcount())
 	return x.Buf
 }
 
 // CodecDecode:messages_dialogsNotModified
-func (m *TLmessages_dialogsNotModified) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessages_dialogsNotModified) Decode(dbuf *api.DecodeBuf) error {
 	m.Setcount(dbuf.Int())
 	return dbuf.Err
 }
@@ -20608,14 +20608,14 @@ func NewTLpeerUser() *TLpeerUser {
 
 // CodecEncode:peerUser
 func (m *TLpeerUser) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1649296275)
 	x.Int(m.Getuser_id())
 	return x.Buf
 }
 
 // CodecDecode:peerUser
-func (m *TLpeerUser) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLpeerUser) Decode(dbuf *api.DecodeBuf) error {
 	m.Setuser_id(dbuf.Int())
 	return dbuf.Err
 }
@@ -20629,14 +20629,14 @@ func NewTLpeerChat() *TLpeerChat {
 
 // CodecEncode:peerChat
 func (m *TLpeerChat) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1160714821)
 	x.Int(m.Getchat_id())
 	return x.Buf
 }
 
 // CodecDecode:peerChat
-func (m *TLpeerChat) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLpeerChat) Decode(dbuf *api.DecodeBuf) error {
 	m.Setchat_id(dbuf.Int())
 	return dbuf.Err
 }
@@ -20650,14 +20650,14 @@ func NewTLpeerChannel() *TLpeerChannel {
 
 // CodecEncode:peerChannel
 func (m *TLpeerChannel) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1109531342)
 	x.Int(m.Getchannel_id())
 	return x.Buf
 }
 
 // CodecDecode:peerChannel
-func (m *TLpeerChannel) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLpeerChannel) Decode(dbuf *api.DecodeBuf) error {
 	m.Setchannel_id(dbuf.Int())
 	return dbuf.Err
 }
@@ -20671,7 +20671,7 @@ func NewTLmessages_botCallbackAnswer() *TLmessages_botCallbackAnswer {
 
 // CodecEncode:messages_botCallbackAnswer
 func (m *TLmessages_botCallbackAnswer) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(911761060)
 	var flags uint32 = 0
 	if m.Getalert() != false {
@@ -20701,7 +20701,7 @@ func (m *TLmessages_botCallbackAnswer) Encode() []byte {
 }
 
 // CodecDecode:messages_botCallbackAnswer
-func (m *TLmessages_botCallbackAnswer) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessages_botCallbackAnswer) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	if (flags & (1 << 0)) != 0 {
@@ -20732,7 +20732,7 @@ func NewTLpeerNotifySettings() *TLpeerNotifySettings {
 
 // CodecEncode:peerNotifySettings
 func (m *TLpeerNotifySettings) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1353671392)
 	var flags uint32 = 0
 	if m.Getshow_previews().Constructor != 0 {
@@ -20764,7 +20764,7 @@ func (m *TLpeerNotifySettings) Encode() []byte {
 }
 
 // CodecDecode:peerNotifySettings
-func (m *TLpeerNotifySettings) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLpeerNotifySettings) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	if (flags & (1 << 0)) != 0 {
@@ -20795,7 +20795,7 @@ func NewTLinputStickerSetItem() *TLinputStickerSetItem {
 
 // CodecEncode:inputStickerSetItem
 func (m *TLinputStickerSetItem) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-6249322)
 	var flags uint32 = 0
 	if m.Getmask_coords().Constructor != 0 {
@@ -20811,7 +20811,7 @@ func (m *TLinputStickerSetItem) Encode() []byte {
 }
 
 // CodecDecode:inputStickerSetItem
-func (m *TLinputStickerSetItem) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLinputStickerSetItem) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	m0 := &InputDocument{}
@@ -20835,7 +20835,7 @@ func NewTLchatParticipantsForbidden() *TLchatParticipantsForbidden {
 
 // CodecEncode:chatParticipantsForbidden
 func (m *TLchatParticipantsForbidden) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-57668565)
 	var flags uint32 = 0
 	if m.Getself_participant().Constructor != 0 {
@@ -20850,7 +20850,7 @@ func (m *TLchatParticipantsForbidden) Encode() []byte {
 }
 
 // CodecDecode:chatParticipantsForbidden
-func (m *TLchatParticipantsForbidden) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLchatParticipantsForbidden) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	m.Setchat_id(dbuf.Int())
@@ -20871,7 +20871,7 @@ func NewTLchatParticipants() *TLchatParticipants {
 
 // CodecEncode:chatParticipants
 func (m *TLchatParticipants) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1061556205)
 	x.Int(m.Getchat_id())
 	x.Int(481674261)
@@ -20884,7 +20884,7 @@ func (m *TLchatParticipants) Encode() []byte {
 }
 
 // CodecDecode:chatParticipants
-func (m *TLchatParticipants) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLchatParticipants) Decode(dbuf *api.DecodeBuf) error {
 	m.Setchat_id(dbuf.Int())
 	c1 := dbuf.Int()
 	if c1 != 481674261 {
@@ -20910,7 +20910,7 @@ func NewTLinputThemeSettings() *TLinputThemeSettings {
 
 // CodecEncode:inputThemeSettings
 func (m *TLinputThemeSettings) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1118798639)
 	var flags uint32 = 0
 	if m.Getmessage_top_color() != 0 {
@@ -20944,7 +20944,7 @@ func (m *TLinputThemeSettings) Encode() []byte {
 }
 
 // CodecDecode:inputThemeSettings
-func (m *TLinputThemeSettings) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLinputThemeSettings) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	m0 := &BaseTheme{}
@@ -20979,7 +20979,7 @@ func NewTLstatsPercentValue() *TLstatsPercentValue {
 
 // CodecEncode:statsPercentValue
 func (m *TLstatsPercentValue) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-875679776)
 	x.Bytes(m.Getpart().Encode())
 	x.Bytes(m.Gettotal().Encode())
@@ -20987,7 +20987,7 @@ func (m *TLstatsPercentValue) Encode() []byte {
 }
 
 // CodecDecode:statsPercentValue
-func (m *TLstatsPercentValue) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLstatsPercentValue) Decode(dbuf *api.DecodeBuf) error {
 	m.Setpart(dbuf.Double())
 	m.Settotal(dbuf.Double())
 	return dbuf.Err
@@ -21002,7 +21002,7 @@ func NewTLauth_authorization() *TLauth_authorization {
 
 // CodecEncode:auth_authorization
 func (m *TLauth_authorization) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-855308010)
 	var flags uint32 = 0
 	if m.Gettmp_sessions() != 0 {
@@ -21017,7 +21017,7 @@ func (m *TLauth_authorization) Encode() []byte {
 }
 
 // CodecDecode:auth_authorization
-func (m *TLauth_authorization) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLauth_authorization) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	if (flags & (1 << 0)) != 0 {
@@ -21038,7 +21038,7 @@ func NewTLauth_authorizationSignUpRequired() *TLauth_authorizationSignUpRequired
 
 // CodecEncode:auth_authorizationSignUpRequired
 func (m *TLauth_authorizationSignUpRequired) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1148485274)
 	var flags uint32 = 0
 	if m.Getterms_of_service().Constructor != 0 {
@@ -21052,7 +21052,7 @@ func (m *TLauth_authorizationSignUpRequired) Encode() []byte {
 }
 
 // CodecDecode:auth_authorizationSignUpRequired
-func (m *TLauth_authorizationSignUpRequired) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLauth_authorizationSignUpRequired) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	if (flags & (1 << 0)) != 0 {
@@ -21072,7 +21072,7 @@ func NewTLphoneConnection() *TLphoneConnection {
 
 // CodecEncode:phoneConnection
 func (m *TLphoneConnection) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1655957568)
 	x.Long(m.Getid())
 	x.String(m.Getip())
@@ -21083,7 +21083,7 @@ func (m *TLphoneConnection) Encode() []byte {
 }
 
 // CodecDecode:phoneConnection
-func (m *TLphoneConnection) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLphoneConnection) Decode(dbuf *api.DecodeBuf) error {
 	m.Setid(dbuf.Long())
 	m.Setip(dbuf.String())
 	m.Setipv6(dbuf.String())
@@ -21101,7 +21101,7 @@ func NewTLphoneConnectionWebrtc() *TLphoneConnectionWebrtc {
 
 // CodecEncode:phoneConnectionWebrtc
 func (m *TLphoneConnectionWebrtc) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1667228533)
 	var flags uint32 = 0
 	if m.Getturn() != false {
@@ -21121,7 +21121,7 @@ func (m *TLphoneConnectionWebrtc) Encode() []byte {
 }
 
 // CodecDecode:phoneConnectionWebrtc
-func (m *TLphoneConnectionWebrtc) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLphoneConnectionWebrtc) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	if (flags & (1 << 0)) != 0 {
@@ -21148,7 +21148,7 @@ func NewTLinputClientProxy() *TLinputClientProxy {
 
 // CodecEncode:inputClientProxy
 func (m *TLinputClientProxy) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1968737087)
 	x.String(m.Getaddress())
 	x.Int(m.Getport())
@@ -21156,7 +21156,7 @@ func (m *TLinputClientProxy) Encode() []byte {
 }
 
 // CodecDecode:inputClientProxy
-func (m *TLinputClientProxy) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLinputClientProxy) Decode(dbuf *api.DecodeBuf) error {
 	m.Setaddress(dbuf.String())
 	m.Setport(dbuf.Int())
 	return dbuf.Err
@@ -21171,7 +21171,7 @@ func NewTLfileHash() *TLfileHash {
 
 // CodecEncode:fileHash
 func (m *TLfileHash) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1648543603)
 	x.Int(m.Getoffset())
 	x.Int(m.Getlimit())
@@ -21180,7 +21180,7 @@ func (m *TLfileHash) Encode() []byte {
 }
 
 // CodecDecode:fileHash
-func (m *TLfileHash) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLfileHash) Decode(dbuf *api.DecodeBuf) error {
 	m.Setoffset(dbuf.Int())
 	m.Setlimit(dbuf.Int())
 	m.Sethash(dbuf.StringBytes())
@@ -21196,14 +21196,14 @@ func NewTLinputNotifyPeer() *TLinputNotifyPeer {
 
 // CodecEncode:inputNotifyPeer
 func (m *TLinputNotifyPeer) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1195615476)
 	x.Bytes(m.Getpeer().Encode())
 	return x.Buf
 }
 
 // CodecDecode:inputNotifyPeer
-func (m *TLinputNotifyPeer) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLinputNotifyPeer) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &InputPeer{}
 	m0.Decode(dbuf)
 	m.Setpeer(m0)
@@ -21219,13 +21219,13 @@ func NewTLinputNotifyUsers() *TLinputNotifyUsers {
 
 // CodecEncode:inputNotifyUsers
 func (m *TLinputNotifyUsers) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(423314455)
 	return x.Buf
 }
 
 // CodecDecode:inputNotifyUsers
-func (m *TLinputNotifyUsers) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLinputNotifyUsers) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -21238,13 +21238,13 @@ func NewTLinputNotifyChats() *TLinputNotifyChats {
 
 // CodecEncode:inputNotifyChats
 func (m *TLinputNotifyChats) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1251338318)
 	return x.Buf
 }
 
 // CodecDecode:inputNotifyChats
-func (m *TLinputNotifyChats) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLinputNotifyChats) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -21257,13 +21257,13 @@ func NewTLinputNotifyBroadcasts() *TLinputNotifyBroadcasts {
 
 // CodecEncode:inputNotifyBroadcasts
 func (m *TLinputNotifyBroadcasts) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1311015810)
 	return x.Buf
 }
 
 // CodecDecode:inputNotifyBroadcasts
-func (m *TLinputNotifyBroadcasts) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLinputNotifyBroadcasts) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -21276,7 +21276,7 @@ func NewTLtopPeer() *TLtopPeer {
 
 // CodecEncode:topPeer
 func (m *TLtopPeer) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-305282981)
 	x.Bytes(m.Getpeer().Encode())
 	x.Bytes(m.Getrating().Encode())
@@ -21284,7 +21284,7 @@ func (m *TLtopPeer) Encode() []byte {
 }
 
 // CodecDecode:topPeer
-func (m *TLtopPeer) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLtopPeer) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &Peer{}
 	m0.Decode(dbuf)
 	m.Setpeer(m0)
@@ -21301,14 +21301,14 @@ func NewTLrecentMeUrlUnknown() *TLrecentMeUrlUnknown {
 
 // CodecEncode:recentMeUrlUnknown
 func (m *TLrecentMeUrlUnknown) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1189204285)
 	x.String(m.Geturl())
 	return x.Buf
 }
 
 // CodecDecode:recentMeUrlUnknown
-func (m *TLrecentMeUrlUnknown) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLrecentMeUrlUnknown) Decode(dbuf *api.DecodeBuf) error {
 	m.Seturl(dbuf.String())
 	return dbuf.Err
 }
@@ -21322,7 +21322,7 @@ func NewTLrecentMeUrlUser() *TLrecentMeUrlUser {
 
 // CodecEncode:recentMeUrlUser
 func (m *TLrecentMeUrlUser) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1917045962)
 	x.String(m.Geturl())
 	x.Int(m.Getuser_id())
@@ -21330,7 +21330,7 @@ func (m *TLrecentMeUrlUser) Encode() []byte {
 }
 
 // CodecDecode:recentMeUrlUser
-func (m *TLrecentMeUrlUser) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLrecentMeUrlUser) Decode(dbuf *api.DecodeBuf) error {
 	m.Seturl(dbuf.String())
 	m.Setuser_id(dbuf.Int())
 	return dbuf.Err
@@ -21345,7 +21345,7 @@ func NewTLrecentMeUrlChat() *TLrecentMeUrlChat {
 
 // CodecEncode:recentMeUrlChat
 func (m *TLrecentMeUrlChat) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1608834311)
 	x.String(m.Geturl())
 	x.Int(m.Getchat_id())
@@ -21353,7 +21353,7 @@ func (m *TLrecentMeUrlChat) Encode() []byte {
 }
 
 // CodecDecode:recentMeUrlChat
-func (m *TLrecentMeUrlChat) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLrecentMeUrlChat) Decode(dbuf *api.DecodeBuf) error {
 	m.Seturl(dbuf.String())
 	m.Setchat_id(dbuf.Int())
 	return dbuf.Err
@@ -21368,7 +21368,7 @@ func NewTLrecentMeUrlChatInvite() *TLrecentMeUrlChatInvite {
 
 // CodecEncode:recentMeUrlChatInvite
 func (m *TLrecentMeUrlChatInvite) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-347535331)
 	x.String(m.Geturl())
 	x.Bytes(m.Getchat_invite().Encode())
@@ -21376,7 +21376,7 @@ func (m *TLrecentMeUrlChatInvite) Encode() []byte {
 }
 
 // CodecDecode:recentMeUrlChatInvite
-func (m *TLrecentMeUrlChatInvite) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLrecentMeUrlChatInvite) Decode(dbuf *api.DecodeBuf) error {
 	m.Seturl(dbuf.String())
 	m1 := &ChatInvite{}
 	m1.Decode(dbuf)
@@ -21393,7 +21393,7 @@ func NewTLrecentMeUrlStickerSet() *TLrecentMeUrlStickerSet {
 
 // CodecEncode:recentMeUrlStickerSet
 func (m *TLrecentMeUrlStickerSet) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1140172836)
 	x.String(m.Geturl())
 	x.Bytes(m.Getset().Encode())
@@ -21401,7 +21401,7 @@ func (m *TLrecentMeUrlStickerSet) Encode() []byte {
 }
 
 // CodecDecode:recentMeUrlStickerSet
-func (m *TLrecentMeUrlStickerSet) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLrecentMeUrlStickerSet) Decode(dbuf *api.DecodeBuf) error {
 	m.Seturl(dbuf.String())
 	m1 := &StickerSetCovered{}
 	m1.Decode(dbuf)
@@ -21418,7 +21418,7 @@ func NewTLpaymentRequestedInfo() *TLpaymentRequestedInfo {
 
 // CodecEncode:paymentRequestedInfo
 func (m *TLpaymentRequestedInfo) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1868808300)
 	var flags uint32 = 0
 	if m.Getname() != "" {
@@ -21450,7 +21450,7 @@ func (m *TLpaymentRequestedInfo) Encode() []byte {
 }
 
 // CodecDecode:paymentRequestedInfo
-func (m *TLpaymentRequestedInfo) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLpaymentRequestedInfo) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	if (flags & (1 << 0)) != 0 {
@@ -21479,7 +21479,7 @@ func NewTLstatsGroupTopPoster() *TLstatsGroupTopPoster {
 
 // CodecEncode:statsGroupTopPoster
 func (m *TLstatsGroupTopPoster) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(418631927)
 	x.Int(m.Getuser_id())
 	x.Int(m.Getmessages())
@@ -21488,7 +21488,7 @@ func (m *TLstatsGroupTopPoster) Encode() []byte {
 }
 
 // CodecDecode:statsGroupTopPoster
-func (m *TLstatsGroupTopPoster) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLstatsGroupTopPoster) Decode(dbuf *api.DecodeBuf) error {
 	m.Setuser_id(dbuf.Int())
 	m.Setmessages(dbuf.Int())
 	m.Setavg_chars(dbuf.Int())
@@ -21504,7 +21504,7 @@ func NewTLnearestDc() *TLnearestDc {
 
 // CodecEncode:nearestDc
 func (m *TLnearestDc) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1910892683)
 	x.String(m.Getcountry())
 	x.Int(m.Getthis_dc())
@@ -21513,7 +21513,7 @@ func (m *TLnearestDc) Encode() []byte {
 }
 
 // CodecDecode:nearestDc
-func (m *TLnearestDc) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLnearestDc) Decode(dbuf *api.DecodeBuf) error {
 	m.Setcountry(dbuf.String())
 	m.Setthis_dc(dbuf.Int())
 	m.Setnearest_dc(dbuf.Int())
@@ -21529,7 +21529,7 @@ func NewTLlabeledPrice() *TLlabeledPrice {
 
 // CodecEncode:labeledPrice
 func (m *TLlabeledPrice) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-886477832)
 	x.String(m.Getlabel())
 	x.Long(m.Getamount())
@@ -21537,7 +21537,7 @@ func (m *TLlabeledPrice) Encode() []byte {
 }
 
 // CodecDecode:labeledPrice
-func (m *TLlabeledPrice) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLlabeledPrice) Decode(dbuf *api.DecodeBuf) error {
 	m.Setlabel(dbuf.String())
 	m.Setamount(dbuf.Long())
 	return dbuf.Err
@@ -21552,13 +21552,13 @@ func NewTLpasswordKdfAlgoUnknown() *TLpasswordKdfAlgoUnknown {
 
 // CodecEncode:passwordKdfAlgoUnknown
 func (m *TLpasswordKdfAlgoUnknown) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-732254058)
 	return x.Buf
 }
 
 // CodecDecode:passwordKdfAlgoUnknown
-func (m *TLpasswordKdfAlgoUnknown) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLpasswordKdfAlgoUnknown) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -21571,7 +21571,7 @@ func NewTLpasswordKdfAlgoSHA256SHA256PBKDF2HMACSHA512iter100000SHA256ModPow() *T
 
 // CodecEncode:passwordKdfAlgoSHA256SHA256PBKDF2HMACSHA512iter100000SHA256ModPow
 func (m *TLpasswordKdfAlgoSHA256SHA256PBKDF2HMACSHA512iter100000SHA256ModPow) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(982592842)
 	x.Bytes(m.Getsalt1())
 	x.Bytes(m.Getsalt2())
@@ -21581,7 +21581,7 @@ func (m *TLpasswordKdfAlgoSHA256SHA256PBKDF2HMACSHA512iter100000SHA256ModPow) En
 }
 
 // CodecDecode:passwordKdfAlgoSHA256SHA256PBKDF2HMACSHA512iter100000SHA256ModPow
-func (m *TLpasswordKdfAlgoSHA256SHA256PBKDF2HMACSHA512iter100000SHA256ModPow) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLpasswordKdfAlgoSHA256SHA256PBKDF2HMACSHA512iter100000SHA256ModPow) Decode(dbuf *api.DecodeBuf) error {
 	m.Setsalt1(dbuf.StringBytes())
 	m.Setsalt2(dbuf.StringBytes())
 	m.Setg(dbuf.Int())
@@ -21598,14 +21598,14 @@ func NewTLphotoEmpty() *TLphotoEmpty {
 
 // CodecEncode:photoEmpty
 func (m *TLphotoEmpty) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(590459437)
 	x.Long(m.Getid())
 	return x.Buf
 }
 
 // CodecDecode:photoEmpty
-func (m *TLphotoEmpty) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLphotoEmpty) Decode(dbuf *api.DecodeBuf) error {
 	m.Setid(dbuf.Long())
 	return dbuf.Err
 }
@@ -21619,7 +21619,7 @@ func NewTLphoto() *TLphoto {
 
 // CodecEncode:photo
 func (m *TLphoto) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-82216347)
 	var flags uint32 = 0
 	if m.Gethas_stickers() != false {
@@ -21650,7 +21650,7 @@ func (m *TLphoto) Encode() []byte {
 }
 
 // CodecDecode:photo
-func (m *TLphoto) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLphoto) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	if (flags & (1 << 0)) != 0 {
@@ -21697,7 +21697,7 @@ func NewTLinputBotInlineMessageID() *TLinputBotInlineMessageID {
 
 // CodecEncode:inputBotInlineMessageID
 func (m *TLinputBotInlineMessageID) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1995686519)
 	x.Int(m.Getdc_id())
 	x.Long(m.Getid())
@@ -21706,7 +21706,7 @@ func (m *TLinputBotInlineMessageID) Encode() []byte {
 }
 
 // CodecDecode:inputBotInlineMessageID
-func (m *TLinputBotInlineMessageID) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLinputBotInlineMessageID) Decode(dbuf *api.DecodeBuf) error {
 	m.Setdc_id(dbuf.Int())
 	m.Setid(dbuf.Long())
 	m.Setaccess_hash(dbuf.Long())
@@ -21722,7 +21722,7 @@ func NewTLuserFull() *TLuserFull {
 
 // CodecEncode:userFull
 func (m *TLuserFull) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-302941166)
 	var flags uint32 = 0
 	if m.Getblocked() != false {
@@ -21782,7 +21782,7 @@ func (m *TLuserFull) Encode() []byte {
 }
 
 // CodecDecode:userFull
-func (m *TLuserFull) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLuserFull) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	if (flags & (1 << 0)) != 0 {
@@ -21844,7 +21844,7 @@ func NewTLcdnPublicKey() *TLcdnPublicKey {
 
 // CodecEncode:cdnPublicKey
 func (m *TLcdnPublicKey) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-914167110)
 	x.Int(m.Getdc_id())
 	x.String(m.Getpublic_key())
@@ -21852,7 +21852,7 @@ func (m *TLcdnPublicKey) Encode() []byte {
 }
 
 // CodecDecode:cdnPublicKey
-func (m *TLcdnPublicKey) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLcdnPublicKey) Decode(dbuf *api.DecodeBuf) error {
 	m.Setdc_id(dbuf.Int())
 	m.Setpublic_key(dbuf.String())
 	return dbuf.Err
@@ -21867,7 +21867,7 @@ func NewTLbotCommand() *TLbotCommand {
 
 // CodecEncode:botCommand
 func (m *TLbotCommand) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1032140601)
 	x.String(m.Getcommand())
 	x.String(m.Getdescription())
@@ -21875,7 +21875,7 @@ func (m *TLbotCommand) Encode() []byte {
 }
 
 // CodecDecode:botCommand
-func (m *TLbotCommand) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLbotCommand) Decode(dbuf *api.DecodeBuf) error {
 	m.Setcommand(dbuf.String())
 	m.Setdescription(dbuf.String())
 	return dbuf.Err
@@ -21890,7 +21890,7 @@ func NewTLstickerSet() *TLstickerSet {
 
 // CodecEncode:stickerSet
 func (m *TLstickerSet) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-290164953)
 	var flags uint32 = 0
 	if m.Getarchived() != false {
@@ -21934,7 +21934,7 @@ func (m *TLstickerSet) Encode() []byte {
 }
 
 // CodecDecode:stickerSet
-func (m *TLstickerSet) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLstickerSet) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	if (flags & (1 << 0)) != 0 {
@@ -21978,13 +21978,13 @@ func NewTLinputChatPhotoEmpty() *TLinputChatPhotoEmpty {
 
 // CodecEncode:inputChatPhotoEmpty
 func (m *TLinputChatPhotoEmpty) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(480546647)
 	return x.Buf
 }
 
 // CodecDecode:inputChatPhotoEmpty
-func (m *TLinputChatPhotoEmpty) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLinputChatPhotoEmpty) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -21997,7 +21997,7 @@ func NewTLinputChatUploadedPhoto() *TLinputChatUploadedPhoto {
 
 // CodecEncode:inputChatUploadedPhoto
 func (m *TLinputChatUploadedPhoto) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-968723890)
 	var flags uint32 = 0
 	if m.Getfile().Constructor != 0 {
@@ -22023,7 +22023,7 @@ func (m *TLinputChatUploadedPhoto) Encode() []byte {
 }
 
 // CodecDecode:inputChatUploadedPhoto
-func (m *TLinputChatUploadedPhoto) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLinputChatUploadedPhoto) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	if (flags & (1 << 0)) != 0 {
@@ -22051,14 +22051,14 @@ func NewTLinputChatPhoto() *TLinputChatPhoto {
 
 // CodecEncode:inputChatPhoto
 func (m *TLinputChatPhoto) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1991004873)
 	x.Bytes(m.Getid().Encode())
 	return x.Buf
 }
 
 // CodecDecode:inputChatPhoto
-func (m *TLinputChatPhoto) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLinputChatPhoto) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &InputPhoto{}
 	m0.Decode(dbuf)
 	m.Setid(m0)
@@ -22074,7 +22074,7 @@ func NewTLsecureRequiredType() *TLsecureRequiredType {
 
 // CodecEncode:secureRequiredType
 func (m *TLsecureRequiredType) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-2103600678)
 	var flags uint32 = 0
 	if m.Getnative_names() != false {
@@ -22092,7 +22092,7 @@ func (m *TLsecureRequiredType) Encode() []byte {
 }
 
 // CodecDecode:secureRequiredType
-func (m *TLsecureRequiredType) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLsecureRequiredType) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	if (flags & (1 << 0)) != 0 {
@@ -22119,7 +22119,7 @@ func NewTLsecureRequiredTypeOneOf() *TLsecureRequiredTypeOneOf {
 
 // CodecEncode:secureRequiredTypeOneOf
 func (m *TLsecureRequiredTypeOneOf) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(41187252)
 	x.Int(481674261)
 	x.Int(int32(len(m.Gettypes())))
@@ -22130,7 +22130,7 @@ func (m *TLsecureRequiredTypeOneOf) Encode() []byte {
 }
 
 // CodecDecode:secureRequiredTypeOneOf
-func (m *TLsecureRequiredTypeOneOf) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLsecureRequiredTypeOneOf) Decode(dbuf *api.DecodeBuf) error {
 	c0 := dbuf.Int()
 	if c0 != 481674261 {
 		return dbuf.Err
@@ -22154,7 +22154,7 @@ func NewTLwallPaperSettings() *TLwallPaperSettings {
 
 // CodecEncode:wallPaperSettings
 func (m *TLwallPaperSettings) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(84438264)
 	var flags uint32 = 0
 	if m.Getblur() != false {
@@ -22192,7 +22192,7 @@ func (m *TLwallPaperSettings) Encode() []byte {
 }
 
 // CodecDecode:wallPaperSettings
-func (m *TLwallPaperSettings) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLwallPaperSettings) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	if (flags & (1 << 0)) != 0 {
@@ -22225,7 +22225,7 @@ func NewTLmessageUserVote() *TLmessageUserVote {
 
 // CodecEncode:messageUserVote
 func (m *TLmessageUserVote) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1567730343)
 	x.Int(m.Getuser_id())
 	x.Bytes(m.Getoption())
@@ -22234,7 +22234,7 @@ func (m *TLmessageUserVote) Encode() []byte {
 }
 
 // CodecDecode:messageUserVote
-func (m *TLmessageUserVote) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessageUserVote) Decode(dbuf *api.DecodeBuf) error {
 	m.Setuser_id(dbuf.Int())
 	m.Setoption(dbuf.StringBytes())
 	m.Setdate(dbuf.Int())
@@ -22250,7 +22250,7 @@ func NewTLmessageUserVoteInputOption() *TLmessageUserVoteInputOption {
 
 // CodecEncode:messageUserVoteInputOption
 func (m *TLmessageUserVoteInputOption) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(909603888)
 	x.Int(m.Getuser_id())
 	x.Int(m.Getdate())
@@ -22258,7 +22258,7 @@ func (m *TLmessageUserVoteInputOption) Encode() []byte {
 }
 
 // CodecDecode:messageUserVoteInputOption
-func (m *TLmessageUserVoteInputOption) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessageUserVoteInputOption) Decode(dbuf *api.DecodeBuf) error {
 	m.Setuser_id(dbuf.Int())
 	m.Setdate(dbuf.Int())
 	return dbuf.Err
@@ -22273,7 +22273,7 @@ func NewTLmessageUserVoteMultiple() *TLmessageUserVoteMultiple {
 
 // CodecEncode:messageUserVoteMultiple
 func (m *TLmessageUserVoteMultiple) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(244310238)
 	x.Int(m.Getuser_id())
 	x.Int(481674261)
@@ -22286,7 +22286,7 @@ func (m *TLmessageUserVoteMultiple) Encode() []byte {
 }
 
 // CodecDecode:messageUserVoteMultiple
-func (m *TLmessageUserVoteMultiple) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessageUserVoteMultiple) Decode(dbuf *api.DecodeBuf) error {
 	m.Setuser_id(dbuf.Int())
 	c1 := dbuf.Int()
 	if c1 != 481674261 {
@@ -22311,14 +22311,14 @@ func NewTLmessages_sentEncryptedMessage() *TLmessages_sentEncryptedMessage {
 
 // CodecEncode:messages_sentEncryptedMessage
 func (m *TLmessages_sentEncryptedMessage) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1443858741)
 	x.Int(m.Getdate())
 	return x.Buf
 }
 
 // CodecDecode:messages_sentEncryptedMessage
-func (m *TLmessages_sentEncryptedMessage) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessages_sentEncryptedMessage) Decode(dbuf *api.DecodeBuf) error {
 	m.Setdate(dbuf.Int())
 	return dbuf.Err
 }
@@ -22332,7 +22332,7 @@ func NewTLmessages_sentEncryptedFile() *TLmessages_sentEncryptedFile {
 
 // CodecEncode:messages_sentEncryptedFile
 func (m *TLmessages_sentEncryptedFile) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1802240206)
 	x.Int(m.Getdate())
 	x.Bytes(m.Getfile().Encode())
@@ -22340,7 +22340,7 @@ func (m *TLmessages_sentEncryptedFile) Encode() []byte {
 }
 
 // CodecDecode:messages_sentEncryptedFile
-func (m *TLmessages_sentEncryptedFile) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessages_sentEncryptedFile) Decode(dbuf *api.DecodeBuf) error {
 	m.Setdate(dbuf.Int())
 	m1 := &EncryptedFile{}
 	m1.Decode(dbuf)
@@ -22357,7 +22357,7 @@ func NewTLmaskCoords() *TLmaskCoords {
 
 // CodecEncode:maskCoords
 func (m *TLmaskCoords) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1361650766)
 	x.Int(m.Getn())
 	x.Bytes(m.Getx().Encode())
@@ -22367,7 +22367,7 @@ func (m *TLmaskCoords) Encode() []byte {
 }
 
 // CodecDecode:maskCoords
-func (m *TLmaskCoords) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmaskCoords) Decode(dbuf *api.DecodeBuf) error {
 	m.Setn(dbuf.Int())
 	m.Setx(dbuf.Double())
 	m.Sety(dbuf.Double())
@@ -22384,7 +22384,7 @@ func NewTLpageTableRow() *TLpageTableRow {
 
 // CodecEncode:pageTableRow
 func (m *TLpageTableRow) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-524237339)
 	x.Int(481674261)
 	x.Int(int32(len(m.Getcells())))
@@ -22395,7 +22395,7 @@ func (m *TLpageTableRow) Encode() []byte {
 }
 
 // CodecDecode:pageTableRow
-func (m *TLpageTableRow) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLpageTableRow) Decode(dbuf *api.DecodeBuf) error {
 	c0 := dbuf.Int()
 	if c0 != 481674261 {
 		return dbuf.Err
@@ -22419,7 +22419,7 @@ func NewTLupdates_state() *TLupdates_state {
 
 // CodecEncode:updates_state
 func (m *TLupdates_state) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1519637954)
 	x.Int(m.Getpts())
 	x.Int(m.Getqts())
@@ -22430,7 +22430,7 @@ func (m *TLupdates_state) Encode() []byte {
 }
 
 // CodecDecode:updates_state
-func (m *TLupdates_state) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLupdates_state) Decode(dbuf *api.DecodeBuf) error {
 	m.Setpts(dbuf.Int())
 	m.Setqts(dbuf.Int())
 	m.Setdate(dbuf.Int())
@@ -22448,7 +22448,7 @@ func NewTLpage() *TLpage {
 
 // CodecEncode:page
 func (m *TLpage) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1738178803)
 	var flags uint32 = 0
 	if m.Getpart() != false {
@@ -22487,7 +22487,7 @@ func (m *TLpage) Encode() []byte {
 }
 
 // CodecDecode:page
-func (m *TLpage) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLpage) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	if (flags & (1 << 0)) != 0 {
@@ -22548,13 +22548,13 @@ func NewTLhelp_deepLinkInfoEmpty() *TLhelp_deepLinkInfoEmpty {
 
 // CodecEncode:help_deepLinkInfoEmpty
 func (m *TLhelp_deepLinkInfoEmpty) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1722786150)
 	return x.Buf
 }
 
 // CodecDecode:help_deepLinkInfoEmpty
-func (m *TLhelp_deepLinkInfoEmpty) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLhelp_deepLinkInfoEmpty) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -22567,7 +22567,7 @@ func NewTLhelp_deepLinkInfo() *TLhelp_deepLinkInfo {
 
 // CodecEncode:help_deepLinkInfo
 func (m *TLhelp_deepLinkInfo) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1783556146)
 	var flags uint32 = 0
 	if m.Getupdate_app() != false {
@@ -22589,7 +22589,7 @@ func (m *TLhelp_deepLinkInfo) Encode() []byte {
 }
 
 // CodecDecode:help_deepLinkInfo
-func (m *TLhelp_deepLinkInfo) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLhelp_deepLinkInfo) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	if (flags & (1 << 0)) != 0 {
@@ -22621,7 +22621,7 @@ func NewTLpageRelatedArticle() *TLpageRelatedArticle {
 
 // CodecEncode:pageRelatedArticle
 func (m *TLpageRelatedArticle) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1282352120)
 	var flags uint32 = 0
 	if m.Gettitle() != "" {
@@ -22661,7 +22661,7 @@ func (m *TLpageRelatedArticle) Encode() []byte {
 }
 
 // CodecDecode:pageRelatedArticle
-func (m *TLpageRelatedArticle) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLpageRelatedArticle) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	m.Seturl(dbuf.String())
@@ -22693,13 +22693,13 @@ func NewTLmessages_stickerSetInstallResultSuccess() *TLmessages_stickerSetInstal
 
 // CodecEncode:messages_stickerSetInstallResultSuccess
 func (m *TLmessages_stickerSetInstallResultSuccess) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(946083368)
 	return x.Buf
 }
 
 // CodecDecode:messages_stickerSetInstallResultSuccess
-func (m *TLmessages_stickerSetInstallResultSuccess) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessages_stickerSetInstallResultSuccess) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -22712,7 +22712,7 @@ func NewTLmessages_stickerSetInstallResultArchive() *TLmessages_stickerSetInstal
 
 // CodecEncode:messages_stickerSetInstallResultArchive
 func (m *TLmessages_stickerSetInstallResultArchive) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(904138920)
 	x.Int(481674261)
 	x.Int(int32(len(m.Getsets())))
@@ -22723,7 +22723,7 @@ func (m *TLmessages_stickerSetInstallResultArchive) Encode() []byte {
 }
 
 // CodecDecode:messages_stickerSetInstallResultArchive
-func (m *TLmessages_stickerSetInstallResultArchive) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessages_stickerSetInstallResultArchive) Decode(dbuf *api.DecodeBuf) error {
 	c0 := dbuf.Int()
 	if c0 != 481674261 {
 		return dbuf.Err
@@ -22747,7 +22747,7 @@ func NewTLfolder() *TLfolder {
 
 // CodecEncode:folder
 func (m *TLfolder) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-11252123)
 	var flags uint32 = 0
 	if m.Getautofill_new_broadcasts() != false {
@@ -22772,7 +22772,7 @@ func (m *TLfolder) Encode() []byte {
 }
 
 // CodecDecode:folder
-func (m *TLfolder) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLfolder) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	if (flags & (1 << 0)) != 0 {
@@ -22803,7 +22803,7 @@ func NewTLvideoSize() *TLvideoSize {
 
 // CodecEncode:videoSize
 func (m *TLvideoSize) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-399391402)
 	var flags uint32 = 0
 	if m.Getvideo_start_ts().Constructor != 0 {
@@ -22822,7 +22822,7 @@ func (m *TLvideoSize) Encode() []byte {
 }
 
 // CodecDecode:videoSize
-func (m *TLvideoSize) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLvideoSize) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	m.Settype(dbuf.String())
@@ -22847,7 +22847,7 @@ func NewTLpeerSettings() *TLpeerSettings {
 
 // CodecEncode:peerSettings
 func (m *TLpeerSettings) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1933519201)
 	var flags uint32 = 0
 	if m.Getreport_spam() != false {
@@ -22882,7 +22882,7 @@ func (m *TLpeerSettings) Encode() []byte {
 }
 
 // CodecDecode:peerSettings
-func (m *TLpeerSettings) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLpeerSettings) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	if (flags & (1 << 0)) != 0 {
@@ -22921,7 +22921,7 @@ func NewTLauth_exportedAuthorization() *TLauth_exportedAuthorization {
 
 // CodecEncode:auth_exportedAuthorization
 func (m *TLauth_exportedAuthorization) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-543777747)
 	x.Int(m.Getid())
 	x.Bytes(m.Getbytes())
@@ -22929,7 +22929,7 @@ func (m *TLauth_exportedAuthorization) Encode() []byte {
 }
 
 // CodecDecode:auth_exportedAuthorization
-func (m *TLauth_exportedAuthorization) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLauth_exportedAuthorization) Decode(dbuf *api.DecodeBuf) error {
 	m.Setid(dbuf.Int())
 	m.Setbytes(dbuf.StringBytes())
 	return dbuf.Err
@@ -22944,7 +22944,7 @@ func NewTLchannelParticipant() *TLchannelParticipant {
 
 // CodecEncode:channelParticipant
 func (m *TLchannelParticipant) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(367766557)
 	x.Int(m.Getuser_id())
 	x.Int(m.Getdate())
@@ -22952,7 +22952,7 @@ func (m *TLchannelParticipant) Encode() []byte {
 }
 
 // CodecDecode:channelParticipant
-func (m *TLchannelParticipant) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLchannelParticipant) Decode(dbuf *api.DecodeBuf) error {
 	m.Setuser_id(dbuf.Int())
 	m.Setdate(dbuf.Int())
 	return dbuf.Err
@@ -22967,7 +22967,7 @@ func NewTLchannelParticipantSelf() *TLchannelParticipantSelf {
 
 // CodecEncode:channelParticipantSelf
 func (m *TLchannelParticipantSelf) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1557620115)
 	x.Int(m.Getuser_id())
 	x.Int(m.Getinviter_id())
@@ -22976,7 +22976,7 @@ func (m *TLchannelParticipantSelf) Encode() []byte {
 }
 
 // CodecDecode:channelParticipantSelf
-func (m *TLchannelParticipantSelf) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLchannelParticipantSelf) Decode(dbuf *api.DecodeBuf) error {
 	m.Setuser_id(dbuf.Int())
 	m.Setinviter_id(dbuf.Int())
 	m.Setdate(dbuf.Int())
@@ -22992,7 +22992,7 @@ func NewTLchannelParticipantCreator() *TLchannelParticipantCreator {
 
 // CodecEncode:channelParticipantCreator
 func (m *TLchannelParticipantCreator) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1149094475)
 	var flags uint32 = 0
 	if m.Getrank() != "" {
@@ -23008,7 +23008,7 @@ func (m *TLchannelParticipantCreator) Encode() []byte {
 }
 
 // CodecDecode:channelParticipantCreator
-func (m *TLchannelParticipantCreator) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLchannelParticipantCreator) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	m.Setuser_id(dbuf.Int())
@@ -23030,7 +23030,7 @@ func NewTLchannelParticipantAdmin() *TLchannelParticipantAdmin {
 
 // CodecEncode:channelParticipantAdmin
 func (m *TLchannelParticipantAdmin) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-859915345)
 	var flags uint32 = 0
 	if m.Getcan_edit() != false {
@@ -23060,7 +23060,7 @@ func (m *TLchannelParticipantAdmin) Encode() []byte {
 }
 
 // CodecDecode:channelParticipantAdmin
-func (m *TLchannelParticipantAdmin) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLchannelParticipantAdmin) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	if (flags & (1 << 0)) != 0 {
@@ -23093,7 +23093,7 @@ func NewTLchannelParticipantBanned() *TLchannelParticipantBanned {
 
 // CodecEncode:channelParticipantBanned
 func (m *TLchannelParticipantBanned) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(470789295)
 	var flags uint32 = 0
 	if m.Getleft() != false {
@@ -23108,7 +23108,7 @@ func (m *TLchannelParticipantBanned) Encode() []byte {
 }
 
 // CodecDecode:channelParticipantBanned
-func (m *TLchannelParticipantBanned) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLchannelParticipantBanned) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	if (flags & (1 << 0)) != 0 {
@@ -23132,14 +23132,14 @@ func NewTLchannelParticipantLeft() *TLchannelParticipantLeft {
 
 // CodecEncode:channelParticipantLeft
 func (m *TLchannelParticipantLeft) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1010402965)
 	x.Int(m.Getuser_id())
 	return x.Buf
 }
 
 // CodecDecode:channelParticipantLeft
-func (m *TLchannelParticipantLeft) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLchannelParticipantLeft) Decode(dbuf *api.DecodeBuf) error {
 	m.Setuser_id(dbuf.Int())
 	return dbuf.Err
 }
@@ -23153,7 +23153,7 @@ func NewTLinputBotInlineMessageMediaAuto() *TLinputBotInlineMessageMediaAuto {
 
 // CodecEncode:inputBotInlineMessageMediaAuto
 func (m *TLinputBotInlineMessageMediaAuto) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(864077702)
 	var flags uint32 = 0
 	if len(m.Getentities()) > 0 {
@@ -23178,7 +23178,7 @@ func (m *TLinputBotInlineMessageMediaAuto) Encode() []byte {
 }
 
 // CodecDecode:inputBotInlineMessageMediaAuto
-func (m *TLinputBotInlineMessageMediaAuto) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLinputBotInlineMessageMediaAuto) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	m.Setmessage(dbuf.String())
@@ -23212,7 +23212,7 @@ func NewTLinputBotInlineMessageText() *TLinputBotInlineMessageText {
 
 // CodecEncode:inputBotInlineMessageText
 func (m *TLinputBotInlineMessageText) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1036876423)
 	var flags uint32 = 0
 	if m.Getno_webpage() != false {
@@ -23240,7 +23240,7 @@ func (m *TLinputBotInlineMessageText) Encode() []byte {
 }
 
 // CodecDecode:inputBotInlineMessageText
-func (m *TLinputBotInlineMessageText) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLinputBotInlineMessageText) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	if (flags & (1 << 0)) != 0 {
@@ -23277,7 +23277,7 @@ func NewTLinputBotInlineMessageMediaGeo() *TLinputBotInlineMessageMediaGeo {
 
 // CodecEncode:inputBotInlineMessageMediaGeo
 func (m *TLinputBotInlineMessageMediaGeo) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1768777083)
 	var flags uint32 = 0
 	if m.Getheading() != 0 {
@@ -23310,7 +23310,7 @@ func (m *TLinputBotInlineMessageMediaGeo) Encode() []byte {
 }
 
 // CodecDecode:inputBotInlineMessageMediaGeo
-func (m *TLinputBotInlineMessageMediaGeo) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLinputBotInlineMessageMediaGeo) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	m0 := &InputGeoPoint{}
@@ -23342,7 +23342,7 @@ func NewTLinputBotInlineMessageMediaVenue() *TLinputBotInlineMessageMediaVenue {
 
 // CodecEncode:inputBotInlineMessageMediaVenue
 func (m *TLinputBotInlineMessageMediaVenue) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1098628881)
 	var flags uint32 = 0
 	if m.Getreply_markup().Constructor != 0 {
@@ -23362,7 +23362,7 @@ func (m *TLinputBotInlineMessageMediaVenue) Encode() []byte {
 }
 
 // CodecDecode:inputBotInlineMessageMediaVenue
-func (m *TLinputBotInlineMessageMediaVenue) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLinputBotInlineMessageMediaVenue) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	m0 := &InputGeoPoint{}
@@ -23390,7 +23390,7 @@ func NewTLinputBotInlineMessageMediaContact() *TLinputBotInlineMessageMediaConta
 
 // CodecEncode:inputBotInlineMessageMediaContact
 func (m *TLinputBotInlineMessageMediaContact) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1494368259)
 	var flags uint32 = 0
 	if m.Getreply_markup().Constructor != 0 {
@@ -23408,7 +23408,7 @@ func (m *TLinputBotInlineMessageMediaContact) Encode() []byte {
 }
 
 // CodecDecode:inputBotInlineMessageMediaContact
-func (m *TLinputBotInlineMessageMediaContact) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLinputBotInlineMessageMediaContact) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	m.Setphone_number(dbuf.String())
@@ -23432,7 +23432,7 @@ func NewTLinputBotInlineMessageGame() *TLinputBotInlineMessageGame {
 
 // CodecEncode:inputBotInlineMessageGame
 func (m *TLinputBotInlineMessageGame) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1262639204)
 	var flags uint32 = 0
 	if m.Getreply_markup().Constructor != 0 {
@@ -23446,7 +23446,7 @@ func (m *TLinputBotInlineMessageGame) Encode() []byte {
 }
 
 // CodecDecode:inputBotInlineMessageGame
-func (m *TLinputBotInlineMessageGame) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLinputBotInlineMessageGame) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	if (flags & (1 << 0)) != 0 {
@@ -23466,7 +23466,7 @@ func NewTLwebPageAttributeTheme() *TLwebPageAttributeTheme {
 
 // CodecEncode:webPageAttributeTheme
 func (m *TLwebPageAttributeTheme) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1421174295)
 	var flags uint32 = 0
 	if len(m.Getdocuments()) > 0 {
@@ -23490,7 +23490,7 @@ func (m *TLwebPageAttributeTheme) Encode() []byte {
 }
 
 // CodecDecode:webPageAttributeTheme
-func (m *TLwebPageAttributeTheme) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLwebPageAttributeTheme) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	if (flags & (1 << 0)) != 0 {
@@ -23523,13 +23523,13 @@ func NewTLsendMessageTypingAction() *TLsendMessageTypingAction {
 
 // CodecEncode:sendMessageTypingAction
 func (m *TLsendMessageTypingAction) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(381645902)
 	return x.Buf
 }
 
 // CodecDecode:sendMessageTypingAction
-func (m *TLsendMessageTypingAction) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLsendMessageTypingAction) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -23542,13 +23542,13 @@ func NewTLsendMessageCancelAction() *TLsendMessageCancelAction {
 
 // CodecEncode:sendMessageCancelAction
 func (m *TLsendMessageCancelAction) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-44119819)
 	return x.Buf
 }
 
 // CodecDecode:sendMessageCancelAction
-func (m *TLsendMessageCancelAction) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLsendMessageCancelAction) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -23561,13 +23561,13 @@ func NewTLsendMessageRecordVideoAction() *TLsendMessageRecordVideoAction {
 
 // CodecEncode:sendMessageRecordVideoAction
 func (m *TLsendMessageRecordVideoAction) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1584933265)
 	return x.Buf
 }
 
 // CodecDecode:sendMessageRecordVideoAction
-func (m *TLsendMessageRecordVideoAction) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLsendMessageRecordVideoAction) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -23580,14 +23580,14 @@ func NewTLsendMessageUploadVideoAction() *TLsendMessageUploadVideoAction {
 
 // CodecEncode:sendMessageUploadVideoAction
 func (m *TLsendMessageUploadVideoAction) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-378127636)
 	x.Int(m.Getprogress())
 	return x.Buf
 }
 
 // CodecDecode:sendMessageUploadVideoAction
-func (m *TLsendMessageUploadVideoAction) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLsendMessageUploadVideoAction) Decode(dbuf *api.DecodeBuf) error {
 	m.Setprogress(dbuf.Int())
 	return dbuf.Err
 }
@@ -23601,13 +23601,13 @@ func NewTLsendMessageRecordAudioAction() *TLsendMessageRecordAudioAction {
 
 // CodecEncode:sendMessageRecordAudioAction
 func (m *TLsendMessageRecordAudioAction) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-718310409)
 	return x.Buf
 }
 
 // CodecDecode:sendMessageRecordAudioAction
-func (m *TLsendMessageRecordAudioAction) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLsendMessageRecordAudioAction) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -23620,14 +23620,14 @@ func NewTLsendMessageUploadAudioAction() *TLsendMessageUploadAudioAction {
 
 // CodecEncode:sendMessageUploadAudioAction
 func (m *TLsendMessageUploadAudioAction) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-212740181)
 	x.Int(m.Getprogress())
 	return x.Buf
 }
 
 // CodecDecode:sendMessageUploadAudioAction
-func (m *TLsendMessageUploadAudioAction) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLsendMessageUploadAudioAction) Decode(dbuf *api.DecodeBuf) error {
 	m.Setprogress(dbuf.Int())
 	return dbuf.Err
 }
@@ -23641,14 +23641,14 @@ func NewTLsendMessageUploadPhotoAction() *TLsendMessageUploadPhotoAction {
 
 // CodecEncode:sendMessageUploadPhotoAction
 func (m *TLsendMessageUploadPhotoAction) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-774682074)
 	x.Int(m.Getprogress())
 	return x.Buf
 }
 
 // CodecDecode:sendMessageUploadPhotoAction
-func (m *TLsendMessageUploadPhotoAction) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLsendMessageUploadPhotoAction) Decode(dbuf *api.DecodeBuf) error {
 	m.Setprogress(dbuf.Int())
 	return dbuf.Err
 }
@@ -23662,14 +23662,14 @@ func NewTLsendMessageUploadDocumentAction() *TLsendMessageUploadDocumentAction {
 
 // CodecEncode:sendMessageUploadDocumentAction
 func (m *TLsendMessageUploadDocumentAction) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1441998364)
 	x.Int(m.Getprogress())
 	return x.Buf
 }
 
 // CodecDecode:sendMessageUploadDocumentAction
-func (m *TLsendMessageUploadDocumentAction) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLsendMessageUploadDocumentAction) Decode(dbuf *api.DecodeBuf) error {
 	m.Setprogress(dbuf.Int())
 	return dbuf.Err
 }
@@ -23683,13 +23683,13 @@ func NewTLsendMessageGeoLocationAction() *TLsendMessageGeoLocationAction {
 
 // CodecEncode:sendMessageGeoLocationAction
 func (m *TLsendMessageGeoLocationAction) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(393186209)
 	return x.Buf
 }
 
 // CodecDecode:sendMessageGeoLocationAction
-func (m *TLsendMessageGeoLocationAction) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLsendMessageGeoLocationAction) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -23702,13 +23702,13 @@ func NewTLsendMessageChooseContactAction() *TLsendMessageChooseContactAction {
 
 // CodecEncode:sendMessageChooseContactAction
 func (m *TLsendMessageChooseContactAction) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1653390447)
 	return x.Buf
 }
 
 // CodecDecode:sendMessageChooseContactAction
-func (m *TLsendMessageChooseContactAction) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLsendMessageChooseContactAction) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -23721,13 +23721,13 @@ func NewTLsendMessageGamePlayAction() *TLsendMessageGamePlayAction {
 
 // CodecEncode:sendMessageGamePlayAction
 func (m *TLsendMessageGamePlayAction) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-580219064)
 	return x.Buf
 }
 
 // CodecDecode:sendMessageGamePlayAction
-func (m *TLsendMessageGamePlayAction) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLsendMessageGamePlayAction) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -23740,13 +23740,13 @@ func NewTLsendMessageRecordRoundAction() *TLsendMessageRecordRoundAction {
 
 // CodecEncode:sendMessageRecordRoundAction
 func (m *TLsendMessageRecordRoundAction) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1997373508)
 	return x.Buf
 }
 
 // CodecDecode:sendMessageRecordRoundAction
-func (m *TLsendMessageRecordRoundAction) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLsendMessageRecordRoundAction) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -23759,14 +23759,14 @@ func NewTLsendMessageUploadRoundAction() *TLsendMessageUploadRoundAction {
 
 // CodecEncode:sendMessageUploadRoundAction
 func (m *TLsendMessageUploadRoundAction) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(608050278)
 	x.Int(m.Getprogress())
 	return x.Buf
 }
 
 // CodecDecode:sendMessageUploadRoundAction
-func (m *TLsendMessageUploadRoundAction) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLsendMessageUploadRoundAction) Decode(dbuf *api.DecodeBuf) error {
 	m.Setprogress(dbuf.Int())
 	return dbuf.Err
 }
@@ -23780,13 +23780,13 @@ func NewTLmessages_favedStickersNotModified() *TLmessages_favedStickersNotModifi
 
 // CodecEncode:messages_favedStickersNotModified
 func (m *TLmessages_favedStickersNotModified) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1634752813)
 	return x.Buf
 }
 
 // CodecDecode:messages_favedStickersNotModified
-func (m *TLmessages_favedStickersNotModified) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessages_favedStickersNotModified) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -23799,7 +23799,7 @@ func NewTLmessages_favedStickers() *TLmessages_favedStickers {
 
 // CodecEncode:messages_favedStickers
 func (m *TLmessages_favedStickers) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-209768682)
 	x.Int(m.Gethash())
 	x.Int(481674261)
@@ -23816,7 +23816,7 @@ func (m *TLmessages_favedStickers) Encode() []byte {
 }
 
 // CodecDecode:messages_favedStickers
-func (m *TLmessages_favedStickers) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessages_favedStickers) Decode(dbuf *api.DecodeBuf) error {
 	m.Sethash(dbuf.Int())
 	c1 := dbuf.Int()
 	if c1 != 481674261 {
@@ -23852,7 +23852,7 @@ func NewTLcontacts_found() *TLcontacts_found {
 
 // CodecEncode:contacts_found
 func (m *TLcontacts_found) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1290580579)
 	x.Int(481674261)
 	x.Int(int32(len(m.Getmy_results())))
@@ -23878,7 +23878,7 @@ func (m *TLcontacts_found) Encode() []byte {
 }
 
 // CodecDecode:contacts_found
-func (m *TLcontacts_found) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLcontacts_found) Decode(dbuf *api.DecodeBuf) error {
 	c0 := dbuf.Int()
 	if c0 != 481674261 {
 		return dbuf.Err
@@ -23935,13 +23935,13 @@ func NewTLinputStickerSetEmpty() *TLinputStickerSetEmpty {
 
 // CodecEncode:inputStickerSetEmpty
 func (m *TLinputStickerSetEmpty) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-4838507)
 	return x.Buf
 }
 
 // CodecDecode:inputStickerSetEmpty
-func (m *TLinputStickerSetEmpty) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLinputStickerSetEmpty) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -23954,7 +23954,7 @@ func NewTLinputStickerSetID() *TLinputStickerSetID {
 
 // CodecEncode:inputStickerSetID
 func (m *TLinputStickerSetID) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1645763991)
 	x.Long(m.Getid())
 	x.Long(m.Getaccess_hash())
@@ -23962,7 +23962,7 @@ func (m *TLinputStickerSetID) Encode() []byte {
 }
 
 // CodecDecode:inputStickerSetID
-func (m *TLinputStickerSetID) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLinputStickerSetID) Decode(dbuf *api.DecodeBuf) error {
 	m.Setid(dbuf.Long())
 	m.Setaccess_hash(dbuf.Long())
 	return dbuf.Err
@@ -23977,14 +23977,14 @@ func NewTLinputStickerSetShortName() *TLinputStickerSetShortName {
 
 // CodecEncode:inputStickerSetShortName
 func (m *TLinputStickerSetShortName) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-2044933984)
 	x.String(m.Getshort_name())
 	return x.Buf
 }
 
 // CodecDecode:inputStickerSetShortName
-func (m *TLinputStickerSetShortName) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLinputStickerSetShortName) Decode(dbuf *api.DecodeBuf) error {
 	m.Setshort_name(dbuf.String())
 	return dbuf.Err
 }
@@ -23998,13 +23998,13 @@ func NewTLinputStickerSetAnimatedEmoji() *TLinputStickerSetAnimatedEmoji {
 
 // CodecEncode:inputStickerSetAnimatedEmoji
 func (m *TLinputStickerSetAnimatedEmoji) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(42402760)
 	return x.Buf
 }
 
 // CodecDecode:inputStickerSetAnimatedEmoji
-func (m *TLinputStickerSetAnimatedEmoji) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLinputStickerSetAnimatedEmoji) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -24017,14 +24017,14 @@ func NewTLinputStickerSetDice() *TLinputStickerSetDice {
 
 // CodecEncode:inputStickerSetDice
 func (m *TLinputStickerSetDice) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-427863538)
 	x.String(m.Getemoticon())
 	return x.Buf
 }
 
 // CodecDecode:inputStickerSetDice
-func (m *TLinputStickerSetDice) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLinputStickerSetDice) Decode(dbuf *api.DecodeBuf) error {
 	m.Setemoticon(dbuf.String())
 	return dbuf.Err
 }
@@ -24038,7 +24038,7 @@ func NewTLstats_megagroupStats() *TLstats_megagroupStats {
 
 // CodecEncode:stats_megagroupStats
 func (m *TLstats_megagroupStats) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-276825834)
 	x.Bytes(m.Getperiod().Encode())
 	x.Bytes(m.Getmembers().Encode())
@@ -24077,7 +24077,7 @@ func (m *TLstats_megagroupStats) Encode() []byte {
 }
 
 // CodecDecode:stats_megagroupStats
-func (m *TLstats_megagroupStats) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLstats_megagroupStats) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &StatsDateRangeDays{}
 	m0.Decode(dbuf)
 	m.Setperiod(m0)
@@ -24173,14 +24173,14 @@ func NewTLmessages_featuredStickersNotModified() *TLmessages_featuredStickersNot
 
 // CodecEncode:messages_featuredStickersNotModified
 func (m *TLmessages_featuredStickersNotModified) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-958657434)
 	x.Int(m.Getcount())
 	return x.Buf
 }
 
 // CodecDecode:messages_featuredStickersNotModified
-func (m *TLmessages_featuredStickersNotModified) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessages_featuredStickersNotModified) Decode(dbuf *api.DecodeBuf) error {
 	m.Setcount(dbuf.Int())
 	return dbuf.Err
 }
@@ -24194,7 +24194,7 @@ func NewTLmessages_featuredStickers() *TLmessages_featuredStickers {
 
 // CodecEncode:messages_featuredStickers
 func (m *TLmessages_featuredStickers) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1230257343)
 	x.Int(m.Gethash())
 	x.Int(m.Getcount())
@@ -24212,7 +24212,7 @@ func (m *TLmessages_featuredStickers) Encode() []byte {
 }
 
 // CodecDecode:messages_featuredStickers
-func (m *TLmessages_featuredStickers) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessages_featuredStickers) Decode(dbuf *api.DecodeBuf) error {
 	m.Sethash(dbuf.Int())
 	m.Setcount(dbuf.Int())
 	c2 := dbuf.Int()
@@ -24239,7 +24239,7 @@ func NewTLinputPhoneCall() *TLinputPhoneCall {
 
 // CodecEncode:inputPhoneCall
 func (m *TLinputPhoneCall) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(506920429)
 	x.Long(m.Getid())
 	x.Long(m.Getaccess_hash())
@@ -24247,7 +24247,7 @@ func (m *TLinputPhoneCall) Encode() []byte {
 }
 
 // CodecDecode:inputPhoneCall
-func (m *TLinputPhoneCall) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLinputPhoneCall) Decode(dbuf *api.DecodeBuf) error {
 	m.Setid(dbuf.Long())
 	m.Setaccess_hash(dbuf.Long())
 	return dbuf.Err
@@ -24262,7 +24262,7 @@ func NewTLautoDownloadSettings() *TLautoDownloadSettings {
 
 // CodecEncode:autoDownloadSettings
 func (m *TLautoDownloadSettings) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-532532493)
 	var flags uint32 = 0
 	if m.Getdisabled() != false {
@@ -24286,7 +24286,7 @@ func (m *TLautoDownloadSettings) Encode() []byte {
 }
 
 // CodecDecode:autoDownloadSettings
-func (m *TLautoDownloadSettings) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLautoDownloadSettings) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	if (flags & (1 << 0)) != 0 {
@@ -24317,7 +24317,7 @@ func NewTLmessages_messageViews() *TLmessages_messageViews {
 
 // CodecEncode:messages_messageViews
 func (m *TLmessages_messageViews) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1228606141)
 	x.Int(481674261)
 	x.Int(int32(len(m.Getviews())))
@@ -24338,7 +24338,7 @@ func (m *TLmessages_messageViews) Encode() []byte {
 }
 
 // CodecDecode:messages_messageViews
-func (m *TLmessages_messageViews) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessages_messageViews) Decode(dbuf *api.DecodeBuf) error {
 	c0 := dbuf.Int()
 	if c0 != 481674261 {
 		return dbuf.Err
@@ -24384,7 +24384,7 @@ func NewTLchannels_adminLogResults() *TLchannels_adminLogResults {
 
 // CodecEncode:channels_adminLogResults
 func (m *TLchannels_adminLogResults) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-309659827)
 	x.Int(481674261)
 	x.Int(int32(len(m.Getevents())))
@@ -24405,7 +24405,7 @@ func (m *TLchannels_adminLogResults) Encode() []byte {
 }
 
 // CodecDecode:channels_adminLogResults
-func (m *TLchannels_adminLogResults) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLchannels_adminLogResults) Decode(dbuf *api.DecodeBuf) error {
 	c0 := dbuf.Int()
 	if c0 != 481674261 {
 		return dbuf.Err
@@ -24451,14 +24451,14 @@ func NewTLchatInviteAlready() *TLchatInviteAlready {
 
 // CodecEncode:chatInviteAlready
 func (m *TLchatInviteAlready) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1516793212)
 	x.Bytes(m.Getchat().Encode())
 	return x.Buf
 }
 
 // CodecDecode:chatInviteAlready
-func (m *TLchatInviteAlready) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLchatInviteAlready) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &Chat{}
 	m0.Decode(dbuf)
 	m.Setchat(m0)
@@ -24474,7 +24474,7 @@ func NewTLchatInvite() *TLchatInvite {
 
 // CodecEncode:chatInvite
 func (m *TLchatInvite) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-540871282)
 	var flags uint32 = 0
 	if m.Getchannel() != false {
@@ -24507,7 +24507,7 @@ func (m *TLchatInvite) Encode() []byte {
 }
 
 // CodecDecode:chatInvite
-func (m *TLchatInvite) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLchatInvite) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	if (flags & (1 << 0)) != 0 {
@@ -24552,7 +24552,7 @@ func NewTLchatInvitePeek() *TLchatInvitePeek {
 
 // CodecEncode:chatInvitePeek
 func (m *TLchatInvitePeek) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1634294960)
 	x.Bytes(m.Getchat().Encode())
 	x.Int(m.Getexpires())
@@ -24560,7 +24560,7 @@ func (m *TLchatInvitePeek) Encode() []byte {
 }
 
 // CodecDecode:chatInvitePeek
-func (m *TLchatInvitePeek) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLchatInvitePeek) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &Chat{}
 	m0.Decode(dbuf)
 	m.Setchat(m0)
@@ -24577,7 +24577,7 @@ func NewTLdocumentAttributeImageSize() *TLdocumentAttributeImageSize {
 
 // CodecEncode:documentAttributeImageSize
 func (m *TLdocumentAttributeImageSize) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1815593308)
 	x.Int(m.Getw())
 	x.Int(m.Geth())
@@ -24585,7 +24585,7 @@ func (m *TLdocumentAttributeImageSize) Encode() []byte {
 }
 
 // CodecDecode:documentAttributeImageSize
-func (m *TLdocumentAttributeImageSize) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLdocumentAttributeImageSize) Decode(dbuf *api.DecodeBuf) error {
 	m.Setw(dbuf.Int())
 	m.Seth(dbuf.Int())
 	return dbuf.Err
@@ -24600,13 +24600,13 @@ func NewTLdocumentAttributeAnimated() *TLdocumentAttributeAnimated {
 
 // CodecEncode:documentAttributeAnimated
 func (m *TLdocumentAttributeAnimated) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(297109817)
 	return x.Buf
 }
 
 // CodecDecode:documentAttributeAnimated
-func (m *TLdocumentAttributeAnimated) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLdocumentAttributeAnimated) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -24619,7 +24619,7 @@ func NewTLdocumentAttributeSticker() *TLdocumentAttributeSticker {
 
 // CodecEncode:documentAttributeSticker
 func (m *TLdocumentAttributeSticker) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1662637586)
 	var flags uint32 = 0
 	if m.Getmask() != false {
@@ -24638,7 +24638,7 @@ func (m *TLdocumentAttributeSticker) Encode() []byte {
 }
 
 // CodecDecode:documentAttributeSticker
-func (m *TLdocumentAttributeSticker) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLdocumentAttributeSticker) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	if (flags & (1 << 0)) != 0 {
@@ -24665,7 +24665,7 @@ func NewTLdocumentAttributeVideo() *TLdocumentAttributeVideo {
 
 // CodecEncode:documentAttributeVideo
 func (m *TLdocumentAttributeVideo) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(250621158)
 	var flags uint32 = 0
 	if m.Getround_message() != false {
@@ -24682,7 +24682,7 @@ func (m *TLdocumentAttributeVideo) Encode() []byte {
 }
 
 // CodecDecode:documentAttributeVideo
-func (m *TLdocumentAttributeVideo) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLdocumentAttributeVideo) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	if (flags & (1 << 0)) != 0 {
@@ -24706,7 +24706,7 @@ func NewTLdocumentAttributeAudio() *TLdocumentAttributeAudio {
 
 // CodecEncode:documentAttributeAudio
 func (m *TLdocumentAttributeAudio) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1739392570)
 	var flags uint32 = 0
 	if m.Getvoice() != false {
@@ -24736,7 +24736,7 @@ func (m *TLdocumentAttributeAudio) Encode() []byte {
 }
 
 // CodecDecode:documentAttributeAudio
-func (m *TLdocumentAttributeAudio) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLdocumentAttributeAudio) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	if (flags & (1 << 0)) != 0 {
@@ -24764,14 +24764,14 @@ func NewTLdocumentAttributeFilename() *TLdocumentAttributeFilename {
 
 // CodecEncode:documentAttributeFilename
 func (m *TLdocumentAttributeFilename) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(358154344)
 	x.String(m.Getfile_name())
 	return x.Buf
 }
 
 // CodecDecode:documentAttributeFilename
-func (m *TLdocumentAttributeFilename) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLdocumentAttributeFilename) Decode(dbuf *api.DecodeBuf) error {
 	m.Setfile_name(dbuf.String())
 	return dbuf.Err
 }
@@ -24785,13 +24785,13 @@ func NewTLdocumentAttributeHasStickers() *TLdocumentAttributeHasStickers {
 
 // CodecEncode:documentAttributeHasStickers
 func (m *TLdocumentAttributeHasStickers) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1744710921)
 	return x.Buf
 }
 
 // CodecDecode:documentAttributeHasStickers
-func (m *TLdocumentAttributeHasStickers) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLdocumentAttributeHasStickers) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -24804,14 +24804,14 @@ func NewTLhelp_supportName() *TLhelp_supportName {
 
 // CodecEncode:help_supportName
 func (m *TLhelp_supportName) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1945767479)
 	x.String(m.Getname())
 	return x.Buf
 }
 
 // CodecDecode:help_supportName
-func (m *TLhelp_supportName) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLhelp_supportName) Decode(dbuf *api.DecodeBuf) error {
 	m.Setname(dbuf.String())
 	return dbuf.Err
 }
@@ -24825,13 +24825,13 @@ func NewTLinputCheckPasswordEmpty() *TLinputCheckPasswordEmpty {
 
 // CodecEncode:inputCheckPasswordEmpty
 func (m *TLinputCheckPasswordEmpty) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1736378792)
 	return x.Buf
 }
 
 // CodecDecode:inputCheckPasswordEmpty
-func (m *TLinputCheckPasswordEmpty) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLinputCheckPasswordEmpty) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -24844,7 +24844,7 @@ func NewTLinputCheckPasswordSRP() *TLinputCheckPasswordSRP {
 
 // CodecEncode:inputCheckPasswordSRP
 func (m *TLinputCheckPasswordSRP) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-763367294)
 	x.Long(m.Getsrp_id())
 	x.Bytes(m.GetA())
@@ -24853,7 +24853,7 @@ func (m *TLinputCheckPasswordSRP) Encode() []byte {
 }
 
 // CodecDecode:inputCheckPasswordSRP
-func (m *TLinputCheckPasswordSRP) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLinputCheckPasswordSRP) Decode(dbuf *api.DecodeBuf) error {
 	m.Setsrp_id(dbuf.Long())
 	m.SetA(dbuf.StringBytes())
 	m.SetM1(dbuf.StringBytes())
@@ -24869,13 +24869,13 @@ func NewTLnull() *TLnull {
 
 // CodecEncode:null
 func (m *TLnull) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1450380236)
 	return x.Buf
 }
 
 // CodecDecode:null
-func (m *TLnull) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLnull) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -24888,7 +24888,7 @@ func NewTLaccount_tmpPassword() *TLaccount_tmpPassword {
 
 // CodecEncode:account_tmpPassword
 func (m *TLaccount_tmpPassword) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-614138572)
 	x.Bytes(m.Gettmp_password())
 	x.Int(m.Getvalid_until())
@@ -24896,7 +24896,7 @@ func (m *TLaccount_tmpPassword) Encode() []byte {
 }
 
 // CodecDecode:account_tmpPassword
-func (m *TLaccount_tmpPassword) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLaccount_tmpPassword) Decode(dbuf *api.DecodeBuf) error {
 	m.Settmp_password(dbuf.StringBytes())
 	m.Setvalid_until(dbuf.Int())
 	return dbuf.Err
@@ -24911,7 +24911,7 @@ func NewTLphotos_photo() *TLphotos_photo {
 
 // CodecEncode:photos_photo
 func (m *TLphotos_photo) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(539045032)
 	x.Bytes(m.Getphoto().Encode())
 	x.Int(481674261)
@@ -24923,7 +24923,7 @@ func (m *TLphotos_photo) Encode() []byte {
 }
 
 // CodecDecode:photos_photo
-func (m *TLphotos_photo) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLphotos_photo) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &Photo{}
 	m0.Decode(dbuf)
 	m.Setphoto(m0)
@@ -24950,13 +24950,13 @@ func NewTLinputReportReasonSpam() *TLinputReportReasonSpam {
 
 // CodecEncode:inputReportReasonSpam
 func (m *TLinputReportReasonSpam) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1490799288)
 	return x.Buf
 }
 
 // CodecDecode:inputReportReasonSpam
-func (m *TLinputReportReasonSpam) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLinputReportReasonSpam) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -24969,13 +24969,13 @@ func NewTLinputReportReasonViolence() *TLinputReportReasonViolence {
 
 // CodecEncode:inputReportReasonViolence
 func (m *TLinputReportReasonViolence) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(505595789)
 	return x.Buf
 }
 
 // CodecDecode:inputReportReasonViolence
-func (m *TLinputReportReasonViolence) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLinputReportReasonViolence) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -24988,13 +24988,13 @@ func NewTLinputReportReasonPornography() *TLinputReportReasonPornography {
 
 // CodecEncode:inputReportReasonPornography
 func (m *TLinputReportReasonPornography) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(777640226)
 	return x.Buf
 }
 
 // CodecDecode:inputReportReasonPornography
-func (m *TLinputReportReasonPornography) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLinputReportReasonPornography) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -25007,13 +25007,13 @@ func NewTLinputReportReasonChildAbuse() *TLinputReportReasonChildAbuse {
 
 // CodecEncode:inputReportReasonChildAbuse
 func (m *TLinputReportReasonChildAbuse) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1376497949)
 	return x.Buf
 }
 
 // CodecDecode:inputReportReasonChildAbuse
-func (m *TLinputReportReasonChildAbuse) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLinputReportReasonChildAbuse) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -25026,14 +25026,14 @@ func NewTLinputReportReasonOther() *TLinputReportReasonOther {
 
 // CodecEncode:inputReportReasonOther
 func (m *TLinputReportReasonOther) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-512463606)
 	x.String(m.Gettext())
 	return x.Buf
 }
 
 // CodecDecode:inputReportReasonOther
-func (m *TLinputReportReasonOther) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLinputReportReasonOther) Decode(dbuf *api.DecodeBuf) error {
 	m.Settext(dbuf.String())
 	return dbuf.Err
 }
@@ -25047,13 +25047,13 @@ func NewTLinputReportReasonCopyright() *TLinputReportReasonCopyright {
 
 // CodecEncode:inputReportReasonCopyright
 func (m *TLinputReportReasonCopyright) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1685456582)
 	return x.Buf
 }
 
 // CodecDecode:inputReportReasonCopyright
-func (m *TLinputReportReasonCopyright) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLinputReportReasonCopyright) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -25066,13 +25066,13 @@ func NewTLinputReportReasonGeoIrrelevant() *TLinputReportReasonGeoIrrelevant {
 
 // CodecEncode:inputReportReasonGeoIrrelevant
 func (m *TLinputReportReasonGeoIrrelevant) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-606798099)
 	return x.Buf
 }
 
 // CodecDecode:inputReportReasonGeoIrrelevant
-func (m *TLinputReportReasonGeoIrrelevant) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLinputReportReasonGeoIrrelevant) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -25085,7 +25085,7 @@ func NewTLpeerBlocked() *TLpeerBlocked {
 
 // CodecEncode:peerBlocked
 func (m *TLpeerBlocked) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-386039788)
 	x.Bytes(m.Getpeer_id().Encode())
 	x.Int(m.Getdate())
@@ -25093,7 +25093,7 @@ func (m *TLpeerBlocked) Encode() []byte {
 }
 
 // CodecDecode:peerBlocked
-func (m *TLpeerBlocked) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLpeerBlocked) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &Peer{}
 	m0.Decode(dbuf)
 	m.Setpeer_id(m0)
@@ -25110,13 +25110,13 @@ func NewTLuserProfilePhotoEmpty() *TLuserProfilePhotoEmpty {
 
 // CodecEncode:userProfilePhotoEmpty
 func (m *TLuserProfilePhotoEmpty) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1326562017)
 	return x.Buf
 }
 
 // CodecDecode:userProfilePhotoEmpty
-func (m *TLuserProfilePhotoEmpty) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLuserProfilePhotoEmpty) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -25129,7 +25129,7 @@ func NewTLuserProfilePhoto() *TLuserProfilePhoto {
 
 // CodecEncode:userProfilePhoto
 func (m *TLuserProfilePhoto) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1775479590)
 	var flags uint32 = 0
 	if m.Gethas_video() != false {
@@ -25144,7 +25144,7 @@ func (m *TLuserProfilePhoto) Encode() []byte {
 }
 
 // CodecDecode:userProfilePhoto
-func (m *TLuserProfilePhoto) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLuserProfilePhoto) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	if (flags & (1 << 0)) != 0 {
@@ -25170,7 +25170,7 @@ func NewTLaccount_contentSettings() *TLaccount_contentSettings {
 
 // CodecEncode:account_contentSettings
 func (m *TLaccount_contentSettings) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1474462241)
 	var flags uint32 = 0
 	if m.Getsensitive_enabled() != false {
@@ -25184,7 +25184,7 @@ func (m *TLaccount_contentSettings) Encode() []byte {
 }
 
 // CodecDecode:account_contentSettings
-func (m *TLaccount_contentSettings) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLaccount_contentSettings) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	if (flags & (1 << 0)) != 0 {
@@ -25205,7 +25205,7 @@ func NewTLpageListOrderedItemText() *TLpageListOrderedItemText {
 
 // CodecEncode:pageListOrderedItemText
 func (m *TLpageListOrderedItemText) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1577484359)
 	x.String(m.Getnum())
 	x.Bytes(m.Gettext().Encode())
@@ -25213,7 +25213,7 @@ func (m *TLpageListOrderedItemText) Encode() []byte {
 }
 
 // CodecDecode:pageListOrderedItemText
-func (m *TLpageListOrderedItemText) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLpageListOrderedItemText) Decode(dbuf *api.DecodeBuf) error {
 	m.Setnum(dbuf.String())
 	m1 := &RichText{}
 	m1.Decode(dbuf)
@@ -25230,7 +25230,7 @@ func NewTLpageListOrderedItemBlocks() *TLpageListOrderedItemBlocks {
 
 // CodecEncode:pageListOrderedItemBlocks
 func (m *TLpageListOrderedItemBlocks) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1730311882)
 	x.String(m.Getnum())
 	x.Int(481674261)
@@ -25242,7 +25242,7 @@ func (m *TLpageListOrderedItemBlocks) Encode() []byte {
 }
 
 // CodecDecode:pageListOrderedItemBlocks
-func (m *TLpageListOrderedItemBlocks) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLpageListOrderedItemBlocks) Decode(dbuf *api.DecodeBuf) error {
 	m.Setnum(dbuf.String())
 	c1 := dbuf.Int()
 	if c1 != 481674261 {
@@ -25267,7 +25267,7 @@ func NewTLdialog() *TLdialog {
 
 // CodecEncode:dialog
 func (m *TLdialog) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(739712882)
 	var flags uint32 = 0
 	if m.Getpinned() != false {
@@ -25306,7 +25306,7 @@ func (m *TLdialog) Encode() []byte {
 }
 
 // CodecDecode:dialog
-func (m *TLdialog) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLdialog) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	if (flags & (1 << 0)) != 0 {
@@ -25349,7 +25349,7 @@ func NewTLdialogFolder() *TLdialogFolder {
 
 // CodecEncode:dialogFolder
 func (m *TLdialogFolder) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1908216652)
 	var flags uint32 = 0
 	if m.Getpinned() != false {
@@ -25367,7 +25367,7 @@ func (m *TLdialogFolder) Encode() []byte {
 }
 
 // CodecDecode:dialogFolder
-func (m *TLdialogFolder) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLdialogFolder) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	if (flags & (1 << 0)) != 0 {
@@ -25396,7 +25396,7 @@ func NewTLwallPaper() *TLwallPaper {
 
 // CodecEncode:wallPaper
 func (m *TLwallPaper) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1539849235)
 	var flags uint32 = 0
 	if m.Getcreator() != false {
@@ -25426,7 +25426,7 @@ func (m *TLwallPaper) Encode() []byte {
 }
 
 // CodecDecode:wallPaper
-func (m *TLwallPaper) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLwallPaper) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	m.Setid(dbuf.Long())
@@ -25464,7 +25464,7 @@ func NewTLwallPaperNoFile() *TLwallPaperNoFile {
 
 // CodecEncode:wallPaperNoFile
 func (m *TLwallPaperNoFile) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1963717851)
 	var flags uint32 = 0
 	if m.Getdefault() != false {
@@ -25484,7 +25484,7 @@ func (m *TLwallPaperNoFile) Encode() []byte {
 }
 
 // CodecDecode:wallPaperNoFile
-func (m *TLwallPaperNoFile) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLwallPaperNoFile) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	if (flags & (1 << 0)) != 0 {
@@ -25510,7 +25510,7 @@ func NewTLmessages_messageEditData() *TLmessages_messageEditData {
 
 // CodecEncode:messages_messageEditData
 func (m *TLmessages_messageEditData) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(649453030)
 	var flags uint32 = 0
 	if m.Getcaption() != false {
@@ -25521,7 +25521,7 @@ func (m *TLmessages_messageEditData) Encode() []byte {
 }
 
 // CodecDecode:messages_messageEditData
-func (m *TLmessages_messageEditData) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessages_messageEditData) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	if (flags & (1 << 0)) != 0 {
@@ -25539,7 +25539,7 @@ func NewTLthemeSettings() *TLthemeSettings {
 
 // CodecEncode:themeSettings
 func (m *TLthemeSettings) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1676371894)
 	var flags uint32 = 0
 	if m.Getmessage_top_color() != 0 {
@@ -25567,7 +25567,7 @@ func (m *TLthemeSettings) Encode() []byte {
 }
 
 // CodecDecode:themeSettings
-func (m *TLthemeSettings) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLthemeSettings) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	m0 := &BaseTheme{}
@@ -25597,13 +25597,13 @@ func NewTLinputUserEmpty() *TLinputUserEmpty {
 
 // CodecEncode:inputUserEmpty
 func (m *TLinputUserEmpty) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1182234929)
 	return x.Buf
 }
 
 // CodecDecode:inputUserEmpty
-func (m *TLinputUserEmpty) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLinputUserEmpty) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -25616,13 +25616,13 @@ func NewTLinputUserSelf() *TLinputUserSelf {
 
 // CodecEncode:inputUserSelf
 func (m *TLinputUserSelf) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-138301121)
 	return x.Buf
 }
 
 // CodecDecode:inputUserSelf
-func (m *TLinputUserSelf) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLinputUserSelf) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -25635,7 +25635,7 @@ func NewTLinputUser() *TLinputUser {
 
 // CodecEncode:inputUser
 func (m *TLinputUser) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-668391402)
 	x.Int(m.Getuser_id())
 	x.Long(m.Getaccess_hash())
@@ -25643,7 +25643,7 @@ func (m *TLinputUser) Encode() []byte {
 }
 
 // CodecDecode:inputUser
-func (m *TLinputUser) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLinputUser) Decode(dbuf *api.DecodeBuf) error {
 	m.Setuser_id(dbuf.Int())
 	m.Setaccess_hash(dbuf.Long())
 	return dbuf.Err
@@ -25658,7 +25658,7 @@ func NewTLinputUserFromMessage() *TLinputUserFromMessage {
 
 // CodecEncode:inputUserFromMessage
 func (m *TLinputUserFromMessage) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(756118935)
 	x.Bytes(m.Getpeer().Encode())
 	x.Int(m.Getmsg_id())
@@ -25667,7 +25667,7 @@ func (m *TLinputUserFromMessage) Encode() []byte {
 }
 
 // CodecDecode:inputUserFromMessage
-func (m *TLinputUserFromMessage) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLinputUserFromMessage) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &InputPeer{}
 	m0.Decode(dbuf)
 	m.Setpeer(m0)
@@ -25685,14 +25685,14 @@ func NewTLemojiLanguage() *TLemojiLanguage {
 
 // CodecEncode:emojiLanguage
 func (m *TLemojiLanguage) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1275374751)
 	x.String(m.Getlang_code())
 	return x.Buf
 }
 
 // CodecDecode:emojiLanguage
-func (m *TLemojiLanguage) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLemojiLanguage) Decode(dbuf *api.DecodeBuf) error {
 	m.Setlang_code(dbuf.String())
 	return dbuf.Err
 }
@@ -25706,7 +25706,7 @@ func NewTLwebAuthorization() *TLwebAuthorization {
 
 // CodecEncode:webAuthorization
 func (m *TLwebAuthorization) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-892779534)
 	x.Long(m.Gethash())
 	x.Int(m.Getbot_id())
@@ -25721,7 +25721,7 @@ func (m *TLwebAuthorization) Encode() []byte {
 }
 
 // CodecDecode:webAuthorization
-func (m *TLwebAuthorization) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLwebAuthorization) Decode(dbuf *api.DecodeBuf) error {
 	m.Sethash(dbuf.Long())
 	m.Setbot_id(dbuf.Int())
 	m.Setdomain(dbuf.String())
@@ -25743,14 +25743,14 @@ func NewTLpageListItemText() *TLpageListItemText {
 
 // CodecEncode:pageListItemText
 func (m *TLpageListItemText) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1188055347)
 	x.Bytes(m.Gettext().Encode())
 	return x.Buf
 }
 
 // CodecDecode:pageListItemText
-func (m *TLpageListItemText) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLpageListItemText) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &RichText{}
 	m0.Decode(dbuf)
 	m.Settext(m0)
@@ -25766,7 +25766,7 @@ func NewTLpageListItemBlocks() *TLpageListItemBlocks {
 
 // CodecEncode:pageListItemBlocks
 func (m *TLpageListItemBlocks) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(635466748)
 	x.Int(481674261)
 	x.Int(int32(len(m.Getblocks())))
@@ -25777,7 +25777,7 @@ func (m *TLpageListItemBlocks) Encode() []byte {
 }
 
 // CodecDecode:pageListItemBlocks
-func (m *TLpageListItemBlocks) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLpageListItemBlocks) Decode(dbuf *api.DecodeBuf) error {
 	c0 := dbuf.Int()
 	if c0 != 481674261 {
 		return dbuf.Err
@@ -25801,7 +25801,7 @@ func NewTLcontactStatus() *TLcontactStatus {
 
 // CodecEncode:contactStatus
 func (m *TLcontactStatus) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-748155807)
 	x.Int(m.Getuser_id())
 	x.Bytes(m.Getstatus().Encode())
@@ -25809,7 +25809,7 @@ func (m *TLcontactStatus) Encode() []byte {
 }
 
 // CodecDecode:contactStatus
-func (m *TLcontactStatus) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLcontactStatus) Decode(dbuf *api.DecodeBuf) error {
 	m.Setuser_id(dbuf.Int())
 	m1 := &UserStatus{}
 	m1.Decode(dbuf)
@@ -25826,7 +25826,7 @@ func NewTLhelp_recentMeUrls() *TLhelp_recentMeUrls {
 
 // CodecEncode:help_recentMeUrls
 func (m *TLhelp_recentMeUrls) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(235081943)
 	x.Int(481674261)
 	x.Int(int32(len(m.Geturls())))
@@ -25847,7 +25847,7 @@ func (m *TLhelp_recentMeUrls) Encode() []byte {
 }
 
 // CodecDecode:help_recentMeUrls
-func (m *TLhelp_recentMeUrls) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLhelp_recentMeUrls) Decode(dbuf *api.DecodeBuf) error {
 	c0 := dbuf.Int()
 	if c0 != 481674261 {
 		return dbuf.Err
@@ -25893,7 +25893,7 @@ func NewTLaccount_webAuthorizations() *TLaccount_webAuthorizations {
 
 // CodecEncode:account_webAuthorizations
 func (m *TLaccount_webAuthorizations) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-313079300)
 	x.Int(481674261)
 	x.Int(int32(len(m.Getauthorizations())))
@@ -25909,7 +25909,7 @@ func (m *TLaccount_webAuthorizations) Encode() []byte {
 }
 
 // CodecDecode:account_webAuthorizations
-func (m *TLaccount_webAuthorizations) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLaccount_webAuthorizations) Decode(dbuf *api.DecodeBuf) error {
 	c0 := dbuf.Int()
 	if c0 != 481674261 {
 		return dbuf.Err
@@ -25944,7 +25944,7 @@ func NewTLreplyKeyboardHide() *TLreplyKeyboardHide {
 
 // CodecEncode:replyKeyboardHide
 func (m *TLreplyKeyboardHide) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1606526075)
 	var flags uint32 = 0
 	if m.Getselective() != false {
@@ -25955,7 +25955,7 @@ func (m *TLreplyKeyboardHide) Encode() []byte {
 }
 
 // CodecDecode:replyKeyboardHide
-func (m *TLreplyKeyboardHide) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLreplyKeyboardHide) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	if (flags & (1 << 0)) != 0 {
@@ -25973,7 +25973,7 @@ func NewTLreplyKeyboardForceReply() *TLreplyKeyboardForceReply {
 
 // CodecEncode:replyKeyboardForceReply
 func (m *TLreplyKeyboardForceReply) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-200242528)
 	var flags uint32 = 0
 	if m.Getsingle_use() != false {
@@ -25987,7 +25987,7 @@ func (m *TLreplyKeyboardForceReply) Encode() []byte {
 }
 
 // CodecDecode:replyKeyboardForceReply
-func (m *TLreplyKeyboardForceReply) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLreplyKeyboardForceReply) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	if (flags & (1 << 0)) != 0 {
@@ -26008,7 +26008,7 @@ func NewTLreplyKeyboardMarkup() *TLreplyKeyboardMarkup {
 
 // CodecEncode:replyKeyboardMarkup
 func (m *TLreplyKeyboardMarkup) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(889353612)
 	var flags uint32 = 0
 	if m.Getresize() != false {
@@ -26030,7 +26030,7 @@ func (m *TLreplyKeyboardMarkup) Encode() []byte {
 }
 
 // CodecDecode:replyKeyboardMarkup
-func (m *TLreplyKeyboardMarkup) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLreplyKeyboardMarkup) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	if (flags & (1 << 0)) != 0 {
@@ -26065,7 +26065,7 @@ func NewTLreplyInlineMarkup() *TLreplyInlineMarkup {
 
 // CodecEncode:replyInlineMarkup
 func (m *TLreplyInlineMarkup) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1218642516)
 	x.Int(481674261)
 	x.Int(int32(len(m.Getrows())))
@@ -26076,7 +26076,7 @@ func (m *TLreplyInlineMarkup) Encode() []byte {
 }
 
 // CodecDecode:replyInlineMarkup
-func (m *TLreplyInlineMarkup) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLreplyInlineMarkup) Decode(dbuf *api.DecodeBuf) error {
 	c0 := dbuf.Int()
 	if c0 != 481674261 {
 		return dbuf.Err
@@ -26100,7 +26100,7 @@ func NewTLhelp_support() *TLhelp_support {
 
 // CodecEncode:help_support
 func (m *TLhelp_support) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(398898678)
 	x.String(m.Getphone_number())
 	x.Bytes(m.Getuser().Encode())
@@ -26108,7 +26108,7 @@ func (m *TLhelp_support) Encode() []byte {
 }
 
 // CodecDecode:help_support
-func (m *TLhelp_support) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLhelp_support) Decode(dbuf *api.DecodeBuf) error {
 	m.Setphone_number(dbuf.String())
 	m1 := &User{}
 	m1.Decode(dbuf)
@@ -26125,7 +26125,7 @@ func NewTLinputWebDocument() *TLinputWebDocument {
 
 // CodecEncode:inputWebDocument
 func (m *TLinputWebDocument) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1678949555)
 	x.String(m.Geturl())
 	x.Int(m.Getsize())
@@ -26139,7 +26139,7 @@ func (m *TLinputWebDocument) Encode() []byte {
 }
 
 // CodecDecode:inputWebDocument
-func (m *TLinputWebDocument) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLinputWebDocument) Decode(dbuf *api.DecodeBuf) error {
 	m.Seturl(dbuf.String())
 	m.Setsize(dbuf.Int())
 	m.Setmime_type(dbuf.String())
@@ -26166,14 +26166,14 @@ func NewTLinputStickeredMediaPhoto() *TLinputStickeredMediaPhoto {
 
 // CodecEncode:inputStickeredMediaPhoto
 func (m *TLinputStickeredMediaPhoto) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1251549527)
 	x.Bytes(m.Getid().Encode())
 	return x.Buf
 }
 
 // CodecDecode:inputStickeredMediaPhoto
-func (m *TLinputStickeredMediaPhoto) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLinputStickeredMediaPhoto) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &InputPhoto{}
 	m0.Decode(dbuf)
 	m.Setid(m0)
@@ -26189,14 +26189,14 @@ func NewTLinputStickeredMediaDocument() *TLinputStickeredMediaDocument {
 
 // CodecEncode:inputStickeredMediaDocument
 func (m *TLinputStickeredMediaDocument) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(70813275)
 	x.Bytes(m.Getid_2().Encode())
 	return x.Buf
 }
 
 // CodecDecode:inputStickeredMediaDocument
-func (m *TLinputStickeredMediaDocument) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLinputStickeredMediaDocument) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &InputDocument{}
 	m0.Decode(dbuf)
 	m.Setid_2(m0)
@@ -26212,14 +26212,14 @@ func NewTLphoneCallEmpty() *TLphoneCallEmpty {
 
 // CodecEncode:phoneCallEmpty
 func (m *TLphoneCallEmpty) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1399245077)
 	x.Long(m.Getid())
 	return x.Buf
 }
 
 // CodecDecode:phoneCallEmpty
-func (m *TLphoneCallEmpty) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLphoneCallEmpty) Decode(dbuf *api.DecodeBuf) error {
 	m.Setid(dbuf.Long())
 	return dbuf.Err
 }
@@ -26233,7 +26233,7 @@ func NewTLphoneCallWaiting() *TLphoneCallWaiting {
 
 // CodecEncode:phoneCallWaiting
 func (m *TLphoneCallWaiting) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(462375633)
 	var flags uint32 = 0
 	if m.Getvideo() != false {
@@ -26256,7 +26256,7 @@ func (m *TLphoneCallWaiting) Encode() []byte {
 }
 
 // CodecDecode:phoneCallWaiting
-func (m *TLphoneCallWaiting) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLphoneCallWaiting) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	if (flags & (1 << 0)) != 0 {
@@ -26285,7 +26285,7 @@ func NewTLphoneCallRequested() *TLphoneCallRequested {
 
 // CodecEncode:phoneCallRequested
 func (m *TLphoneCallRequested) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-2014659757)
 	var flags uint32 = 0
 	if m.Getvideo() != false {
@@ -26303,7 +26303,7 @@ func (m *TLphoneCallRequested) Encode() []byte {
 }
 
 // CodecDecode:phoneCallRequested
-func (m *TLphoneCallRequested) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLphoneCallRequested) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	if (flags & (1 << 0)) != 0 {
@@ -26330,7 +26330,7 @@ func NewTLphoneCallAccepted() *TLphoneCallAccepted {
 
 // CodecEncode:phoneCallAccepted
 func (m *TLphoneCallAccepted) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1719909046)
 	var flags uint32 = 0
 	if m.Getvideo() != false {
@@ -26348,7 +26348,7 @@ func (m *TLphoneCallAccepted) Encode() []byte {
 }
 
 // CodecDecode:phoneCallAccepted
-func (m *TLphoneCallAccepted) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLphoneCallAccepted) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	if (flags & (1 << 0)) != 0 {
@@ -26375,7 +26375,7 @@ func NewTLphoneCall() *TLphoneCall {
 
 // CodecEncode:phoneCall
 func (m *TLphoneCall) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-2025673089)
 	var flags uint32 = 0
 	if m.Getp2p_allowed() != false {
@@ -26403,7 +26403,7 @@ func (m *TLphoneCall) Encode() []byte {
 }
 
 // CodecDecode:phoneCall
-func (m *TLphoneCall) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLphoneCall) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	if (flags & (1 << 0)) != 0 {
@@ -26446,7 +26446,7 @@ func NewTLphoneCallDiscarded() *TLphoneCallDiscarded {
 
 // CodecEncode:phoneCallDiscarded
 func (m *TLphoneCallDiscarded) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1355435489)
 	var flags uint32 = 0
 	if m.Getneed_rating() != false {
@@ -26476,7 +26476,7 @@ func (m *TLphoneCallDiscarded) Encode() []byte {
 }
 
 // CodecDecode:phoneCallDiscarded
-func (m *TLphoneCallDiscarded) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLphoneCallDiscarded) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	if (flags & (1 << 0)) != 0 {
@@ -26509,7 +26509,7 @@ func NewTLmessages_messages() *TLmessages_messages {
 
 // CodecEncode:messages_messages
 func (m *TLmessages_messages) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1938715001)
 	x.Int(481674261)
 	x.Int(int32(len(m.Getmessages())))
@@ -26530,7 +26530,7 @@ func (m *TLmessages_messages) Encode() []byte {
 }
 
 // CodecDecode:messages_messages
-func (m *TLmessages_messages) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessages_messages) Decode(dbuf *api.DecodeBuf) error {
 	c0 := dbuf.Int()
 	if c0 != 481674261 {
 		return dbuf.Err
@@ -26576,7 +26576,7 @@ func NewTLmessages_messagesSlice() *TLmessages_messagesSlice {
 
 // CodecEncode:messages_messagesSlice
 func (m *TLmessages_messagesSlice) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(978610270)
 	var flags uint32 = 0
 	if m.Getinexact() != false {
@@ -26615,7 +26615,7 @@ func (m *TLmessages_messagesSlice) Encode() []byte {
 }
 
 // CodecDecode:messages_messagesSlice
-func (m *TLmessages_messagesSlice) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessages_messagesSlice) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	if (flags & (1 << 0)) != 0 {
@@ -26673,7 +26673,7 @@ func NewTLmessages_channelMessages() *TLmessages_channelMessages {
 
 // CodecEncode:messages_channelMessages
 func (m *TLmessages_channelMessages) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1682413576)
 	var flags uint32 = 0
 	if m.Getinexact() != false {
@@ -26707,7 +26707,7 @@ func (m *TLmessages_channelMessages) Encode() []byte {
 }
 
 // CodecDecode:messages_channelMessages
-func (m *TLmessages_channelMessages) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessages_channelMessages) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	if (flags & (1 << 0)) != 0 {
@@ -26763,14 +26763,14 @@ func NewTLmessages_messagesNotModified() *TLmessages_messagesNotModified {
 
 // CodecEncode:messages_messagesNotModified
 func (m *TLmessages_messagesNotModified) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1951620897)
 	x.Int(m.Getcount())
 	return x.Buf
 }
 
 // CodecDecode:messages_messagesNotModified
-func (m *TLmessages_messagesNotModified) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessages_messagesNotModified) Decode(dbuf *api.DecodeBuf) error {
 	m.Setcount(dbuf.Int())
 	return dbuf.Err
 }
@@ -26784,7 +26784,7 @@ func NewTLfileLocationToBeDeprecated() *TLfileLocationToBeDeprecated {
 
 // CodecEncode:fileLocationToBeDeprecated
 func (m *TLfileLocationToBeDeprecated) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1132476723)
 	x.Long(m.Getvolume_id())
 	x.Int(m.Getlocal_id())
@@ -26792,7 +26792,7 @@ func (m *TLfileLocationToBeDeprecated) Encode() []byte {
 }
 
 // CodecDecode:fileLocationToBeDeprecated
-func (m *TLfileLocationToBeDeprecated) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLfileLocationToBeDeprecated) Decode(dbuf *api.DecodeBuf) error {
 	m.Setvolume_id(dbuf.Long())
 	m.Setlocal_id(dbuf.Int())
 	return dbuf.Err
@@ -26807,7 +26807,7 @@ func NewTLstatsGroupTopAdmin() *TLstatsGroupTopAdmin {
 
 // CodecEncode:statsGroupTopAdmin
 func (m *TLstatsGroupTopAdmin) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1611985938)
 	x.Int(m.Getuser_id())
 	x.Int(m.Getdeleted())
@@ -26817,7 +26817,7 @@ func (m *TLstatsGroupTopAdmin) Encode() []byte {
 }
 
 // CodecDecode:statsGroupTopAdmin
-func (m *TLstatsGroupTopAdmin) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLstatsGroupTopAdmin) Decode(dbuf *api.DecodeBuf) error {
 	m.Setuser_id(dbuf.Int())
 	m.Setdeleted(dbuf.Int())
 	m.Setkicked(dbuf.Int())
@@ -26834,7 +26834,7 @@ func NewTLpostAddress() *TLpostAddress {
 
 // CodecEncode:postAddress
 func (m *TLpostAddress) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(512535275)
 	x.String(m.Getstreet_line1())
 	x.String(m.Getstreet_line2())
@@ -26846,7 +26846,7 @@ func (m *TLpostAddress) Encode() []byte {
 }
 
 // CodecDecode:postAddress
-func (m *TLpostAddress) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLpostAddress) Decode(dbuf *api.DecodeBuf) error {
 	m.Setstreet_line1(dbuf.String())
 	m.Setstreet_line2(dbuf.String())
 	m.Setcity(dbuf.String())
@@ -26865,7 +26865,7 @@ func NewTLinputSecureFileUploaded() *TLinputSecureFileUploaded {
 
 // CodecEncode:inputSecureFileUploaded
 func (m *TLinputSecureFileUploaded) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(859091184)
 	x.Long(m.Getid())
 	x.Int(m.Getparts())
@@ -26876,7 +26876,7 @@ func (m *TLinputSecureFileUploaded) Encode() []byte {
 }
 
 // CodecDecode:inputSecureFileUploaded
-func (m *TLinputSecureFileUploaded) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLinputSecureFileUploaded) Decode(dbuf *api.DecodeBuf) error {
 	m.Setid(dbuf.Long())
 	m.Setparts(dbuf.Int())
 	m.Setmd5_checksum(dbuf.String())
@@ -26894,7 +26894,7 @@ func NewTLinputSecureFile() *TLinputSecureFile {
 
 // CodecEncode:inputSecureFile
 func (m *TLinputSecureFile) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1399317950)
 	x.Long(m.Getid())
 	x.Long(m.Getaccess_hash())
@@ -26902,7 +26902,7 @@ func (m *TLinputSecureFile) Encode() []byte {
 }
 
 // CodecDecode:inputSecureFile
-func (m *TLinputSecureFile) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLinputSecureFile) Decode(dbuf *api.DecodeBuf) error {
 	m.Setid(dbuf.Long())
 	m.Setaccess_hash(dbuf.Long())
 	return dbuf.Err
@@ -26917,7 +26917,7 @@ func NewTLmessages_peerDialogs() *TLmessages_peerDialogs {
 
 // CodecEncode:messages_peerDialogs
 func (m *TLmessages_peerDialogs) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(863093588)
 	x.Int(481674261)
 	x.Int(int32(len(m.Getdialogs())))
@@ -26944,7 +26944,7 @@ func (m *TLmessages_peerDialogs) Encode() []byte {
 }
 
 // CodecDecode:messages_peerDialogs
-func (m *TLmessages_peerDialogs) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessages_peerDialogs) Decode(dbuf *api.DecodeBuf) error {
 	c0 := dbuf.Int()
 	if c0 != 481674261 {
 		return dbuf.Err
@@ -27004,7 +27004,7 @@ func NewTLcontacts_blocked() *TLcontacts_blocked {
 
 // CodecEncode:contacts_blocked
 func (m *TLcontacts_blocked) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(182326673)
 	x.Int(481674261)
 	x.Int(int32(len(m.Getblocked())))
@@ -27025,7 +27025,7 @@ func (m *TLcontacts_blocked) Encode() []byte {
 }
 
 // CodecDecode:contacts_blocked
-func (m *TLcontacts_blocked) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLcontacts_blocked) Decode(dbuf *api.DecodeBuf) error {
 	c0 := dbuf.Int()
 	if c0 != 481674261 {
 		return dbuf.Err
@@ -27071,7 +27071,7 @@ func NewTLcontacts_blockedSlice() *TLcontacts_blockedSlice {
 
 // CodecEncode:contacts_blockedSlice
 func (m *TLcontacts_blockedSlice) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-513392236)
 	x.Int(m.Getcount())
 	x.Int(481674261)
@@ -27093,7 +27093,7 @@ func (m *TLcontacts_blockedSlice) Encode() []byte {
 }
 
 // CodecDecode:contacts_blockedSlice
-func (m *TLcontacts_blockedSlice) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLcontacts_blockedSlice) Decode(dbuf *api.DecodeBuf) error {
 	m.Setcount(dbuf.Int())
 	c1 := dbuf.Int()
 	if c1 != 481674261 {
@@ -27140,7 +27140,7 @@ func NewTLmessageRange() *TLmessageRange {
 
 // CodecEncode:messageRange
 func (m *TLmessageRange) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(182649427)
 	x.Int(m.Getmin_id())
 	x.Int(m.Getmax_id())
@@ -27148,7 +27148,7 @@ func (m *TLmessageRange) Encode() []byte {
 }
 
 // CodecDecode:messageRange
-func (m *TLmessageRange) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessageRange) Decode(dbuf *api.DecodeBuf) error {
 	m.Setmin_id(dbuf.Int())
 	m.Setmax_id(dbuf.Int())
 	return dbuf.Err
@@ -27163,14 +27163,14 @@ func NewTLhelp_promoDataEmpty() *TLhelp_promoDataEmpty {
 
 // CodecEncode:help_promoDataEmpty
 func (m *TLhelp_promoDataEmpty) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1728664459)
 	x.Int(m.Getexpires())
 	return x.Buf
 }
 
 // CodecDecode:help_promoDataEmpty
-func (m *TLhelp_promoDataEmpty) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLhelp_promoDataEmpty) Decode(dbuf *api.DecodeBuf) error {
 	m.Setexpires(dbuf.Int())
 	return dbuf.Err
 }
@@ -27184,7 +27184,7 @@ func NewTLhelp_promoData() *TLhelp_promoData {
 
 // CodecEncode:help_promoData
 func (m *TLhelp_promoData) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1942390465)
 	var flags uint32 = 0
 	if m.Getproxy() != false {
@@ -27219,7 +27219,7 @@ func (m *TLhelp_promoData) Encode() []byte {
 }
 
 // CodecDecode:help_promoData
-func (m *TLhelp_promoData) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLhelp_promoData) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	if (flags & (1 << 0)) != 0 {
@@ -27269,7 +27269,7 @@ func NewTLupload_webFile() *TLupload_webFile {
 
 // CodecEncode:upload_webFile
 func (m *TLupload_webFile) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(568808380)
 	x.Int(m.Getsize())
 	x.String(m.Getmime_type())
@@ -27280,7 +27280,7 @@ func (m *TLupload_webFile) Encode() []byte {
 }
 
 // CodecDecode:upload_webFile
-func (m *TLupload_webFile) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLupload_webFile) Decode(dbuf *api.DecodeBuf) error {
 	m.Setsize(dbuf.Int())
 	m.Setmime_type(dbuf.String())
 	m2 := &Storage_FileType{}
@@ -27300,7 +27300,7 @@ func NewTLmessages_botResults() *TLmessages_botResults {
 
 // CodecEncode:messages_botResults
 func (m *TLmessages_botResults) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1803769784)
 	var flags uint32 = 0
 	if m.Getgallery() != false {
@@ -27335,7 +27335,7 @@ func (m *TLmessages_botResults) Encode() []byte {
 }
 
 // CodecDecode:messages_botResults
-func (m *TLmessages_botResults) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessages_botResults) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	if (flags & (1 << 0)) != 0 {
@@ -27385,7 +27385,7 @@ func NewTLaccount_authorizationForm() *TLaccount_authorizationForm {
 
 // CodecEncode:account_authorizationForm
 func (m *TLaccount_authorizationForm) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1389486888)
 	var flags uint32 = 0
 	if m.Getprivacy_policy_url() != "" {
@@ -27419,7 +27419,7 @@ func (m *TLaccount_authorizationForm) Encode() []byte {
 }
 
 // CodecDecode:account_authorizationForm
-func (m *TLaccount_authorizationForm) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLaccount_authorizationForm) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	c0 := dbuf.Int()
@@ -27481,13 +27481,13 @@ func NewTLhelp_userInfoEmpty() *TLhelp_userInfoEmpty {
 
 // CodecEncode:help_userInfoEmpty
 func (m *TLhelp_userInfoEmpty) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-206688531)
 	return x.Buf
 }
 
 // CodecDecode:help_userInfoEmpty
-func (m *TLhelp_userInfoEmpty) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLhelp_userInfoEmpty) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -27500,7 +27500,7 @@ func NewTLhelp_userInfo() *TLhelp_userInfo {
 
 // CodecEncode:help_userInfo
 func (m *TLhelp_userInfo) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(32192344)
 	x.String(m.Getmessage())
 	x.Int(481674261)
@@ -27514,7 +27514,7 @@ func (m *TLhelp_userInfo) Encode() []byte {
 }
 
 // CodecDecode:help_userInfo
-func (m *TLhelp_userInfo) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLhelp_userInfo) Decode(dbuf *api.DecodeBuf) error {
 	m.Setmessage(dbuf.String())
 	c1 := dbuf.Int()
 	if c1 != 481674261 {
@@ -27541,13 +27541,13 @@ func NewTLinputMessagesFilterEmpty() *TLinputMessagesFilterEmpty {
 
 // CodecEncode:inputMessagesFilterEmpty
 func (m *TLinputMessagesFilterEmpty) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1474492012)
 	return x.Buf
 }
 
 // CodecDecode:inputMessagesFilterEmpty
-func (m *TLinputMessagesFilterEmpty) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLinputMessagesFilterEmpty) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -27560,13 +27560,13 @@ func NewTLinputMessagesFilterPhotos() *TLinputMessagesFilterPhotos {
 
 // CodecEncode:inputMessagesFilterPhotos
 func (m *TLinputMessagesFilterPhotos) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1777752804)
 	return x.Buf
 }
 
 // CodecDecode:inputMessagesFilterPhotos
-func (m *TLinputMessagesFilterPhotos) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLinputMessagesFilterPhotos) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -27579,13 +27579,13 @@ func NewTLinputMessagesFilterVideo() *TLinputMessagesFilterVideo {
 
 // CodecEncode:inputMessagesFilterVideo
 func (m *TLinputMessagesFilterVideo) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1614803355)
 	return x.Buf
 }
 
 // CodecDecode:inputMessagesFilterVideo
-func (m *TLinputMessagesFilterVideo) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLinputMessagesFilterVideo) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -27598,13 +27598,13 @@ func NewTLinputMessagesFilterPhotoVideo() *TLinputMessagesFilterPhotoVideo {
 
 // CodecEncode:inputMessagesFilterPhotoVideo
 func (m *TLinputMessagesFilterPhotoVideo) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1458172132)
 	return x.Buf
 }
 
 // CodecDecode:inputMessagesFilterPhotoVideo
-func (m *TLinputMessagesFilterPhotoVideo) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLinputMessagesFilterPhotoVideo) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -27617,13 +27617,13 @@ func NewTLinputMessagesFilterDocument() *TLinputMessagesFilterDocument {
 
 // CodecEncode:inputMessagesFilterDocument
 func (m *TLinputMessagesFilterDocument) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1629621880)
 	return x.Buf
 }
 
 // CodecDecode:inputMessagesFilterDocument
-func (m *TLinputMessagesFilterDocument) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLinputMessagesFilterDocument) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -27636,13 +27636,13 @@ func NewTLinputMessagesFilterUrl() *TLinputMessagesFilterUrl {
 
 // CodecEncode:inputMessagesFilterUrl
 func (m *TLinputMessagesFilterUrl) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(2129714567)
 	return x.Buf
 }
 
 // CodecDecode:inputMessagesFilterUrl
-func (m *TLinputMessagesFilterUrl) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLinputMessagesFilterUrl) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -27655,13 +27655,13 @@ func NewTLinputMessagesFilterGif() *TLinputMessagesFilterGif {
 
 // CodecEncode:inputMessagesFilterGif
 func (m *TLinputMessagesFilterGif) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-3644025)
 	return x.Buf
 }
 
 // CodecDecode:inputMessagesFilterGif
-func (m *TLinputMessagesFilterGif) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLinputMessagesFilterGif) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -27674,13 +27674,13 @@ func NewTLinputMessagesFilterVoice() *TLinputMessagesFilterVoice {
 
 // CodecEncode:inputMessagesFilterVoice
 func (m *TLinputMessagesFilterVoice) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1358283666)
 	return x.Buf
 }
 
 // CodecDecode:inputMessagesFilterVoice
-func (m *TLinputMessagesFilterVoice) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLinputMessagesFilterVoice) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -27693,13 +27693,13 @@ func NewTLinputMessagesFilterMusic() *TLinputMessagesFilterMusic {
 
 // CodecEncode:inputMessagesFilterMusic
 func (m *TLinputMessagesFilterMusic) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(928101534)
 	return x.Buf
 }
 
 // CodecDecode:inputMessagesFilterMusic
-func (m *TLinputMessagesFilterMusic) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLinputMessagesFilterMusic) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -27712,13 +27712,13 @@ func NewTLinputMessagesFilterChatPhotos() *TLinputMessagesFilterChatPhotos {
 
 // CodecEncode:inputMessagesFilterChatPhotos
 func (m *TLinputMessagesFilterChatPhotos) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(975236280)
 	return x.Buf
 }
 
 // CodecDecode:inputMessagesFilterChatPhotos
-func (m *TLinputMessagesFilterChatPhotos) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLinputMessagesFilterChatPhotos) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -27731,7 +27731,7 @@ func NewTLinputMessagesFilterPhoneCalls() *TLinputMessagesFilterPhoneCalls {
 
 // CodecEncode:inputMessagesFilterPhoneCalls
 func (m *TLinputMessagesFilterPhoneCalls) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-2134272152)
 	var flags uint32 = 0
 	if m.Getmissed() != false {
@@ -27742,7 +27742,7 @@ func (m *TLinputMessagesFilterPhoneCalls) Encode() []byte {
 }
 
 // CodecDecode:inputMessagesFilterPhoneCalls
-func (m *TLinputMessagesFilterPhoneCalls) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLinputMessagesFilterPhoneCalls) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	if (flags & (1 << 0)) != 0 {
@@ -27760,13 +27760,13 @@ func NewTLinputMessagesFilterRoundVoice() *TLinputMessagesFilterRoundVoice {
 
 // CodecEncode:inputMessagesFilterRoundVoice
 func (m *TLinputMessagesFilterRoundVoice) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(2054952868)
 	return x.Buf
 }
 
 // CodecDecode:inputMessagesFilterRoundVoice
-func (m *TLinputMessagesFilterRoundVoice) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLinputMessagesFilterRoundVoice) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -27779,13 +27779,13 @@ func NewTLinputMessagesFilterRoundVideo() *TLinputMessagesFilterRoundVideo {
 
 // CodecEncode:inputMessagesFilterRoundVideo
 func (m *TLinputMessagesFilterRoundVideo) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1253451181)
 	return x.Buf
 }
 
 // CodecDecode:inputMessagesFilterRoundVideo
-func (m *TLinputMessagesFilterRoundVideo) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLinputMessagesFilterRoundVideo) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -27798,13 +27798,13 @@ func NewTLinputMessagesFilterMyMentions() *TLinputMessagesFilterMyMentions {
 
 // CodecEncode:inputMessagesFilterMyMentions
 func (m *TLinputMessagesFilterMyMentions) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1040652646)
 	return x.Buf
 }
 
 // CodecDecode:inputMessagesFilterMyMentions
-func (m *TLinputMessagesFilterMyMentions) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLinputMessagesFilterMyMentions) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -27817,13 +27817,13 @@ func NewTLinputMessagesFilterGeo() *TLinputMessagesFilterGeo {
 
 // CodecEncode:inputMessagesFilterGeo
 func (m *TLinputMessagesFilterGeo) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-419271411)
 	return x.Buf
 }
 
 // CodecDecode:inputMessagesFilterGeo
-func (m *TLinputMessagesFilterGeo) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLinputMessagesFilterGeo) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -27836,13 +27836,13 @@ func NewTLinputMessagesFilterContacts() *TLinputMessagesFilterContacts {
 
 // CodecEncode:inputMessagesFilterContacts
 func (m *TLinputMessagesFilterContacts) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-530392189)
 	return x.Buf
 }
 
 // CodecDecode:inputMessagesFilterContacts
-func (m *TLinputMessagesFilterContacts) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLinputMessagesFilterContacts) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -27855,13 +27855,13 @@ func NewTLinputMessagesFilterPinned() *TLinputMessagesFilterPinned {
 
 // CodecEncode:inputMessagesFilterPinned
 func (m *TLinputMessagesFilterPinned) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(464520273)
 	return x.Buf
 }
 
 // CodecDecode:inputMessagesFilterPinned
-func (m *TLinputMessagesFilterPinned) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLinputMessagesFilterPinned) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -27874,7 +27874,7 @@ func NewTLreceivedNotifyMessage() *TLreceivedNotifyMessage {
 
 // CodecEncode:receivedNotifyMessage
 func (m *TLreceivedNotifyMessage) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1551583367)
 	x.Int(m.Getid())
 	x.Int(m.Getflags())
@@ -27882,7 +27882,7 @@ func (m *TLreceivedNotifyMessage) Encode() []byte {
 }
 
 // CodecDecode:receivedNotifyMessage
-func (m *TLreceivedNotifyMessage) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLreceivedNotifyMessage) Decode(dbuf *api.DecodeBuf) error {
 	m.Setid(dbuf.Int())
 	m.Setflags(dbuf.Int())
 	return dbuf.Err
@@ -27897,13 +27897,13 @@ func NewTLsecureFileEmpty() *TLsecureFileEmpty {
 
 // CodecEncode:secureFileEmpty
 func (m *TLsecureFileEmpty) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1679398724)
 	return x.Buf
 }
 
 // CodecDecode:secureFileEmpty
-func (m *TLsecureFileEmpty) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLsecureFileEmpty) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -27916,7 +27916,7 @@ func NewTLsecureFile() *TLsecureFile {
 
 // CodecEncode:secureFile
 func (m *TLsecureFile) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-534283678)
 	x.Long(m.Getid())
 	x.Long(m.Getaccess_hash())
@@ -27929,7 +27929,7 @@ func (m *TLsecureFile) Encode() []byte {
 }
 
 // CodecDecode:secureFile
-func (m *TLsecureFile) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLsecureFile) Decode(dbuf *api.DecodeBuf) error {
 	m.Setid(dbuf.Long())
 	m.Setaccess_hash(dbuf.Long())
 	m.Setsize(dbuf.Int())
@@ -27949,13 +27949,13 @@ func NewTLsecurePasswordKdfAlgoUnknown() *TLsecurePasswordKdfAlgoUnknown {
 
 // CodecEncode:securePasswordKdfAlgoUnknown
 func (m *TLsecurePasswordKdfAlgoUnknown) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(4883767)
 	return x.Buf
 }
 
 // CodecDecode:securePasswordKdfAlgoUnknown
-func (m *TLsecurePasswordKdfAlgoUnknown) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLsecurePasswordKdfAlgoUnknown) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -27968,14 +27968,14 @@ func NewTLsecurePasswordKdfAlgoPBKDF2HMACSHA512iter100000() *TLsecurePasswordKdf
 
 // CodecEncode:securePasswordKdfAlgoPBKDF2HMACSHA512iter100000
 func (m *TLsecurePasswordKdfAlgoPBKDF2HMACSHA512iter100000) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1141711456)
 	x.Bytes(m.Getsalt())
 	return x.Buf
 }
 
 // CodecDecode:securePasswordKdfAlgoPBKDF2HMACSHA512iter100000
-func (m *TLsecurePasswordKdfAlgoPBKDF2HMACSHA512iter100000) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLsecurePasswordKdfAlgoPBKDF2HMACSHA512iter100000) Decode(dbuf *api.DecodeBuf) error {
 	m.Setsalt(dbuf.StringBytes())
 	return dbuf.Err
 }
@@ -27989,14 +27989,14 @@ func NewTLsecurePasswordKdfAlgoSHA512() *TLsecurePasswordKdfAlgoSHA512 {
 
 // CodecEncode:securePasswordKdfAlgoSHA512
 func (m *TLsecurePasswordKdfAlgoSHA512) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-2042159726)
 	x.Bytes(m.Getsalt())
 	return x.Buf
 }
 
 // CodecDecode:securePasswordKdfAlgoSHA512
-func (m *TLsecurePasswordKdfAlgoSHA512) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLsecurePasswordKdfAlgoSHA512) Decode(dbuf *api.DecodeBuf) error {
 	m.Setsalt(dbuf.StringBytes())
 	return dbuf.Err
 }
@@ -28010,13 +28010,13 @@ func NewTLuserStatusEmpty() *TLuserStatusEmpty {
 
 // CodecEncode:userStatusEmpty
 func (m *TLuserStatusEmpty) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(164646985)
 	return x.Buf
 }
 
 // CodecDecode:userStatusEmpty
-func (m *TLuserStatusEmpty) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLuserStatusEmpty) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -28029,14 +28029,14 @@ func NewTLuserStatusOnline() *TLuserStatusOnline {
 
 // CodecEncode:userStatusOnline
 func (m *TLuserStatusOnline) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-306628279)
 	x.Int(m.Getexpires())
 	return x.Buf
 }
 
 // CodecDecode:userStatusOnline
-func (m *TLuserStatusOnline) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLuserStatusOnline) Decode(dbuf *api.DecodeBuf) error {
 	m.Setexpires(dbuf.Int())
 	return dbuf.Err
 }
@@ -28050,14 +28050,14 @@ func NewTLuserStatusOffline() *TLuserStatusOffline {
 
 // CodecEncode:userStatusOffline
 func (m *TLuserStatusOffline) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(9203775)
 	x.Int(m.Getwas_online())
 	return x.Buf
 }
 
 // CodecDecode:userStatusOffline
-func (m *TLuserStatusOffline) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLuserStatusOffline) Decode(dbuf *api.DecodeBuf) error {
 	m.Setwas_online(dbuf.Int())
 	return dbuf.Err
 }
@@ -28071,13 +28071,13 @@ func NewTLuserStatusRecently() *TLuserStatusRecently {
 
 // CodecEncode:userStatusRecently
 func (m *TLuserStatusRecently) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-496024847)
 	return x.Buf
 }
 
 // CodecDecode:userStatusRecently
-func (m *TLuserStatusRecently) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLuserStatusRecently) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -28090,13 +28090,13 @@ func NewTLuserStatusLastWeek() *TLuserStatusLastWeek {
 
 // CodecEncode:userStatusLastWeek
 func (m *TLuserStatusLastWeek) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(129960444)
 	return x.Buf
 }
 
 // CodecDecode:userStatusLastWeek
-func (m *TLuserStatusLastWeek) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLuserStatusLastWeek) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -28109,13 +28109,13 @@ func NewTLuserStatusLastMonth() *TLuserStatusLastMonth {
 
 // CodecEncode:userStatusLastMonth
 func (m *TLuserStatusLastMonth) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(2011940674)
 	return x.Buf
 }
 
 // CodecDecode:userStatusLastMonth
-func (m *TLuserStatusLastMonth) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLuserStatusLastMonth) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -28128,7 +28128,7 @@ func NewTLinputWallPaper() *TLinputWallPaper {
 
 // CodecEncode:inputWallPaper
 func (m *TLinputWallPaper) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-433014407)
 	x.Long(m.Getid())
 	x.Long(m.Getaccess_hash())
@@ -28136,7 +28136,7 @@ func (m *TLinputWallPaper) Encode() []byte {
 }
 
 // CodecDecode:inputWallPaper
-func (m *TLinputWallPaper) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLinputWallPaper) Decode(dbuf *api.DecodeBuf) error {
 	m.Setid(dbuf.Long())
 	m.Setaccess_hash(dbuf.Long())
 	return dbuf.Err
@@ -28151,14 +28151,14 @@ func NewTLinputWallPaperSlug() *TLinputWallPaperSlug {
 
 // CodecEncode:inputWallPaperSlug
 func (m *TLinputWallPaperSlug) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1913199744)
 	x.String(m.Getslug())
 	return x.Buf
 }
 
 // CodecDecode:inputWallPaperSlug
-func (m *TLinputWallPaperSlug) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLinputWallPaperSlug) Decode(dbuf *api.DecodeBuf) error {
 	m.Setslug(dbuf.String())
 	return dbuf.Err
 }
@@ -28172,13 +28172,13 @@ func NewTLinputWallPaperNoFile() *TLinputWallPaperNoFile {
 
 // CodecEncode:inputWallPaperNoFile
 func (m *TLinputWallPaperNoFile) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-2077770836)
 	return x.Buf
 }
 
 // CodecDecode:inputWallPaperNoFile
-func (m *TLinputWallPaperNoFile) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLinputWallPaperNoFile) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -28191,7 +28191,7 @@ func NewTLbotInlineMessageMediaAuto() *TLbotInlineMessageMediaAuto {
 
 // CodecEncode:botInlineMessageMediaAuto
 func (m *TLbotInlineMessageMediaAuto) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1984755728)
 	var flags uint32 = 0
 	if len(m.Getentities()) > 0 {
@@ -28216,7 +28216,7 @@ func (m *TLbotInlineMessageMediaAuto) Encode() []byte {
 }
 
 // CodecDecode:botInlineMessageMediaAuto
-func (m *TLbotInlineMessageMediaAuto) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLbotInlineMessageMediaAuto) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	m.Setmessage(dbuf.String())
@@ -28250,7 +28250,7 @@ func NewTLbotInlineMessageText() *TLbotInlineMessageText {
 
 // CodecEncode:botInlineMessageText
 func (m *TLbotInlineMessageText) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1937807902)
 	var flags uint32 = 0
 	if m.Getno_webpage() != false {
@@ -28278,7 +28278,7 @@ func (m *TLbotInlineMessageText) Encode() []byte {
 }
 
 // CodecDecode:botInlineMessageText
-func (m *TLbotInlineMessageText) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLbotInlineMessageText) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	if (flags & (1 << 0)) != 0 {
@@ -28315,7 +28315,7 @@ func NewTLbotInlineMessageMediaGeo() *TLbotInlineMessageMediaGeo {
 
 // CodecEncode:botInlineMessageMediaGeo
 func (m *TLbotInlineMessageMediaGeo) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(85477117)
 	var flags uint32 = 0
 	if m.Getheading() != 0 {
@@ -28348,7 +28348,7 @@ func (m *TLbotInlineMessageMediaGeo) Encode() []byte {
 }
 
 // CodecDecode:botInlineMessageMediaGeo
-func (m *TLbotInlineMessageMediaGeo) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLbotInlineMessageMediaGeo) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	m0 := &GeoPoint{}
@@ -28380,7 +28380,7 @@ func NewTLbotInlineMessageMediaVenue() *TLbotInlineMessageMediaVenue {
 
 // CodecEncode:botInlineMessageMediaVenue
 func (m *TLbotInlineMessageMediaVenue) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1970903652)
 	var flags uint32 = 0
 	if m.Getreply_markup().Constructor != 0 {
@@ -28400,7 +28400,7 @@ func (m *TLbotInlineMessageMediaVenue) Encode() []byte {
 }
 
 // CodecDecode:botInlineMessageMediaVenue
-func (m *TLbotInlineMessageMediaVenue) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLbotInlineMessageMediaVenue) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	m0 := &GeoPoint{}
@@ -28428,7 +28428,7 @@ func NewTLbotInlineMessageMediaContact() *TLbotInlineMessageMediaContact {
 
 // CodecEncode:botInlineMessageMediaContact
 func (m *TLbotInlineMessageMediaContact) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(416402882)
 	var flags uint32 = 0
 	if m.Getreply_markup().Constructor != 0 {
@@ -28446,7 +28446,7 @@ func (m *TLbotInlineMessageMediaContact) Encode() []byte {
 }
 
 // CodecDecode:botInlineMessageMediaContact
-func (m *TLbotInlineMessageMediaContact) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLbotInlineMessageMediaContact) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	m.Setphone_number(dbuf.String())
@@ -28470,7 +28470,7 @@ func NewTLlangPackLanguage() *TLlangPackLanguage {
 
 // CodecEncode:langPackLanguage
 func (m *TLlangPackLanguage) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-288727837)
 	var flags uint32 = 0
 	if m.Getofficial() != false {
@@ -28500,7 +28500,7 @@ func (m *TLlangPackLanguage) Encode() []byte {
 }
 
 // CodecDecode:langPackLanguage
-func (m *TLlangPackLanguage) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLlangPackLanguage) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	if (flags & (1 << 0)) != 0 {
@@ -28534,7 +28534,7 @@ func NewTLpopularContact() *TLpopularContact {
 
 // CodecEncode:popularContact
 func (m *TLpopularContact) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1558266229)
 	x.Long(m.Getclient_id())
 	x.Int(m.Getimporters())
@@ -28542,7 +28542,7 @@ func (m *TLpopularContact) Encode() []byte {
 }
 
 // CodecDecode:popularContact
-func (m *TLpopularContact) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLpopularContact) Decode(dbuf *api.DecodeBuf) error {
 	m.Setclient_id(dbuf.Long())
 	m.Setimporters(dbuf.Int())
 	return dbuf.Err
@@ -28557,7 +28557,7 @@ func NewTLinputWebFileLocation() *TLinputWebFileLocation {
 
 // CodecEncode:inputWebFileLocation
 func (m *TLinputWebFileLocation) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1036396922)
 	x.String(m.Geturl())
 	x.Long(m.Getaccess_hash())
@@ -28565,7 +28565,7 @@ func (m *TLinputWebFileLocation) Encode() []byte {
 }
 
 // CodecDecode:inputWebFileLocation
-func (m *TLinputWebFileLocation) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLinputWebFileLocation) Decode(dbuf *api.DecodeBuf) error {
 	m.Seturl(dbuf.String())
 	m.Setaccess_hash(dbuf.Long())
 	return dbuf.Err
@@ -28580,7 +28580,7 @@ func NewTLinputWebFileGeoPointLocation() *TLinputWebFileGeoPointLocation {
 
 // CodecEncode:inputWebFileGeoPointLocation
 func (m *TLinputWebFileGeoPointLocation) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1625153079)
 	x.Bytes(m.Getgeo_point().Encode())
 	x.Long(m.Getaccess_hash())
@@ -28592,7 +28592,7 @@ func (m *TLinputWebFileGeoPointLocation) Encode() []byte {
 }
 
 // CodecDecode:inputWebFileGeoPointLocation
-func (m *TLinputWebFileGeoPointLocation) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLinputWebFileGeoPointLocation) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &InputGeoPoint{}
 	m0.Decode(dbuf)
 	m.Setgeo_point(m0)
@@ -28613,13 +28613,13 @@ func NewTLmessages_savedGifsNotModified() *TLmessages_savedGifsNotModified {
 
 // CodecEncode:messages_savedGifsNotModified
 func (m *TLmessages_savedGifsNotModified) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-402498398)
 	return x.Buf
 }
 
 // CodecDecode:messages_savedGifsNotModified
-func (m *TLmessages_savedGifsNotModified) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessages_savedGifsNotModified) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -28632,7 +28632,7 @@ func NewTLmessages_savedGifs() *TLmessages_savedGifs {
 
 // CodecEncode:messages_savedGifs
 func (m *TLmessages_savedGifs) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(772213157)
 	x.Int(m.Gethash())
 	x.Int(481674261)
@@ -28644,7 +28644,7 @@ func (m *TLmessages_savedGifs) Encode() []byte {
 }
 
 // CodecDecode:messages_savedGifs
-func (m *TLmessages_savedGifs) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessages_savedGifs) Decode(dbuf *api.DecodeBuf) error {
 	m.Sethash(dbuf.Int())
 	c1 := dbuf.Int()
 	if c1 != 481674261 {
@@ -28669,7 +28669,7 @@ func NewTLhelp_appUpdate() *TLhelp_appUpdate {
 
 // CodecEncode:help_appUpdate
 func (m *TLhelp_appUpdate) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(497489295)
 	var flags uint32 = 0
 	if m.Getcan_not_skip() != false {
@@ -28700,7 +28700,7 @@ func (m *TLhelp_appUpdate) Encode() []byte {
 }
 
 // CodecDecode:help_appUpdate
-func (m *TLhelp_appUpdate) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLhelp_appUpdate) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	if (flags & (1 << 0)) != 0 {
@@ -28740,13 +28740,13 @@ func NewTLhelp_noAppUpdate() *TLhelp_noAppUpdate {
 
 // CodecEncode:help_noAppUpdate
 func (m *TLhelp_noAppUpdate) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1000708810)
 	return x.Buf
 }
 
 // CodecDecode:help_noAppUpdate
-func (m *TLhelp_noAppUpdate) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLhelp_noAppUpdate) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -28759,13 +28759,13 @@ func NewTLbaseThemeClassic() *TLbaseThemeClassic {
 
 // CodecEncode:baseThemeClassic
 func (m *TLbaseThemeClassic) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1012849566)
 	return x.Buf
 }
 
 // CodecDecode:baseThemeClassic
-func (m *TLbaseThemeClassic) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLbaseThemeClassic) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -28778,13 +28778,13 @@ func NewTLbaseThemeDay() *TLbaseThemeDay {
 
 // CodecEncode:baseThemeDay
 func (m *TLbaseThemeDay) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-69724536)
 	return x.Buf
 }
 
 // CodecDecode:baseThemeDay
-func (m *TLbaseThemeDay) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLbaseThemeDay) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -28797,13 +28797,13 @@ func NewTLbaseThemeNight() *TLbaseThemeNight {
 
 // CodecEncode:baseThemeNight
 func (m *TLbaseThemeNight) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1212997976)
 	return x.Buf
 }
 
 // CodecDecode:baseThemeNight
-func (m *TLbaseThemeNight) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLbaseThemeNight) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -28816,13 +28816,13 @@ func NewTLbaseThemeTinted() *TLbaseThemeTinted {
 
 // CodecEncode:baseThemeTinted
 func (m *TLbaseThemeTinted) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1834973166)
 	return x.Buf
 }
 
 // CodecDecode:baseThemeTinted
-func (m *TLbaseThemeTinted) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLbaseThemeTinted) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -28835,13 +28835,13 @@ func NewTLbaseThemeArctic() *TLbaseThemeArctic {
 
 // CodecEncode:baseThemeArctic
 func (m *TLbaseThemeArctic) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1527845466)
 	return x.Buf
 }
 
 // CodecDecode:baseThemeArctic
-func (m *TLbaseThemeArctic) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLbaseThemeArctic) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -28854,7 +28854,7 @@ func NewTLstickerPack() *TLstickerPack {
 
 // CodecEncode:stickerPack
 func (m *TLstickerPack) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(313694676)
 	x.String(m.Getemoticon())
 	x.Int(481674261)
@@ -28866,7 +28866,7 @@ func (m *TLstickerPack) Encode() []byte {
 }
 
 // CodecDecode:stickerPack
-func (m *TLstickerPack) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLstickerPack) Decode(dbuf *api.DecodeBuf) error {
 	m.Setemoticon(dbuf.String())
 	m.Setdocuments(dbuf.VectorLong())
 	return dbuf.Err
@@ -28881,13 +28881,13 @@ func NewTLstorage_fileUnknown() *TLstorage_fileUnknown {
 
 // CodecEncode:storage_fileUnknown
 func (m *TLstorage_fileUnknown) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1432995067)
 	return x.Buf
 }
 
 // CodecDecode:storage_fileUnknown
-func (m *TLstorage_fileUnknown) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLstorage_fileUnknown) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -28900,13 +28900,13 @@ func NewTLstorage_filePartial() *TLstorage_filePartial {
 
 // CodecEncode:storage_filePartial
 func (m *TLstorage_filePartial) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1086091090)
 	return x.Buf
 }
 
 // CodecDecode:storage_filePartial
-func (m *TLstorage_filePartial) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLstorage_filePartial) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -28919,13 +28919,13 @@ func NewTLstorage_fileJpeg() *TLstorage_fileJpeg {
 
 // CodecEncode:storage_fileJpeg
 func (m *TLstorage_fileJpeg) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(8322574)
 	return x.Buf
 }
 
 // CodecDecode:storage_fileJpeg
-func (m *TLstorage_fileJpeg) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLstorage_fileJpeg) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -28938,13 +28938,13 @@ func NewTLstorage_fileGif() *TLstorage_fileGif {
 
 // CodecEncode:storage_fileGif
 func (m *TLstorage_fileGif) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-891180321)
 	return x.Buf
 }
 
 // CodecDecode:storage_fileGif
-func (m *TLstorage_fileGif) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLstorage_fileGif) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -28957,13 +28957,13 @@ func NewTLstorage_filePng() *TLstorage_filePng {
 
 // CodecEncode:storage_filePng
 func (m *TLstorage_filePng) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(172975040)
 	return x.Buf
 }
 
 // CodecDecode:storage_filePng
-func (m *TLstorage_filePng) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLstorage_filePng) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -28976,13 +28976,13 @@ func NewTLstorage_filePdf() *TLstorage_filePdf {
 
 // CodecEncode:storage_filePdf
 func (m *TLstorage_filePdf) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1373745011)
 	return x.Buf
 }
 
 // CodecDecode:storage_filePdf
-func (m *TLstorage_filePdf) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLstorage_filePdf) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -28995,13 +28995,13 @@ func NewTLstorage_fileMp3() *TLstorage_fileMp3 {
 
 // CodecEncode:storage_fileMp3
 func (m *TLstorage_fileMp3) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1384777335)
 	return x.Buf
 }
 
 // CodecDecode:storage_fileMp3
-func (m *TLstorage_fileMp3) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLstorage_fileMp3) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -29014,13 +29014,13 @@ func NewTLstorage_fileMov() *TLstorage_fileMov {
 
 // CodecEncode:storage_fileMov
 func (m *TLstorage_fileMov) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1258941372)
 	return x.Buf
 }
 
 // CodecDecode:storage_fileMov
-func (m *TLstorage_fileMov) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLstorage_fileMov) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -29033,13 +29033,13 @@ func NewTLstorage_fileMp4() *TLstorage_fileMp4 {
 
 // CodecEncode:storage_fileMp4
 func (m *TLstorage_fileMp4) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1278304028)
 	return x.Buf
 }
 
 // CodecDecode:storage_fileMp4
-func (m *TLstorage_fileMp4) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLstorage_fileMp4) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -29052,13 +29052,13 @@ func NewTLstorage_fileWebp() *TLstorage_fileWebp {
 
 // CodecEncode:storage_fileWebp
 func (m *TLstorage_fileWebp) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(276907596)
 	return x.Buf
 }
 
 // CodecDecode:storage_fileWebp
-func (m *TLstorage_fileWebp) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLstorage_fileWebp) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -29071,7 +29071,7 @@ func NewTLinputBotInlineResult() *TLinputBotInlineResult {
 
 // CodecEncode:inputBotInlineResult
 func (m *TLinputBotInlineResult) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-2000710887)
 	var flags uint32 = 0
 	if m.Gettitle() != "" {
@@ -29112,7 +29112,7 @@ func (m *TLinputBotInlineResult) Encode() []byte {
 }
 
 // CodecDecode:inputBotInlineResult
-func (m *TLinputBotInlineResult) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLinputBotInlineResult) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	m.Setid(dbuf.String())
@@ -29151,7 +29151,7 @@ func NewTLinputBotInlineResultPhoto() *TLinputBotInlineResultPhoto {
 
 // CodecEncode:inputBotInlineResultPhoto
 func (m *TLinputBotInlineResultPhoto) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1462213465)
 	x.String(m.Getid())
 	x.String(m.Gettype())
@@ -29161,7 +29161,7 @@ func (m *TLinputBotInlineResultPhoto) Encode() []byte {
 }
 
 // CodecDecode:inputBotInlineResultPhoto
-func (m *TLinputBotInlineResultPhoto) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLinputBotInlineResultPhoto) Decode(dbuf *api.DecodeBuf) error {
 	m.Setid(dbuf.String())
 	m.Settype(dbuf.String())
 	m2 := &InputPhoto{}
@@ -29182,7 +29182,7 @@ func NewTLinputBotInlineResultDocument() *TLinputBotInlineResultDocument {
 
 // CodecEncode:inputBotInlineResultDocument
 func (m *TLinputBotInlineResultDocument) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-459324)
 	var flags uint32 = 0
 	if m.Gettitle() != "" {
@@ -29206,7 +29206,7 @@ func (m *TLinputBotInlineResultDocument) Encode() []byte {
 }
 
 // CodecDecode:inputBotInlineResultDocument
-func (m *TLinputBotInlineResultDocument) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLinputBotInlineResultDocument) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	m.Setid(dbuf.String())
@@ -29235,7 +29235,7 @@ func NewTLinputBotInlineResultGame() *TLinputBotInlineResultGame {
 
 // CodecEncode:inputBotInlineResultGame
 func (m *TLinputBotInlineResultGame) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1336154098)
 	x.String(m.Getid())
 	x.String(m.Getshort_name())
@@ -29244,7 +29244,7 @@ func (m *TLinputBotInlineResultGame) Encode() []byte {
 }
 
 // CodecDecode:inputBotInlineResultGame
-func (m *TLinputBotInlineResultGame) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLinputBotInlineResultGame) Decode(dbuf *api.DecodeBuf) error {
 	m.Setid(dbuf.String())
 	m.Setshort_name(dbuf.String())
 	m2 := &InputBotInlineMessage{}
@@ -29262,7 +29262,7 @@ func NewTLpayments_paymentForm() *TLpayments_paymentForm {
 
 // CodecEncode:payments_paymentForm
 func (m *TLpayments_paymentForm) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1062645411)
 	var flags uint32 = 0
 	if m.Getcan_save_credentials() != false {
@@ -29309,7 +29309,7 @@ func (m *TLpayments_paymentForm) Encode() []byte {
 }
 
 // CodecDecode:payments_paymentForm
-func (m *TLpayments_paymentForm) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLpayments_paymentForm) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	if (flags & (1 << 0)) != 0 {
@@ -29365,7 +29365,7 @@ func NewTLpayments_validatedRequestedInfo() *TLpayments_validatedRequestedInfo {
 
 // CodecEncode:payments_validatedRequestedInfo
 func (m *TLpayments_validatedRequestedInfo) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-784000893)
 	var flags uint32 = 0
 	if m.Getid() != "" {
@@ -29389,7 +29389,7 @@ func (m *TLpayments_validatedRequestedInfo) Encode() []byte {
 }
 
 // CodecDecode:payments_validatedRequestedInfo
-func (m *TLpayments_validatedRequestedInfo) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLpayments_validatedRequestedInfo) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	if (flags & (1 << 0)) != 0 {
@@ -29420,7 +29420,7 @@ func NewTLpollAnswer() *TLpollAnswer {
 
 // CodecEncode:pollAnswer
 func (m *TLpollAnswer) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1823064809)
 	x.String(m.Gettext())
 	x.Bytes(m.Getoption())
@@ -29428,7 +29428,7 @@ func (m *TLpollAnswer) Encode() []byte {
 }
 
 // CodecDecode:pollAnswer
-func (m *TLpollAnswer) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLpollAnswer) Decode(dbuf *api.DecodeBuf) error {
 	m.Settext(dbuf.String())
 	m.Setoption(dbuf.StringBytes())
 	return dbuf.Err
@@ -29443,7 +29443,7 @@ func NewTLsecureValueHash() *TLsecureValueHash {
 
 // CodecEncode:secureValueHash
 func (m *TLsecureValueHash) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-316748368)
 	x.Bytes(m.Gettype().Encode())
 	x.Bytes(m.Gethash())
@@ -29451,7 +29451,7 @@ func (m *TLsecureValueHash) Encode() []byte {
 }
 
 // CodecDecode:secureValueHash
-func (m *TLsecureValueHash) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLsecureValueHash) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &SecureValueType{}
 	m0.Decode(dbuf)
 	m.Settype(m0)
@@ -29468,7 +29468,7 @@ func NewTLchatParticipant() *TLchatParticipant {
 
 // CodecEncode:chatParticipant
 func (m *TLchatParticipant) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-925415106)
 	x.Int(m.Getuser_id())
 	x.Int(m.Getinviter_id())
@@ -29477,7 +29477,7 @@ func (m *TLchatParticipant) Encode() []byte {
 }
 
 // CodecDecode:chatParticipant
-func (m *TLchatParticipant) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLchatParticipant) Decode(dbuf *api.DecodeBuf) error {
 	m.Setuser_id(dbuf.Int())
 	m.Setinviter_id(dbuf.Int())
 	m.Setdate(dbuf.Int())
@@ -29493,14 +29493,14 @@ func NewTLchatParticipantCreator() *TLchatParticipantCreator {
 
 // CodecEncode:chatParticipantCreator
 func (m *TLchatParticipantCreator) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-636267638)
 	x.Int(m.Getuser_id())
 	return x.Buf
 }
 
 // CodecDecode:chatParticipantCreator
-func (m *TLchatParticipantCreator) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLchatParticipantCreator) Decode(dbuf *api.DecodeBuf) error {
 	m.Setuser_id(dbuf.Int())
 	return dbuf.Err
 }
@@ -29514,7 +29514,7 @@ func NewTLchatParticipantAdmin() *TLchatParticipantAdmin {
 
 // CodecEncode:chatParticipantAdmin
 func (m *TLchatParticipantAdmin) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-489233354)
 	x.Int(m.Getuser_id())
 	x.Int(m.Getinviter_id())
@@ -29523,7 +29523,7 @@ func (m *TLchatParticipantAdmin) Encode() []byte {
 }
 
 // CodecDecode:chatParticipantAdmin
-func (m *TLchatParticipantAdmin) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLchatParticipantAdmin) Decode(dbuf *api.DecodeBuf) error {
 	m.Setuser_id(dbuf.Int())
 	m.Setinviter_id(dbuf.Int())
 	m.Setdate(dbuf.Int())
@@ -29539,7 +29539,7 @@ func NewTLfolderPeer() *TLfolderPeer {
 
 // CodecEncode:folderPeer
 func (m *TLfolderPeer) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-373643672)
 	x.Bytes(m.Getpeer().Encode())
 	x.Int(m.Getfolder_id())
@@ -29547,7 +29547,7 @@ func (m *TLfolderPeer) Encode() []byte {
 }
 
 // CodecDecode:folderPeer
-func (m *TLfolderPeer) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLfolderPeer) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &Peer{}
 	m0.Decode(dbuf)
 	m.Setpeer(m0)
@@ -29564,7 +29564,7 @@ func NewTLmessageEntityUnknown() *TLmessageEntityUnknown {
 
 // CodecEncode:messageEntityUnknown
 func (m *TLmessageEntityUnknown) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1148011883)
 	x.Int(m.Getoffset())
 	x.Int(m.Getlength())
@@ -29572,7 +29572,7 @@ func (m *TLmessageEntityUnknown) Encode() []byte {
 }
 
 // CodecDecode:messageEntityUnknown
-func (m *TLmessageEntityUnknown) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessageEntityUnknown) Decode(dbuf *api.DecodeBuf) error {
 	m.Setoffset(dbuf.Int())
 	m.Setlength(dbuf.Int())
 	return dbuf.Err
@@ -29587,7 +29587,7 @@ func NewTLmessageEntityMention() *TLmessageEntityMention {
 
 // CodecEncode:messageEntityMention
 func (m *TLmessageEntityMention) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-100378723)
 	x.Int(m.Getoffset())
 	x.Int(m.Getlength())
@@ -29595,7 +29595,7 @@ func (m *TLmessageEntityMention) Encode() []byte {
 }
 
 // CodecDecode:messageEntityMention
-func (m *TLmessageEntityMention) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessageEntityMention) Decode(dbuf *api.DecodeBuf) error {
 	m.Setoffset(dbuf.Int())
 	m.Setlength(dbuf.Int())
 	return dbuf.Err
@@ -29610,7 +29610,7 @@ func NewTLmessageEntityHashtag() *TLmessageEntityHashtag {
 
 // CodecEncode:messageEntityHashtag
 func (m *TLmessageEntityHashtag) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1868782349)
 	x.Int(m.Getoffset())
 	x.Int(m.Getlength())
@@ -29618,7 +29618,7 @@ func (m *TLmessageEntityHashtag) Encode() []byte {
 }
 
 // CodecDecode:messageEntityHashtag
-func (m *TLmessageEntityHashtag) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessageEntityHashtag) Decode(dbuf *api.DecodeBuf) error {
 	m.Setoffset(dbuf.Int())
 	m.Setlength(dbuf.Int())
 	return dbuf.Err
@@ -29633,7 +29633,7 @@ func NewTLmessageEntityBotCommand() *TLmessageEntityBotCommand {
 
 // CodecEncode:messageEntityBotCommand
 func (m *TLmessageEntityBotCommand) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1827637959)
 	x.Int(m.Getoffset())
 	x.Int(m.Getlength())
@@ -29641,7 +29641,7 @@ func (m *TLmessageEntityBotCommand) Encode() []byte {
 }
 
 // CodecDecode:messageEntityBotCommand
-func (m *TLmessageEntityBotCommand) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessageEntityBotCommand) Decode(dbuf *api.DecodeBuf) error {
 	m.Setoffset(dbuf.Int())
 	m.Setlength(dbuf.Int())
 	return dbuf.Err
@@ -29656,7 +29656,7 @@ func NewTLmessageEntityUrl() *TLmessageEntityUrl {
 
 // CodecEncode:messageEntityUrl
 func (m *TLmessageEntityUrl) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1859134776)
 	x.Int(m.Getoffset())
 	x.Int(m.Getlength())
@@ -29664,7 +29664,7 @@ func (m *TLmessageEntityUrl) Encode() []byte {
 }
 
 // CodecDecode:messageEntityUrl
-func (m *TLmessageEntityUrl) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessageEntityUrl) Decode(dbuf *api.DecodeBuf) error {
 	m.Setoffset(dbuf.Int())
 	m.Setlength(dbuf.Int())
 	return dbuf.Err
@@ -29679,7 +29679,7 @@ func NewTLmessageEntityEmail() *TLmessageEntityEmail {
 
 // CodecEncode:messageEntityEmail
 func (m *TLmessageEntityEmail) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1692693954)
 	x.Int(m.Getoffset())
 	x.Int(m.Getlength())
@@ -29687,7 +29687,7 @@ func (m *TLmessageEntityEmail) Encode() []byte {
 }
 
 // CodecDecode:messageEntityEmail
-func (m *TLmessageEntityEmail) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessageEntityEmail) Decode(dbuf *api.DecodeBuf) error {
 	m.Setoffset(dbuf.Int())
 	m.Setlength(dbuf.Int())
 	return dbuf.Err
@@ -29702,7 +29702,7 @@ func NewTLmessageEntityBold() *TLmessageEntityBold {
 
 // CodecEncode:messageEntityBold
 func (m *TLmessageEntityBold) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1117713463)
 	x.Int(m.Getoffset())
 	x.Int(m.Getlength())
@@ -29710,7 +29710,7 @@ func (m *TLmessageEntityBold) Encode() []byte {
 }
 
 // CodecDecode:messageEntityBold
-func (m *TLmessageEntityBold) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessageEntityBold) Decode(dbuf *api.DecodeBuf) error {
 	m.Setoffset(dbuf.Int())
 	m.Setlength(dbuf.Int())
 	return dbuf.Err
@@ -29725,7 +29725,7 @@ func NewTLmessageEntityItalic() *TLmessageEntityItalic {
 
 // CodecEncode:messageEntityItalic
 func (m *TLmessageEntityItalic) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-2106619040)
 	x.Int(m.Getoffset())
 	x.Int(m.Getlength())
@@ -29733,7 +29733,7 @@ func (m *TLmessageEntityItalic) Encode() []byte {
 }
 
 // CodecDecode:messageEntityItalic
-func (m *TLmessageEntityItalic) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessageEntityItalic) Decode(dbuf *api.DecodeBuf) error {
 	m.Setoffset(dbuf.Int())
 	m.Setlength(dbuf.Int())
 	return dbuf.Err
@@ -29748,7 +29748,7 @@ func NewTLmessageEntityCode() *TLmessageEntityCode {
 
 // CodecEncode:messageEntityCode
 func (m *TLmessageEntityCode) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(681706865)
 	x.Int(m.Getoffset())
 	x.Int(m.Getlength())
@@ -29756,7 +29756,7 @@ func (m *TLmessageEntityCode) Encode() []byte {
 }
 
 // CodecDecode:messageEntityCode
-func (m *TLmessageEntityCode) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessageEntityCode) Decode(dbuf *api.DecodeBuf) error {
 	m.Setoffset(dbuf.Int())
 	m.Setlength(dbuf.Int())
 	return dbuf.Err
@@ -29771,7 +29771,7 @@ func NewTLmessageEntityPre() *TLmessageEntityPre {
 
 // CodecEncode:messageEntityPre
 func (m *TLmessageEntityPre) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1938967520)
 	x.Int(m.Getoffset())
 	x.Int(m.Getlength())
@@ -29780,7 +29780,7 @@ func (m *TLmessageEntityPre) Encode() []byte {
 }
 
 // CodecDecode:messageEntityPre
-func (m *TLmessageEntityPre) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessageEntityPre) Decode(dbuf *api.DecodeBuf) error {
 	m.Setoffset(dbuf.Int())
 	m.Setlength(dbuf.Int())
 	m.Setlanguage(dbuf.String())
@@ -29796,7 +29796,7 @@ func NewTLmessageEntityTextUrl() *TLmessageEntityTextUrl {
 
 // CodecEncode:messageEntityTextUrl
 func (m *TLmessageEntityTextUrl) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1990644519)
 	x.Int(m.Getoffset())
 	x.Int(m.Getlength())
@@ -29805,7 +29805,7 @@ func (m *TLmessageEntityTextUrl) Encode() []byte {
 }
 
 // CodecDecode:messageEntityTextUrl
-func (m *TLmessageEntityTextUrl) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessageEntityTextUrl) Decode(dbuf *api.DecodeBuf) error {
 	m.Setoffset(dbuf.Int())
 	m.Setlength(dbuf.Int())
 	m.Seturl(dbuf.String())
@@ -29821,7 +29821,7 @@ func NewTLmessageEntityMentionName() *TLmessageEntityMentionName {
 
 // CodecEncode:messageEntityMentionName
 func (m *TLmessageEntityMentionName) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(892193368)
 	x.Int(m.Getoffset())
 	x.Int(m.Getlength())
@@ -29830,7 +29830,7 @@ func (m *TLmessageEntityMentionName) Encode() []byte {
 }
 
 // CodecDecode:messageEntityMentionName
-func (m *TLmessageEntityMentionName) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessageEntityMentionName) Decode(dbuf *api.DecodeBuf) error {
 	m.Setoffset(dbuf.Int())
 	m.Setlength(dbuf.Int())
 	m.Setuser_id(dbuf.Int())
@@ -29846,7 +29846,7 @@ func NewTLinputMessageEntityMentionName() *TLinputMessageEntityMentionName {
 
 // CodecEncode:inputMessageEntityMentionName
 func (m *TLinputMessageEntityMentionName) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(546203849)
 	x.Int(m.Getoffset())
 	x.Int(m.Getlength())
@@ -29855,7 +29855,7 @@ func (m *TLinputMessageEntityMentionName) Encode() []byte {
 }
 
 // CodecDecode:inputMessageEntityMentionName
-func (m *TLinputMessageEntityMentionName) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLinputMessageEntityMentionName) Decode(dbuf *api.DecodeBuf) error {
 	m.Setoffset(dbuf.Int())
 	m.Setlength(dbuf.Int())
 	m2 := &InputUser{}
@@ -29873,7 +29873,7 @@ func NewTLmessageEntityPhone() *TLmessageEntityPhone {
 
 // CodecEncode:messageEntityPhone
 func (m *TLmessageEntityPhone) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1687559349)
 	x.Int(m.Getoffset())
 	x.Int(m.Getlength())
@@ -29881,7 +29881,7 @@ func (m *TLmessageEntityPhone) Encode() []byte {
 }
 
 // CodecDecode:messageEntityPhone
-func (m *TLmessageEntityPhone) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessageEntityPhone) Decode(dbuf *api.DecodeBuf) error {
 	m.Setoffset(dbuf.Int())
 	m.Setlength(dbuf.Int())
 	return dbuf.Err
@@ -29896,7 +29896,7 @@ func NewTLmessageEntityCashtag() *TLmessageEntityCashtag {
 
 // CodecEncode:messageEntityCashtag
 func (m *TLmessageEntityCashtag) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1280209983)
 	x.Int(m.Getoffset())
 	x.Int(m.Getlength())
@@ -29904,7 +29904,7 @@ func (m *TLmessageEntityCashtag) Encode() []byte {
 }
 
 // CodecDecode:messageEntityCashtag
-func (m *TLmessageEntityCashtag) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessageEntityCashtag) Decode(dbuf *api.DecodeBuf) error {
 	m.Setoffset(dbuf.Int())
 	m.Setlength(dbuf.Int())
 	return dbuf.Err
@@ -29919,7 +29919,7 @@ func NewTLmessageEntityUnderline() *TLmessageEntityUnderline {
 
 // CodecEncode:messageEntityUnderline
 func (m *TLmessageEntityUnderline) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1672577397)
 	x.Int(m.Getoffset())
 	x.Int(m.Getlength())
@@ -29927,7 +29927,7 @@ func (m *TLmessageEntityUnderline) Encode() []byte {
 }
 
 // CodecDecode:messageEntityUnderline
-func (m *TLmessageEntityUnderline) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessageEntityUnderline) Decode(dbuf *api.DecodeBuf) error {
 	m.Setoffset(dbuf.Int())
 	m.Setlength(dbuf.Int())
 	return dbuf.Err
@@ -29942,7 +29942,7 @@ func NewTLmessageEntityStrike() *TLmessageEntityStrike {
 
 // CodecEncode:messageEntityStrike
 func (m *TLmessageEntityStrike) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1090087980)
 	x.Int(m.Getoffset())
 	x.Int(m.Getlength())
@@ -29950,7 +29950,7 @@ func (m *TLmessageEntityStrike) Encode() []byte {
 }
 
 // CodecDecode:messageEntityStrike
-func (m *TLmessageEntityStrike) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessageEntityStrike) Decode(dbuf *api.DecodeBuf) error {
 	m.Setoffset(dbuf.Int())
 	m.Setlength(dbuf.Int())
 	return dbuf.Err
@@ -29965,7 +29965,7 @@ func NewTLmessageEntityBlockquote() *TLmessageEntityBlockquote {
 
 // CodecEncode:messageEntityBlockquote
 func (m *TLmessageEntityBlockquote) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(34469328)
 	x.Int(m.Getoffset())
 	x.Int(m.Getlength())
@@ -29973,7 +29973,7 @@ func (m *TLmessageEntityBlockquote) Encode() []byte {
 }
 
 // CodecDecode:messageEntityBlockquote
-func (m *TLmessageEntityBlockquote) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessageEntityBlockquote) Decode(dbuf *api.DecodeBuf) error {
 	m.Setoffset(dbuf.Int())
 	m.Setlength(dbuf.Int())
 	return dbuf.Err
@@ -29988,7 +29988,7 @@ func NewTLmessageEntityBankCard() *TLmessageEntityBankCard {
 
 // CodecEncode:messageEntityBankCard
 func (m *TLmessageEntityBankCard) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1981704948)
 	x.Int(m.Getoffset())
 	x.Int(m.Getlength())
@@ -29996,7 +29996,7 @@ func (m *TLmessageEntityBankCard) Encode() []byte {
 }
 
 // CodecDecode:messageEntityBankCard
-func (m *TLmessageEntityBankCard) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessageEntityBankCard) Decode(dbuf *api.DecodeBuf) error {
 	m.Setoffset(dbuf.Int())
 	m.Setlength(dbuf.Int())
 	return dbuf.Err
@@ -30011,7 +30011,7 @@ func NewTLcontacts_resolvedPeer() *TLcontacts_resolvedPeer {
 
 // CodecEncode:contacts_resolvedPeer
 func (m *TLcontacts_resolvedPeer) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(2131196633)
 	x.Bytes(m.Getpeer().Encode())
 	x.Int(481674261)
@@ -30028,7 +30028,7 @@ func (m *TLcontacts_resolvedPeer) Encode() []byte {
 }
 
 // CodecDecode:contacts_resolvedPeer
-func (m *TLcontacts_resolvedPeer) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLcontacts_resolvedPeer) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &Peer{}
 	m0.Decode(dbuf)
 	m.Setpeer(m0)
@@ -30066,13 +30066,13 @@ func NewTLauth_codeTypeSms() *TLauth_codeTypeSms {
 
 // CodecEncode:auth_codeTypeSms
 func (m *TLauth_codeTypeSms) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1923290508)
 	return x.Buf
 }
 
 // CodecDecode:auth_codeTypeSms
-func (m *TLauth_codeTypeSms) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLauth_codeTypeSms) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -30085,13 +30085,13 @@ func NewTLauth_codeTypeCall() *TLauth_codeTypeCall {
 
 // CodecEncode:auth_codeTypeCall
 func (m *TLauth_codeTypeCall) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1948046307)
 	return x.Buf
 }
 
 // CodecDecode:auth_codeTypeCall
-func (m *TLauth_codeTypeCall) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLauth_codeTypeCall) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -30104,13 +30104,13 @@ func NewTLauth_codeTypeFlashCall() *TLauth_codeTypeFlashCall {
 
 // CodecEncode:auth_codeTypeFlashCall
 func (m *TLauth_codeTypeFlashCall) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(577556219)
 	return x.Buf
 }
 
 // CodecDecode:auth_codeTypeFlashCall
-func (m *TLauth_codeTypeFlashCall) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLauth_codeTypeFlashCall) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -30123,7 +30123,7 @@ func NewTLchannels_channelParticipants() *TLchannels_channelParticipants {
 
 // CodecEncode:channels_channelParticipants
 func (m *TLchannels_channelParticipants) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-177282392)
 	x.Int(m.Getcount())
 	x.Int(481674261)
@@ -30140,7 +30140,7 @@ func (m *TLchannels_channelParticipants) Encode() []byte {
 }
 
 // CodecDecode:channels_channelParticipants
-func (m *TLchannels_channelParticipants) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLchannels_channelParticipants) Decode(dbuf *api.DecodeBuf) error {
 	m.Setcount(dbuf.Int())
 	c1 := dbuf.Int()
 	if c1 != 481674261 {
@@ -30176,13 +30176,13 @@ func NewTLchannels_channelParticipantsNotModified() *TLchannels_channelParticipa
 
 // CodecEncode:channels_channelParticipantsNotModified
 func (m *TLchannels_channelParticipantsNotModified) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-266911767)
 	return x.Buf
 }
 
 // CodecDecode:channels_channelParticipantsNotModified
-func (m *TLchannels_channelParticipantsNotModified) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLchannels_channelParticipantsNotModified) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -30195,7 +30195,7 @@ func NewTLinputFileLocation() *TLinputFileLocation {
 
 // CodecEncode:inputFileLocation
 func (m *TLinputFileLocation) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-539317279)
 	x.Long(m.Getvolume_id())
 	x.Int(m.Getlocal_id())
@@ -30205,7 +30205,7 @@ func (m *TLinputFileLocation) Encode() []byte {
 }
 
 // CodecDecode:inputFileLocation
-func (m *TLinputFileLocation) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLinputFileLocation) Decode(dbuf *api.DecodeBuf) error {
 	m.Setvolume_id(dbuf.Long())
 	m.Setlocal_id(dbuf.Int())
 	m.Setsecret(dbuf.Long())
@@ -30222,7 +30222,7 @@ func NewTLinputEncryptedFileLocation() *TLinputEncryptedFileLocation {
 
 // CodecEncode:inputEncryptedFileLocation
 func (m *TLinputEncryptedFileLocation) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-182231723)
 	x.Long(m.Getid())
 	x.Long(m.Getaccess_hash())
@@ -30230,7 +30230,7 @@ func (m *TLinputEncryptedFileLocation) Encode() []byte {
 }
 
 // CodecDecode:inputEncryptedFileLocation
-func (m *TLinputEncryptedFileLocation) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLinputEncryptedFileLocation) Decode(dbuf *api.DecodeBuf) error {
 	m.Setid(dbuf.Long())
 	m.Setaccess_hash(dbuf.Long())
 	return dbuf.Err
@@ -30245,7 +30245,7 @@ func NewTLinputDocumentFileLocation() *TLinputDocumentFileLocation {
 
 // CodecEncode:inputDocumentFileLocation
 func (m *TLinputDocumentFileLocation) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1160743548)
 	x.Long(m.Getid())
 	x.Long(m.Getaccess_hash())
@@ -30255,7 +30255,7 @@ func (m *TLinputDocumentFileLocation) Encode() []byte {
 }
 
 // CodecDecode:inputDocumentFileLocation
-func (m *TLinputDocumentFileLocation) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLinputDocumentFileLocation) Decode(dbuf *api.DecodeBuf) error {
 	m.Setid(dbuf.Long())
 	m.Setaccess_hash(dbuf.Long())
 	m.Setfile_reference(dbuf.StringBytes())
@@ -30272,7 +30272,7 @@ func NewTLinputSecureFileLocation() *TLinputSecureFileLocation {
 
 // CodecEncode:inputSecureFileLocation
 func (m *TLinputSecureFileLocation) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-876089816)
 	x.Long(m.Getid())
 	x.Long(m.Getaccess_hash())
@@ -30280,7 +30280,7 @@ func (m *TLinputSecureFileLocation) Encode() []byte {
 }
 
 // CodecDecode:inputSecureFileLocation
-func (m *TLinputSecureFileLocation) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLinputSecureFileLocation) Decode(dbuf *api.DecodeBuf) error {
 	m.Setid(dbuf.Long())
 	m.Setaccess_hash(dbuf.Long())
 	return dbuf.Err
@@ -30295,13 +30295,13 @@ func NewTLinputTakeoutFileLocation() *TLinputTakeoutFileLocation {
 
 // CodecEncode:inputTakeoutFileLocation
 func (m *TLinputTakeoutFileLocation) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(700340377)
 	return x.Buf
 }
 
 // CodecDecode:inputTakeoutFileLocation
-func (m *TLinputTakeoutFileLocation) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLinputTakeoutFileLocation) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -30314,7 +30314,7 @@ func NewTLinputPhotoFileLocation() *TLinputPhotoFileLocation {
 
 // CodecEncode:inputPhotoFileLocation
 func (m *TLinputPhotoFileLocation) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1075322878)
 	x.Long(m.Getid())
 	x.Long(m.Getaccess_hash())
@@ -30324,7 +30324,7 @@ func (m *TLinputPhotoFileLocation) Encode() []byte {
 }
 
 // CodecDecode:inputPhotoFileLocation
-func (m *TLinputPhotoFileLocation) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLinputPhotoFileLocation) Decode(dbuf *api.DecodeBuf) error {
 	m.Setid(dbuf.Long())
 	m.Setaccess_hash(dbuf.Long())
 	m.Setfile_reference(dbuf.StringBytes())
@@ -30341,7 +30341,7 @@ func NewTLinputPhotoLegacyFileLocation() *TLinputPhotoLegacyFileLocation {
 
 // CodecEncode:inputPhotoLegacyFileLocation
 func (m *TLinputPhotoLegacyFileLocation) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-667654413)
 	x.Long(m.Getid())
 	x.Long(m.Getaccess_hash())
@@ -30353,7 +30353,7 @@ func (m *TLinputPhotoLegacyFileLocation) Encode() []byte {
 }
 
 // CodecDecode:inputPhotoLegacyFileLocation
-func (m *TLinputPhotoLegacyFileLocation) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLinputPhotoLegacyFileLocation) Decode(dbuf *api.DecodeBuf) error {
 	m.Setid(dbuf.Long())
 	m.Setaccess_hash(dbuf.Long())
 	m.Setfile_reference(dbuf.StringBytes())
@@ -30372,7 +30372,7 @@ func NewTLinputPeerPhotoFileLocation() *TLinputPeerPhotoFileLocation {
 
 // CodecEncode:inputPeerPhotoFileLocation
 func (m *TLinputPeerPhotoFileLocation) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(668375447)
 	var flags uint32 = 0
 	if m.Getbig() != false {
@@ -30386,7 +30386,7 @@ func (m *TLinputPeerPhotoFileLocation) Encode() []byte {
 }
 
 // CodecDecode:inputPeerPhotoFileLocation
-func (m *TLinputPeerPhotoFileLocation) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLinputPeerPhotoFileLocation) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	if (flags & (1 << 0)) != 0 {
@@ -30409,7 +30409,7 @@ func NewTLinputStickerSetThumb() *TLinputStickerSetThumb {
 
 // CodecEncode:inputStickerSetThumb
 func (m *TLinputStickerSetThumb) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(230353641)
 	x.Bytes(m.Getstickerset().Encode())
 	x.Long(m.Getvolume_id())
@@ -30418,7 +30418,7 @@ func (m *TLinputStickerSetThumb) Encode() []byte {
 }
 
 // CodecDecode:inputStickerSetThumb
-func (m *TLinputStickerSetThumb) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLinputStickerSetThumb) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &InputStickerSet{}
 	m0.Decode(dbuf)
 	m.Setstickerset(m0)
@@ -30436,13 +30436,13 @@ func NewTLtrue() *TLtrue {
 
 // CodecEncode:true
 func (m *TLtrue) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1072550713)
 	return x.Buf
 }
 
 // CodecDecode:true
-func (m *TLtrue) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLtrue) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -30455,7 +30455,7 @@ func NewTLchannelAdminLogEvent() *TLchannelAdminLogEvent {
 
 // CodecEncode:channelAdminLogEvent
 func (m *TLchannelAdminLogEvent) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(995769920)
 	x.Long(m.Getid())
 	x.Int(m.Getdate())
@@ -30465,7 +30465,7 @@ func (m *TLchannelAdminLogEvent) Encode() []byte {
 }
 
 // CodecDecode:channelAdminLogEvent
-func (m *TLchannelAdminLogEvent) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLchannelAdminLogEvent) Decode(dbuf *api.DecodeBuf) error {
 	m.Setid(dbuf.Long())
 	m.Setdate(dbuf.Int())
 	m.Setuser_id(dbuf.Int())
@@ -30484,13 +30484,13 @@ func NewTLcontacts_contactsNotModified() *TLcontacts_contactsNotModified {
 
 // CodecEncode:contacts_contactsNotModified
 func (m *TLcontacts_contactsNotModified) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1219778094)
 	return x.Buf
 }
 
 // CodecDecode:contacts_contactsNotModified
-func (m *TLcontacts_contactsNotModified) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLcontacts_contactsNotModified) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -30503,7 +30503,7 @@ func NewTLcontacts_contacts() *TLcontacts_contacts {
 
 // CodecEncode:contacts_contacts
 func (m *TLcontacts_contacts) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-353862078)
 	x.Int(481674261)
 	x.Int(int32(len(m.Getcontacts())))
@@ -30520,7 +30520,7 @@ func (m *TLcontacts_contacts) Encode() []byte {
 }
 
 // CodecDecode:contacts_contacts
-func (m *TLcontacts_contacts) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLcontacts_contacts) Decode(dbuf *api.DecodeBuf) error {
 	c0 := dbuf.Int()
 	if c0 != 481674261 {
 		return dbuf.Err
@@ -30556,7 +30556,7 @@ func NewTLjsonObjectValue() *TLjsonObjectValue {
 
 // CodecEncode:jsonObjectValue
 func (m *TLjsonObjectValue) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1059185703)
 	x.String(m.Getkey_key())
 	x.Bytes(m.Getvalue().Encode())
@@ -30564,7 +30564,7 @@ func (m *TLjsonObjectValue) Encode() []byte {
 }
 
 // CodecDecode:jsonObjectValue
-func (m *TLjsonObjectValue) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLjsonObjectValue) Decode(dbuf *api.DecodeBuf) error {
 	m.Setkey_key(dbuf.String())
 	m1 := &JSONValue{}
 	m1.Decode(dbuf)
@@ -30581,7 +30581,7 @@ func NewTLdraftMessageEmpty() *TLdraftMessageEmpty {
 
 // CodecEncode:draftMessageEmpty
 func (m *TLdraftMessageEmpty) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(453805082)
 	var flags uint32 = 0
 	if m.Getdate() != 0 {
@@ -30595,7 +30595,7 @@ func (m *TLdraftMessageEmpty) Encode() []byte {
 }
 
 // CodecDecode:draftMessageEmpty
-func (m *TLdraftMessageEmpty) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLdraftMessageEmpty) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	if (flags & (1 << 0)) != 0 {
@@ -30613,7 +30613,7 @@ func NewTLdraftMessage() *TLdraftMessage {
 
 // CodecEncode:draftMessage
 func (m *TLdraftMessage) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-40996577)
 	var flags uint32 = 0
 	if m.Getno_webpage() != false {
@@ -30642,7 +30642,7 @@ func (m *TLdraftMessage) Encode() []byte {
 }
 
 // CodecDecode:draftMessage
-func (m *TLdraftMessage) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLdraftMessage) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	if (flags & (1 << 0)) != 0 {
@@ -30678,14 +30678,14 @@ func NewTLwebPageEmpty() *TLwebPageEmpty {
 
 // CodecEncode:webPageEmpty
 func (m *TLwebPageEmpty) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-350980120)
 	x.Long(m.Getid())
 	return x.Buf
 }
 
 // CodecDecode:webPageEmpty
-func (m *TLwebPageEmpty) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLwebPageEmpty) Decode(dbuf *api.DecodeBuf) error {
 	m.Setid(dbuf.Long())
 	return dbuf.Err
 }
@@ -30699,7 +30699,7 @@ func NewTLwebPagePending() *TLwebPagePending {
 
 // CodecEncode:webPagePending
 func (m *TLwebPagePending) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-981018084)
 	x.Long(m.Getid())
 	x.Int(m.Getdate())
@@ -30707,7 +30707,7 @@ func (m *TLwebPagePending) Encode() []byte {
 }
 
 // CodecDecode:webPagePending
-func (m *TLwebPagePending) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLwebPagePending) Decode(dbuf *api.DecodeBuf) error {
 	m.Setid(dbuf.Long())
 	m.Setdate(dbuf.Int())
 	return dbuf.Err
@@ -30722,7 +30722,7 @@ func NewTLwebPage() *TLwebPage {
 
 // CodecEncode:webPage
 func (m *TLwebPage) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-392411726)
 	var flags uint32 = 0
 	if m.Gettype() != "" {
@@ -30822,7 +30822,7 @@ func (m *TLwebPage) Encode() []byte {
 }
 
 // CodecDecode:webPage
-func (m *TLwebPage) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLwebPage) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	m.Setid(dbuf.Long())
@@ -30899,7 +30899,7 @@ func NewTLwebPageNotModified() *TLwebPageNotModified {
 
 // CodecEncode:webPageNotModified
 func (m *TLwebPageNotModified) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1930545681)
 	var flags uint32 = 0
 	if m.Getcached_page_views() != 0 {
@@ -30913,7 +30913,7 @@ func (m *TLwebPageNotModified) Encode() []byte {
 }
 
 // CodecDecode:webPageNotModified
-func (m *TLwebPageNotModified) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLwebPageNotModified) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	if (flags & (1 << 0)) != 0 {
@@ -30931,7 +30931,7 @@ func NewTLinputTheme() *TLinputTheme {
 
 // CodecEncode:inputTheme
 func (m *TLinputTheme) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1012306921)
 	x.Long(m.Getid())
 	x.Long(m.Getaccess_hash())
@@ -30939,7 +30939,7 @@ func (m *TLinputTheme) Encode() []byte {
 }
 
 // CodecDecode:inputTheme
-func (m *TLinputTheme) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLinputTheme) Decode(dbuf *api.DecodeBuf) error {
 	m.Setid(dbuf.Long())
 	m.Setaccess_hash(dbuf.Long())
 	return dbuf.Err
@@ -30954,14 +30954,14 @@ func NewTLinputThemeSlug() *TLinputThemeSlug {
 
 // CodecEncode:inputThemeSlug
 func (m *TLinputThemeSlug) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-175567375)
 	x.String(m.Getslug())
 	return x.Buf
 }
 
 // CodecDecode:inputThemeSlug
-func (m *TLinputThemeSlug) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLinputThemeSlug) Decode(dbuf *api.DecodeBuf) error {
 	m.Setslug(dbuf.String())
 	return dbuf.Err
 }
@@ -30975,7 +30975,7 @@ func NewTLbotInfo() *TLbotInfo {
 
 // CodecEncode:botInfo
 func (m *TLbotInfo) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1729618630)
 	x.Int(m.Getuser_id())
 	x.String(m.Getdescription())
@@ -30988,7 +30988,7 @@ func (m *TLbotInfo) Encode() []byte {
 }
 
 // CodecDecode:botInfo
-func (m *TLbotInfo) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLbotInfo) Decode(dbuf *api.DecodeBuf) error {
 	m.Setuser_id(dbuf.Int())
 	m.Setdescription(dbuf.String())
 	c2 := dbuf.Int()
@@ -31014,13 +31014,13 @@ func NewTLmessages_recentStickersNotModified() *TLmessages_recentStickersNotModi
 
 // CodecEncode:messages_recentStickersNotModified
 func (m *TLmessages_recentStickersNotModified) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(186120336)
 	return x.Buf
 }
 
 // CodecDecode:messages_recentStickersNotModified
-func (m *TLmessages_recentStickersNotModified) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessages_recentStickersNotModified) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -31033,7 +31033,7 @@ func NewTLmessages_recentStickers() *TLmessages_recentStickers {
 
 // CodecEncode:messages_recentStickers
 func (m *TLmessages_recentStickers) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(586395571)
 	x.Int(m.Gethash())
 	x.Int(481674261)
@@ -31055,7 +31055,7 @@ func (m *TLmessages_recentStickers) Encode() []byte {
 }
 
 // CodecDecode:messages_recentStickers
-func (m *TLmessages_recentStickers) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessages_recentStickers) Decode(dbuf *api.DecodeBuf) error {
 	m.Sethash(dbuf.Int())
 	c1 := dbuf.Int()
 	if c1 != 481674261 {
@@ -31092,13 +31092,13 @@ func NewTLaccount_wallPapersNotModified() *TLaccount_wallPapersNotModified {
 
 // CodecEncode:account_wallPapersNotModified
 func (m *TLaccount_wallPapersNotModified) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(471437699)
 	return x.Buf
 }
 
 // CodecDecode:account_wallPapersNotModified
-func (m *TLaccount_wallPapersNotModified) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLaccount_wallPapersNotModified) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -31111,7 +31111,7 @@ func NewTLaccount_wallPapers() *TLaccount_wallPapers {
 
 // CodecEncode:account_wallPapers
 func (m *TLaccount_wallPapers) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1881892265)
 	x.Int(m.Gethash())
 	x.Int(481674261)
@@ -31123,7 +31123,7 @@ func (m *TLaccount_wallPapers) Encode() []byte {
 }
 
 // CodecDecode:account_wallPapers
-func (m *TLaccount_wallPapers) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLaccount_wallPapers) Decode(dbuf *api.DecodeBuf) error {
 	m.Sethash(dbuf.Int())
 	c1 := dbuf.Int()
 	if c1 != 481674261 {
@@ -31148,7 +31148,7 @@ func NewTLdialogFilter() *TLdialogFilter {
 
 // CodecEncode:dialogFilter
 func (m *TLdialogFilter) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1949890536)
 	var flags uint32 = 0
 	if m.Getcontacts() != false {
@@ -31203,7 +31203,7 @@ func (m *TLdialogFilter) Encode() []byte {
 }
 
 // CodecDecode:dialogFilter
-func (m *TLdialogFilter) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLdialogFilter) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	if (flags & (1 << 0)) != 0 {
@@ -31280,7 +31280,7 @@ func NewTLauthorization() *TLauthorization {
 
 // CodecEncode:authorization
 func (m *TLauthorization) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1392388579)
 	var flags uint32 = 0
 	if m.Getcurrent() != false {
@@ -31309,7 +31309,7 @@ func (m *TLauthorization) Encode() []byte {
 }
 
 // CodecDecode:authorization
-func (m *TLauthorization) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLauthorization) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	if (flags & (1 << 0)) != 0 {
@@ -31345,14 +31345,14 @@ func NewTLupload_cdnFileReuploadNeeded() *TLupload_cdnFileReuploadNeeded {
 
 // CodecEncode:upload_cdnFileReuploadNeeded
 func (m *TLupload_cdnFileReuploadNeeded) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-290921362)
 	x.Bytes(m.Getrequest_token())
 	return x.Buf
 }
 
 // CodecDecode:upload_cdnFileReuploadNeeded
-func (m *TLupload_cdnFileReuploadNeeded) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLupload_cdnFileReuploadNeeded) Decode(dbuf *api.DecodeBuf) error {
 	m.Setrequest_token(dbuf.StringBytes())
 	return dbuf.Err
 }
@@ -31366,14 +31366,14 @@ func NewTLupload_cdnFile() *TLupload_cdnFile {
 
 // CodecEncode:upload_cdnFile
 func (m *TLupload_cdnFile) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1449145777)
 	x.Bytes(m.Getbytes())
 	return x.Buf
 }
 
 // CodecDecode:upload_cdnFile
-func (m *TLupload_cdnFile) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLupload_cdnFile) Decode(dbuf *api.DecodeBuf) error {
 	m.Setbytes(dbuf.StringBytes())
 	return dbuf.Err
 }
@@ -31387,7 +31387,7 @@ func NewTLemojiKeywordsDifference() *TLemojiKeywordsDifference {
 
 // CodecEncode:emojiKeywordsDifference
 func (m *TLemojiKeywordsDifference) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1556570557)
 	x.String(m.Getlang_code())
 	x.Int(m.Getfrom_version())
@@ -31401,7 +31401,7 @@ func (m *TLemojiKeywordsDifference) Encode() []byte {
 }
 
 // CodecDecode:emojiKeywordsDifference
-func (m *TLemojiKeywordsDifference) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLemojiKeywordsDifference) Decode(dbuf *api.DecodeBuf) error {
 	m.Setlang_code(dbuf.String())
 	m.Setfrom_version(dbuf.Int())
 	m.Setversion(dbuf.Int())
@@ -31428,7 +31428,7 @@ func NewTLphotos_photos() *TLphotos_photos {
 
 // CodecEncode:photos_photos
 func (m *TLphotos_photos) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1916114267)
 	x.Int(481674261)
 	x.Int(int32(len(m.Getphotos())))
@@ -31444,7 +31444,7 @@ func (m *TLphotos_photos) Encode() []byte {
 }
 
 // CodecDecode:photos_photos
-func (m *TLphotos_photos) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLphotos_photos) Decode(dbuf *api.DecodeBuf) error {
 	c0 := dbuf.Int()
 	if c0 != 481674261 {
 		return dbuf.Err
@@ -31479,7 +31479,7 @@ func NewTLphotos_photosSlice() *TLphotos_photosSlice {
 
 // CodecEncode:photos_photosSlice
 func (m *TLphotos_photosSlice) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(352657236)
 	x.Int(m.Getcount())
 	x.Int(481674261)
@@ -31496,7 +31496,7 @@ func (m *TLphotos_photosSlice) Encode() []byte {
 }
 
 // CodecDecode:photos_photosSlice
-func (m *TLphotos_photosSlice) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLphotos_photosSlice) Decode(dbuf *api.DecodeBuf) error {
 	m.Setcount(dbuf.Int())
 	c1 := dbuf.Int()
 	if c1 != 481674261 {
@@ -31532,7 +31532,7 @@ func NewTLlangPackDifference() *TLlangPackDifference {
 
 // CodecEncode:langPackDifference
 func (m *TLlangPackDifference) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-209337866)
 	x.String(m.Getlang_code())
 	x.Int(m.Getfrom_version())
@@ -31546,7 +31546,7 @@ func (m *TLlangPackDifference) Encode() []byte {
 }
 
 // CodecDecode:langPackDifference
-func (m *TLlangPackDifference) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLlangPackDifference) Decode(dbuf *api.DecodeBuf) error {
 	m.Setlang_code(dbuf.String())
 	m.Setfrom_version(dbuf.Int())
 	m.Setversion(dbuf.Int())
@@ -31573,13 +31573,13 @@ func NewTLchatPhotoEmpty() *TLchatPhotoEmpty {
 
 // CodecEncode:chatPhotoEmpty
 func (m *TLchatPhotoEmpty) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(935395612)
 	return x.Buf
 }
 
 // CodecDecode:chatPhotoEmpty
-func (m *TLchatPhotoEmpty) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLchatPhotoEmpty) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -31592,7 +31592,7 @@ func NewTLchatPhoto() *TLchatPhoto {
 
 // CodecEncode:chatPhoto
 func (m *TLchatPhoto) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-770990276)
 	var flags uint32 = 0
 	if m.Gethas_video() != false {
@@ -31606,7 +31606,7 @@ func (m *TLchatPhoto) Encode() []byte {
 }
 
 // CodecDecode:chatPhoto
-func (m *TLchatPhoto) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLchatPhoto) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	if (flags & (1 << 0)) != 0 {
@@ -31631,7 +31631,7 @@ func NewTLmessageReplies() *TLmessageReplies {
 
 // CodecEncode:messageReplies
 func (m *TLmessageReplies) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1093204652)
 	var flags uint32 = 0
 	if m.Getcomments() != false {
@@ -31672,7 +31672,7 @@ func (m *TLmessageReplies) Encode() []byte {
 }
 
 // CodecDecode:messageReplies
-func (m *TLmessageReplies) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessageReplies) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	if (flags & (1 << 0)) != 0 {
@@ -31714,7 +31714,7 @@ func NewTLsavedPhoneContact() *TLsavedPhoneContact {
 
 // CodecEncode:savedPhoneContact
 func (m *TLsavedPhoneContact) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(289586518)
 	x.String(m.Getphone())
 	x.String(m.Getfirst_name())
@@ -31724,7 +31724,7 @@ func (m *TLsavedPhoneContact) Encode() []byte {
 }
 
 // CodecDecode:savedPhoneContact
-func (m *TLsavedPhoneContact) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLsavedPhoneContact) Decode(dbuf *api.DecodeBuf) error {
 	m.Setphone(dbuf.String())
 	m.Setfirst_name(dbuf.String())
 	m.Setlast_name(dbuf.String())
@@ -31741,7 +31741,7 @@ func NewTLupdates_differenceEmpty() *TLupdates_differenceEmpty {
 
 // CodecEncode:updates_differenceEmpty
 func (m *TLupdates_differenceEmpty) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1567990072)
 	x.Int(m.Getdate())
 	x.Int(m.Getseq())
@@ -31749,7 +31749,7 @@ func (m *TLupdates_differenceEmpty) Encode() []byte {
 }
 
 // CodecDecode:updates_differenceEmpty
-func (m *TLupdates_differenceEmpty) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLupdates_differenceEmpty) Decode(dbuf *api.DecodeBuf) error {
 	m.Setdate(dbuf.Int())
 	m.Setseq(dbuf.Int())
 	return dbuf.Err
@@ -31764,7 +31764,7 @@ func NewTLupdates_difference() *TLupdates_difference {
 
 // CodecEncode:updates_difference
 func (m *TLupdates_difference) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(16030880)
 	x.Int(481674261)
 	x.Int(int32(len(m.Getnew_messages())))
@@ -31796,7 +31796,7 @@ func (m *TLupdates_difference) Encode() []byte {
 }
 
 // CodecDecode:updates_difference
-func (m *TLupdates_difference) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLupdates_difference) Decode(dbuf *api.DecodeBuf) error {
 	c0 := dbuf.Int()
 	if c0 != 481674261 {
 		return dbuf.Err
@@ -31867,7 +31867,7 @@ func NewTLupdates_differenceSlice() *TLupdates_differenceSlice {
 
 // CodecEncode:updates_differenceSlice
 func (m *TLupdates_differenceSlice) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1459938943)
 	x.Int(481674261)
 	x.Int(int32(len(m.Getnew_messages())))
@@ -31899,7 +31899,7 @@ func (m *TLupdates_differenceSlice) Encode() []byte {
 }
 
 // CodecDecode:updates_differenceSlice
-func (m *TLupdates_differenceSlice) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLupdates_differenceSlice) Decode(dbuf *api.DecodeBuf) error {
 	c0 := dbuf.Int()
 	if c0 != 481674261 {
 		return dbuf.Err
@@ -31970,14 +31970,14 @@ func NewTLupdates_differenceTooLong() *TLupdates_differenceTooLong {
 
 // CodecEncode:updates_differenceTooLong
 func (m *TLupdates_differenceTooLong) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1258196845)
 	x.Int(m.Getpts())
 	return x.Buf
 }
 
 // CodecDecode:updates_differenceTooLong
-func (m *TLupdates_differenceTooLong) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLupdates_differenceTooLong) Decode(dbuf *api.DecodeBuf) error {
 	m.Setpts(dbuf.Int())
 	return dbuf.Err
 }
@@ -31991,7 +31991,7 @@ func NewTLchatAdminRights() *TLchatAdminRights {
 
 // CodecEncode:chatAdminRights
 func (m *TLchatAdminRights) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1605510357)
 	var flags uint32 = 0
 	if m.Getchange_info() != false {
@@ -32029,7 +32029,7 @@ func (m *TLchatAdminRights) Encode() []byte {
 }
 
 // CodecDecode:chatAdminRights
-func (m *TLchatAdminRights) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLchatAdminRights) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	if (flags & (1 << 0)) != 0 {
@@ -32074,14 +32074,14 @@ func NewTLmessages_dhConfigNotModified() *TLmessages_dhConfigNotModified {
 
 // CodecEncode:messages_dhConfigNotModified
 func (m *TLmessages_dhConfigNotModified) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1058912715)
 	x.Bytes(m.Getrandom())
 	return x.Buf
 }
 
 // CodecDecode:messages_dhConfigNotModified
-func (m *TLmessages_dhConfigNotModified) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessages_dhConfigNotModified) Decode(dbuf *api.DecodeBuf) error {
 	m.Setrandom(dbuf.StringBytes())
 	return dbuf.Err
 }
@@ -32095,7 +32095,7 @@ func NewTLmessages_dhConfig() *TLmessages_dhConfig {
 
 // CodecEncode:messages_dhConfig
 func (m *TLmessages_dhConfig) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(740433629)
 	x.Int(m.Getg())
 	x.Bytes(m.Getp())
@@ -32105,7 +32105,7 @@ func (m *TLmessages_dhConfig) Encode() []byte {
 }
 
 // CodecDecode:messages_dhConfig
-func (m *TLmessages_dhConfig) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessages_dhConfig) Decode(dbuf *api.DecodeBuf) error {
 	m.Setg(dbuf.Int())
 	m.Setp(dbuf.StringBytes())
 	m.Setversion(dbuf.Int())
@@ -32122,7 +32122,7 @@ func NewTLlangPackString() *TLlangPackString {
 
 // CodecEncode:langPackString
 func (m *TLlangPackString) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-892239370)
 	x.String(m.Getkey_key())
 	x.String(m.Getvalue())
@@ -32130,7 +32130,7 @@ func (m *TLlangPackString) Encode() []byte {
 }
 
 // CodecDecode:langPackString
-func (m *TLlangPackString) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLlangPackString) Decode(dbuf *api.DecodeBuf) error {
 	m.Setkey_key(dbuf.String())
 	m.Setvalue(dbuf.String())
 	return dbuf.Err
@@ -32145,7 +32145,7 @@ func NewTLlangPackStringPluralized() *TLlangPackStringPluralized {
 
 // CodecEncode:langPackStringPluralized
 func (m *TLlangPackStringPluralized) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1816636575)
 	var flags uint32 = 0
 	if m.Getzero_value() != "" {
@@ -32185,7 +32185,7 @@ func (m *TLlangPackStringPluralized) Encode() []byte {
 }
 
 // CodecDecode:langPackStringPluralized
-func (m *TLlangPackStringPluralized) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLlangPackStringPluralized) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	m.Setkey_key(dbuf.String())
@@ -32217,14 +32217,14 @@ func NewTLlangPackStringDeleted() *TLlangPackStringDeleted {
 
 // CodecEncode:langPackStringDeleted
 func (m *TLlangPackStringDeleted) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(695856818)
 	x.String(m.Getkey_key())
 	return x.Buf
 }
 
 // CodecDecode:langPackStringDeleted
-func (m *TLlangPackStringDeleted) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLlangPackStringDeleted) Decode(dbuf *api.DecodeBuf) error {
 	m.Setkey_key(dbuf.String())
 	return dbuf.Err
 }
@@ -32238,7 +32238,7 @@ func NewTLdcOption() *TLdcOption {
 
 // CodecEncode:dcOption
 func (m *TLdcOption) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(414687501)
 	var flags uint32 = 0
 	if m.Getipv6() != false {
@@ -32270,7 +32270,7 @@ func (m *TLdcOption) Encode() []byte {
 }
 
 // CodecDecode:dcOption
-func (m *TLdcOption) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLdcOption) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	if (flags & (1 << 0)) != 0 {
@@ -32306,7 +32306,7 @@ func NewTLmessageFwdHeader() *TLmessageFwdHeader {
 
 // CodecEncode:messageFwdHeader
 func (m *TLmessageFwdHeader) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1601666510)
 	var flags uint32 = 0
 	if m.Getfrom_id().Constructor != 0 {
@@ -32357,7 +32357,7 @@ func (m *TLmessageFwdHeader) Encode() []byte {
 }
 
 // CodecDecode:messageFwdHeader
-func (m *TLmessageFwdHeader) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessageFwdHeader) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	if (flags & (1 << 0)) != 0 {
@@ -32398,13 +32398,13 @@ func NewTLgeoPointEmpty() *TLgeoPointEmpty {
 
 // CodecEncode:geoPointEmpty
 func (m *TLgeoPointEmpty) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(286776671)
 	return x.Buf
 }
 
 // CodecDecode:geoPointEmpty
-func (m *TLgeoPointEmpty) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLgeoPointEmpty) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -32417,7 +32417,7 @@ func NewTLgeoPoint() *TLgeoPoint {
 
 // CodecEncode:geoPoint
 func (m *TLgeoPoint) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1297942941)
 	var flags uint32 = 0
 	if m.Getaccuracy_radius() != 0 {
@@ -32434,7 +32434,7 @@ func (m *TLgeoPoint) Encode() []byte {
 }
 
 // CodecDecode:geoPoint
-func (m *TLgeoPoint) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLgeoPoint) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	m.Setlong_key(dbuf.Double())
@@ -32455,7 +32455,7 @@ func NewTLchatBannedRights() *TLchatBannedRights {
 
 // CodecEncode:chatBannedRights
 func (m *TLchatBannedRights) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1626209256)
 	var flags uint32 = 0
 	if m.Getview_messages() != false {
@@ -32500,7 +32500,7 @@ func (m *TLchatBannedRights) Encode() []byte {
 }
 
 // CodecDecode:chatBannedRights
-func (m *TLchatBannedRights) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLchatBannedRights) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	if (flags & (1 << 0)) != 0 {
@@ -32552,14 +32552,14 @@ func NewTLhelp_termsOfServiceUpdateEmpty() *TLhelp_termsOfServiceUpdateEmpty {
 
 // CodecEncode:help_termsOfServiceUpdateEmpty
 func (m *TLhelp_termsOfServiceUpdateEmpty) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-483352705)
 	x.Int(m.Getexpires())
 	return x.Buf
 }
 
 // CodecDecode:help_termsOfServiceUpdateEmpty
-func (m *TLhelp_termsOfServiceUpdateEmpty) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLhelp_termsOfServiceUpdateEmpty) Decode(dbuf *api.DecodeBuf) error {
 	m.Setexpires(dbuf.Int())
 	return dbuf.Err
 }
@@ -32573,7 +32573,7 @@ func NewTLhelp_termsOfServiceUpdate() *TLhelp_termsOfServiceUpdate {
 
 // CodecEncode:help_termsOfServiceUpdate
 func (m *TLhelp_termsOfServiceUpdate) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(686618977)
 	x.Int(m.Getexpires())
 	x.Bytes(m.Getterms_of_service().Encode())
@@ -32581,7 +32581,7 @@ func (m *TLhelp_termsOfServiceUpdate) Encode() []byte {
 }
 
 // CodecDecode:help_termsOfServiceUpdate
-func (m *TLhelp_termsOfServiceUpdate) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLhelp_termsOfServiceUpdate) Decode(dbuf *api.DecodeBuf) error {
 	m.Setexpires(dbuf.Int())
 	m1 := &Help_TermsOfService{}
 	m1.Decode(dbuf)
@@ -32598,7 +32598,7 @@ func NewTLauth_sentCode() *TLauth_sentCode {
 
 // CodecEncode:auth_sentCode
 func (m *TLauth_sentCode) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1577067778)
 	var flags uint32 = 0
 	if m.Getnext_type().Constructor != 0 {
@@ -32620,7 +32620,7 @@ func (m *TLauth_sentCode) Encode() []byte {
 }
 
 // CodecDecode:auth_sentCode
-func (m *TLauth_sentCode) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLauth_sentCode) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	m0 := &Auth_SentCodeType{}
@@ -32647,14 +32647,14 @@ func NewTLauth_passwordRecovery() *TLauth_passwordRecovery {
 
 // CodecEncode:auth_passwordRecovery
 func (m *TLauth_passwordRecovery) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(326715557)
 	x.String(m.Getemail_pattern())
 	return x.Buf
 }
 
 // CodecDecode:auth_passwordRecovery
-func (m *TLauth_passwordRecovery) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLauth_passwordRecovery) Decode(dbuf *api.DecodeBuf) error {
 	m.Setemail_pattern(dbuf.String())
 	return dbuf.Err
 }
@@ -32668,7 +32668,7 @@ func NewTLaccount_privacyRules() *TLaccount_privacyRules {
 
 // CodecEncode:account_privacyRules
 func (m *TLaccount_privacyRules) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1352683077)
 	x.Int(481674261)
 	x.Int(int32(len(m.Getrules())))
@@ -32689,7 +32689,7 @@ func (m *TLaccount_privacyRules) Encode() []byte {
 }
 
 // CodecDecode:account_privacyRules
-func (m *TLaccount_privacyRules) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLaccount_privacyRules) Decode(dbuf *api.DecodeBuf) error {
 	c0 := dbuf.Int()
 	if c0 != 481674261 {
 		return dbuf.Err
@@ -32735,7 +32735,7 @@ func NewTLsecureSecretSettings() *TLsecureSecretSettings {
 
 // CodecEncode:secureSecretSettings
 func (m *TLsecureSecretSettings) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(354925740)
 	x.Bytes(m.Getsecure_algo().Encode())
 	x.Bytes(m.Getsecure_secret())
@@ -32744,7 +32744,7 @@ func (m *TLsecureSecretSettings) Encode() []byte {
 }
 
 // CodecDecode:secureSecretSettings
-func (m *TLsecureSecretSettings) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLsecureSecretSettings) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &SecurePasswordKdfAlgo{}
 	m0.Decode(dbuf)
 	m.Setsecure_algo(m0)
@@ -32762,7 +32762,7 @@ func NewTLtheme() *TLtheme {
 
 // CodecEncode:theme
 func (m *TLtheme) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(42930452)
 	var flags uint32 = 0
 	if m.Getcreator() != false {
@@ -32793,7 +32793,7 @@ func (m *TLtheme) Encode() []byte {
 }
 
 // CodecDecode:theme
-func (m *TLtheme) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLtheme) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	if (flags & (1 << 0)) != 0 {
@@ -32829,7 +32829,7 @@ func NewTLhelp_termsOfService() *TLhelp_termsOfService {
 
 // CodecEncode:help_termsOfService
 func (m *TLhelp_termsOfService) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(2013922064)
 	var flags uint32 = 0
 	if m.Getpopup() != false {
@@ -32853,7 +32853,7 @@ func (m *TLhelp_termsOfService) Encode() []byte {
 }
 
 // CodecDecode:help_termsOfService
-func (m *TLhelp_termsOfService) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLhelp_termsOfService) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	if (flags & (1 << 0)) != 0 {
@@ -32889,7 +32889,7 @@ func NewTLrestrictionReason() *TLrestrictionReason {
 
 // CodecEncode:restrictionReason
 func (m *TLrestrictionReason) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-797791052)
 	x.String(m.Getplatform())
 	x.String(m.Getreason())
@@ -32898,7 +32898,7 @@ func (m *TLrestrictionReason) Encode() []byte {
 }
 
 // CodecDecode:restrictionReason
-func (m *TLrestrictionReason) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLrestrictionReason) Decode(dbuf *api.DecodeBuf) error {
 	m.Setplatform(dbuf.String())
 	m.Setreason(dbuf.String())
 	m.Settext(dbuf.String())
@@ -32914,7 +32914,7 @@ func NewTLphone_phoneCall() *TLphone_phoneCall {
 
 // CodecEncode:phone_phoneCall
 func (m *TLphone_phoneCall) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-326966976)
 	x.Bytes(m.Getphone_call().Encode())
 	x.Int(481674261)
@@ -32926,7 +32926,7 @@ func (m *TLphone_phoneCall) Encode() []byte {
 }
 
 // CodecDecode:phone_phoneCall
-func (m *TLphone_phoneCall) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLphone_phoneCall) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &PhoneCall{}
 	m0.Decode(dbuf)
 	m.Setphone_call(m0)
@@ -32953,7 +32953,7 @@ func NewTLstats_broadcastStats() *TLstats_broadcastStats {
 
 // CodecEncode:stats_broadcastStats
 func (m *TLstats_broadcastStats) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1107852396)
 	x.Bytes(m.Getperiod().Encode())
 	x.Bytes(m.Getfollowers().Encode())
@@ -32978,7 +32978,7 @@ func (m *TLstats_broadcastStats) Encode() []byte {
 }
 
 // CodecDecode:stats_broadcastStats
-func (m *TLstats_broadcastStats) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLstats_broadcastStats) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &StatsDateRangeDays{}
 	m0.Decode(dbuf)
 	m.Setperiod(m0)
@@ -33044,14 +33044,14 @@ func NewTLauth_sentCodeTypeApp() *TLauth_sentCodeTypeApp {
 
 // CodecEncode:auth_sentCodeTypeApp
 func (m *TLauth_sentCodeTypeApp) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1035688326)
 	x.Int(m.Getlength())
 	return x.Buf
 }
 
 // CodecDecode:auth_sentCodeTypeApp
-func (m *TLauth_sentCodeTypeApp) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLauth_sentCodeTypeApp) Decode(dbuf *api.DecodeBuf) error {
 	m.Setlength(dbuf.Int())
 	return dbuf.Err
 }
@@ -33065,14 +33065,14 @@ func NewTLauth_sentCodeTypeSms() *TLauth_sentCodeTypeSms {
 
 // CodecEncode:auth_sentCodeTypeSms
 func (m *TLauth_sentCodeTypeSms) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1073693790)
 	x.Int(m.Getlength())
 	return x.Buf
 }
 
 // CodecDecode:auth_sentCodeTypeSms
-func (m *TLauth_sentCodeTypeSms) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLauth_sentCodeTypeSms) Decode(dbuf *api.DecodeBuf) error {
 	m.Setlength(dbuf.Int())
 	return dbuf.Err
 }
@@ -33086,14 +33086,14 @@ func NewTLauth_sentCodeTypeCall() *TLauth_sentCodeTypeCall {
 
 // CodecEncode:auth_sentCodeTypeCall
 func (m *TLauth_sentCodeTypeCall) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1398007207)
 	x.Int(m.Getlength())
 	return x.Buf
 }
 
 // CodecDecode:auth_sentCodeTypeCall
-func (m *TLauth_sentCodeTypeCall) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLauth_sentCodeTypeCall) Decode(dbuf *api.DecodeBuf) error {
 	m.Setlength(dbuf.Int())
 	return dbuf.Err
 }
@@ -33107,14 +33107,14 @@ func NewTLauth_sentCodeTypeFlashCall() *TLauth_sentCodeTypeFlashCall {
 
 // CodecEncode:auth_sentCodeTypeFlashCall
 func (m *TLauth_sentCodeTypeFlashCall) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1425815847)
 	x.String(m.Getpattern())
 	return x.Buf
 }
 
 // CodecDecode:auth_sentCodeTypeFlashCall
-func (m *TLauth_sentCodeTypeFlashCall) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLauth_sentCodeTypeFlashCall) Decode(dbuf *api.DecodeBuf) error {
 	m.Setpattern(dbuf.String())
 	return dbuf.Err
 }
@@ -33128,7 +33128,7 @@ func NewTLpoll() *TLpoll {
 
 // CodecEncode:poll
 func (m *TLpoll) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-2032041631)
 	var flags uint32 = 0
 	if m.Getclosed() != false {
@@ -33167,7 +33167,7 @@ func (m *TLpoll) Encode() []byte {
 }
 
 // CodecDecode:poll
-func (m *TLpoll) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLpoll) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	m.Setid(dbuf.Long())
@@ -33213,7 +33213,7 @@ func NewTLphoneCallProtocol() *TLphoneCallProtocol {
 
 // CodecEncode:phoneCallProtocol
 func (m *TLphoneCallProtocol) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-58224696)
 	var flags uint32 = 0
 	if m.Getudp_p2p() != false {
@@ -33234,7 +33234,7 @@ func (m *TLphoneCallProtocol) Encode() []byte {
 }
 
 // CodecDecode:phoneCallProtocol
-func (m *TLphoneCallProtocol) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLphoneCallProtocol) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	if (flags & (1 << 0)) != 0 {
@@ -33258,14 +33258,14 @@ func NewTLencryptedChatEmpty() *TLencryptedChatEmpty {
 
 // CodecEncode:encryptedChatEmpty
 func (m *TLencryptedChatEmpty) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1417756512)
 	x.Int(m.Getid())
 	return x.Buf
 }
 
 // CodecDecode:encryptedChatEmpty
-func (m *TLencryptedChatEmpty) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLencryptedChatEmpty) Decode(dbuf *api.DecodeBuf) error {
 	m.Setid(dbuf.Int())
 	return dbuf.Err
 }
@@ -33279,7 +33279,7 @@ func NewTLencryptedChatWaiting() *TLencryptedChatWaiting {
 
 // CodecEncode:encryptedChatWaiting
 func (m *TLencryptedChatWaiting) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1006044124)
 	x.Int(m.Getid())
 	x.Long(m.Getaccess_hash())
@@ -33290,7 +33290,7 @@ func (m *TLencryptedChatWaiting) Encode() []byte {
 }
 
 // CodecDecode:encryptedChatWaiting
-func (m *TLencryptedChatWaiting) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLencryptedChatWaiting) Decode(dbuf *api.DecodeBuf) error {
 	m.Setid(dbuf.Int())
 	m.Setaccess_hash(dbuf.Long())
 	m.Setdate(dbuf.Int())
@@ -33308,7 +33308,7 @@ func NewTLencryptedChatRequested() *TLencryptedChatRequested {
 
 // CodecEncode:encryptedChatRequested
 func (m *TLencryptedChatRequested) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1651608194)
 	var flags uint32 = 0
 	if m.Getfolder_id() != 0 {
@@ -33328,7 +33328,7 @@ func (m *TLencryptedChatRequested) Encode() []byte {
 }
 
 // CodecDecode:encryptedChatRequested
-func (m *TLencryptedChatRequested) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLencryptedChatRequested) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	if (flags & (1 << 0)) != 0 {
@@ -33352,7 +33352,7 @@ func NewTLencryptedChat() *TLencryptedChat {
 
 // CodecEncode:encryptedChat
 func (m *TLencryptedChat) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-94974410)
 	x.Int(m.Getid())
 	x.Long(m.Getaccess_hash())
@@ -33365,7 +33365,7 @@ func (m *TLencryptedChat) Encode() []byte {
 }
 
 // CodecDecode:encryptedChat
-func (m *TLencryptedChat) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLencryptedChat) Decode(dbuf *api.DecodeBuf) error {
 	m.Setid(dbuf.Int())
 	m.Setaccess_hash(dbuf.Long())
 	m.Setdate(dbuf.Int())
@@ -33385,14 +33385,14 @@ func NewTLencryptedChatDiscarded() *TLencryptedChatDiscarded {
 
 // CodecEncode:encryptedChatDiscarded
 func (m *TLencryptedChatDiscarded) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(332848423)
 	x.Int(m.Getid())
 	return x.Buf
 }
 
 // CodecDecode:encryptedChatDiscarded
-func (m *TLencryptedChatDiscarded) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLencryptedChatDiscarded) Decode(dbuf *api.DecodeBuf) error {
 	m.Setid(dbuf.Int())
 	return dbuf.Err
 }
@@ -33406,14 +33406,14 @@ func NewTLdataJSON() *TLdataJSON {
 
 // CodecEncode:dataJSON
 func (m *TLdataJSON) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(2104790276)
 	x.String(m.Getdata())
 	return x.Buf
 }
 
 // CodecDecode:dataJSON
-func (m *TLdataJSON) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLdataJSON) Decode(dbuf *api.DecodeBuf) error {
 	m.Setdata(dbuf.String())
 	return dbuf.Err
 }
@@ -33427,13 +33427,13 @@ func NewTLchannelMessagesFilterEmpty() *TLchannelMessagesFilterEmpty {
 
 // CodecEncode:channelMessagesFilterEmpty
 func (m *TLchannelMessagesFilterEmpty) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1798033689)
 	return x.Buf
 }
 
 // CodecDecode:channelMessagesFilterEmpty
-func (m *TLchannelMessagesFilterEmpty) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLchannelMessagesFilterEmpty) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -33446,7 +33446,7 @@ func NewTLchannelMessagesFilter() *TLchannelMessagesFilter {
 
 // CodecEncode:channelMessagesFilter
 func (m *TLchannelMessagesFilter) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-847783593)
 	var flags uint32 = 0
 	if m.Getexclude_new_messages() != false {
@@ -33462,7 +33462,7 @@ func (m *TLchannelMessagesFilter) Encode() []byte {
 }
 
 // CodecDecode:channelMessagesFilter
-func (m *TLchannelMessagesFilter) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLchannelMessagesFilter) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	if (flags & (1 << 0)) != 0 {
@@ -33491,7 +33491,7 @@ func NewTLinvoice() *TLinvoice {
 
 // CodecEncode:invoice
 func (m *TLinvoice) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1022713000)
 	var flags uint32 = 0
 	if m.Gettest() != false {
@@ -33529,7 +33529,7 @@ func (m *TLinvoice) Encode() []byte {
 }
 
 // CodecDecode:invoice
-func (m *TLinvoice) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLinvoice) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	if (flags & (1 << 0)) != 0 {
@@ -33580,7 +33580,7 @@ func NewTLchannelAdminLogEventActionChangeTitle() *TLchannelAdminLogEventActionC
 
 // CodecEncode:channelAdminLogEventActionChangeTitle
 func (m *TLchannelAdminLogEventActionChangeTitle) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-421545947)
 	x.String(m.Getprev_value())
 	x.String(m.Getnew_value())
@@ -33588,7 +33588,7 @@ func (m *TLchannelAdminLogEventActionChangeTitle) Encode() []byte {
 }
 
 // CodecDecode:channelAdminLogEventActionChangeTitle
-func (m *TLchannelAdminLogEventActionChangeTitle) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLchannelAdminLogEventActionChangeTitle) Decode(dbuf *api.DecodeBuf) error {
 	m.Setprev_value(dbuf.String())
 	m.Setnew_value(dbuf.String())
 	return dbuf.Err
@@ -33603,7 +33603,7 @@ func NewTLchannelAdminLogEventActionChangeAbout() *TLchannelAdminLogEventActionC
 
 // CodecEncode:channelAdminLogEventActionChangeAbout
 func (m *TLchannelAdminLogEventActionChangeAbout) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1427671598)
 	x.String(m.Getprev_value())
 	x.String(m.Getnew_value())
@@ -33611,7 +33611,7 @@ func (m *TLchannelAdminLogEventActionChangeAbout) Encode() []byte {
 }
 
 // CodecDecode:channelAdminLogEventActionChangeAbout
-func (m *TLchannelAdminLogEventActionChangeAbout) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLchannelAdminLogEventActionChangeAbout) Decode(dbuf *api.DecodeBuf) error {
 	m.Setprev_value(dbuf.String())
 	m.Setnew_value(dbuf.String())
 	return dbuf.Err
@@ -33626,7 +33626,7 @@ func NewTLchannelAdminLogEventActionChangeUsername() *TLchannelAdminLogEventActi
 
 // CodecEncode:channelAdminLogEventActionChangeUsername
 func (m *TLchannelAdminLogEventActionChangeUsername) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1783299128)
 	x.String(m.Getprev_value())
 	x.String(m.Getnew_value())
@@ -33634,7 +33634,7 @@ func (m *TLchannelAdminLogEventActionChangeUsername) Encode() []byte {
 }
 
 // CodecDecode:channelAdminLogEventActionChangeUsername
-func (m *TLchannelAdminLogEventActionChangeUsername) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLchannelAdminLogEventActionChangeUsername) Decode(dbuf *api.DecodeBuf) error {
 	m.Setprev_value(dbuf.String())
 	m.Setnew_value(dbuf.String())
 	return dbuf.Err
@@ -33649,7 +33649,7 @@ func NewTLchannelAdminLogEventActionChangePhoto() *TLchannelAdminLogEventActionC
 
 // CodecEncode:channelAdminLogEventActionChangePhoto
 func (m *TLchannelAdminLogEventActionChangePhoto) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1129042607)
 	x.Bytes(m.Getprev_photo().Encode())
 	x.Bytes(m.Getnew_photo().Encode())
@@ -33657,7 +33657,7 @@ func (m *TLchannelAdminLogEventActionChangePhoto) Encode() []byte {
 }
 
 // CodecDecode:channelAdminLogEventActionChangePhoto
-func (m *TLchannelAdminLogEventActionChangePhoto) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLchannelAdminLogEventActionChangePhoto) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &Photo{}
 	m0.Decode(dbuf)
 	m.Setprev_photo(m0)
@@ -33676,14 +33676,14 @@ func NewTLchannelAdminLogEventActionToggleInvites() *TLchannelAdminLogEventActio
 
 // CodecEncode:channelAdminLogEventActionToggleInvites
 func (m *TLchannelAdminLogEventActionToggleInvites) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(460916654)
 	x.Bytes(m.Getnew_value_5().Encode())
 	return x.Buf
 }
 
 // CodecDecode:channelAdminLogEventActionToggleInvites
-func (m *TLchannelAdminLogEventActionToggleInvites) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLchannelAdminLogEventActionToggleInvites) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &Bool{}
 	m0.Decode(dbuf)
 	m.Setnew_value_5(m0)
@@ -33699,14 +33699,14 @@ func NewTLchannelAdminLogEventActionToggleSignatures() *TLchannelAdminLogEventAc
 
 // CodecEncode:channelAdminLogEventActionToggleSignatures
 func (m *TLchannelAdminLogEventActionToggleSignatures) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(648939889)
 	x.Bytes(m.Getnew_value_5().Encode())
 	return x.Buf
 }
 
 // CodecDecode:channelAdminLogEventActionToggleSignatures
-func (m *TLchannelAdminLogEventActionToggleSignatures) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLchannelAdminLogEventActionToggleSignatures) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &Bool{}
 	m0.Decode(dbuf)
 	m.Setnew_value_5(m0)
@@ -33722,14 +33722,14 @@ func NewTLchannelAdminLogEventActionUpdatePinned() *TLchannelAdminLogEventAction
 
 // CodecEncode:channelAdminLogEventActionUpdatePinned
 func (m *TLchannelAdminLogEventActionUpdatePinned) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-370660328)
 	x.Bytes(m.Getmessage().Encode())
 	return x.Buf
 }
 
 // CodecDecode:channelAdminLogEventActionUpdatePinned
-func (m *TLchannelAdminLogEventActionUpdatePinned) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLchannelAdminLogEventActionUpdatePinned) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &Message{}
 	m0.Decode(dbuf)
 	m.Setmessage(m0)
@@ -33745,7 +33745,7 @@ func NewTLchannelAdminLogEventActionEditMessage() *TLchannelAdminLogEventActionE
 
 // CodecEncode:channelAdminLogEventActionEditMessage
 func (m *TLchannelAdminLogEventActionEditMessage) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1889215493)
 	x.Bytes(m.Getprev_message().Encode())
 	x.Bytes(m.Getnew_message().Encode())
@@ -33753,7 +33753,7 @@ func (m *TLchannelAdminLogEventActionEditMessage) Encode() []byte {
 }
 
 // CodecDecode:channelAdminLogEventActionEditMessage
-func (m *TLchannelAdminLogEventActionEditMessage) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLchannelAdminLogEventActionEditMessage) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &Message{}
 	m0.Decode(dbuf)
 	m.Setprev_message(m0)
@@ -33772,14 +33772,14 @@ func NewTLchannelAdminLogEventActionDeleteMessage() *TLchannelAdminLogEventActio
 
 // CodecEncode:channelAdminLogEventActionDeleteMessage
 func (m *TLchannelAdminLogEventActionDeleteMessage) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1121994683)
 	x.Bytes(m.Getmessage().Encode())
 	return x.Buf
 }
 
 // CodecDecode:channelAdminLogEventActionDeleteMessage
-func (m *TLchannelAdminLogEventActionDeleteMessage) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLchannelAdminLogEventActionDeleteMessage) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &Message{}
 	m0.Decode(dbuf)
 	m.Setmessage(m0)
@@ -33795,13 +33795,13 @@ func NewTLchannelAdminLogEventActionParticipantJoin() *TLchannelAdminLogEventAct
 
 // CodecEncode:channelAdminLogEventActionParticipantJoin
 func (m *TLchannelAdminLogEventActionParticipantJoin) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(405815507)
 	return x.Buf
 }
 
 // CodecDecode:channelAdminLogEventActionParticipantJoin
-func (m *TLchannelAdminLogEventActionParticipantJoin) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLchannelAdminLogEventActionParticipantJoin) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -33814,13 +33814,13 @@ func NewTLchannelAdminLogEventActionParticipantLeave() *TLchannelAdminLogEventAc
 
 // CodecEncode:channelAdminLogEventActionParticipantLeave
 func (m *TLchannelAdminLogEventActionParticipantLeave) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-124291086)
 	return x.Buf
 }
 
 // CodecDecode:channelAdminLogEventActionParticipantLeave
-func (m *TLchannelAdminLogEventActionParticipantLeave) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLchannelAdminLogEventActionParticipantLeave) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -33833,14 +33833,14 @@ func NewTLchannelAdminLogEventActionParticipantInvite() *TLchannelAdminLogEventA
 
 // CodecEncode:channelAdminLogEventActionParticipantInvite
 func (m *TLchannelAdminLogEventActionParticipantInvite) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-484690728)
 	x.Bytes(m.Getparticipant().Encode())
 	return x.Buf
 }
 
 // CodecDecode:channelAdminLogEventActionParticipantInvite
-func (m *TLchannelAdminLogEventActionParticipantInvite) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLchannelAdminLogEventActionParticipantInvite) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &ChannelParticipant{}
 	m0.Decode(dbuf)
 	m.Setparticipant(m0)
@@ -33856,7 +33856,7 @@ func NewTLchannelAdminLogEventActionParticipantToggleBan() *TLchannelAdminLogEve
 
 // CodecEncode:channelAdminLogEventActionParticipantToggleBan
 func (m *TLchannelAdminLogEventActionParticipantToggleBan) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-422036098)
 	x.Bytes(m.Getprev_participant().Encode())
 	x.Bytes(m.Getnew_participant().Encode())
@@ -33864,7 +33864,7 @@ func (m *TLchannelAdminLogEventActionParticipantToggleBan) Encode() []byte {
 }
 
 // CodecDecode:channelAdminLogEventActionParticipantToggleBan
-func (m *TLchannelAdminLogEventActionParticipantToggleBan) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLchannelAdminLogEventActionParticipantToggleBan) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &ChannelParticipant{}
 	m0.Decode(dbuf)
 	m.Setprev_participant(m0)
@@ -33883,7 +33883,7 @@ func NewTLchannelAdminLogEventActionParticipantToggleAdmin() *TLchannelAdminLogE
 
 // CodecEncode:channelAdminLogEventActionParticipantToggleAdmin
 func (m *TLchannelAdminLogEventActionParticipantToggleAdmin) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-714643696)
 	x.Bytes(m.Getprev_participant().Encode())
 	x.Bytes(m.Getnew_participant().Encode())
@@ -33891,7 +33891,7 @@ func (m *TLchannelAdminLogEventActionParticipantToggleAdmin) Encode() []byte {
 }
 
 // CodecDecode:channelAdminLogEventActionParticipantToggleAdmin
-func (m *TLchannelAdminLogEventActionParticipantToggleAdmin) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLchannelAdminLogEventActionParticipantToggleAdmin) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &ChannelParticipant{}
 	m0.Decode(dbuf)
 	m.Setprev_participant(m0)
@@ -33910,7 +33910,7 @@ func NewTLchannelAdminLogEventActionChangeStickerSet() *TLchannelAdminLogEventAc
 
 // CodecEncode:channelAdminLogEventActionChangeStickerSet
 func (m *TLchannelAdminLogEventActionChangeStickerSet) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1312568665)
 	x.Bytes(m.Getprev_stickerset().Encode())
 	x.Bytes(m.Getnew_stickerset().Encode())
@@ -33918,7 +33918,7 @@ func (m *TLchannelAdminLogEventActionChangeStickerSet) Encode() []byte {
 }
 
 // CodecDecode:channelAdminLogEventActionChangeStickerSet
-func (m *TLchannelAdminLogEventActionChangeStickerSet) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLchannelAdminLogEventActionChangeStickerSet) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &InputStickerSet{}
 	m0.Decode(dbuf)
 	m.Setprev_stickerset(m0)
@@ -33937,14 +33937,14 @@ func NewTLchannelAdminLogEventActionTogglePreHistoryHidden() *TLchannelAdminLogE
 
 // CodecEncode:channelAdminLogEventActionTogglePreHistoryHidden
 func (m *TLchannelAdminLogEventActionTogglePreHistoryHidden) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1599903217)
 	x.Bytes(m.Getnew_value_5().Encode())
 	return x.Buf
 }
 
 // CodecDecode:channelAdminLogEventActionTogglePreHistoryHidden
-func (m *TLchannelAdminLogEventActionTogglePreHistoryHidden) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLchannelAdminLogEventActionTogglePreHistoryHidden) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &Bool{}
 	m0.Decode(dbuf)
 	m.Setnew_value_5(m0)
@@ -33960,7 +33960,7 @@ func NewTLchannelAdminLogEventActionDefaultBannedRights() *TLchannelAdminLogEven
 
 // CodecEncode:channelAdminLogEventActionDefaultBannedRights
 func (m *TLchannelAdminLogEventActionDefaultBannedRights) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(771095562)
 	x.Bytes(m.Getprev_banned_rights().Encode())
 	x.Bytes(m.Getnew_banned_rights().Encode())
@@ -33968,7 +33968,7 @@ func (m *TLchannelAdminLogEventActionDefaultBannedRights) Encode() []byte {
 }
 
 // CodecDecode:channelAdminLogEventActionDefaultBannedRights
-func (m *TLchannelAdminLogEventActionDefaultBannedRights) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLchannelAdminLogEventActionDefaultBannedRights) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &ChatBannedRights{}
 	m0.Decode(dbuf)
 	m.Setprev_banned_rights(m0)
@@ -33987,14 +33987,14 @@ func NewTLchannelAdminLogEventActionStopPoll() *TLchannelAdminLogEventActionStop
 
 // CodecEncode:channelAdminLogEventActionStopPoll
 func (m *TLchannelAdminLogEventActionStopPoll) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1895328189)
 	x.Bytes(m.Getmessage().Encode())
 	return x.Buf
 }
 
 // CodecDecode:channelAdminLogEventActionStopPoll
-func (m *TLchannelAdminLogEventActionStopPoll) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLchannelAdminLogEventActionStopPoll) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &Message{}
 	m0.Decode(dbuf)
 	m.Setmessage(m0)
@@ -34010,7 +34010,7 @@ func NewTLchannelAdminLogEventActionChangeLinkedChat() *TLchannelAdminLogEventAc
 
 // CodecEncode:channelAdminLogEventActionChangeLinkedChat
 func (m *TLchannelAdminLogEventActionChangeLinkedChat) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1569748965)
 	x.Int(m.Getprev_value_16())
 	x.Int(m.Getnew_value_17())
@@ -34018,7 +34018,7 @@ func (m *TLchannelAdminLogEventActionChangeLinkedChat) Encode() []byte {
 }
 
 // CodecDecode:channelAdminLogEventActionChangeLinkedChat
-func (m *TLchannelAdminLogEventActionChangeLinkedChat) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLchannelAdminLogEventActionChangeLinkedChat) Decode(dbuf *api.DecodeBuf) error {
 	m.Setprev_value_16(dbuf.Int())
 	m.Setnew_value_17(dbuf.Int())
 	return dbuf.Err
@@ -34033,7 +34033,7 @@ func NewTLchannelAdminLogEventActionChangeLocation() *TLchannelAdminLogEventActi
 
 // CodecEncode:channelAdminLogEventActionChangeLocation
 func (m *TLchannelAdminLogEventActionChangeLocation) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(241923758)
 	x.Bytes(m.Getprev_value_18().Encode())
 	x.Bytes(m.Getnew_value_19().Encode())
@@ -34041,7 +34041,7 @@ func (m *TLchannelAdminLogEventActionChangeLocation) Encode() []byte {
 }
 
 // CodecDecode:channelAdminLogEventActionChangeLocation
-func (m *TLchannelAdminLogEventActionChangeLocation) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLchannelAdminLogEventActionChangeLocation) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &ChannelLocation{}
 	m0.Decode(dbuf)
 	m.Setprev_value_18(m0)
@@ -34060,7 +34060,7 @@ func NewTLchannelAdminLogEventActionToggleSlowMode() *TLchannelAdminLogEventActi
 
 // CodecEncode:channelAdminLogEventActionToggleSlowMode
 func (m *TLchannelAdminLogEventActionToggleSlowMode) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1401984889)
 	x.Int(m.Getprev_value_16())
 	x.Int(m.Getnew_value_17())
@@ -34068,7 +34068,7 @@ func (m *TLchannelAdminLogEventActionToggleSlowMode) Encode() []byte {
 }
 
 // CodecDecode:channelAdminLogEventActionToggleSlowMode
-func (m *TLchannelAdminLogEventActionToggleSlowMode) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLchannelAdminLogEventActionToggleSlowMode) Decode(dbuf *api.DecodeBuf) error {
 	m.Setprev_value_16(dbuf.Int())
 	m.Setnew_value_17(dbuf.Int())
 	return dbuf.Err
@@ -34083,13 +34083,13 @@ func NewTLhelp_passportConfigNotModified() *TLhelp_passportConfigNotModified {
 
 // CodecEncode:help_passportConfigNotModified
 func (m *TLhelp_passportConfigNotModified) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1078332329)
 	return x.Buf
 }
 
 // CodecDecode:help_passportConfigNotModified
-func (m *TLhelp_passportConfigNotModified) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLhelp_passportConfigNotModified) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -34102,7 +34102,7 @@ func NewTLhelp_passportConfig() *TLhelp_passportConfig {
 
 // CodecEncode:help_passportConfig
 func (m *TLhelp_passportConfig) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1600596305)
 	x.Int(m.Gethash())
 	x.Bytes(m.Getcountries_langs().Encode())
@@ -34110,7 +34110,7 @@ func (m *TLhelp_passportConfig) Encode() []byte {
 }
 
 // CodecDecode:help_passportConfig
-func (m *TLhelp_passportConfig) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLhelp_passportConfig) Decode(dbuf *api.DecodeBuf) error {
 	m.Sethash(dbuf.Int())
 	m1 := &DataJSON{}
 	m1.Decode(dbuf)
@@ -34127,7 +34127,7 @@ func NewTLkeyboardButtonRow() *TLkeyboardButtonRow {
 
 // CodecEncode:keyboardButtonRow
 func (m *TLkeyboardButtonRow) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(2002815875)
 	x.Int(481674261)
 	x.Int(int32(len(m.Getbuttons())))
@@ -34138,7 +34138,7 @@ func (m *TLkeyboardButtonRow) Encode() []byte {
 }
 
 // CodecDecode:keyboardButtonRow
-func (m *TLkeyboardButtonRow) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLkeyboardButtonRow) Decode(dbuf *api.DecodeBuf) error {
 	c0 := dbuf.Int()
 	if c0 != 481674261 {
 		return dbuf.Err
@@ -34162,14 +34162,14 @@ func NewTLstatsURL() *TLstatsURL {
 
 // CodecEncode:statsURL
 func (m *TLstatsURL) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1202287072)
 	x.String(m.Geturl())
 	return x.Buf
 }
 
 // CodecDecode:statsURL
-func (m *TLstatsURL) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLstatsURL) Decode(dbuf *api.DecodeBuf) error {
 	m.Seturl(dbuf.String())
 	return dbuf.Err
 }
@@ -34183,14 +34183,14 @@ func NewTLaccount_takeout() *TLaccount_takeout {
 
 // CodecEncode:account_takeout
 func (m *TLaccount_takeout) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1304052993)
 	x.Long(m.Getid())
 	return x.Buf
 }
 
 // CodecDecode:account_takeout
-func (m *TLaccount_takeout) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLaccount_takeout) Decode(dbuf *api.DecodeBuf) error {
 	m.Setid(dbuf.Long())
 	return dbuf.Err
 }
@@ -34204,13 +34204,13 @@ func NewTLchannelLocationEmpty() *TLchannelLocationEmpty {
 
 // CodecEncode:channelLocationEmpty
 func (m *TLchannelLocationEmpty) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1078612597)
 	return x.Buf
 }
 
 // CodecDecode:channelLocationEmpty
-func (m *TLchannelLocationEmpty) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLchannelLocationEmpty) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -34223,7 +34223,7 @@ func NewTLchannelLocation() *TLchannelLocation {
 
 // CodecEncode:channelLocation
 func (m *TLchannelLocation) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(547062491)
 	x.Bytes(m.Getgeo_point().Encode())
 	x.String(m.Getaddress())
@@ -34231,7 +34231,7 @@ func (m *TLchannelLocation) Encode() []byte {
 }
 
 // CodecDecode:channelLocation
-func (m *TLchannelLocation) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLchannelLocation) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &GeoPoint{}
 	m0.Decode(dbuf)
 	m.Setgeo_point(m0)
@@ -34248,7 +34248,7 @@ func NewTLhelp_country() *TLhelp_country {
 
 // CodecEncode:help_country
 func (m *TLhelp_country) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1014526429)
 	var flags uint32 = 0
 	if m.Gethidden() != false {
@@ -34272,7 +34272,7 @@ func (m *TLhelp_country) Encode() []byte {
 }
 
 // CodecDecode:help_country
-func (m *TLhelp_country) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLhelp_country) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	if (flags & (1 << 0)) != 0 {
@@ -34306,14 +34306,14 @@ func NewTLdialogPeer() *TLdialogPeer {
 
 // CodecEncode:dialogPeer
 func (m *TLdialogPeer) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-445792507)
 	x.Bytes(m.Getpeer().Encode())
 	return x.Buf
 }
 
 // CodecDecode:dialogPeer
-func (m *TLdialogPeer) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLdialogPeer) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &Peer{}
 	m0.Decode(dbuf)
 	m.Setpeer(m0)
@@ -34329,14 +34329,14 @@ func NewTLdialogPeerFolder() *TLdialogPeerFolder {
 
 // CodecEncode:dialogPeerFolder
 func (m *TLdialogPeerFolder) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1363483106)
 	x.Int(m.Getfolder_id())
 	return x.Buf
 }
 
 // CodecDecode:dialogPeerFolder
-func (m *TLdialogPeerFolder) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLdialogPeerFolder) Decode(dbuf *api.DecodeBuf) error {
 	m.Setfolder_id(dbuf.Int())
 	return dbuf.Err
 }
@@ -34350,13 +34350,13 @@ func NewTLprivacyValueAllowContacts() *TLprivacyValueAllowContacts {
 
 // CodecEncode:privacyValueAllowContacts
 func (m *TLprivacyValueAllowContacts) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-123988)
 	return x.Buf
 }
 
 // CodecDecode:privacyValueAllowContacts
-func (m *TLprivacyValueAllowContacts) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLprivacyValueAllowContacts) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -34369,13 +34369,13 @@ func NewTLprivacyValueAllowAll() *TLprivacyValueAllowAll {
 
 // CodecEncode:privacyValueAllowAll
 func (m *TLprivacyValueAllowAll) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1698855810)
 	return x.Buf
 }
 
 // CodecDecode:privacyValueAllowAll
-func (m *TLprivacyValueAllowAll) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLprivacyValueAllowAll) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -34388,7 +34388,7 @@ func NewTLprivacyValueAllowUsers() *TLprivacyValueAllowUsers {
 
 // CodecEncode:privacyValueAllowUsers
 func (m *TLprivacyValueAllowUsers) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1297858060)
 	x.Int(481674261)
 	x.Int(int32(len(m.Getusers())))
@@ -34399,7 +34399,7 @@ func (m *TLprivacyValueAllowUsers) Encode() []byte {
 }
 
 // CodecDecode:privacyValueAllowUsers
-func (m *TLprivacyValueAllowUsers) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLprivacyValueAllowUsers) Decode(dbuf *api.DecodeBuf) error {
 	m.Setusers(dbuf.VectorInt())
 	return dbuf.Err
 }
@@ -34413,13 +34413,13 @@ func NewTLprivacyValueDisallowContacts() *TLprivacyValueDisallowContacts {
 
 // CodecEncode:privacyValueDisallowContacts
 func (m *TLprivacyValueDisallowContacts) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-125240806)
 	return x.Buf
 }
 
 // CodecDecode:privacyValueDisallowContacts
-func (m *TLprivacyValueDisallowContacts) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLprivacyValueDisallowContacts) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -34432,13 +34432,13 @@ func NewTLprivacyValueDisallowAll() *TLprivacyValueDisallowAll {
 
 // CodecEncode:privacyValueDisallowAll
 func (m *TLprivacyValueDisallowAll) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1955338397)
 	return x.Buf
 }
 
 // CodecDecode:privacyValueDisallowAll
-func (m *TLprivacyValueDisallowAll) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLprivacyValueDisallowAll) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -34451,7 +34451,7 @@ func NewTLprivacyValueDisallowUsers() *TLprivacyValueDisallowUsers {
 
 // CodecEncode:privacyValueDisallowUsers
 func (m *TLprivacyValueDisallowUsers) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(209668535)
 	x.Int(481674261)
 	x.Int(int32(len(m.Getusers())))
@@ -34462,7 +34462,7 @@ func (m *TLprivacyValueDisallowUsers) Encode() []byte {
 }
 
 // CodecDecode:privacyValueDisallowUsers
-func (m *TLprivacyValueDisallowUsers) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLprivacyValueDisallowUsers) Decode(dbuf *api.DecodeBuf) error {
 	m.Setusers(dbuf.VectorInt())
 	return dbuf.Err
 }
@@ -34476,7 +34476,7 @@ func NewTLprivacyValueAllowChatParticipants() *TLprivacyValueAllowChatParticipan
 
 // CodecEncode:privacyValueAllowChatParticipants
 func (m *TLprivacyValueAllowChatParticipants) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(415136107)
 	x.Int(481674261)
 	x.Int(int32(len(m.Getchats())))
@@ -34487,7 +34487,7 @@ func (m *TLprivacyValueAllowChatParticipants) Encode() []byte {
 }
 
 // CodecDecode:privacyValueAllowChatParticipants
-func (m *TLprivacyValueAllowChatParticipants) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLprivacyValueAllowChatParticipants) Decode(dbuf *api.DecodeBuf) error {
 	m.Setchats(dbuf.VectorInt())
 	return dbuf.Err
 }
@@ -34501,7 +34501,7 @@ func NewTLprivacyValueDisallowChatParticipants() *TLprivacyValueDisallowChatPart
 
 // CodecEncode:privacyValueDisallowChatParticipants
 func (m *TLprivacyValueDisallowChatParticipants) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1397881200)
 	x.Int(481674261)
 	x.Int(int32(len(m.Getchats())))
@@ -34512,7 +34512,7 @@ func (m *TLprivacyValueDisallowChatParticipants) Encode() []byte {
 }
 
 // CodecDecode:privacyValueDisallowChatParticipants
-func (m *TLprivacyValueDisallowChatParticipants) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLprivacyValueDisallowChatParticipants) Decode(dbuf *api.DecodeBuf) error {
 	m.Setchats(dbuf.VectorInt())
 	return dbuf.Err
 }
@@ -34526,13 +34526,13 @@ func NewTLinputMediaEmpty() *TLinputMediaEmpty {
 
 // CodecEncode:inputMediaEmpty
 func (m *TLinputMediaEmpty) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1771768449)
 	return x.Buf
 }
 
 // CodecDecode:inputMediaEmpty
-func (m *TLinputMediaEmpty) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLinputMediaEmpty) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -34545,7 +34545,7 @@ func NewTLinputMediaUploadedPhoto() *TLinputMediaUploadedPhoto {
 
 // CodecEncode:inputMediaUploadedPhoto
 func (m *TLinputMediaUploadedPhoto) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(505969924)
 	var flags uint32 = 0
 	if len(m.Getstickers()) > 0 {
@@ -34570,7 +34570,7 @@ func (m *TLinputMediaUploadedPhoto) Encode() []byte {
 }
 
 // CodecDecode:inputMediaUploadedPhoto
-func (m *TLinputMediaUploadedPhoto) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLinputMediaUploadedPhoto) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	m0 := &InputFile{}
@@ -34604,7 +34604,7 @@ func NewTLinputMediaPhoto() *TLinputMediaPhoto {
 
 // CodecEncode:inputMediaPhoto
 func (m *TLinputMediaPhoto) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1279654347)
 	var flags uint32 = 0
 	if m.Getttl_seconds() != 0 {
@@ -34619,7 +34619,7 @@ func (m *TLinputMediaPhoto) Encode() []byte {
 }
 
 // CodecDecode:inputMediaPhoto
-func (m *TLinputMediaPhoto) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLinputMediaPhoto) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	m0 := &InputPhoto{}
@@ -34640,14 +34640,14 @@ func NewTLinputMediaGeoPoint() *TLinputMediaGeoPoint {
 
 // CodecEncode:inputMediaGeoPoint
 func (m *TLinputMediaGeoPoint) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-104578748)
 	x.Bytes(m.Getgeo_point().Encode())
 	return x.Buf
 }
 
 // CodecDecode:inputMediaGeoPoint
-func (m *TLinputMediaGeoPoint) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLinputMediaGeoPoint) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &InputGeoPoint{}
 	m0.Decode(dbuf)
 	m.Setgeo_point(m0)
@@ -34663,7 +34663,7 @@ func NewTLinputMediaContact() *TLinputMediaContact {
 
 // CodecEncode:inputMediaContact
 func (m *TLinputMediaContact) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-122978821)
 	x.String(m.Getphone_number())
 	x.String(m.Getfirst_name())
@@ -34673,7 +34673,7 @@ func (m *TLinputMediaContact) Encode() []byte {
 }
 
 // CodecDecode:inputMediaContact
-func (m *TLinputMediaContact) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLinputMediaContact) Decode(dbuf *api.DecodeBuf) error {
 	m.Setphone_number(dbuf.String())
 	m.Setfirst_name(dbuf.String())
 	m.Setlast_name(dbuf.String())
@@ -34690,7 +34690,7 @@ func NewTLinputMediaUploadedDocument() *TLinputMediaUploadedDocument {
 
 // CodecEncode:inputMediaUploadedDocument
 func (m *TLinputMediaUploadedDocument) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1530447553)
 	var flags uint32 = 0
 	if m.Getnosound_video() != false {
@@ -34733,7 +34733,7 @@ func (m *TLinputMediaUploadedDocument) Encode() []byte {
 }
 
 // CodecDecode:inputMediaUploadedDocument
-func (m *TLinputMediaUploadedDocument) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLinputMediaUploadedDocument) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	if (flags & (1 << 0)) != 0 {
@@ -34790,7 +34790,7 @@ func NewTLinputMediaDocument() *TLinputMediaDocument {
 
 // CodecEncode:inputMediaDocument
 func (m *TLinputMediaDocument) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(598418386)
 	var flags uint32 = 0
 	if m.Getttl_seconds() != 0 {
@@ -34805,7 +34805,7 @@ func (m *TLinputMediaDocument) Encode() []byte {
 }
 
 // CodecDecode:inputMediaDocument
-func (m *TLinputMediaDocument) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLinputMediaDocument) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	m0 := &InputDocument{}
@@ -34826,7 +34826,7 @@ func NewTLinputMediaVenue() *TLinputMediaVenue {
 
 // CodecEncode:inputMediaVenue
 func (m *TLinputMediaVenue) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1052959727)
 	x.Bytes(m.Getgeo_point().Encode())
 	x.String(m.Gettitle())
@@ -34838,7 +34838,7 @@ func (m *TLinputMediaVenue) Encode() []byte {
 }
 
 // CodecDecode:inputMediaVenue
-func (m *TLinputMediaVenue) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLinputMediaVenue) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &InputGeoPoint{}
 	m0.Decode(dbuf)
 	m.Setgeo_point(m0)
@@ -34859,7 +34859,7 @@ func NewTLinputMediaPhotoExternal() *TLinputMediaPhotoExternal {
 
 // CodecEncode:inputMediaPhotoExternal
 func (m *TLinputMediaPhotoExternal) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-440664550)
 	var flags uint32 = 0
 	if m.Getttl_seconds() != 0 {
@@ -34874,7 +34874,7 @@ func (m *TLinputMediaPhotoExternal) Encode() []byte {
 }
 
 // CodecDecode:inputMediaPhotoExternal
-func (m *TLinputMediaPhotoExternal) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLinputMediaPhotoExternal) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	m.Seturl(dbuf.String())
@@ -34893,7 +34893,7 @@ func NewTLinputMediaDocumentExternal() *TLinputMediaDocumentExternal {
 
 // CodecEncode:inputMediaDocumentExternal
 func (m *TLinputMediaDocumentExternal) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-78455655)
 	var flags uint32 = 0
 	if m.Getttl_seconds() != 0 {
@@ -34908,7 +34908,7 @@ func (m *TLinputMediaDocumentExternal) Encode() []byte {
 }
 
 // CodecDecode:inputMediaDocumentExternal
-func (m *TLinputMediaDocumentExternal) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLinputMediaDocumentExternal) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	m.Seturl(dbuf.String())
@@ -34927,14 +34927,14 @@ func NewTLinputMediaGame() *TLinputMediaGame {
 
 // CodecEncode:inputMediaGame
 func (m *TLinputMediaGame) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-750828557)
 	x.Bytes(m.Getid_22().Encode())
 	return x.Buf
 }
 
 // CodecDecode:inputMediaGame
-func (m *TLinputMediaGame) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLinputMediaGame) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &InputGame{}
 	m0.Decode(dbuf)
 	m.Setid_22(m0)
@@ -34950,7 +34950,7 @@ func NewTLinputMediaInvoice() *TLinputMediaInvoice {
 
 // CodecEncode:inputMediaInvoice
 func (m *TLinputMediaInvoice) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-186607933)
 	var flags uint32 = 0
 	if m.Getphoto().Constructor != 0 {
@@ -34971,7 +34971,7 @@ func (m *TLinputMediaInvoice) Encode() []byte {
 }
 
 // CodecDecode:inputMediaInvoice
-func (m *TLinputMediaInvoice) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLinputMediaInvoice) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	m.Settitle(dbuf.String())
@@ -35002,7 +35002,7 @@ func NewTLinputMediaGeoLive() *TLinputMediaGeoLive {
 
 // CodecEncode:inputMediaGeoLive
 func (m *TLinputMediaGeoLive) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1759532989)
 	var flags uint32 = 0
 	if m.Getstopped() != false {
@@ -35032,7 +35032,7 @@ func (m *TLinputMediaGeoLive) Encode() []byte {
 }
 
 // CodecDecode:inputMediaGeoLive
-func (m *TLinputMediaGeoLive) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLinputMediaGeoLive) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	if (flags & (1 << 0)) != 0 {
@@ -35062,7 +35062,7 @@ func NewTLinputMediaPoll() *TLinputMediaPoll {
 
 // CodecEncode:inputMediaPoll
 func (m *TLinputMediaPoll) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(261416433)
 	var flags uint32 = 0
 	if len(m.Getcorrect_answers()) > 0 {
@@ -35097,7 +35097,7 @@ func (m *TLinputMediaPoll) Encode() []byte {
 }
 
 // CodecDecode:inputMediaPoll
-func (m *TLinputMediaPoll) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLinputMediaPoll) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	m0 := &Poll{}
@@ -35143,14 +35143,14 @@ func NewTLinputMediaDice() *TLinputMediaDice {
 
 // CodecEncode:inputMediaDice
 func (m *TLinputMediaDice) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-428884101)
 	x.String(m.Getemoticon())
 	return x.Buf
 }
 
 // CodecDecode:inputMediaDice
-func (m *TLinputMediaDice) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLinputMediaDice) Decode(dbuf *api.DecodeBuf) error {
 	m.Setemoticon(dbuf.String())
 	return dbuf.Err
 }
@@ -35164,13 +35164,13 @@ func NewTLinputGeoPointEmpty() *TLinputGeoPointEmpty {
 
 // CodecEncode:inputGeoPointEmpty
 func (m *TLinputGeoPointEmpty) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-457104426)
 	return x.Buf
 }
 
 // CodecDecode:inputGeoPointEmpty
-func (m *TLinputGeoPointEmpty) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLinputGeoPointEmpty) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -35183,7 +35183,7 @@ func NewTLinputGeoPoint() *TLinputGeoPoint {
 
 // CodecEncode:inputGeoPoint
 func (m *TLinputGeoPoint) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1210199983)
 	var flags uint32 = 0
 	if m.Getaccuracy_radius() != 0 {
@@ -35199,7 +35199,7 @@ func (m *TLinputGeoPoint) Encode() []byte {
 }
 
 // CodecDecode:inputGeoPoint
-func (m *TLinputGeoPoint) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLinputGeoPoint) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	m.Setlat(dbuf.Double())
@@ -35219,7 +35219,7 @@ func NewTLinputPhoneContact() *TLinputPhoneContact {
 
 // CodecEncode:inputPhoneContact
 func (m *TLinputPhoneContact) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-208488460)
 	x.Long(m.Getclient_id())
 	x.String(m.Getphone())
@@ -35229,7 +35229,7 @@ func (m *TLinputPhoneContact) Encode() []byte {
 }
 
 // CodecDecode:inputPhoneContact
-func (m *TLinputPhoneContact) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLinputPhoneContact) Decode(dbuf *api.DecodeBuf) error {
 	m.Setclient_id(dbuf.Long())
 	m.Setphone(dbuf.String())
 	m.Setfirst_name(dbuf.String())
@@ -35246,7 +35246,7 @@ func NewTLaccount_passwordSettings() *TLaccount_passwordSettings {
 
 // CodecEncode:account_passwordSettings
 func (m *TLaccount_passwordSettings) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1705233435)
 	var flags uint32 = 0
 	if m.Getemail() != "" {
@@ -35266,7 +35266,7 @@ func (m *TLaccount_passwordSettings) Encode() []byte {
 }
 
 // CodecDecode:account_passwordSettings
-func (m *TLaccount_passwordSettings) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLaccount_passwordSettings) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	if (flags & (1 << 0)) != 0 {
@@ -35289,7 +35289,7 @@ func NewTLcontacts_importedContacts() *TLcontacts_importedContacts {
 
 // CodecEncode:contacts_importedContacts
 func (m *TLcontacts_importedContacts) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(2010127419)
 	x.Int(481674261)
 	x.Int(int32(len(m.Getimported())))
@@ -35315,7 +35315,7 @@ func (m *TLcontacts_importedContacts) Encode() []byte {
 }
 
 // CodecDecode:contacts_importedContacts
-func (m *TLcontacts_importedContacts) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLcontacts_importedContacts) Decode(dbuf *api.DecodeBuf) error {
 	c0 := dbuf.Int()
 	if c0 != 481674261 {
 		return dbuf.Err
@@ -35362,7 +35362,7 @@ func NewTLaccount_sentEmailCode() *TLaccount_sentEmailCode {
 
 // CodecEncode:account_sentEmailCode
 func (m *TLaccount_sentEmailCode) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-2128640689)
 	x.String(m.Getemail_pattern())
 	x.Int(m.Getlength())
@@ -35370,7 +35370,7 @@ func (m *TLaccount_sentEmailCode) Encode() []byte {
 }
 
 // CodecDecode:account_sentEmailCode
-func (m *TLaccount_sentEmailCode) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLaccount_sentEmailCode) Decode(dbuf *api.DecodeBuf) error {
 	m.Setemail_pattern(dbuf.String())
 	m.Setlength(dbuf.Int())
 	return dbuf.Err
@@ -35385,13 +35385,13 @@ func NewTLmessageMediaEmpty() *TLmessageMediaEmpty {
 
 // CodecEncode:messageMediaEmpty
 func (m *TLmessageMediaEmpty) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1038967584)
 	return x.Buf
 }
 
 // CodecDecode:messageMediaEmpty
-func (m *TLmessageMediaEmpty) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessageMediaEmpty) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -35404,7 +35404,7 @@ func NewTLmessageMediaPhoto() *TLmessageMediaPhoto {
 
 // CodecEncode:messageMediaPhoto
 func (m *TLmessageMediaPhoto) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1766936791)
 	var flags uint32 = 0
 	if m.Getphoto().Constructor != 0 {
@@ -35424,7 +35424,7 @@ func (m *TLmessageMediaPhoto) Encode() []byte {
 }
 
 // CodecDecode:messageMediaPhoto
-func (m *TLmessageMediaPhoto) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessageMediaPhoto) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	if (flags & (1 << 0)) != 0 {
@@ -35447,14 +35447,14 @@ func NewTLmessageMediaGeo() *TLmessageMediaGeo {
 
 // CodecEncode:messageMediaGeo
 func (m *TLmessageMediaGeo) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1457575028)
 	x.Bytes(m.Getgeo().Encode())
 	return x.Buf
 }
 
 // CodecDecode:messageMediaGeo
-func (m *TLmessageMediaGeo) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessageMediaGeo) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &GeoPoint{}
 	m0.Decode(dbuf)
 	m.Setgeo(m0)
@@ -35470,7 +35470,7 @@ func NewTLmessageMediaContact() *TLmessageMediaContact {
 
 // CodecEncode:messageMediaContact
 func (m *TLmessageMediaContact) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-873313984)
 	x.String(m.Getphone_number())
 	x.String(m.Getfirst_name())
@@ -35481,7 +35481,7 @@ func (m *TLmessageMediaContact) Encode() []byte {
 }
 
 // CodecDecode:messageMediaContact
-func (m *TLmessageMediaContact) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessageMediaContact) Decode(dbuf *api.DecodeBuf) error {
 	m.Setphone_number(dbuf.String())
 	m.Setfirst_name(dbuf.String())
 	m.Setlast_name(dbuf.String())
@@ -35499,13 +35499,13 @@ func NewTLmessageMediaUnsupported() *TLmessageMediaUnsupported {
 
 // CodecEncode:messageMediaUnsupported
 func (m *TLmessageMediaUnsupported) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1618676578)
 	return x.Buf
 }
 
 // CodecDecode:messageMediaUnsupported
-func (m *TLmessageMediaUnsupported) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessageMediaUnsupported) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -35518,7 +35518,7 @@ func NewTLmessageMediaDocument() *TLmessageMediaDocument {
 
 // CodecEncode:messageMediaDocument
 func (m *TLmessageMediaDocument) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1666158377)
 	var flags uint32 = 0
 	if m.Getdocument().Constructor != 0 {
@@ -35538,7 +35538,7 @@ func (m *TLmessageMediaDocument) Encode() []byte {
 }
 
 // CodecDecode:messageMediaDocument
-func (m *TLmessageMediaDocument) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessageMediaDocument) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	if (flags & (1 << 0)) != 0 {
@@ -35561,14 +35561,14 @@ func NewTLmessageMediaWebPage() *TLmessageMediaWebPage {
 
 // CodecEncode:messageMediaWebPage
 func (m *TLmessageMediaWebPage) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1557277184)
 	x.Bytes(m.Getwebpage().Encode())
 	return x.Buf
 }
 
 // CodecDecode:messageMediaWebPage
-func (m *TLmessageMediaWebPage) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessageMediaWebPage) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &WebPage{}
 	m0.Decode(dbuf)
 	m.Setwebpage(m0)
@@ -35584,7 +35584,7 @@ func NewTLmessageMediaVenue() *TLmessageMediaVenue {
 
 // CodecEncode:messageMediaVenue
 func (m *TLmessageMediaVenue) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(784356159)
 	x.Bytes(m.Getgeo().Encode())
 	x.String(m.Gettitle())
@@ -35596,7 +35596,7 @@ func (m *TLmessageMediaVenue) Encode() []byte {
 }
 
 // CodecDecode:messageMediaVenue
-func (m *TLmessageMediaVenue) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessageMediaVenue) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &GeoPoint{}
 	m0.Decode(dbuf)
 	m.Setgeo(m0)
@@ -35617,14 +35617,14 @@ func NewTLmessageMediaGame() *TLmessageMediaGame {
 
 // CodecEncode:messageMediaGame
 func (m *TLmessageMediaGame) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-38694904)
 	x.Bytes(m.Getgame().Encode())
 	return x.Buf
 }
 
 // CodecDecode:messageMediaGame
-func (m *TLmessageMediaGame) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessageMediaGame) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &Game{}
 	m0.Decode(dbuf)
 	m.Setgame(m0)
@@ -35640,7 +35640,7 @@ func NewTLmessageMediaInvoice() *TLmessageMediaInvoice {
 
 // CodecEncode:messageMediaInvoice
 func (m *TLmessageMediaInvoice) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-2074799289)
 	var flags uint32 = 0
 	if m.Getshipping_address_requested() != false {
@@ -35671,7 +35671,7 @@ func (m *TLmessageMediaInvoice) Encode() []byte {
 }
 
 // CodecDecode:messageMediaInvoice
-func (m *TLmessageMediaInvoice) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessageMediaInvoice) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	if (flags & (1 << 0)) != 0 {
@@ -35705,7 +35705,7 @@ func NewTLmessageMediaGeoLive() *TLmessageMediaGeoLive {
 
 // CodecEncode:messageMediaGeoLive
 func (m *TLmessageMediaGeoLive) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1186937242)
 	var flags uint32 = 0
 	if m.Getheading() != 0 {
@@ -35727,7 +35727,7 @@ func (m *TLmessageMediaGeoLive) Encode() []byte {
 }
 
 // CodecDecode:messageMediaGeoLive
-func (m *TLmessageMediaGeoLive) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessageMediaGeoLive) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	m0 := &GeoPoint{}
@@ -35752,7 +35752,7 @@ func NewTLmessageMediaPoll() *TLmessageMediaPoll {
 
 // CodecEncode:messageMediaPoll
 func (m *TLmessageMediaPoll) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1272375192)
 	x.Bytes(m.Getpoll().Encode())
 	x.Bytes(m.Getresults().Encode())
@@ -35760,7 +35760,7 @@ func (m *TLmessageMediaPoll) Encode() []byte {
 }
 
 // CodecDecode:messageMediaPoll
-func (m *TLmessageMediaPoll) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessageMediaPoll) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &Poll{}
 	m0.Decode(dbuf)
 	m.Setpoll(m0)
@@ -35779,7 +35779,7 @@ func NewTLmessageMediaDice() *TLmessageMediaDice {
 
 // CodecEncode:messageMediaDice
 func (m *TLmessageMediaDice) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1065280907)
 	x.Int(m.Getvalue())
 	x.String(m.Getemoticon())
@@ -35787,7 +35787,7 @@ func (m *TLmessageMediaDice) Encode() []byte {
 }
 
 // CodecDecode:messageMediaDice
-func (m *TLmessageMediaDice) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessageMediaDice) Decode(dbuf *api.DecodeBuf) error {
 	m.Setvalue(dbuf.Int())
 	m.Setemoticon(dbuf.String())
 	return dbuf.Err
@@ -35802,13 +35802,13 @@ func NewTLboolFalse() *TLboolFalse {
 
 // CodecEncode:boolFalse
 func (m *TLboolFalse) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1132882121)
 	return x.Buf
 }
 
 // CodecDecode:boolFalse
-func (m *TLboolFalse) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLboolFalse) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -35821,13 +35821,13 @@ func NewTLboolTrue() *TLboolTrue {
 
 // CodecEncode:boolTrue
 func (m *TLboolTrue) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1720552011)
 	return x.Buf
 }
 
 // CodecDecode:boolTrue
-func (m *TLboolTrue) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLboolTrue) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -35840,7 +35840,7 @@ func NewTLinputPaymentCredentialsSaved() *TLinputPaymentCredentialsSaved {
 
 // CodecEncode:inputPaymentCredentialsSaved
 func (m *TLinputPaymentCredentialsSaved) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1056001329)
 	x.String(m.Getid())
 	x.Bytes(m.Gettmp_password())
@@ -35848,7 +35848,7 @@ func (m *TLinputPaymentCredentialsSaved) Encode() []byte {
 }
 
 // CodecDecode:inputPaymentCredentialsSaved
-func (m *TLinputPaymentCredentialsSaved) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLinputPaymentCredentialsSaved) Decode(dbuf *api.DecodeBuf) error {
 	m.Setid(dbuf.String())
 	m.Settmp_password(dbuf.StringBytes())
 	return dbuf.Err
@@ -35863,7 +35863,7 @@ func NewTLinputPaymentCredentials() *TLinputPaymentCredentials {
 
 // CodecEncode:inputPaymentCredentials
 func (m *TLinputPaymentCredentials) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(873977640)
 	var flags uint32 = 0
 	if m.Getsave() != false {
@@ -35875,7 +35875,7 @@ func (m *TLinputPaymentCredentials) Encode() []byte {
 }
 
 // CodecDecode:inputPaymentCredentials
-func (m *TLinputPaymentCredentials) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLinputPaymentCredentials) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	if (flags & (1 << 0)) != 0 {
@@ -35896,14 +35896,14 @@ func NewTLinputPaymentCredentialsApplePay() *TLinputPaymentCredentialsApplePay {
 
 // CodecEncode:inputPaymentCredentialsApplePay
 func (m *TLinputPaymentCredentialsApplePay) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(178373535)
 	x.Bytes(m.Getpayment_data().Encode())
 	return x.Buf
 }
 
 // CodecDecode:inputPaymentCredentialsApplePay
-func (m *TLinputPaymentCredentialsApplePay) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLinputPaymentCredentialsApplePay) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &DataJSON{}
 	m0.Decode(dbuf)
 	m.Setpayment_data(m0)
@@ -35919,7 +35919,7 @@ func NewTLinputPaymentCredentialsAndroidPay() *TLinputPaymentCredentialsAndroidP
 
 // CodecEncode:inputPaymentCredentialsAndroidPay
 func (m *TLinputPaymentCredentialsAndroidPay) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-905587442)
 	x.Bytes(m.Getpayment_token().Encode())
 	x.String(m.Getgoogle_transaction_id())
@@ -35927,7 +35927,7 @@ func (m *TLinputPaymentCredentialsAndroidPay) Encode() []byte {
 }
 
 // CodecDecode:inputPaymentCredentialsAndroidPay
-func (m *TLinputPaymentCredentialsAndroidPay) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLinputPaymentCredentialsAndroidPay) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &DataJSON{}
 	m0.Decode(dbuf)
 	m.Setpayment_token(m0)
@@ -35944,7 +35944,7 @@ func NewTLinputEncryptedChat() *TLinputEncryptedChat {
 
 // CodecEncode:inputEncryptedChat
 func (m *TLinputEncryptedChat) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-247351839)
 	x.Int(m.Getchat_id())
 	x.Long(m.Getaccess_hash())
@@ -35952,7 +35952,7 @@ func (m *TLinputEncryptedChat) Encode() []byte {
 }
 
 // CodecDecode:inputEncryptedChat
-func (m *TLinputEncryptedChat) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLinputEncryptedChat) Decode(dbuf *api.DecodeBuf) error {
 	m.Setchat_id(dbuf.Int())
 	m.Setaccess_hash(dbuf.Long())
 	return dbuf.Err
@@ -35967,13 +35967,13 @@ func NewTLinputEncryptedFileEmpty() *TLinputEncryptedFileEmpty {
 
 // CodecEncode:inputEncryptedFileEmpty
 func (m *TLinputEncryptedFileEmpty) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(406307684)
 	return x.Buf
 }
 
 // CodecDecode:inputEncryptedFileEmpty
-func (m *TLinputEncryptedFileEmpty) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLinputEncryptedFileEmpty) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -35986,7 +35986,7 @@ func NewTLinputEncryptedFileUploaded() *TLinputEncryptedFileUploaded {
 
 // CodecEncode:inputEncryptedFileUploaded
 func (m *TLinputEncryptedFileUploaded) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1690108678)
 	x.Long(m.Getid())
 	x.Int(m.Getparts())
@@ -35996,7 +35996,7 @@ func (m *TLinputEncryptedFileUploaded) Encode() []byte {
 }
 
 // CodecDecode:inputEncryptedFileUploaded
-func (m *TLinputEncryptedFileUploaded) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLinputEncryptedFileUploaded) Decode(dbuf *api.DecodeBuf) error {
 	m.Setid(dbuf.Long())
 	m.Setparts(dbuf.Int())
 	m.Setmd5_checksum(dbuf.String())
@@ -36013,7 +36013,7 @@ func NewTLinputEncryptedFile() *TLinputEncryptedFile {
 
 // CodecEncode:inputEncryptedFile
 func (m *TLinputEncryptedFile) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1511503333)
 	x.Long(m.Getid())
 	x.Long(m.Getaccess_hash())
@@ -36021,7 +36021,7 @@ func (m *TLinputEncryptedFile) Encode() []byte {
 }
 
 // CodecDecode:inputEncryptedFile
-func (m *TLinputEncryptedFile) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLinputEncryptedFile) Decode(dbuf *api.DecodeBuf) error {
 	m.Setid(dbuf.Long())
 	m.Setaccess_hash(dbuf.Long())
 	return dbuf.Err
@@ -36036,7 +36036,7 @@ func NewTLinputEncryptedFileBigUploaded() *TLinputEncryptedFileBigUploaded {
 
 // CodecEncode:inputEncryptedFileBigUploaded
 func (m *TLinputEncryptedFileBigUploaded) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(767652808)
 	x.Long(m.Getid())
 	x.Int(m.Getparts())
@@ -36045,7 +36045,7 @@ func (m *TLinputEncryptedFileBigUploaded) Encode() []byte {
 }
 
 // CodecDecode:inputEncryptedFileBigUploaded
-func (m *TLinputEncryptedFileBigUploaded) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLinputEncryptedFileBigUploaded) Decode(dbuf *api.DecodeBuf) error {
 	m.Setid(dbuf.Long())
 	m.Setparts(dbuf.Int())
 	m.Setkey_fingerprint(dbuf.Int())
@@ -36061,7 +36061,7 @@ func NewTLmessages_highScores() *TLmessages_highScores {
 
 // CodecEncode:messages_highScores
 func (m *TLmessages_highScores) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1707344487)
 	x.Int(481674261)
 	x.Int(int32(len(m.Getscores())))
@@ -36077,7 +36077,7 @@ func (m *TLmessages_highScores) Encode() []byte {
 }
 
 // CodecDecode:messages_highScores
-func (m *TLmessages_highScores) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessages_highScores) Decode(dbuf *api.DecodeBuf) error {
 	c0 := dbuf.Int()
 	if c0 != 481674261 {
 		return dbuf.Err
@@ -36112,7 +36112,7 @@ func NewTLmessages_chatFull() *TLmessages_chatFull {
 
 // CodecEncode:messages_chatFull
 func (m *TLmessages_chatFull) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-438840932)
 	x.Bytes(m.Getfull_chat().Encode())
 	x.Int(481674261)
@@ -36129,7 +36129,7 @@ func (m *TLmessages_chatFull) Encode() []byte {
 }
 
 // CodecDecode:messages_chatFull
-func (m *TLmessages_chatFull) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessages_chatFull) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &ChatFull{}
 	m0.Decode(dbuf)
 	m.Setfull_chat(m0)
@@ -36167,7 +36167,7 @@ func NewTLmessages_affectedHistory() *TLmessages_affectedHistory {
 
 // CodecEncode:messages_affectedHistory
 func (m *TLmessages_affectedHistory) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1269012015)
 	x.Int(m.Getpts())
 	x.Int(m.Getpts_count())
@@ -36176,7 +36176,7 @@ func (m *TLmessages_affectedHistory) Encode() []byte {
 }
 
 // CodecDecode:messages_affectedHistory
-func (m *TLmessages_affectedHistory) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessages_affectedHistory) Decode(dbuf *api.DecodeBuf) error {
 	m.Setpts(dbuf.Int())
 	m.Setpts_count(dbuf.Int())
 	m.Setoffset(dbuf.Int())
@@ -36192,7 +36192,7 @@ func NewTLpaymentCharge() *TLpaymentCharge {
 
 // CodecEncode:paymentCharge
 func (m *TLpaymentCharge) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-368917890)
 	x.String(m.Getid())
 	x.String(m.Getprovider_charge_id())
@@ -36200,7 +36200,7 @@ func (m *TLpaymentCharge) Encode() []byte {
 }
 
 // CodecDecode:paymentCharge
-func (m *TLpaymentCharge) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLpaymentCharge) Decode(dbuf *api.DecodeBuf) error {
 	m.Setid(dbuf.String())
 	m.Setprovider_charge_id(dbuf.String())
 	return dbuf.Err
@@ -36215,7 +36215,7 @@ func NewTLimportedContact() *TLimportedContact {
 
 // CodecEncode:importedContact
 func (m *TLimportedContact) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-805141448)
 	x.Int(m.Getuser_id())
 	x.Long(m.Getclient_id())
@@ -36223,7 +36223,7 @@ func (m *TLimportedContact) Encode() []byte {
 }
 
 // CodecDecode:importedContact
-func (m *TLimportedContact) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLimportedContact) Decode(dbuf *api.DecodeBuf) error {
 	m.Setuser_id(dbuf.Int())
 	m.Setclient_id(dbuf.Long())
 	return dbuf.Err
@@ -36238,7 +36238,7 @@ func NewTLinputFolderPeer() *TLinputFolderPeer {
 
 // CodecEncode:inputFolderPeer
 func (m *TLinputFolderPeer) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-70073706)
 	x.Bytes(m.Getpeer().Encode())
 	x.Int(m.Getfolder_id())
@@ -36246,7 +36246,7 @@ func (m *TLinputFolderPeer) Encode() []byte {
 }
 
 // CodecDecode:inputFolderPeer
-func (m *TLinputFolderPeer) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLinputFolderPeer) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &InputPeer{}
 	m0.Decode(dbuf)
 	m.Setpeer(m0)
@@ -36263,14 +36263,14 @@ func NewTLstats_messageStats() *TLstats_messageStats {
 
 // CodecEncode:stats_messageStats
 func (m *TLstats_messageStats) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1986399595)
 	x.Bytes(m.Getviews_graph().Encode())
 	return x.Buf
 }
 
 // CodecDecode:stats_messageStats
-func (m *TLstats_messageStats) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLstats_messageStats) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &StatsGraph{}
 	m0.Decode(dbuf)
 	m.Setviews_graph(m0)
@@ -36286,7 +36286,7 @@ func NewTLaccount_autoDownloadSettings() *TLaccount_autoDownloadSettings {
 
 // CodecEncode:account_autoDownloadSettings
 func (m *TLaccount_autoDownloadSettings) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1674235686)
 	x.Bytes(m.Getlow().Encode())
 	x.Bytes(m.Getmedium().Encode())
@@ -36295,7 +36295,7 @@ func (m *TLaccount_autoDownloadSettings) Encode() []byte {
 }
 
 // CodecDecode:account_autoDownloadSettings
-func (m *TLaccount_autoDownloadSettings) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLaccount_autoDownloadSettings) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &AutoDownloadSettings{}
 	m0.Decode(dbuf)
 	m.Setlow(m0)
@@ -36317,13 +36317,13 @@ func NewTLtopPeerCategoryBotsPM() *TLtopPeerCategoryBotsPM {
 
 // CodecEncode:topPeerCategoryBotsPM
 func (m *TLtopPeerCategoryBotsPM) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1419371685)
 	return x.Buf
 }
 
 // CodecDecode:topPeerCategoryBotsPM
-func (m *TLtopPeerCategoryBotsPM) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLtopPeerCategoryBotsPM) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -36336,13 +36336,13 @@ func NewTLtopPeerCategoryBotsInline() *TLtopPeerCategoryBotsInline {
 
 // CodecEncode:topPeerCategoryBotsInline
 func (m *TLtopPeerCategoryBotsInline) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(344356834)
 	return x.Buf
 }
 
 // CodecDecode:topPeerCategoryBotsInline
-func (m *TLtopPeerCategoryBotsInline) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLtopPeerCategoryBotsInline) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -36355,13 +36355,13 @@ func NewTLtopPeerCategoryCorrespondents() *TLtopPeerCategoryCorrespondents {
 
 // CodecEncode:topPeerCategoryCorrespondents
 func (m *TLtopPeerCategoryCorrespondents) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(104314861)
 	return x.Buf
 }
 
 // CodecDecode:topPeerCategoryCorrespondents
-func (m *TLtopPeerCategoryCorrespondents) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLtopPeerCategoryCorrespondents) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -36374,13 +36374,13 @@ func NewTLtopPeerCategoryGroups() *TLtopPeerCategoryGroups {
 
 // CodecEncode:topPeerCategoryGroups
 func (m *TLtopPeerCategoryGroups) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1122524854)
 	return x.Buf
 }
 
 // CodecDecode:topPeerCategoryGroups
-func (m *TLtopPeerCategoryGroups) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLtopPeerCategoryGroups) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -36393,13 +36393,13 @@ func NewTLtopPeerCategoryChannels() *TLtopPeerCategoryChannels {
 
 // CodecEncode:topPeerCategoryChannels
 func (m *TLtopPeerCategoryChannels) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(371037736)
 	return x.Buf
 }
 
 // CodecDecode:topPeerCategoryChannels
-func (m *TLtopPeerCategoryChannels) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLtopPeerCategoryChannels) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -36412,13 +36412,13 @@ func NewTLtopPeerCategoryPhoneCalls() *TLtopPeerCategoryPhoneCalls {
 
 // CodecEncode:topPeerCategoryPhoneCalls
 func (m *TLtopPeerCategoryPhoneCalls) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(511092620)
 	return x.Buf
 }
 
 // CodecDecode:topPeerCategoryPhoneCalls
-func (m *TLtopPeerCategoryPhoneCalls) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLtopPeerCategoryPhoneCalls) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -36431,13 +36431,13 @@ func NewTLtopPeerCategoryForwardUsers() *TLtopPeerCategoryForwardUsers {
 
 // CodecEncode:topPeerCategoryForwardUsers
 func (m *TLtopPeerCategoryForwardUsers) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1472172887)
 	return x.Buf
 }
 
 // CodecDecode:topPeerCategoryForwardUsers
-func (m *TLtopPeerCategoryForwardUsers) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLtopPeerCategoryForwardUsers) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -36450,13 +36450,13 @@ func NewTLtopPeerCategoryForwardChats() *TLtopPeerCategoryForwardChats {
 
 // CodecEncode:topPeerCategoryForwardChats
 func (m *TLtopPeerCategoryForwardChats) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-68239120)
 	return x.Buf
 }
 
 // CodecDecode:topPeerCategoryForwardChats
-func (m *TLtopPeerCategoryForwardChats) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLtopPeerCategoryForwardChats) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -36469,13 +36469,13 @@ func NewTLchatInviteEmpty() *TLchatInviteEmpty {
 
 // CodecEncode:chatInviteEmpty
 func (m *TLchatInviteEmpty) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1776236393)
 	return x.Buf
 }
 
 // CodecDecode:chatInviteEmpty
-func (m *TLchatInviteEmpty) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLchatInviteEmpty) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -36488,14 +36488,14 @@ func NewTLchatInviteExported() *TLchatInviteExported {
 
 // CodecEncode:chatInviteExported
 func (m *TLchatInviteExported) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-64092740)
 	x.String(m.Getlink())
 	return x.Buf
 }
 
 // CodecDecode:chatInviteExported
-func (m *TLchatInviteExported) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLchatInviteExported) Decode(dbuf *api.DecodeBuf) error {
 	m.Setlink(dbuf.String())
 	return dbuf.Err
 }
@@ -36509,7 +36509,7 @@ func NewTLupdateNewMessage() *TLupdateNewMessage {
 
 // CodecEncode:updateNewMessage
 func (m *TLupdateNewMessage) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(522914557)
 	x.Bytes(m.Getmessage().Encode())
 	x.Int(m.Getpts())
@@ -36518,7 +36518,7 @@ func (m *TLupdateNewMessage) Encode() []byte {
 }
 
 // CodecDecode:updateNewMessage
-func (m *TLupdateNewMessage) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLupdateNewMessage) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &Message{}
 	m0.Decode(dbuf)
 	m.Setmessage(m0)
@@ -36536,7 +36536,7 @@ func NewTLupdateMessageID() *TLupdateMessageID {
 
 // CodecEncode:updateMessageID
 func (m *TLupdateMessageID) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1318109142)
 	x.Int(m.Getid())
 	x.Long(m.Getrandom_id())
@@ -36544,7 +36544,7 @@ func (m *TLupdateMessageID) Encode() []byte {
 }
 
 // CodecDecode:updateMessageID
-func (m *TLupdateMessageID) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLupdateMessageID) Decode(dbuf *api.DecodeBuf) error {
 	m.Setid(dbuf.Int())
 	m.Setrandom_id(dbuf.Long())
 	return dbuf.Err
@@ -36559,7 +36559,7 @@ func NewTLupdateDeleteMessages() *TLupdateDeleteMessages {
 
 // CodecEncode:updateDeleteMessages
 func (m *TLupdateDeleteMessages) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1576161051)
 	x.Int(481674261)
 	x.Int(int32(len(m.Getmessages())))
@@ -36572,7 +36572,7 @@ func (m *TLupdateDeleteMessages) Encode() []byte {
 }
 
 // CodecDecode:updateDeleteMessages
-func (m *TLupdateDeleteMessages) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLupdateDeleteMessages) Decode(dbuf *api.DecodeBuf) error {
 	m.Setmessages(dbuf.VectorInt())
 	m.Setpts(dbuf.Int())
 	m.Setpts_count(dbuf.Int())
@@ -36588,7 +36588,7 @@ func NewTLupdateUserTyping() *TLupdateUserTyping {
 
 // CodecEncode:updateUserTyping
 func (m *TLupdateUserTyping) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1548249383)
 	x.Int(m.Getuser_id())
 	x.Bytes(m.Getaction().Encode())
@@ -36596,7 +36596,7 @@ func (m *TLupdateUserTyping) Encode() []byte {
 }
 
 // CodecDecode:updateUserTyping
-func (m *TLupdateUserTyping) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLupdateUserTyping) Decode(dbuf *api.DecodeBuf) error {
 	m.Setuser_id(dbuf.Int())
 	m1 := &SendMessageAction{}
 	m1.Decode(dbuf)
@@ -36613,7 +36613,7 @@ func NewTLupdateChatUserTyping() *TLupdateChatUserTyping {
 
 // CodecEncode:updateChatUserTyping
 func (m *TLupdateChatUserTyping) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1704596961)
 	x.Int(m.Getchat_id())
 	x.Int(m.Getuser_id())
@@ -36622,7 +36622,7 @@ func (m *TLupdateChatUserTyping) Encode() []byte {
 }
 
 // CodecDecode:updateChatUserTyping
-func (m *TLupdateChatUserTyping) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLupdateChatUserTyping) Decode(dbuf *api.DecodeBuf) error {
 	m.Setchat_id(dbuf.Int())
 	m.Setuser_id(dbuf.Int())
 	m2 := &SendMessageAction{}
@@ -36640,14 +36640,14 @@ func NewTLupdateChatParticipants() *TLupdateChatParticipants {
 
 // CodecEncode:updateChatParticipants
 func (m *TLupdateChatParticipants) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(125178264)
 	x.Bytes(m.Getparticipants().Encode())
 	return x.Buf
 }
 
 // CodecDecode:updateChatParticipants
-func (m *TLupdateChatParticipants) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLupdateChatParticipants) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &ChatParticipants{}
 	m0.Decode(dbuf)
 	m.Setparticipants(m0)
@@ -36663,7 +36663,7 @@ func NewTLupdateUserStatus() *TLupdateUserStatus {
 
 // CodecEncode:updateUserStatus
 func (m *TLupdateUserStatus) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(469489699)
 	x.Int(m.Getuser_id())
 	x.Bytes(m.Getstatus().Encode())
@@ -36671,7 +36671,7 @@ func (m *TLupdateUserStatus) Encode() []byte {
 }
 
 // CodecDecode:updateUserStatus
-func (m *TLupdateUserStatus) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLupdateUserStatus) Decode(dbuf *api.DecodeBuf) error {
 	m.Setuser_id(dbuf.Int())
 	m1 := &UserStatus{}
 	m1.Decode(dbuf)
@@ -36688,7 +36688,7 @@ func NewTLupdateUserName() *TLupdateUserName {
 
 // CodecEncode:updateUserName
 func (m *TLupdateUserName) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1489818765)
 	x.Int(m.Getuser_id())
 	x.String(m.Getfirst_name())
@@ -36698,7 +36698,7 @@ func (m *TLupdateUserName) Encode() []byte {
 }
 
 // CodecDecode:updateUserName
-func (m *TLupdateUserName) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLupdateUserName) Decode(dbuf *api.DecodeBuf) error {
 	m.Setuser_id(dbuf.Int())
 	m.Setfirst_name(dbuf.String())
 	m.Setlast_name(dbuf.String())
@@ -36715,7 +36715,7 @@ func NewTLupdateUserPhoto() *TLupdateUserPhoto {
 
 // CodecEncode:updateUserPhoto
 func (m *TLupdateUserPhoto) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1791935732)
 	x.Int(m.Getuser_id())
 	x.Int(m.Getdate())
@@ -36725,7 +36725,7 @@ func (m *TLupdateUserPhoto) Encode() []byte {
 }
 
 // CodecDecode:updateUserPhoto
-func (m *TLupdateUserPhoto) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLupdateUserPhoto) Decode(dbuf *api.DecodeBuf) error {
 	m.Setuser_id(dbuf.Int())
 	m.Setdate(dbuf.Int())
 	m2 := &UserProfilePhoto{}
@@ -36746,7 +36746,7 @@ func NewTLupdateNewEncryptedMessage() *TLupdateNewEncryptedMessage {
 
 // CodecEncode:updateNewEncryptedMessage
 func (m *TLupdateNewEncryptedMessage) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(314359194)
 	x.Bytes(m.Getmessage_18().Encode())
 	x.Int(m.Getqts())
@@ -36754,7 +36754,7 @@ func (m *TLupdateNewEncryptedMessage) Encode() []byte {
 }
 
 // CodecDecode:updateNewEncryptedMessage
-func (m *TLupdateNewEncryptedMessage) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLupdateNewEncryptedMessage) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &EncryptedMessage{}
 	m0.Decode(dbuf)
 	m.Setmessage_18(m0)
@@ -36771,14 +36771,14 @@ func NewTLupdateEncryptedChatTyping() *TLupdateEncryptedChatTyping {
 
 // CodecEncode:updateEncryptedChatTyping
 func (m *TLupdateEncryptedChatTyping) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(386986326)
 	x.Int(m.Getchat_id())
 	return x.Buf
 }
 
 // CodecDecode:updateEncryptedChatTyping
-func (m *TLupdateEncryptedChatTyping) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLupdateEncryptedChatTyping) Decode(dbuf *api.DecodeBuf) error {
 	m.Setchat_id(dbuf.Int())
 	return dbuf.Err
 }
@@ -36792,7 +36792,7 @@ func NewTLupdateEncryption() *TLupdateEncryption {
 
 // CodecEncode:updateEncryption
 func (m *TLupdateEncryption) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1264392051)
 	x.Bytes(m.Getchat().Encode())
 	x.Int(m.Getdate())
@@ -36800,7 +36800,7 @@ func (m *TLupdateEncryption) Encode() []byte {
 }
 
 // CodecDecode:updateEncryption
-func (m *TLupdateEncryption) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLupdateEncryption) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &EncryptedChat{}
 	m0.Decode(dbuf)
 	m.Setchat(m0)
@@ -36817,7 +36817,7 @@ func NewTLupdateEncryptedMessagesRead() *TLupdateEncryptedMessagesRead {
 
 // CodecEncode:updateEncryptedMessagesRead
 func (m *TLupdateEncryptedMessagesRead) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(956179895)
 	x.Int(m.Getchat_id())
 	x.Int(m.Getmax_date())
@@ -36826,7 +36826,7 @@ func (m *TLupdateEncryptedMessagesRead) Encode() []byte {
 }
 
 // CodecDecode:updateEncryptedMessagesRead
-func (m *TLupdateEncryptedMessagesRead) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLupdateEncryptedMessagesRead) Decode(dbuf *api.DecodeBuf) error {
 	m.Setchat_id(dbuf.Int())
 	m.Setmax_date(dbuf.Int())
 	m.Setdate(dbuf.Int())
@@ -36842,7 +36842,7 @@ func NewTLupdateChatParticipantAdd() *TLupdateChatParticipantAdd {
 
 // CodecEncode:updateChatParticipantAdd
 func (m *TLupdateChatParticipantAdd) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-364179876)
 	x.Int(m.Getchat_id())
 	x.Int(m.Getuser_id())
@@ -36853,7 +36853,7 @@ func (m *TLupdateChatParticipantAdd) Encode() []byte {
 }
 
 // CodecDecode:updateChatParticipantAdd
-func (m *TLupdateChatParticipantAdd) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLupdateChatParticipantAdd) Decode(dbuf *api.DecodeBuf) error {
 	m.Setchat_id(dbuf.Int())
 	m.Setuser_id(dbuf.Int())
 	m.Setinviter_id(dbuf.Int())
@@ -36871,7 +36871,7 @@ func NewTLupdateChatParticipantDelete() *TLupdateChatParticipantDelete {
 
 // CodecEncode:updateChatParticipantDelete
 func (m *TLupdateChatParticipantDelete) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1851755554)
 	x.Int(m.Getchat_id())
 	x.Int(m.Getuser_id())
@@ -36880,7 +36880,7 @@ func (m *TLupdateChatParticipantDelete) Encode() []byte {
 }
 
 // CodecDecode:updateChatParticipantDelete
-func (m *TLupdateChatParticipantDelete) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLupdateChatParticipantDelete) Decode(dbuf *api.DecodeBuf) error {
 	m.Setchat_id(dbuf.Int())
 	m.Setuser_id(dbuf.Int())
 	m.Setversion(dbuf.Int())
@@ -36896,7 +36896,7 @@ func NewTLupdateDcOptions() *TLupdateDcOptions {
 
 // CodecEncode:updateDcOptions
 func (m *TLupdateDcOptions) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1906403213)
 	x.Int(481674261)
 	x.Int(int32(len(m.Getdc_options())))
@@ -36907,7 +36907,7 @@ func (m *TLupdateDcOptions) Encode() []byte {
 }
 
 // CodecDecode:updateDcOptions
-func (m *TLupdateDcOptions) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLupdateDcOptions) Decode(dbuf *api.DecodeBuf) error {
 	c0 := dbuf.Int()
 	if c0 != 481674261 {
 		return dbuf.Err
@@ -36931,7 +36931,7 @@ func NewTLupdateNotifySettings() *TLupdateNotifySettings {
 
 // CodecEncode:updateNotifySettings
 func (m *TLupdateNotifySettings) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1094555409)
 	x.Bytes(m.Getpeer().Encode())
 	x.Bytes(m.Getnotify_settings().Encode())
@@ -36939,7 +36939,7 @@ func (m *TLupdateNotifySettings) Encode() []byte {
 }
 
 // CodecDecode:updateNotifySettings
-func (m *TLupdateNotifySettings) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLupdateNotifySettings) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &NotifyPeer{}
 	m0.Decode(dbuf)
 	m.Setpeer(m0)
@@ -36958,7 +36958,7 @@ func NewTLupdateServiceNotification() *TLupdateServiceNotification {
 
 // CodecEncode:updateServiceNotification
 func (m *TLupdateServiceNotification) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-337352679)
 	var flags uint32 = 0
 	if m.Getpopup() != false {
@@ -36983,7 +36983,7 @@ func (m *TLupdateServiceNotification) Encode() []byte {
 }
 
 // CodecDecode:updateServiceNotification
-func (m *TLupdateServiceNotification) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLupdateServiceNotification) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	if (flags & (1 << 0)) != 0 {
@@ -37020,7 +37020,7 @@ func NewTLupdatePrivacy() *TLupdatePrivacy {
 
 // CodecEncode:updatePrivacy
 func (m *TLupdatePrivacy) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-298113238)
 	x.Bytes(m.Getkey_key().Encode())
 	x.Int(481674261)
@@ -37032,7 +37032,7 @@ func (m *TLupdatePrivacy) Encode() []byte {
 }
 
 // CodecDecode:updatePrivacy
-func (m *TLupdatePrivacy) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLupdatePrivacy) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &PrivacyKey{}
 	m0.Decode(dbuf)
 	m.Setkey_key(m0)
@@ -37059,7 +37059,7 @@ func NewTLupdateUserPhone() *TLupdateUserPhone {
 
 // CodecEncode:updateUserPhone
 func (m *TLupdateUserPhone) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(314130811)
 	x.Int(m.Getuser_id())
 	x.String(m.Getphone())
@@ -37067,7 +37067,7 @@ func (m *TLupdateUserPhone) Encode() []byte {
 }
 
 // CodecDecode:updateUserPhone
-func (m *TLupdateUserPhone) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLupdateUserPhone) Decode(dbuf *api.DecodeBuf) error {
 	m.Setuser_id(dbuf.Int())
 	m.Setphone(dbuf.String())
 	return dbuf.Err
@@ -37082,7 +37082,7 @@ func NewTLupdateReadHistoryInbox() *TLupdateReadHistoryInbox {
 
 // CodecEncode:updateReadHistoryInbox
 func (m *TLupdateReadHistoryInbox) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1667805217)
 	var flags uint32 = 0
 	if m.Getfolder_id() != 0 {
@@ -37101,7 +37101,7 @@ func (m *TLupdateReadHistoryInbox) Encode() []byte {
 }
 
 // CodecDecode:updateReadHistoryInbox
-func (m *TLupdateReadHistoryInbox) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLupdateReadHistoryInbox) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	if (flags & (1 << 0)) != 0 {
@@ -37126,7 +37126,7 @@ func NewTLupdateReadHistoryOutbox() *TLupdateReadHistoryOutbox {
 
 // CodecEncode:updateReadHistoryOutbox
 func (m *TLupdateReadHistoryOutbox) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(791617983)
 	x.Bytes(m.Getpeer_37().Encode())
 	x.Int(m.Getmax_id())
@@ -37136,7 +37136,7 @@ func (m *TLupdateReadHistoryOutbox) Encode() []byte {
 }
 
 // CodecDecode:updateReadHistoryOutbox
-func (m *TLupdateReadHistoryOutbox) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLupdateReadHistoryOutbox) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &Peer{}
 	m0.Decode(dbuf)
 	m.Setpeer_37(m0)
@@ -37155,7 +37155,7 @@ func NewTLupdateWebPage() *TLupdateWebPage {
 
 // CodecEncode:updateWebPage
 func (m *TLupdateWebPage) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(2139689491)
 	x.Bytes(m.Getwebpage().Encode())
 	x.Int(m.Getpts())
@@ -37164,7 +37164,7 @@ func (m *TLupdateWebPage) Encode() []byte {
 }
 
 // CodecDecode:updateWebPage
-func (m *TLupdateWebPage) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLupdateWebPage) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &WebPage{}
 	m0.Decode(dbuf)
 	m.Setwebpage(m0)
@@ -37182,7 +37182,7 @@ func NewTLupdateReadMessagesContents() *TLupdateReadMessagesContents {
 
 // CodecEncode:updateReadMessagesContents
 func (m *TLupdateReadMessagesContents) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1757493555)
 	x.Int(481674261)
 	x.Int(int32(len(m.Getmessages())))
@@ -37195,7 +37195,7 @@ func (m *TLupdateReadMessagesContents) Encode() []byte {
 }
 
 // CodecDecode:updateReadMessagesContents
-func (m *TLupdateReadMessagesContents) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLupdateReadMessagesContents) Decode(dbuf *api.DecodeBuf) error {
 	m.Setmessages(dbuf.VectorInt())
 	m.Setpts(dbuf.Int())
 	m.Setpts_count(dbuf.Int())
@@ -37211,7 +37211,7 @@ func NewTLupdateChannelTooLong() *TLupdateChannelTooLong {
 
 // CodecEncode:updateChannelTooLong
 func (m *TLupdateChannelTooLong) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-352032773)
 	var flags uint32 = 0
 	if m.Getpts() != 0 {
@@ -37226,7 +37226,7 @@ func (m *TLupdateChannelTooLong) Encode() []byte {
 }
 
 // CodecDecode:updateChannelTooLong
-func (m *TLupdateChannelTooLong) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLupdateChannelTooLong) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	m.Setchannel_id(dbuf.Int())
@@ -37245,14 +37245,14 @@ func NewTLupdateChannel() *TLupdateChannel {
 
 // CodecEncode:updateChannel
 func (m *TLupdateChannel) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1227598250)
 	x.Int(m.Getchannel_id())
 	return x.Buf
 }
 
 // CodecDecode:updateChannel
-func (m *TLupdateChannel) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLupdateChannel) Decode(dbuf *api.DecodeBuf) error {
 	m.Setchannel_id(dbuf.Int())
 	return dbuf.Err
 }
@@ -37266,7 +37266,7 @@ func NewTLupdateNewChannelMessage() *TLupdateNewChannelMessage {
 
 // CodecEncode:updateNewChannelMessage
 func (m *TLupdateNewChannelMessage) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1656358105)
 	x.Bytes(m.Getmessage().Encode())
 	x.Int(m.Getpts())
@@ -37275,7 +37275,7 @@ func (m *TLupdateNewChannelMessage) Encode() []byte {
 }
 
 // CodecDecode:updateNewChannelMessage
-func (m *TLupdateNewChannelMessage) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLupdateNewChannelMessage) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &Message{}
 	m0.Decode(dbuf)
 	m.Setmessage(m0)
@@ -37293,7 +37293,7 @@ func NewTLupdateReadChannelInbox() *TLupdateReadChannelInbox {
 
 // CodecEncode:updateReadChannelInbox
 func (m *TLupdateReadChannelInbox) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(856380452)
 	var flags uint32 = 0
 	if m.Getfolder_id() != 0 {
@@ -37311,7 +37311,7 @@ func (m *TLupdateReadChannelInbox) Encode() []byte {
 }
 
 // CodecDecode:updateReadChannelInbox
-func (m *TLupdateReadChannelInbox) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLupdateReadChannelInbox) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	if (flags & (1 << 0)) != 0 {
@@ -37333,7 +37333,7 @@ func NewTLupdateDeleteChannelMessages() *TLupdateDeleteChannelMessages {
 
 // CodecEncode:updateDeleteChannelMessages
 func (m *TLupdateDeleteChannelMessages) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1015733815)
 	x.Int(m.Getchannel_id())
 	x.Int(481674261)
@@ -37347,7 +37347,7 @@ func (m *TLupdateDeleteChannelMessages) Encode() []byte {
 }
 
 // CodecDecode:updateDeleteChannelMessages
-func (m *TLupdateDeleteChannelMessages) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLupdateDeleteChannelMessages) Decode(dbuf *api.DecodeBuf) error {
 	m.Setchannel_id(dbuf.Int())
 	m.Setmessages(dbuf.VectorInt())
 	m.Setpts(dbuf.Int())
@@ -37364,7 +37364,7 @@ func NewTLupdateChannelMessageViews() *TLupdateChannelMessageViews {
 
 // CodecEncode:updateChannelMessageViews
 func (m *TLupdateChannelMessageViews) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1734268085)
 	x.Int(m.Getchannel_id())
 	x.Int(m.Getid())
@@ -37373,7 +37373,7 @@ func (m *TLupdateChannelMessageViews) Encode() []byte {
 }
 
 // CodecDecode:updateChannelMessageViews
-func (m *TLupdateChannelMessageViews) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLupdateChannelMessageViews) Decode(dbuf *api.DecodeBuf) error {
 	m.Setchannel_id(dbuf.Int())
 	m.Setid(dbuf.Int())
 	m.Setviews(dbuf.Int())
@@ -37389,7 +37389,7 @@ func NewTLupdateChatParticipantAdmin() *TLupdateChatParticipantAdmin {
 
 // CodecEncode:updateChatParticipantAdmin
 func (m *TLupdateChatParticipantAdmin) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1232070311)
 	x.Int(m.Getchat_id())
 	x.Int(m.Getuser_id())
@@ -37399,7 +37399,7 @@ func (m *TLupdateChatParticipantAdmin) Encode() []byte {
 }
 
 // CodecDecode:updateChatParticipantAdmin
-func (m *TLupdateChatParticipantAdmin) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLupdateChatParticipantAdmin) Decode(dbuf *api.DecodeBuf) error {
 	m.Setchat_id(dbuf.Int())
 	m.Setuser_id(dbuf.Int())
 	m2 := &Bool{}
@@ -37418,14 +37418,14 @@ func NewTLupdateNewStickerSet() *TLupdateNewStickerSet {
 
 // CodecEncode:updateNewStickerSet
 func (m *TLupdateNewStickerSet) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1753886890)
 	x.Bytes(m.Getstickerset().Encode())
 	return x.Buf
 }
 
 // CodecDecode:updateNewStickerSet
-func (m *TLupdateNewStickerSet) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLupdateNewStickerSet) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &Messages_StickerSet{}
 	m0.Decode(dbuf)
 	m.Setstickerset(m0)
@@ -37441,7 +37441,7 @@ func NewTLupdateStickerSetsOrder() *TLupdateStickerSetsOrder {
 
 // CodecEncode:updateStickerSetsOrder
 func (m *TLupdateStickerSetsOrder) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(196268545)
 	var flags uint32 = 0
 	if m.Getmasks() != false {
@@ -37457,7 +37457,7 @@ func (m *TLupdateStickerSetsOrder) Encode() []byte {
 }
 
 // CodecDecode:updateStickerSetsOrder
-func (m *TLupdateStickerSetsOrder) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLupdateStickerSetsOrder) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	if (flags & (1 << 0)) != 0 {
@@ -37476,13 +37476,13 @@ func NewTLupdateStickerSets() *TLupdateStickerSets {
 
 // CodecEncode:updateStickerSets
 func (m *TLupdateStickerSets) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1135492588)
 	return x.Buf
 }
 
 // CodecDecode:updateStickerSets
-func (m *TLupdateStickerSets) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLupdateStickerSets) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -37495,13 +37495,13 @@ func NewTLupdateSavedGifs() *TLupdateSavedGifs {
 
 // CodecEncode:updateSavedGifs
 func (m *TLupdateSavedGifs) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1821035490)
 	return x.Buf
 }
 
 // CodecDecode:updateSavedGifs
-func (m *TLupdateSavedGifs) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLupdateSavedGifs) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -37514,7 +37514,7 @@ func NewTLupdateBotInlineQuery() *TLupdateBotInlineQuery {
 
 // CodecEncode:updateBotInlineQuery
 func (m *TLupdateBotInlineQuery) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1417832080)
 	var flags uint32 = 0
 	if m.Getgeo().Constructor != 0 {
@@ -37532,7 +37532,7 @@ func (m *TLupdateBotInlineQuery) Encode() []byte {
 }
 
 // CodecDecode:updateBotInlineQuery
-func (m *TLupdateBotInlineQuery) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLupdateBotInlineQuery) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	m.Setquery_id(dbuf.Long())
@@ -37556,7 +37556,7 @@ func NewTLupdateBotInlineSend() *TLupdateBotInlineSend {
 
 // CodecEncode:updateBotInlineSend
 func (m *TLupdateBotInlineSend) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(239663460)
 	var flags uint32 = 0
 	if m.Getgeo().Constructor != 0 {
@@ -37579,7 +37579,7 @@ func (m *TLupdateBotInlineSend) Encode() []byte {
 }
 
 // CodecDecode:updateBotInlineSend
-func (m *TLupdateBotInlineSend) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLupdateBotInlineSend) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	m.Setuser_id(dbuf.Int())
@@ -37607,7 +37607,7 @@ func NewTLupdateEditChannelMessage() *TLupdateEditChannelMessage {
 
 // CodecEncode:updateEditChannelMessage
 func (m *TLupdateEditChannelMessage) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(457133559)
 	x.Bytes(m.Getmessage().Encode())
 	x.Int(m.Getpts())
@@ -37616,7 +37616,7 @@ func (m *TLupdateEditChannelMessage) Encode() []byte {
 }
 
 // CodecDecode:updateEditChannelMessage
-func (m *TLupdateEditChannelMessage) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLupdateEditChannelMessage) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &Message{}
 	m0.Decode(dbuf)
 	m.Setmessage(m0)
@@ -37634,7 +37634,7 @@ func NewTLupdateBotCallbackQuery() *TLupdateBotCallbackQuery {
 
 // CodecEncode:updateBotCallbackQuery
 func (m *TLupdateBotCallbackQuery) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-415938591)
 	var flags uint32 = 0
 	if len(m.Getdata()) > 0 {
@@ -37659,7 +37659,7 @@ func (m *TLupdateBotCallbackQuery) Encode() []byte {
 }
 
 // CodecDecode:updateBotCallbackQuery
-func (m *TLupdateBotCallbackQuery) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLupdateBotCallbackQuery) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	m.Setquery_id(dbuf.Long())
@@ -37687,7 +37687,7 @@ func NewTLupdateEditMessage() *TLupdateEditMessage {
 
 // CodecEncode:updateEditMessage
 func (m *TLupdateEditMessage) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-469536605)
 	x.Bytes(m.Getmessage().Encode())
 	x.Int(m.Getpts())
@@ -37696,7 +37696,7 @@ func (m *TLupdateEditMessage) Encode() []byte {
 }
 
 // CodecDecode:updateEditMessage
-func (m *TLupdateEditMessage) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLupdateEditMessage) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &Message{}
 	m0.Decode(dbuf)
 	m.Setmessage(m0)
@@ -37714,7 +37714,7 @@ func NewTLupdateInlineBotCallbackQuery() *TLupdateInlineBotCallbackQuery {
 
 // CodecEncode:updateInlineBotCallbackQuery
 func (m *TLupdateInlineBotCallbackQuery) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-103646630)
 	var flags uint32 = 0
 	if len(m.Getdata()) > 0 {
@@ -37738,7 +37738,7 @@ func (m *TLupdateInlineBotCallbackQuery) Encode() []byte {
 }
 
 // CodecDecode:updateInlineBotCallbackQuery
-func (m *TLupdateInlineBotCallbackQuery) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLupdateInlineBotCallbackQuery) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	m.Setquery_id(dbuf.Long())
@@ -37765,7 +37765,7 @@ func NewTLupdateReadChannelOutbox() *TLupdateReadChannelOutbox {
 
 // CodecEncode:updateReadChannelOutbox
 func (m *TLupdateReadChannelOutbox) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(634833351)
 	x.Int(m.Getchannel_id())
 	x.Int(m.Getmax_id())
@@ -37773,7 +37773,7 @@ func (m *TLupdateReadChannelOutbox) Encode() []byte {
 }
 
 // CodecDecode:updateReadChannelOutbox
-func (m *TLupdateReadChannelOutbox) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLupdateReadChannelOutbox) Decode(dbuf *api.DecodeBuf) error {
 	m.Setchannel_id(dbuf.Int())
 	m.Setmax_id(dbuf.Int())
 	return dbuf.Err
@@ -37788,7 +37788,7 @@ func NewTLupdateDraftMessage() *TLupdateDraftMessage {
 
 // CodecEncode:updateDraftMessage
 func (m *TLupdateDraftMessage) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-299124375)
 	x.Bytes(m.Getpeer_37().Encode())
 	x.Bytes(m.Getdraft().Encode())
@@ -37796,7 +37796,7 @@ func (m *TLupdateDraftMessage) Encode() []byte {
 }
 
 // CodecDecode:updateDraftMessage
-func (m *TLupdateDraftMessage) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLupdateDraftMessage) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &Peer{}
 	m0.Decode(dbuf)
 	m.Setpeer_37(m0)
@@ -37815,13 +37815,13 @@ func NewTLupdateReadFeaturedStickers() *TLupdateReadFeaturedStickers {
 
 // CodecEncode:updateReadFeaturedStickers
 func (m *TLupdateReadFeaturedStickers) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1461528386)
 	return x.Buf
 }
 
 // CodecDecode:updateReadFeaturedStickers
-func (m *TLupdateReadFeaturedStickers) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLupdateReadFeaturedStickers) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -37834,13 +37834,13 @@ func NewTLupdateRecentStickers() *TLupdateRecentStickers {
 
 // CodecEncode:updateRecentStickers
 func (m *TLupdateRecentStickers) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1706939360)
 	return x.Buf
 }
 
 // CodecDecode:updateRecentStickers
-func (m *TLupdateRecentStickers) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLupdateRecentStickers) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -37853,13 +37853,13 @@ func NewTLupdateConfig() *TLupdateConfig {
 
 // CodecEncode:updateConfig
 func (m *TLupdateConfig) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1574314746)
 	return x.Buf
 }
 
 // CodecDecode:updateConfig
-func (m *TLupdateConfig) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLupdateConfig) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -37872,13 +37872,13 @@ func NewTLupdatePtsChanged() *TLupdatePtsChanged {
 
 // CodecEncode:updatePtsChanged
 func (m *TLupdatePtsChanged) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(861169551)
 	return x.Buf
 }
 
 // CodecDecode:updatePtsChanged
-func (m *TLupdatePtsChanged) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLupdatePtsChanged) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -37891,7 +37891,7 @@ func NewTLupdateChannelWebPage() *TLupdateChannelWebPage {
 
 // CodecEncode:updateChannelWebPage
 func (m *TLupdateChannelWebPage) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1081547008)
 	x.Int(m.Getchannel_id())
 	x.Bytes(m.Getwebpage().Encode())
@@ -37901,7 +37901,7 @@ func (m *TLupdateChannelWebPage) Encode() []byte {
 }
 
 // CodecDecode:updateChannelWebPage
-func (m *TLupdateChannelWebPage) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLupdateChannelWebPage) Decode(dbuf *api.DecodeBuf) error {
 	m.Setchannel_id(dbuf.Int())
 	m1 := &WebPage{}
 	m1.Decode(dbuf)
@@ -37920,7 +37920,7 @@ func NewTLupdateDialogPinned() *TLupdateDialogPinned {
 
 // CodecEncode:updateDialogPinned
 func (m *TLupdateDialogPinned) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1852826908)
 	var flags uint32 = 0
 	if m.Getpinned() != false {
@@ -37938,7 +37938,7 @@ func (m *TLupdateDialogPinned) Encode() []byte {
 }
 
 // CodecDecode:updateDialogPinned
-func (m *TLupdateDialogPinned) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLupdateDialogPinned) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	if (flags & (1 << 0)) != 0 {
@@ -37962,7 +37962,7 @@ func NewTLupdatePinnedDialogs() *TLupdatePinnedDialogs {
 
 // CodecEncode:updatePinnedDialogs
 func (m *TLupdatePinnedDialogs) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-99664734)
 	var flags uint32 = 0
 	if m.Getfolder_id() != 0 {
@@ -37986,7 +37986,7 @@ func (m *TLupdatePinnedDialogs) Encode() []byte {
 }
 
 // CodecDecode:updatePinnedDialogs
-func (m *TLupdatePinnedDialogs) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLupdatePinnedDialogs) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	if (flags & (1 << 0)) != 0 {
@@ -38017,14 +38017,14 @@ func NewTLupdateBotWebhookJSON() *TLupdateBotWebhookJSON {
 
 // CodecEncode:updateBotWebhookJSON
 func (m *TLupdateBotWebhookJSON) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-2095595325)
 	x.Bytes(m.Getdata_61().Encode())
 	return x.Buf
 }
 
 // CodecDecode:updateBotWebhookJSON
-func (m *TLupdateBotWebhookJSON) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLupdateBotWebhookJSON) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &DataJSON{}
 	m0.Decode(dbuf)
 	m.Setdata_61(m0)
@@ -38040,7 +38040,7 @@ func NewTLupdateBotWebhookJSONQuery() *TLupdateBotWebhookJSONQuery {
 
 // CodecEncode:updateBotWebhookJSONQuery
 func (m *TLupdateBotWebhookJSONQuery) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1684914010)
 	x.Long(m.Getquery_id())
 	x.Bytes(m.Getdata_61().Encode())
@@ -38049,7 +38049,7 @@ func (m *TLupdateBotWebhookJSONQuery) Encode() []byte {
 }
 
 // CodecDecode:updateBotWebhookJSONQuery
-func (m *TLupdateBotWebhookJSONQuery) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLupdateBotWebhookJSONQuery) Decode(dbuf *api.DecodeBuf) error {
 	m.Setquery_id(dbuf.Long())
 	m1 := &DataJSON{}
 	m1.Decode(dbuf)
@@ -38067,7 +38067,7 @@ func NewTLupdateBotShippingQuery() *TLupdateBotShippingQuery {
 
 // CodecEncode:updateBotShippingQuery
 func (m *TLupdateBotShippingQuery) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-523384512)
 	x.Long(m.Getquery_id())
 	x.Int(m.Getuser_id())
@@ -38077,7 +38077,7 @@ func (m *TLupdateBotShippingQuery) Encode() []byte {
 }
 
 // CodecDecode:updateBotShippingQuery
-func (m *TLupdateBotShippingQuery) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLupdateBotShippingQuery) Decode(dbuf *api.DecodeBuf) error {
 	m.Setquery_id(dbuf.Long())
 	m.Setuser_id(dbuf.Int())
 	m.Setpayload(dbuf.StringBytes())
@@ -38096,7 +38096,7 @@ func NewTLupdateBotPrecheckoutQuery() *TLupdateBotPrecheckoutQuery {
 
 // CodecEncode:updateBotPrecheckoutQuery
 func (m *TLupdateBotPrecheckoutQuery) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1563376297)
 	var flags uint32 = 0
 	if m.Getinfo().Constructor != 0 {
@@ -38121,7 +38121,7 @@ func (m *TLupdateBotPrecheckoutQuery) Encode() []byte {
 }
 
 // CodecDecode:updateBotPrecheckoutQuery
-func (m *TLupdateBotPrecheckoutQuery) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLupdateBotPrecheckoutQuery) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	m.Setquery_id(dbuf.Long())
@@ -38149,14 +38149,14 @@ func NewTLupdatePhoneCall() *TLupdatePhoneCall {
 
 // CodecEncode:updatePhoneCall
 func (m *TLupdatePhoneCall) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1425052898)
 	x.Bytes(m.Getphone_call().Encode())
 	return x.Buf
 }
 
 // CodecDecode:updatePhoneCall
-func (m *TLupdatePhoneCall) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLupdatePhoneCall) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &PhoneCall{}
 	m0.Decode(dbuf)
 	m.Setphone_call(m0)
@@ -38172,14 +38172,14 @@ func NewTLupdateLangPackTooLong() *TLupdateLangPackTooLong {
 
 // CodecEncode:updateLangPackTooLong
 func (m *TLupdateLangPackTooLong) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1180041828)
 	x.String(m.Getlang_code())
 	return x.Buf
 }
 
 // CodecDecode:updateLangPackTooLong
-func (m *TLupdateLangPackTooLong) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLupdateLangPackTooLong) Decode(dbuf *api.DecodeBuf) error {
 	m.Setlang_code(dbuf.String())
 	return dbuf.Err
 }
@@ -38193,14 +38193,14 @@ func NewTLupdateLangPack() *TLupdateLangPack {
 
 // CodecEncode:updateLangPack
 func (m *TLupdateLangPack) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1442983757)
 	x.Bytes(m.Getdifference().Encode())
 	return x.Buf
 }
 
 // CodecDecode:updateLangPack
-func (m *TLupdateLangPack) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLupdateLangPack) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &LangPackDifference{}
 	m0.Decode(dbuf)
 	m.Setdifference(m0)
@@ -38216,13 +38216,13 @@ func NewTLupdateFavedStickers() *TLupdateFavedStickers {
 
 // CodecEncode:updateFavedStickers
 func (m *TLupdateFavedStickers) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-451831443)
 	return x.Buf
 }
 
 // CodecDecode:updateFavedStickers
-func (m *TLupdateFavedStickers) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLupdateFavedStickers) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -38235,7 +38235,7 @@ func NewTLupdateChannelReadMessagesContents() *TLupdateChannelReadMessagesConten
 
 // CodecEncode:updateChannelReadMessagesContents
 func (m *TLupdateChannelReadMessagesContents) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1987495099)
 	x.Int(m.Getchannel_id())
 	x.Int(481674261)
@@ -38247,7 +38247,7 @@ func (m *TLupdateChannelReadMessagesContents) Encode() []byte {
 }
 
 // CodecDecode:updateChannelReadMessagesContents
-func (m *TLupdateChannelReadMessagesContents) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLupdateChannelReadMessagesContents) Decode(dbuf *api.DecodeBuf) error {
 	m.Setchannel_id(dbuf.Int())
 	m.Setmessages(dbuf.VectorInt())
 	return dbuf.Err
@@ -38262,13 +38262,13 @@ func NewTLupdateContactsReset() *TLupdateContactsReset {
 
 // CodecEncode:updateContactsReset
 func (m *TLupdateContactsReset) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1887741886)
 	return x.Buf
 }
 
 // CodecDecode:updateContactsReset
-func (m *TLupdateContactsReset) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLupdateContactsReset) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -38281,7 +38281,7 @@ func NewTLupdateChannelAvailableMessages() *TLupdateChannelAvailableMessages {
 
 // CodecEncode:updateChannelAvailableMessages
 func (m *TLupdateChannelAvailableMessages) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1893427255)
 	x.Int(m.Getchannel_id())
 	x.Int(m.Getavailable_min_id())
@@ -38289,7 +38289,7 @@ func (m *TLupdateChannelAvailableMessages) Encode() []byte {
 }
 
 // CodecDecode:updateChannelAvailableMessages
-func (m *TLupdateChannelAvailableMessages) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLupdateChannelAvailableMessages) Decode(dbuf *api.DecodeBuf) error {
 	m.Setchannel_id(dbuf.Int())
 	m.Setavailable_min_id(dbuf.Int())
 	return dbuf.Err
@@ -38304,7 +38304,7 @@ func NewTLupdateDialogUnreadMark() *TLupdateDialogUnreadMark {
 
 // CodecEncode:updateDialogUnreadMark
 func (m *TLupdateDialogUnreadMark) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-513517117)
 	var flags uint32 = 0
 	if m.Getunread() != false {
@@ -38316,7 +38316,7 @@ func (m *TLupdateDialogUnreadMark) Encode() []byte {
 }
 
 // CodecDecode:updateDialogUnreadMark
-func (m *TLupdateDialogUnreadMark) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLupdateDialogUnreadMark) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	if (flags & (1 << 0)) != 0 {
@@ -38337,7 +38337,7 @@ func NewTLupdateMessagePoll() *TLupdateMessagePoll {
 
 // CodecEncode:updateMessagePoll
 func (m *TLupdateMessagePoll) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1398708869)
 	var flags uint32 = 0
 	if m.Getpoll().Constructor != 0 {
@@ -38353,7 +38353,7 @@ func (m *TLupdateMessagePoll) Encode() []byte {
 }
 
 // CodecDecode:updateMessagePoll
-func (m *TLupdateMessagePoll) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLupdateMessagePoll) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	m.Setpoll_id(dbuf.Long())
@@ -38377,7 +38377,7 @@ func NewTLupdateChatDefaultBannedRights() *TLupdateChatDefaultBannedRights {
 
 // CodecEncode:updateChatDefaultBannedRights
 func (m *TLupdateChatDefaultBannedRights) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1421875280)
 	x.Bytes(m.Getpeer_37().Encode())
 	x.Bytes(m.Getdefault_banned_rights().Encode())
@@ -38386,7 +38386,7 @@ func (m *TLupdateChatDefaultBannedRights) Encode() []byte {
 }
 
 // CodecDecode:updateChatDefaultBannedRights
-func (m *TLupdateChatDefaultBannedRights) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLupdateChatDefaultBannedRights) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &Peer{}
 	m0.Decode(dbuf)
 	m.Setpeer_37(m0)
@@ -38406,7 +38406,7 @@ func NewTLupdateFolderPeers() *TLupdateFolderPeers {
 
 // CodecEncode:updateFolderPeers
 func (m *TLupdateFolderPeers) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(422972864)
 	x.Int(481674261)
 	x.Int(int32(len(m.Getfolder_peers())))
@@ -38419,7 +38419,7 @@ func (m *TLupdateFolderPeers) Encode() []byte {
 }
 
 // CodecDecode:updateFolderPeers
-func (m *TLupdateFolderPeers) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLupdateFolderPeers) Decode(dbuf *api.DecodeBuf) error {
 	c0 := dbuf.Int()
 	if c0 != 481674261 {
 		return dbuf.Err
@@ -38445,7 +38445,7 @@ func NewTLupdatePeerSettings() *TLupdatePeerSettings {
 
 // CodecEncode:updatePeerSettings
 func (m *TLupdatePeerSettings) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1786671974)
 	x.Bytes(m.Getpeer_37().Encode())
 	x.Bytes(m.Getsettings().Encode())
@@ -38453,7 +38453,7 @@ func (m *TLupdatePeerSettings) Encode() []byte {
 }
 
 // CodecDecode:updatePeerSettings
-func (m *TLupdatePeerSettings) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLupdatePeerSettings) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &Peer{}
 	m0.Decode(dbuf)
 	m.Setpeer_37(m0)
@@ -38472,7 +38472,7 @@ func NewTLupdatePeerLocated() *TLupdatePeerLocated {
 
 // CodecEncode:updatePeerLocated
 func (m *TLupdatePeerLocated) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1263546448)
 	x.Int(481674261)
 	x.Int(int32(len(m.Getpeers())))
@@ -38483,7 +38483,7 @@ func (m *TLupdatePeerLocated) Encode() []byte {
 }
 
 // CodecDecode:updatePeerLocated
-func (m *TLupdatePeerLocated) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLupdatePeerLocated) Decode(dbuf *api.DecodeBuf) error {
 	c0 := dbuf.Int()
 	if c0 != 481674261 {
 		return dbuf.Err
@@ -38507,14 +38507,14 @@ func NewTLupdateNewScheduledMessage() *TLupdateNewScheduledMessage {
 
 // CodecEncode:updateNewScheduledMessage
 func (m *TLupdateNewScheduledMessage) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(967122427)
 	x.Bytes(m.Getmessage().Encode())
 	return x.Buf
 }
 
 // CodecDecode:updateNewScheduledMessage
-func (m *TLupdateNewScheduledMessage) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLupdateNewScheduledMessage) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &Message{}
 	m0.Decode(dbuf)
 	m.Setmessage(m0)
@@ -38530,7 +38530,7 @@ func NewTLupdateDeleteScheduledMessages() *TLupdateDeleteScheduledMessages {
 
 // CodecEncode:updateDeleteScheduledMessages
 func (m *TLupdateDeleteScheduledMessages) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1870238482)
 	x.Bytes(m.Getpeer_37().Encode())
 	x.Int(481674261)
@@ -38542,7 +38542,7 @@ func (m *TLupdateDeleteScheduledMessages) Encode() []byte {
 }
 
 // CodecDecode:updateDeleteScheduledMessages
-func (m *TLupdateDeleteScheduledMessages) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLupdateDeleteScheduledMessages) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &Peer{}
 	m0.Decode(dbuf)
 	m.Setpeer_37(m0)
@@ -38559,14 +38559,14 @@ func NewTLupdateTheme() *TLupdateTheme {
 
 // CodecEncode:updateTheme
 func (m *TLupdateTheme) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-2112423005)
 	x.Bytes(m.Gettheme().Encode())
 	return x.Buf
 }
 
 // CodecDecode:updateTheme
-func (m *TLupdateTheme) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLupdateTheme) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &Theme{}
 	m0.Decode(dbuf)
 	m.Settheme(m0)
@@ -38582,7 +38582,7 @@ func NewTLupdateGeoLiveViewed() *TLupdateGeoLiveViewed {
 
 // CodecEncode:updateGeoLiveViewed
 func (m *TLupdateGeoLiveViewed) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-2027964103)
 	x.Bytes(m.Getpeer_37().Encode())
 	x.Int(m.Getmsg_id_53())
@@ -38590,7 +38590,7 @@ func (m *TLupdateGeoLiveViewed) Encode() []byte {
 }
 
 // CodecDecode:updateGeoLiveViewed
-func (m *TLupdateGeoLiveViewed) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLupdateGeoLiveViewed) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &Peer{}
 	m0.Decode(dbuf)
 	m.Setpeer_37(m0)
@@ -38607,13 +38607,13 @@ func NewTLupdateLoginToken() *TLupdateLoginToken {
 
 // CodecEncode:updateLoginToken
 func (m *TLupdateLoginToken) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1448076945)
 	return x.Buf
 }
 
 // CodecDecode:updateLoginToken
-func (m *TLupdateLoginToken) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLupdateLoginToken) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -38626,7 +38626,7 @@ func NewTLupdateMessagePollVote() *TLupdateMessagePollVote {
 
 // CodecEncode:updateMessagePollVote
 func (m *TLupdateMessagePollVote) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1123585836)
 	x.Long(m.Getpoll_id())
 	x.Int(m.Getuser_id())
@@ -38639,7 +38639,7 @@ func (m *TLupdateMessagePollVote) Encode() []byte {
 }
 
 // CodecDecode:updateMessagePollVote
-func (m *TLupdateMessagePollVote) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLupdateMessagePollVote) Decode(dbuf *api.DecodeBuf) error {
 	m.Setpoll_id(dbuf.Long())
 	m.Setuser_id(dbuf.Int())
 	c2 := dbuf.Int()
@@ -38664,7 +38664,7 @@ func NewTLupdateDialogFilter() *TLupdateDialogFilter {
 
 // CodecEncode:updateDialogFilter
 func (m *TLupdateDialogFilter) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(654302845)
 	var flags uint32 = 0
 	if m.Getfilter().Constructor != 0 {
@@ -38679,7 +38679,7 @@ func (m *TLupdateDialogFilter) Encode() []byte {
 }
 
 // CodecDecode:updateDialogFilter
-func (m *TLupdateDialogFilter) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLupdateDialogFilter) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	m.Setid(dbuf.Int())
@@ -38700,7 +38700,7 @@ func NewTLupdateDialogFilterOrder() *TLupdateDialogFilterOrder {
 
 // CodecEncode:updateDialogFilterOrder
 func (m *TLupdateDialogFilterOrder) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1512627963)
 	x.Int(481674261)
 	x.Int(int32(len(m.Getorder_84())))
@@ -38711,7 +38711,7 @@ func (m *TLupdateDialogFilterOrder) Encode() []byte {
 }
 
 // CodecDecode:updateDialogFilterOrder
-func (m *TLupdateDialogFilterOrder) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLupdateDialogFilterOrder) Decode(dbuf *api.DecodeBuf) error {
 	m.Setorder_84(dbuf.VectorInt())
 	return dbuf.Err
 }
@@ -38725,13 +38725,13 @@ func NewTLupdateDialogFilters() *TLupdateDialogFilters {
 
 // CodecEncode:updateDialogFilters
 func (m *TLupdateDialogFilters) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(889491791)
 	return x.Buf
 }
 
 // CodecDecode:updateDialogFilters
-func (m *TLupdateDialogFilters) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLupdateDialogFilters) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -38744,7 +38744,7 @@ func NewTLupdatePhoneCallSignalingData() *TLupdatePhoneCallSignalingData {
 
 // CodecEncode:updatePhoneCallSignalingData
 func (m *TLupdatePhoneCallSignalingData) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(643940105)
 	x.Long(m.Getphone_call_id())
 	x.Bytes(m.Getdata())
@@ -38752,7 +38752,7 @@ func (m *TLupdatePhoneCallSignalingData) Encode() []byte {
 }
 
 // CodecDecode:updatePhoneCallSignalingData
-func (m *TLupdatePhoneCallSignalingData) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLupdatePhoneCallSignalingData) Decode(dbuf *api.DecodeBuf) error {
 	m.Setphone_call_id(dbuf.Long())
 	m.Setdata(dbuf.StringBytes())
 	return dbuf.Err
@@ -38767,7 +38767,7 @@ func NewTLupdateChannelParticipant() *TLupdateChannelParticipant {
 
 // CodecEncode:updateChannelParticipant
 func (m *TLupdateChannelParticipant) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1708307556)
 	var flags uint32 = 0
 	if m.Getprev_participant().Constructor != 0 {
@@ -38791,7 +38791,7 @@ func (m *TLupdateChannelParticipant) Encode() []byte {
 }
 
 // CodecDecode:updateChannelParticipant
-func (m *TLupdateChannelParticipant) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLupdateChannelParticipant) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	m.Setchannel_id(dbuf.Int())
@@ -38820,7 +38820,7 @@ func NewTLupdateChannelMessageForwards() *TLupdateChannelMessageForwards {
 
 // CodecEncode:updateChannelMessageForwards
 func (m *TLupdateChannelMessageForwards) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1854571743)
 	x.Int(m.Getchannel_id())
 	x.Int(m.Getid())
@@ -38829,7 +38829,7 @@ func (m *TLupdateChannelMessageForwards) Encode() []byte {
 }
 
 // CodecDecode:updateChannelMessageForwards
-func (m *TLupdateChannelMessageForwards) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLupdateChannelMessageForwards) Decode(dbuf *api.DecodeBuf) error {
 	m.Setchannel_id(dbuf.Int())
 	m.Setid(dbuf.Int())
 	m.Setforwards(dbuf.Int())
@@ -38845,7 +38845,7 @@ func NewTLupdateReadChannelDiscussionInbox() *TLupdateReadChannelDiscussionInbox
 
 // CodecEncode:updateReadChannelDiscussionInbox
 func (m *TLupdateReadChannelDiscussionInbox) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(482860628)
 	var flags uint32 = 0
 	if m.Getbroadcast_id() != 0 {
@@ -38868,7 +38868,7 @@ func (m *TLupdateReadChannelDiscussionInbox) Encode() []byte {
 }
 
 // CodecDecode:updateReadChannelDiscussionInbox
-func (m *TLupdateReadChannelDiscussionInbox) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLupdateReadChannelDiscussionInbox) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	m.Setchannel_id(dbuf.Int())
@@ -38892,7 +38892,7 @@ func NewTLupdateReadChannelDiscussionOutbox() *TLupdateReadChannelDiscussionOutb
 
 // CodecEncode:updateReadChannelDiscussionOutbox
 func (m *TLupdateReadChannelDiscussionOutbox) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1178116716)
 	x.Int(m.Getchannel_id())
 	x.Int(m.Gettop_msg_id())
@@ -38901,7 +38901,7 @@ func (m *TLupdateReadChannelDiscussionOutbox) Encode() []byte {
 }
 
 // CodecDecode:updateReadChannelDiscussionOutbox
-func (m *TLupdateReadChannelDiscussionOutbox) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLupdateReadChannelDiscussionOutbox) Decode(dbuf *api.DecodeBuf) error {
 	m.Setchannel_id(dbuf.Int())
 	m.Settop_msg_id(dbuf.Int())
 	m.Setread_max_id(dbuf.Int())
@@ -38917,7 +38917,7 @@ func NewTLupdatePeerBlocked() *TLupdatePeerBlocked {
 
 // CodecEncode:updatePeerBlocked
 func (m *TLupdatePeerBlocked) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(610945826)
 	x.Bytes(m.Getpeer_id().Encode())
 	x.Bytes(m.Getblocked().Encode())
@@ -38925,7 +38925,7 @@ func (m *TLupdatePeerBlocked) Encode() []byte {
 }
 
 // CodecDecode:updatePeerBlocked
-func (m *TLupdatePeerBlocked) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLupdatePeerBlocked) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &Peer{}
 	m0.Decode(dbuf)
 	m.Setpeer_id(m0)
@@ -38944,7 +38944,7 @@ func NewTLupdateChannelUserTyping() *TLupdateChannelUserTyping {
 
 // CodecEncode:updateChannelUserTyping
 func (m *TLupdateChannelUserTyping) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-13975905)
 	var flags uint32 = 0
 	if m.Gettop_msg_id() != 0 {
@@ -38961,7 +38961,7 @@ func (m *TLupdateChannelUserTyping) Encode() []byte {
 }
 
 // CodecDecode:updateChannelUserTyping
-func (m *TLupdateChannelUserTyping) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLupdateChannelUserTyping) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	m.Setchannel_id(dbuf.Int())
@@ -38984,7 +38984,7 @@ func NewTLupdatePinnedMessages() *TLupdatePinnedMessages {
 
 // CodecEncode:updatePinnedMessages
 func (m *TLupdatePinnedMessages) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-309990731)
 	var flags uint32 = 0
 	if m.Getpinned() != false {
@@ -39003,7 +39003,7 @@ func (m *TLupdatePinnedMessages) Encode() []byte {
 }
 
 // CodecDecode:updatePinnedMessages
-func (m *TLupdatePinnedMessages) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLupdatePinnedMessages) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	if (flags & (1 << 0)) != 0 {
@@ -39027,7 +39027,7 @@ func NewTLupdatePinnedChannelMessages() *TLupdatePinnedChannelMessages {
 
 // CodecEncode:updatePinnedChannelMessages
 func (m *TLupdatePinnedChannelMessages) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-2054649973)
 	var flags uint32 = 0
 	if m.Getpinned() != false {
@@ -39046,7 +39046,7 @@ func (m *TLupdatePinnedChannelMessages) Encode() []byte {
 }
 
 // CodecDecode:updatePinnedChannelMessages
-func (m *TLupdatePinnedChannelMessages) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLupdatePinnedChannelMessages) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	if (flags & (1 << 0)) != 0 {
@@ -39068,13 +39068,13 @@ func NewTLhelp_countriesListNotModified() *TLhelp_countriesListNotModified {
 
 // CodecEncode:help_countriesListNotModified
 func (m *TLhelp_countriesListNotModified) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1815339214)
 	return x.Buf
 }
 
 // CodecDecode:help_countriesListNotModified
-func (m *TLhelp_countriesListNotModified) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLhelp_countriesListNotModified) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -39087,7 +39087,7 @@ func NewTLhelp_countriesList() *TLhelp_countriesList {
 
 // CodecEncode:help_countriesList
 func (m *TLhelp_countriesList) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-2016381538)
 	x.Int(481674261)
 	x.Int(int32(len(m.Getcountries())))
@@ -39099,7 +39099,7 @@ func (m *TLhelp_countriesList) Encode() []byte {
 }
 
 // CodecDecode:help_countriesList
-func (m *TLhelp_countriesList) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLhelp_countriesList) Decode(dbuf *api.DecodeBuf) error {
 	c0 := dbuf.Int()
 	if c0 != 481674261 {
 		return dbuf.Err
@@ -39124,7 +39124,7 @@ func NewTLinputFile() *TLinputFile {
 
 // CodecEncode:inputFile
 func (m *TLinputFile) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-181407105)
 	x.Long(m.Getid())
 	x.Int(m.Getparts())
@@ -39134,7 +39134,7 @@ func (m *TLinputFile) Encode() []byte {
 }
 
 // CodecDecode:inputFile
-func (m *TLinputFile) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLinputFile) Decode(dbuf *api.DecodeBuf) error {
 	m.Setid(dbuf.Long())
 	m.Setparts(dbuf.Int())
 	m.Setname(dbuf.String())
@@ -39151,7 +39151,7 @@ func NewTLinputFileBig() *TLinputFileBig {
 
 // CodecEncode:inputFileBig
 func (m *TLinputFileBig) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-95482955)
 	x.Long(m.Getid())
 	x.Int(m.Getparts())
@@ -39160,7 +39160,7 @@ func (m *TLinputFileBig) Encode() []byte {
 }
 
 // CodecDecode:inputFileBig
-func (m *TLinputFileBig) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLinputFileBig) Decode(dbuf *api.DecodeBuf) error {
 	m.Setid(dbuf.Long())
 	m.Setparts(dbuf.Int())
 	m.Setname(dbuf.String())
@@ -39176,7 +39176,7 @@ func NewTLsecureValue() *TLsecureValue {
 
 // CodecEncode:secureValue
 func (m *TLsecureValue) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(411017418)
 	var flags uint32 = 0
 	if m.Getdata().Constructor != 0 {
@@ -39236,7 +39236,7 @@ func (m *TLsecureValue) Encode() []byte {
 }
 
 // CodecDecode:secureValue
-func (m *TLsecureValue) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLsecureValue) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	m0 := &SecureValueType{}
@@ -39306,13 +39306,13 @@ func NewTLaccount_themesNotModified() *TLaccount_themesNotModified {
 
 // CodecEncode:account_themesNotModified
 func (m *TLaccount_themesNotModified) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-199313886)
 	return x.Buf
 }
 
 // CodecDecode:account_themesNotModified
-func (m *TLaccount_themesNotModified) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLaccount_themesNotModified) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -39325,7 +39325,7 @@ func NewTLaccount_themes() *TLaccount_themes {
 
 // CodecEncode:account_themes
 func (m *TLaccount_themes) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(2137482273)
 	x.Int(m.Gethash())
 	x.Int(481674261)
@@ -39337,7 +39337,7 @@ func (m *TLaccount_themes) Encode() []byte {
 }
 
 // CodecDecode:account_themes
-func (m *TLaccount_themes) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLaccount_themes) Decode(dbuf *api.DecodeBuf) error {
 	m.Sethash(dbuf.Int())
 	c1 := dbuf.Int()
 	if c1 != 481674261 {
@@ -39362,14 +39362,14 @@ func NewTLdocumentEmpty() *TLdocumentEmpty {
 
 // CodecEncode:documentEmpty
 func (m *TLdocumentEmpty) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(922273905)
 	x.Long(m.Getid())
 	return x.Buf
 }
 
 // CodecDecode:documentEmpty
-func (m *TLdocumentEmpty) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLdocumentEmpty) Decode(dbuf *api.DecodeBuf) error {
 	m.Setid(dbuf.Long())
 	return dbuf.Err
 }
@@ -39383,7 +39383,7 @@ func NewTLdocument() *TLdocument {
 
 // CodecEncode:document
 func (m *TLdocument) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(512177195)
 	var flags uint32 = 0
 	if len(m.Getthumbs()) > 0 {
@@ -39423,7 +39423,7 @@ func (m *TLdocument) Encode() []byte {
 }
 
 // CodecDecode:document
-func (m *TLdocument) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLdocument) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	m.Setid(dbuf.Long())
@@ -39482,13 +39482,13 @@ func NewTLinputPrivacyKeyStatusTimestamp() *TLinputPrivacyKeyStatusTimestamp {
 
 // CodecEncode:inputPrivacyKeyStatusTimestamp
 func (m *TLinputPrivacyKeyStatusTimestamp) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1335282456)
 	return x.Buf
 }
 
 // CodecDecode:inputPrivacyKeyStatusTimestamp
-func (m *TLinputPrivacyKeyStatusTimestamp) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLinputPrivacyKeyStatusTimestamp) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -39501,13 +39501,13 @@ func NewTLinputPrivacyKeyChatInvite() *TLinputPrivacyKeyChatInvite {
 
 // CodecEncode:inputPrivacyKeyChatInvite
 func (m *TLinputPrivacyKeyChatInvite) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1107622874)
 	return x.Buf
 }
 
 // CodecDecode:inputPrivacyKeyChatInvite
-func (m *TLinputPrivacyKeyChatInvite) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLinputPrivacyKeyChatInvite) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -39520,13 +39520,13 @@ func NewTLinputPrivacyKeyPhoneCall() *TLinputPrivacyKeyPhoneCall {
 
 // CodecEncode:inputPrivacyKeyPhoneCall
 func (m *TLinputPrivacyKeyPhoneCall) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-88417185)
 	return x.Buf
 }
 
 // CodecDecode:inputPrivacyKeyPhoneCall
-func (m *TLinputPrivacyKeyPhoneCall) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLinputPrivacyKeyPhoneCall) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -39539,13 +39539,13 @@ func NewTLinputPrivacyKeyPhoneP2P() *TLinputPrivacyKeyPhoneP2P {
 
 // CodecEncode:inputPrivacyKeyPhoneP2P
 func (m *TLinputPrivacyKeyPhoneP2P) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-610373422)
 	return x.Buf
 }
 
 // CodecDecode:inputPrivacyKeyPhoneP2P
-func (m *TLinputPrivacyKeyPhoneP2P) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLinputPrivacyKeyPhoneP2P) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -39558,13 +39558,13 @@ func NewTLinputPrivacyKeyForwards() *TLinputPrivacyKeyForwards {
 
 // CodecEncode:inputPrivacyKeyForwards
 func (m *TLinputPrivacyKeyForwards) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1529000952)
 	return x.Buf
 }
 
 // CodecDecode:inputPrivacyKeyForwards
-func (m *TLinputPrivacyKeyForwards) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLinputPrivacyKeyForwards) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -39577,13 +39577,13 @@ func NewTLinputPrivacyKeyProfilePhoto() *TLinputPrivacyKeyProfilePhoto {
 
 // CodecEncode:inputPrivacyKeyProfilePhoto
 func (m *TLinputPrivacyKeyProfilePhoto) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1461304012)
 	return x.Buf
 }
 
 // CodecDecode:inputPrivacyKeyProfilePhoto
-func (m *TLinputPrivacyKeyProfilePhoto) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLinputPrivacyKeyProfilePhoto) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -39596,13 +39596,13 @@ func NewTLinputPrivacyKeyPhoneNumber() *TLinputPrivacyKeyPhoneNumber {
 
 // CodecEncode:inputPrivacyKeyPhoneNumber
 func (m *TLinputPrivacyKeyPhoneNumber) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(55761658)
 	return x.Buf
 }
 
 // CodecDecode:inputPrivacyKeyPhoneNumber
-func (m *TLinputPrivacyKeyPhoneNumber) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLinputPrivacyKeyPhoneNumber) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -39615,13 +39615,13 @@ func NewTLinputPrivacyKeyAddedByPhone() *TLinputPrivacyKeyAddedByPhone {
 
 // CodecEncode:inputPrivacyKeyAddedByPhone
 func (m *TLinputPrivacyKeyAddedByPhone) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-786326563)
 	return x.Buf
 }
 
 // CodecDecode:inputPrivacyKeyAddedByPhone
-func (m *TLinputPrivacyKeyAddedByPhone) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLinputPrivacyKeyAddedByPhone) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -39634,13 +39634,13 @@ func NewTLmessages_allStickersNotModified() *TLmessages_allStickersNotModified {
 
 // CodecEncode:messages_allStickersNotModified
 func (m *TLmessages_allStickersNotModified) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-395967805)
 	return x.Buf
 }
 
 // CodecDecode:messages_allStickersNotModified
-func (m *TLmessages_allStickersNotModified) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessages_allStickersNotModified) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -39653,7 +39653,7 @@ func NewTLmessages_allStickers() *TLmessages_allStickers {
 
 // CodecEncode:messages_allStickers
 func (m *TLmessages_allStickers) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-302170017)
 	x.Int(m.Gethash())
 	x.Int(481674261)
@@ -39665,7 +39665,7 @@ func (m *TLmessages_allStickers) Encode() []byte {
 }
 
 // CodecDecode:messages_allStickers
-func (m *TLmessages_allStickers) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessages_allStickers) Decode(dbuf *api.DecodeBuf) error {
 	m.Sethash(dbuf.Int())
 	c1 := dbuf.Int()
 	if c1 != 481674261 {
@@ -39690,14 +39690,14 @@ func NewTLsecurePlainPhone() *TLsecurePlainPhone {
 
 // CodecEncode:securePlainPhone
 func (m *TLsecurePlainPhone) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(2103482845)
 	x.String(m.Getphone())
 	return x.Buf
 }
 
 // CodecDecode:securePlainPhone
-func (m *TLsecurePlainPhone) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLsecurePlainPhone) Decode(dbuf *api.DecodeBuf) error {
 	m.Setphone(dbuf.String())
 	return dbuf.Err
 }
@@ -39711,14 +39711,14 @@ func NewTLsecurePlainEmail() *TLsecurePlainEmail {
 
 // CodecEncode:securePlainEmail
 func (m *TLsecurePlainEmail) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(569137759)
 	x.String(m.Getemail())
 	return x.Buf
 }
 
 // CodecDecode:securePlainEmail
-func (m *TLsecurePlainEmail) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLsecurePlainEmail) Decode(dbuf *api.DecodeBuf) error {
 	m.Setemail(dbuf.String())
 	return dbuf.Err
 }
@@ -39732,14 +39732,14 @@ func NewTLhelp_inviteText() *TLhelp_inviteText {
 
 // CodecEncode:help_inviteText
 func (m *TLhelp_inviteText) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(415997816)
 	x.String(m.Getmessage())
 	return x.Buf
 }
 
 // CodecDecode:help_inviteText
-func (m *TLhelp_inviteText) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLhelp_inviteText) Decode(dbuf *api.DecodeBuf) error {
 	m.Setmessage(dbuf.String())
 	return dbuf.Err
 }
@@ -39753,14 +39753,14 @@ func NewTLinputMessageID() *TLinputMessageID {
 
 // CodecEncode:inputMessageID
 func (m *TLinputMessageID) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1502174430)
 	x.Int(m.Getid())
 	return x.Buf
 }
 
 // CodecDecode:inputMessageID
-func (m *TLinputMessageID) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLinputMessageID) Decode(dbuf *api.DecodeBuf) error {
 	m.Setid(dbuf.Int())
 	return dbuf.Err
 }
@@ -39774,14 +39774,14 @@ func NewTLinputMessageReplyTo() *TLinputMessageReplyTo {
 
 // CodecEncode:inputMessageReplyTo
 func (m *TLinputMessageReplyTo) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1160215659)
 	x.Int(m.Getid())
 	return x.Buf
 }
 
 // CodecDecode:inputMessageReplyTo
-func (m *TLinputMessageReplyTo) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLinputMessageReplyTo) Decode(dbuf *api.DecodeBuf) error {
 	m.Setid(dbuf.Int())
 	return dbuf.Err
 }
@@ -39795,13 +39795,13 @@ func NewTLinputMessagePinned() *TLinputMessagePinned {
 
 // CodecEncode:inputMessagePinned
 func (m *TLinputMessagePinned) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-2037963464)
 	return x.Buf
 }
 
 // CodecDecode:inputMessagePinned
-func (m *TLinputMessagePinned) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLinputMessagePinned) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -39814,7 +39814,7 @@ func NewTLinputMessageCallbackQuery() *TLinputMessageCallbackQuery {
 
 // CodecEncode:inputMessageCallbackQuery
 func (m *TLinputMessageCallbackQuery) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1392895362)
 	x.Int(m.Getid())
 	x.Long(m.Getquery_id())
@@ -39822,7 +39822,7 @@ func (m *TLinputMessageCallbackQuery) Encode() []byte {
 }
 
 // CodecDecode:inputMessageCallbackQuery
-func (m *TLinputMessageCallbackQuery) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLinputMessageCallbackQuery) Decode(dbuf *api.DecodeBuf) error {
 	m.Setid(dbuf.Int())
 	m.Setquery_id(dbuf.Long())
 	return dbuf.Err
@@ -39837,7 +39837,7 @@ func NewTLaccount_passwordInputSettings() *TLaccount_passwordInputSettings {
 
 // CodecEncode:account_passwordInputSettings
 func (m *TLaccount_passwordInputSettings) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1036572727)
 	var flags uint32 = 0
 	if m.Getnew_algo().Constructor != 0 {
@@ -39875,7 +39875,7 @@ func (m *TLaccount_passwordInputSettings) Encode() []byte {
 }
 
 // CodecDecode:account_passwordInputSettings
-func (m *TLaccount_passwordInputSettings) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLaccount_passwordInputSettings) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	if (flags & (1 << 0)) != 0 {
@@ -39909,13 +39909,13 @@ func NewTLinputDocumentEmpty() *TLinputDocumentEmpty {
 
 // CodecEncode:inputDocumentEmpty
 func (m *TLinputDocumentEmpty) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1928391342)
 	return x.Buf
 }
 
 // CodecDecode:inputDocumentEmpty
-func (m *TLinputDocumentEmpty) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLinputDocumentEmpty) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -39928,7 +39928,7 @@ func NewTLinputDocument() *TLinputDocument {
 
 // CodecEncode:inputDocument
 func (m *TLinputDocument) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(448771445)
 	x.Long(m.Getid())
 	x.Long(m.Getaccess_hash())
@@ -39937,7 +39937,7 @@ func (m *TLinputDocument) Encode() []byte {
 }
 
 // CodecDecode:inputDocument
-func (m *TLinputDocument) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLinputDocument) Decode(dbuf *api.DecodeBuf) error {
 	m.Setid(dbuf.Long())
 	m.Setaccess_hash(dbuf.Long())
 	m.Setfile_reference(dbuf.StringBytes())
@@ -39953,7 +39953,7 @@ func NewTLstatsDateRangeDays() *TLstatsDateRangeDays {
 
 // CodecEncode:statsDateRangeDays
 func (m *TLstatsDateRangeDays) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1237848657)
 	x.Int(m.Getmin_date())
 	x.Int(m.Getmax_date())
@@ -39961,7 +39961,7 @@ func (m *TLstatsDateRangeDays) Encode() []byte {
 }
 
 // CodecDecode:statsDateRangeDays
-func (m *TLstatsDateRangeDays) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLstatsDateRangeDays) Decode(dbuf *api.DecodeBuf) error {
 	m.Setmin_date(dbuf.Int())
 	m.Setmax_date(dbuf.Int())
 	return dbuf.Err
@@ -39976,14 +39976,14 @@ func NewTLemojiURL() *TLemojiURL {
 
 // CodecEncode:emojiURL
 func (m *TLemojiURL) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1519029347)
 	x.String(m.Geturl())
 	return x.Buf
 }
 
 // CodecDecode:emojiURL
-func (m *TLemojiURL) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLemojiURL) Decode(dbuf *api.DecodeBuf) error {
 	m.Seturl(dbuf.String())
 	return dbuf.Err
 }
@@ -39997,7 +39997,7 @@ func NewTLpollResults() *TLpollResults {
 
 // CodecEncode:pollResults
 func (m *TLpollResults) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1159937629)
 	var flags uint32 = 0
 	if m.Getmin() != false {
@@ -40050,7 +40050,7 @@ func (m *TLpollResults) Encode() []byte {
 }
 
 // CodecDecode:pollResults
-func (m *TLpollResults) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLpollResults) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	if (flags & (1 << 0)) != 0 {
@@ -40103,13 +40103,13 @@ func NewTLjsonNull() *TLjsonNull {
 
 // CodecEncode:jsonNull
 func (m *TLjsonNull) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1064139624)
 	return x.Buf
 }
 
 // CodecDecode:jsonNull
-func (m *TLjsonNull) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLjsonNull) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -40122,14 +40122,14 @@ func NewTLjsonBool() *TLjsonBool {
 
 // CodecEncode:jsonBool
 func (m *TLjsonBool) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-952869270)
 	x.Bytes(m.Getvalue().Encode())
 	return x.Buf
 }
 
 // CodecDecode:jsonBool
-func (m *TLjsonBool) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLjsonBool) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &Bool{}
 	m0.Decode(dbuf)
 	m.Setvalue(m0)
@@ -40145,14 +40145,14 @@ func NewTLjsonNumber() *TLjsonNumber {
 
 // CodecEncode:jsonNumber
 func (m *TLjsonNumber) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(736157604)
 	x.Bytes(m.Getvalue_2().Encode())
 	return x.Buf
 }
 
 // CodecDecode:jsonNumber
-func (m *TLjsonNumber) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLjsonNumber) Decode(dbuf *api.DecodeBuf) error {
 	m.Setvalue_2(dbuf.Double())
 	return dbuf.Err
 }
@@ -40166,14 +40166,14 @@ func NewTLjsonString() *TLjsonString {
 
 // CodecEncode:jsonString
 func (m *TLjsonString) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1222740358)
 	x.String(m.Getvalue_3())
 	return x.Buf
 }
 
 // CodecDecode:jsonString
-func (m *TLjsonString) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLjsonString) Decode(dbuf *api.DecodeBuf) error {
 	m.Setvalue_3(dbuf.String())
 	return dbuf.Err
 }
@@ -40187,7 +40187,7 @@ func NewTLjsonArray() *TLjsonArray {
 
 // CodecEncode:jsonArray
 func (m *TLjsonArray) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-146520221)
 	x.Int(481674261)
 	x.Int(int32(len(m.Getvalue_4())))
@@ -40198,7 +40198,7 @@ func (m *TLjsonArray) Encode() []byte {
 }
 
 // CodecDecode:jsonArray
-func (m *TLjsonArray) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLjsonArray) Decode(dbuf *api.DecodeBuf) error {
 	c0 := dbuf.Int()
 	if c0 != 481674261 {
 		return dbuf.Err
@@ -40222,7 +40222,7 @@ func NewTLjsonObject() *TLjsonObject {
 
 // CodecEncode:jsonObject
 func (m *TLjsonObject) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1715350371)
 	x.Int(481674261)
 	x.Int(int32(len(m.Getvalue_5())))
@@ -40233,7 +40233,7 @@ func (m *TLjsonObject) Encode() []byte {
 }
 
 // CodecDecode:jsonObject
-func (m *TLjsonObject) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLjsonObject) Decode(dbuf *api.DecodeBuf) error {
 	c0 := dbuf.Int()
 	if c0 != 481674261 {
 		return dbuf.Err
@@ -40257,7 +40257,7 @@ func NewTLcdnConfig() *TLcdnConfig {
 
 // CodecEncode:cdnConfig
 func (m *TLcdnConfig) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1462101002)
 	x.Int(481674261)
 	x.Int(int32(len(m.Getpublic_keys())))
@@ -40268,7 +40268,7 @@ func (m *TLcdnConfig) Encode() []byte {
 }
 
 // CodecDecode:cdnConfig
-func (m *TLcdnConfig) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLcdnConfig) Decode(dbuf *api.DecodeBuf) error {
 	c0 := dbuf.Int()
 	if c0 != 481674261 {
 		return dbuf.Err
@@ -40292,7 +40292,7 @@ func NewTLmessages_searchCounter() *TLmessages_searchCounter {
 
 // CodecEncode:messages_searchCounter
 func (m *TLmessages_searchCounter) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-398136321)
 	var flags uint32 = 0
 	if m.Getinexact() != false {
@@ -40305,7 +40305,7 @@ func (m *TLmessages_searchCounter) Encode() []byte {
 }
 
 // CodecDecode:messages_searchCounter
-func (m *TLmessages_searchCounter) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessages_searchCounter) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	if (flags & (1 << 0)) != 0 {
@@ -40327,7 +40327,7 @@ func NewTLbankCardOpenUrl() *TLbankCardOpenUrl {
 
 // CodecEncode:bankCardOpenUrl
 func (m *TLbankCardOpenUrl) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-177732982)
 	x.String(m.Geturl())
 	x.String(m.Getname())
@@ -40335,7 +40335,7 @@ func (m *TLbankCardOpenUrl) Encode() []byte {
 }
 
 // CodecDecode:bankCardOpenUrl
-func (m *TLbankCardOpenUrl) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLbankCardOpenUrl) Decode(dbuf *api.DecodeBuf) error {
 	m.Seturl(dbuf.String())
 	m.Setname(dbuf.String())
 	return dbuf.Err
@@ -40350,7 +40350,7 @@ func NewTLcodeSettings() *TLcodeSettings {
 
 // CodecEncode:codeSettings
 func (m *TLcodeSettings) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-557924733)
 	var flags uint32 = 0
 	if m.Getallow_flashcall() != false {
@@ -40367,7 +40367,7 @@ func (m *TLcodeSettings) Encode() []byte {
 }
 
 // CodecDecode:codeSettings
-func (m *TLcodeSettings) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLcodeSettings) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	if (flags & (1 << 0)) != 0 {
@@ -40391,7 +40391,7 @@ func NewTLerror() *TLerror {
 
 // CodecEncode:error
 func (m *TLerror) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-994444869)
 	x.Int(m.Getcode())
 	x.String(m.Gettext())
@@ -40399,7 +40399,7 @@ func (m *TLerror) Encode() []byte {
 }
 
 // CodecDecode:error
-func (m *TLerror) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLerror) Decode(dbuf *api.DecodeBuf) error {
 	m.Setcode(dbuf.Int())
 	m.Settext(dbuf.String())
 	return dbuf.Err
@@ -40414,7 +40414,7 @@ func NewTLpageTableCell() *TLpageTableCell {
 
 // CodecEncode:pageTableCell
 func (m *TLpageTableCell) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(878078826)
 	var flags uint32 = 0
 	if m.Getheader() != false {
@@ -40455,7 +40455,7 @@ func (m *TLpageTableCell) Encode() []byte {
 }
 
 // CodecDecode:pageTableCell
-func (m *TLpageTableCell) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLpageTableCell) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	if (flags & (1 << 0)) != 0 {
@@ -40496,7 +40496,7 @@ func NewTLconfig() *TLconfig {
 
 // CodecEncode:config
 func (m *TLconfig) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(856375399)
 	var flags uint32 = 0
 	if m.Getphonecalls_enabled() != false {
@@ -40618,7 +40618,7 @@ func (m *TLconfig) Encode() []byte {
 }
 
 // CodecDecode:config
-func (m *TLconfig) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLconfig) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	if (flags & (1 << 0)) != 0 {
@@ -40728,7 +40728,7 @@ func NewTLgame() *TLgame {
 
 // CodecEncode:game
 func (m *TLgame) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1107729093)
 	var flags uint32 = 0
 	if m.Getdocument().Constructor != 0 {
@@ -40748,7 +40748,7 @@ func (m *TLgame) Encode() []byte {
 }
 
 // CodecDecode:game
-func (m *TLgame) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLgame) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	m.Setid(dbuf.Long())
@@ -40776,13 +40776,13 @@ func NewTLprivacyKeyStatusTimestamp() *TLprivacyKeyStatusTimestamp {
 
 // CodecEncode:privacyKeyStatusTimestamp
 func (m *TLprivacyKeyStatusTimestamp) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1137792208)
 	return x.Buf
 }
 
 // CodecDecode:privacyKeyStatusTimestamp
-func (m *TLprivacyKeyStatusTimestamp) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLprivacyKeyStatusTimestamp) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -40795,13 +40795,13 @@ func NewTLprivacyKeyChatInvite() *TLprivacyKeyChatInvite {
 
 // CodecEncode:privacyKeyChatInvite
 func (m *TLprivacyKeyChatInvite) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1343122938)
 	return x.Buf
 }
 
 // CodecDecode:privacyKeyChatInvite
-func (m *TLprivacyKeyChatInvite) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLprivacyKeyChatInvite) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -40814,13 +40814,13 @@ func NewTLprivacyKeyPhoneCall() *TLprivacyKeyPhoneCall {
 
 // CodecEncode:privacyKeyPhoneCall
 func (m *TLprivacyKeyPhoneCall) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1030105979)
 	return x.Buf
 }
 
 // CodecDecode:privacyKeyPhoneCall
-func (m *TLprivacyKeyPhoneCall) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLprivacyKeyPhoneCall) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -40833,13 +40833,13 @@ func NewTLprivacyKeyPhoneP2P() *TLprivacyKeyPhoneP2P {
 
 // CodecEncode:privacyKeyPhoneP2P
 func (m *TLprivacyKeyPhoneP2P) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(961092808)
 	return x.Buf
 }
 
 // CodecDecode:privacyKeyPhoneP2P
-func (m *TLprivacyKeyPhoneP2P) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLprivacyKeyPhoneP2P) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -40852,13 +40852,13 @@ func NewTLprivacyKeyForwards() *TLprivacyKeyForwards {
 
 // CodecEncode:privacyKeyForwards
 func (m *TLprivacyKeyForwards) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1777096355)
 	return x.Buf
 }
 
 // CodecDecode:privacyKeyForwards
-func (m *TLprivacyKeyForwards) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLprivacyKeyForwards) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -40871,13 +40871,13 @@ func NewTLprivacyKeyProfilePhoto() *TLprivacyKeyProfilePhoto {
 
 // CodecEncode:privacyKeyProfilePhoto
 func (m *TLprivacyKeyProfilePhoto) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1777000467)
 	return x.Buf
 }
 
 // CodecDecode:privacyKeyProfilePhoto
-func (m *TLprivacyKeyProfilePhoto) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLprivacyKeyProfilePhoto) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -40890,13 +40890,13 @@ func NewTLprivacyKeyPhoneNumber() *TLprivacyKeyPhoneNumber {
 
 // CodecEncode:privacyKeyPhoneNumber
 func (m *TLprivacyKeyPhoneNumber) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-778378131)
 	return x.Buf
 }
 
 // CodecDecode:privacyKeyPhoneNumber
-func (m *TLprivacyKeyPhoneNumber) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLprivacyKeyPhoneNumber) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -40909,13 +40909,13 @@ func NewTLprivacyKeyAddedByPhone() *TLprivacyKeyAddedByPhone {
 
 // CodecEncode:privacyKeyAddedByPhone
 func (m *TLprivacyKeyAddedByPhone) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1124062251)
 	return x.Buf
 }
 
 // CodecDecode:privacyKeyAddedByPhone
-func (m *TLprivacyKeyAddedByPhone) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLprivacyKeyAddedByPhone) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -40928,7 +40928,7 @@ func NewTLwebDocument() *TLwebDocument {
 
 // CodecEncode:webDocument
 func (m *TLwebDocument) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(475467473)
 	x.String(m.Geturl())
 	x.Long(m.Getaccess_hash())
@@ -40943,7 +40943,7 @@ func (m *TLwebDocument) Encode() []byte {
 }
 
 // CodecDecode:webDocument
-func (m *TLwebDocument) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLwebDocument) Decode(dbuf *api.DecodeBuf) error {
 	m.Seturl(dbuf.String())
 	m.Setaccess_hash(dbuf.Long())
 	m.Setsize(dbuf.Int())
@@ -40971,7 +40971,7 @@ func NewTLwebDocumentNoProxy() *TLwebDocumentNoProxy {
 
 // CodecEncode:webDocumentNoProxy
 func (m *TLwebDocumentNoProxy) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-104284986)
 	x.String(m.Geturl())
 	x.Int(m.Getsize())
@@ -40985,7 +40985,7 @@ func (m *TLwebDocumentNoProxy) Encode() []byte {
 }
 
 // CodecDecode:webDocumentNoProxy
-func (m *TLwebDocumentNoProxy) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLwebDocumentNoProxy) Decode(dbuf *api.DecodeBuf) error {
 	m.Seturl(dbuf.String())
 	m.Setsize(dbuf.Int())
 	m.Setmime_type(dbuf.String())
@@ -41012,7 +41012,7 @@ func NewTLstickerSetCovered() *TLstickerSetCovered {
 
 // CodecEncode:stickerSetCovered
 func (m *TLstickerSetCovered) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1678812626)
 	x.Bytes(m.Getset().Encode())
 	x.Bytes(m.Getcover().Encode())
@@ -41020,7 +41020,7 @@ func (m *TLstickerSetCovered) Encode() []byte {
 }
 
 // CodecDecode:stickerSetCovered
-func (m *TLstickerSetCovered) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLstickerSetCovered) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &StickerSet{}
 	m0.Decode(dbuf)
 	m.Setset(m0)
@@ -41039,7 +41039,7 @@ func NewTLstickerSetMultiCovered() *TLstickerSetMultiCovered {
 
 // CodecEncode:stickerSetMultiCovered
 func (m *TLstickerSetMultiCovered) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(872932635)
 	x.Bytes(m.Getset().Encode())
 	x.Int(481674261)
@@ -41051,7 +41051,7 @@ func (m *TLstickerSetMultiCovered) Encode() []byte {
 }
 
 // CodecDecode:stickerSetMultiCovered
-func (m *TLstickerSetMultiCovered) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLstickerSetMultiCovered) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &StickerSet{}
 	m0.Decode(dbuf)
 	m.Setset(m0)
@@ -41078,14 +41078,14 @@ func NewTLnotifyPeer() *TLnotifyPeer {
 
 // CodecEncode:notifyPeer
 func (m *TLnotifyPeer) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1613493288)
 	x.Bytes(m.Getpeer().Encode())
 	return x.Buf
 }
 
 // CodecDecode:notifyPeer
-func (m *TLnotifyPeer) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLnotifyPeer) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &Peer{}
 	m0.Decode(dbuf)
 	m.Setpeer(m0)
@@ -41101,13 +41101,13 @@ func NewTLnotifyUsers() *TLnotifyUsers {
 
 // CodecEncode:notifyUsers
 func (m *TLnotifyUsers) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1261946036)
 	return x.Buf
 }
 
 // CodecDecode:notifyUsers
-func (m *TLnotifyUsers) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLnotifyUsers) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -41120,13 +41120,13 @@ func NewTLnotifyChats() *TLnotifyChats {
 
 // CodecEncode:notifyChats
 func (m *TLnotifyChats) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1073230141)
 	return x.Buf
 }
 
 // CodecDecode:notifyChats
-func (m *TLnotifyChats) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLnotifyChats) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -41139,13 +41139,13 @@ func NewTLnotifyBroadcasts() *TLnotifyBroadcasts {
 
 // CodecEncode:notifyBroadcasts
 func (m *TLnotifyBroadcasts) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-703403793)
 	return x.Buf
 }
 
 // CodecDecode:notifyBroadcasts
-func (m *TLnotifyBroadcasts) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLnotifyBroadcasts) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -41158,7 +41158,7 @@ func NewTLmessages_stickerSet() *TLmessages_stickerSet {
 
 // CodecEncode:messages_stickerSet
 func (m *TLmessages_stickerSet) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1240849242)
 	x.Bytes(m.Getset().Encode())
 	x.Int(481674261)
@@ -41175,7 +41175,7 @@ func (m *TLmessages_stickerSet) Encode() []byte {
 }
 
 // CodecDecode:messages_stickerSet
-func (m *TLmessages_stickerSet) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessages_stickerSet) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &StickerSet{}
 	m0.Decode(dbuf)
 	m.Setset(m0)
@@ -41213,13 +41213,13 @@ func NewTLmessageActionEmpty() *TLmessageActionEmpty {
 
 // CodecEncode:messageActionEmpty
 func (m *TLmessageActionEmpty) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1230047312)
 	return x.Buf
 }
 
 // CodecDecode:messageActionEmpty
-func (m *TLmessageActionEmpty) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessageActionEmpty) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -41232,7 +41232,7 @@ func NewTLmessageActionChatCreate() *TLmessageActionChatCreate {
 
 // CodecEncode:messageActionChatCreate
 func (m *TLmessageActionChatCreate) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1503425638)
 	x.String(m.Gettitle())
 	x.Int(481674261)
@@ -41244,7 +41244,7 @@ func (m *TLmessageActionChatCreate) Encode() []byte {
 }
 
 // CodecDecode:messageActionChatCreate
-func (m *TLmessageActionChatCreate) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessageActionChatCreate) Decode(dbuf *api.DecodeBuf) error {
 	m.Settitle(dbuf.String())
 	m.Setusers(dbuf.VectorInt())
 	return dbuf.Err
@@ -41259,14 +41259,14 @@ func NewTLmessageActionChatEditTitle() *TLmessageActionChatEditTitle {
 
 // CodecEncode:messageActionChatEditTitle
 func (m *TLmessageActionChatEditTitle) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1247687078)
 	x.String(m.Gettitle())
 	return x.Buf
 }
 
 // CodecDecode:messageActionChatEditTitle
-func (m *TLmessageActionChatEditTitle) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessageActionChatEditTitle) Decode(dbuf *api.DecodeBuf) error {
 	m.Settitle(dbuf.String())
 	return dbuf.Err
 }
@@ -41280,14 +41280,14 @@ func NewTLmessageActionChatEditPhoto() *TLmessageActionChatEditPhoto {
 
 // CodecEncode:messageActionChatEditPhoto
 func (m *TLmessageActionChatEditPhoto) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(2144015272)
 	x.Bytes(m.Getphoto().Encode())
 	return x.Buf
 }
 
 // CodecDecode:messageActionChatEditPhoto
-func (m *TLmessageActionChatEditPhoto) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessageActionChatEditPhoto) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &Photo{}
 	m0.Decode(dbuf)
 	m.Setphoto(m0)
@@ -41303,13 +41303,13 @@ func NewTLmessageActionChatDeletePhoto() *TLmessageActionChatDeletePhoto {
 
 // CodecEncode:messageActionChatDeletePhoto
 func (m *TLmessageActionChatDeletePhoto) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1780220945)
 	return x.Buf
 }
 
 // CodecDecode:messageActionChatDeletePhoto
-func (m *TLmessageActionChatDeletePhoto) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessageActionChatDeletePhoto) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -41322,7 +41322,7 @@ func NewTLmessageActionChatAddUser() *TLmessageActionChatAddUser {
 
 // CodecEncode:messageActionChatAddUser
 func (m *TLmessageActionChatAddUser) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1217033015)
 	x.Int(481674261)
 	x.Int(int32(len(m.Getusers())))
@@ -41333,7 +41333,7 @@ func (m *TLmessageActionChatAddUser) Encode() []byte {
 }
 
 // CodecDecode:messageActionChatAddUser
-func (m *TLmessageActionChatAddUser) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessageActionChatAddUser) Decode(dbuf *api.DecodeBuf) error {
 	m.Setusers(dbuf.VectorInt())
 	return dbuf.Err
 }
@@ -41347,14 +41347,14 @@ func NewTLmessageActionChatDeleteUser() *TLmessageActionChatDeleteUser {
 
 // CodecEncode:messageActionChatDeleteUser
 func (m *TLmessageActionChatDeleteUser) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1297179892)
 	x.Int(m.Getuser_id())
 	return x.Buf
 }
 
 // CodecDecode:messageActionChatDeleteUser
-func (m *TLmessageActionChatDeleteUser) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessageActionChatDeleteUser) Decode(dbuf *api.DecodeBuf) error {
 	m.Setuser_id(dbuf.Int())
 	return dbuf.Err
 }
@@ -41368,14 +41368,14 @@ func NewTLmessageActionChatJoinedByLink() *TLmessageActionChatJoinedByLink {
 
 // CodecEncode:messageActionChatJoinedByLink
 func (m *TLmessageActionChatJoinedByLink) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-123931160)
 	x.Int(m.Getinviter_id())
 	return x.Buf
 }
 
 // CodecDecode:messageActionChatJoinedByLink
-func (m *TLmessageActionChatJoinedByLink) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessageActionChatJoinedByLink) Decode(dbuf *api.DecodeBuf) error {
 	m.Setinviter_id(dbuf.Int())
 	return dbuf.Err
 }
@@ -41389,14 +41389,14 @@ func NewTLmessageActionChannelCreate() *TLmessageActionChannelCreate {
 
 // CodecEncode:messageActionChannelCreate
 func (m *TLmessageActionChannelCreate) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1781355374)
 	x.String(m.Gettitle())
 	return x.Buf
 }
 
 // CodecDecode:messageActionChannelCreate
-func (m *TLmessageActionChannelCreate) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessageActionChannelCreate) Decode(dbuf *api.DecodeBuf) error {
 	m.Settitle(dbuf.String())
 	return dbuf.Err
 }
@@ -41410,14 +41410,14 @@ func NewTLmessageActionChatMigrateTo() *TLmessageActionChatMigrateTo {
 
 // CodecEncode:messageActionChatMigrateTo
 func (m *TLmessageActionChatMigrateTo) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1371385889)
 	x.Int(m.Getchannel_id())
 	return x.Buf
 }
 
 // CodecDecode:messageActionChatMigrateTo
-func (m *TLmessageActionChatMigrateTo) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessageActionChatMigrateTo) Decode(dbuf *api.DecodeBuf) error {
 	m.Setchannel_id(dbuf.Int())
 	return dbuf.Err
 }
@@ -41431,7 +41431,7 @@ func NewTLmessageActionChannelMigrateFrom() *TLmessageActionChannelMigrateFrom {
 
 // CodecEncode:messageActionChannelMigrateFrom
 func (m *TLmessageActionChannelMigrateFrom) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1336546578)
 	x.String(m.Gettitle())
 	x.Int(m.Getchat_id())
@@ -41439,7 +41439,7 @@ func (m *TLmessageActionChannelMigrateFrom) Encode() []byte {
 }
 
 // CodecDecode:messageActionChannelMigrateFrom
-func (m *TLmessageActionChannelMigrateFrom) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessageActionChannelMigrateFrom) Decode(dbuf *api.DecodeBuf) error {
 	m.Settitle(dbuf.String())
 	m.Setchat_id(dbuf.Int())
 	return dbuf.Err
@@ -41454,13 +41454,13 @@ func NewTLmessageActionPinMessage() *TLmessageActionPinMessage {
 
 // CodecEncode:messageActionPinMessage
 func (m *TLmessageActionPinMessage) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1799538451)
 	return x.Buf
 }
 
 // CodecDecode:messageActionPinMessage
-func (m *TLmessageActionPinMessage) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessageActionPinMessage) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -41473,13 +41473,13 @@ func NewTLmessageActionHistoryClear() *TLmessageActionHistoryClear {
 
 // CodecEncode:messageActionHistoryClear
 func (m *TLmessageActionHistoryClear) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1615153660)
 	return x.Buf
 }
 
 // CodecDecode:messageActionHistoryClear
-func (m *TLmessageActionHistoryClear) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessageActionHistoryClear) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -41492,7 +41492,7 @@ func NewTLmessageActionGameScore() *TLmessageActionGameScore {
 
 // CodecEncode:messageActionGameScore
 func (m *TLmessageActionGameScore) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1834538890)
 	x.Long(m.Getgame_id())
 	x.Int(m.Getscore())
@@ -41500,7 +41500,7 @@ func (m *TLmessageActionGameScore) Encode() []byte {
 }
 
 // CodecDecode:messageActionGameScore
-func (m *TLmessageActionGameScore) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessageActionGameScore) Decode(dbuf *api.DecodeBuf) error {
 	m.Setgame_id(dbuf.Long())
 	m.Setscore(dbuf.Int())
 	return dbuf.Err
@@ -41515,7 +41515,7 @@ func NewTLmessageActionPaymentSentMe() *TLmessageActionPaymentSentMe {
 
 // CodecEncode:messageActionPaymentSentMe
 func (m *TLmessageActionPaymentSentMe) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1892568281)
 	var flags uint32 = 0
 	if m.Getinfo().Constructor != 0 {
@@ -41539,7 +41539,7 @@ func (m *TLmessageActionPaymentSentMe) Encode() []byte {
 }
 
 // CodecDecode:messageActionPaymentSentMe
-func (m *TLmessageActionPaymentSentMe) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessageActionPaymentSentMe) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	m.Setcurrency(dbuf.String())
@@ -41568,7 +41568,7 @@ func NewTLmessageActionPaymentSent() *TLmessageActionPaymentSent {
 
 // CodecEncode:messageActionPaymentSent
 func (m *TLmessageActionPaymentSent) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1080663248)
 	x.String(m.Getcurrency())
 	x.Long(m.Gettotal_amount())
@@ -41576,7 +41576,7 @@ func (m *TLmessageActionPaymentSent) Encode() []byte {
 }
 
 // CodecDecode:messageActionPaymentSent
-func (m *TLmessageActionPaymentSent) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessageActionPaymentSent) Decode(dbuf *api.DecodeBuf) error {
 	m.Setcurrency(dbuf.String())
 	m.Settotal_amount(dbuf.Long())
 	return dbuf.Err
@@ -41591,7 +41591,7 @@ func NewTLmessageActionPhoneCall() *TLmessageActionPhoneCall {
 
 // CodecEncode:messageActionPhoneCall
 func (m *TLmessageActionPhoneCall) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-2132731265)
 	var flags uint32 = 0
 	if m.Getvideo() != false {
@@ -41615,7 +41615,7 @@ func (m *TLmessageActionPhoneCall) Encode() []byte {
 }
 
 // CodecDecode:messageActionPhoneCall
-func (m *TLmessageActionPhoneCall) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessageActionPhoneCall) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	if (flags & (1 << 0)) != 0 {
@@ -41642,13 +41642,13 @@ func NewTLmessageActionScreenshotTaken() *TLmessageActionScreenshotTaken {
 
 // CodecEncode:messageActionScreenshotTaken
 func (m *TLmessageActionScreenshotTaken) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1200788123)
 	return x.Buf
 }
 
 // CodecDecode:messageActionScreenshotTaken
-func (m *TLmessageActionScreenshotTaken) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessageActionScreenshotTaken) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -41661,14 +41661,14 @@ func NewTLmessageActionCustomAction() *TLmessageActionCustomAction {
 
 // CodecEncode:messageActionCustomAction
 func (m *TLmessageActionCustomAction) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-85549226)
 	x.String(m.Getmessage())
 	return x.Buf
 }
 
 // CodecDecode:messageActionCustomAction
-func (m *TLmessageActionCustomAction) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessageActionCustomAction) Decode(dbuf *api.DecodeBuf) error {
 	m.Setmessage(dbuf.String())
 	return dbuf.Err
 }
@@ -41682,14 +41682,14 @@ func NewTLmessageActionBotAllowed() *TLmessageActionBotAllowed {
 
 // CodecEncode:messageActionBotAllowed
 func (m *TLmessageActionBotAllowed) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1410748418)
 	x.String(m.Getdomain())
 	return x.Buf
 }
 
 // CodecDecode:messageActionBotAllowed
-func (m *TLmessageActionBotAllowed) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessageActionBotAllowed) Decode(dbuf *api.DecodeBuf) error {
 	m.Setdomain(dbuf.String())
 	return dbuf.Err
 }
@@ -41703,7 +41703,7 @@ func NewTLmessageActionSecureValuesSentMe() *TLmessageActionSecureValuesSentMe {
 
 // CodecEncode:messageActionSecureValuesSentMe
 func (m *TLmessageActionSecureValuesSentMe) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(455635795)
 	x.Int(481674261)
 	x.Int(int32(len(m.Getvalues())))
@@ -41715,7 +41715,7 @@ func (m *TLmessageActionSecureValuesSentMe) Encode() []byte {
 }
 
 // CodecDecode:messageActionSecureValuesSentMe
-func (m *TLmessageActionSecureValuesSentMe) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessageActionSecureValuesSentMe) Decode(dbuf *api.DecodeBuf) error {
 	c0 := dbuf.Int()
 	if c0 != 481674261 {
 		return dbuf.Err
@@ -41742,7 +41742,7 @@ func NewTLmessageActionSecureValuesSent() *TLmessageActionSecureValuesSent {
 
 // CodecEncode:messageActionSecureValuesSent
 func (m *TLmessageActionSecureValuesSent) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-648257196)
 	x.Int(481674261)
 	x.Int(int32(len(m.Gettypes())))
@@ -41753,7 +41753,7 @@ func (m *TLmessageActionSecureValuesSent) Encode() []byte {
 }
 
 // CodecDecode:messageActionSecureValuesSent
-func (m *TLmessageActionSecureValuesSent) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessageActionSecureValuesSent) Decode(dbuf *api.DecodeBuf) error {
 	c0 := dbuf.Int()
 	if c0 != 481674261 {
 		return dbuf.Err
@@ -41777,13 +41777,13 @@ func NewTLmessageActionContactSignUp() *TLmessageActionContactSignUp {
 
 // CodecEncode:messageActionContactSignUp
 func (m *TLmessageActionContactSignUp) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-202219658)
 	return x.Buf
 }
 
 // CodecDecode:messageActionContactSignUp
-func (m *TLmessageActionContactSignUp) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessageActionContactSignUp) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -41796,7 +41796,7 @@ func NewTLmessageActionGeoProximityReached() *TLmessageActionGeoProximityReached
 
 // CodecEncode:messageActionGeoProximityReached
 func (m *TLmessageActionGeoProximityReached) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1730095465)
 	x.Bytes(m.Getfrom_id().Encode())
 	x.Bytes(m.Getto_id().Encode())
@@ -41805,7 +41805,7 @@ func (m *TLmessageActionGeoProximityReached) Encode() []byte {
 }
 
 // CodecDecode:messageActionGeoProximityReached
-func (m *TLmessageActionGeoProximityReached) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessageActionGeoProximityReached) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &Peer{}
 	m0.Decode(dbuf)
 	m.Setfrom_id(m0)
@@ -41825,7 +41825,7 @@ func NewTLpeerLocated() *TLpeerLocated {
 
 // CodecEncode:peerLocated
 func (m *TLpeerLocated) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-901375139)
 	x.Bytes(m.Getpeer().Encode())
 	x.Int(m.Getexpires())
@@ -41834,7 +41834,7 @@ func (m *TLpeerLocated) Encode() []byte {
 }
 
 // CodecDecode:peerLocated
-func (m *TLpeerLocated) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLpeerLocated) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &Peer{}
 	m0.Decode(dbuf)
 	m.Setpeer(m0)
@@ -41852,14 +41852,14 @@ func NewTLpeerSelfLocated() *TLpeerSelfLocated {
 
 // CodecEncode:peerSelfLocated
 func (m *TLpeerSelfLocated) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-118740917)
 	x.Int(m.Getexpires())
 	return x.Buf
 }
 
 // CodecDecode:peerSelfLocated
-func (m *TLpeerSelfLocated) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLpeerSelfLocated) Decode(dbuf *api.DecodeBuf) error {
 	m.Setexpires(dbuf.Int())
 	return dbuf.Err
 }
@@ -41873,7 +41873,7 @@ func NewTLmessages_chats() *TLmessages_chats {
 
 // CodecEncode:messages_chats
 func (m *TLmessages_chats) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1694474197)
 	x.Int(481674261)
 	x.Int(int32(len(m.Getchats())))
@@ -41884,7 +41884,7 @@ func (m *TLmessages_chats) Encode() []byte {
 }
 
 // CodecDecode:messages_chats
-func (m *TLmessages_chats) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessages_chats) Decode(dbuf *api.DecodeBuf) error {
 	c0 := dbuf.Int()
 	if c0 != 481674261 {
 		return dbuf.Err
@@ -41908,7 +41908,7 @@ func NewTLmessages_chatsSlice() *TLmessages_chatsSlice {
 
 // CodecEncode:messages_chatsSlice
 func (m *TLmessages_chatsSlice) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1663561404)
 	x.Int(m.Getcount())
 	x.Int(481674261)
@@ -41920,7 +41920,7 @@ func (m *TLmessages_chatsSlice) Encode() []byte {
 }
 
 // CodecDecode:messages_chatsSlice
-func (m *TLmessages_chatsSlice) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessages_chatsSlice) Decode(dbuf *api.DecodeBuf) error {
 	m.Setcount(dbuf.Int())
 	c1 := dbuf.Int()
 	if c1 != 481674261 {
@@ -41945,7 +41945,7 @@ func NewTLmessageReplyHeader() *TLmessageReplyHeader {
 
 // CodecEncode:messageReplyHeader
 func (m *TLmessageReplyHeader) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1495959709)
 	var flags uint32 = 0
 	if m.Getreply_to_peer_id().Constructor != 0 {
@@ -41966,7 +41966,7 @@ func (m *TLmessageReplyHeader) Encode() []byte {
 }
 
 // CodecDecode:messageReplyHeader
-func (m *TLmessageReplyHeader) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessageReplyHeader) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	m.Setreply_to_msg_id(dbuf.Int())
@@ -41990,7 +41990,7 @@ func NewTLmessages_affectedMessages() *TLmessages_affectedMessages {
 
 // CodecEncode:messages_affectedMessages
 func (m *TLmessages_affectedMessages) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-2066640507)
 	x.Int(m.Getpts())
 	x.Int(m.Getpts_count())
@@ -41998,7 +41998,7 @@ func (m *TLmessages_affectedMessages) Encode() []byte {
 }
 
 // CodecDecode:messages_affectedMessages
-func (m *TLmessages_affectedMessages) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessages_affectedMessages) Decode(dbuf *api.DecodeBuf) error {
 	m.Setpts(dbuf.Int())
 	m.Setpts_count(dbuf.Int())
 	return dbuf.Err
@@ -42013,7 +42013,7 @@ func NewTLstatsAbsValueAndPrev() *TLstatsAbsValueAndPrev {
 
 // CodecEncode:statsAbsValueAndPrev
 func (m *TLstatsAbsValueAndPrev) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-884757282)
 	x.Bytes(m.Getcurrent().Encode())
 	x.Bytes(m.Getprevious().Encode())
@@ -42021,7 +42021,7 @@ func (m *TLstatsAbsValueAndPrev) Encode() []byte {
 }
 
 // CodecDecode:statsAbsValueAndPrev
-func (m *TLstatsAbsValueAndPrev) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLstatsAbsValueAndPrev) Decode(dbuf *api.DecodeBuf) error {
 	m.Setcurrent(dbuf.Double())
 	m.Setprevious(dbuf.Double())
 	return dbuf.Err
@@ -42036,7 +42036,7 @@ func NewTLpaymentSavedCredentialsCard() *TLpaymentSavedCredentialsCard {
 
 // CodecEncode:paymentSavedCredentialsCard
 func (m *TLpaymentSavedCredentialsCard) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-842892769)
 	x.String(m.Getid())
 	x.String(m.Gettitle())
@@ -42044,7 +42044,7 @@ func (m *TLpaymentSavedCredentialsCard) Encode() []byte {
 }
 
 // CodecDecode:paymentSavedCredentialsCard
-func (m *TLpaymentSavedCredentialsCard) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLpaymentSavedCredentialsCard) Decode(dbuf *api.DecodeBuf) error {
 	m.Setid(dbuf.String())
 	m.Settitle(dbuf.String())
 	return dbuf.Err
@@ -42059,7 +42059,7 @@ func NewTLsecureValueErrorData() *TLsecureValueErrorData {
 
 // CodecEncode:secureValueErrorData
 func (m *TLsecureValueErrorData) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-391902247)
 	x.Bytes(m.Gettype().Encode())
 	x.Bytes(m.Getdata_hash())
@@ -42069,7 +42069,7 @@ func (m *TLsecureValueErrorData) Encode() []byte {
 }
 
 // CodecDecode:secureValueErrorData
-func (m *TLsecureValueErrorData) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLsecureValueErrorData) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &SecureValueType{}
 	m0.Decode(dbuf)
 	m.Settype(m0)
@@ -42088,7 +42088,7 @@ func NewTLsecureValueErrorFrontSide() *TLsecureValueErrorFrontSide {
 
 // CodecEncode:secureValueErrorFrontSide
 func (m *TLsecureValueErrorFrontSide) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(12467706)
 	x.Bytes(m.Gettype().Encode())
 	x.Bytes(m.Getfile_hash())
@@ -42097,7 +42097,7 @@ func (m *TLsecureValueErrorFrontSide) Encode() []byte {
 }
 
 // CodecDecode:secureValueErrorFrontSide
-func (m *TLsecureValueErrorFrontSide) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLsecureValueErrorFrontSide) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &SecureValueType{}
 	m0.Decode(dbuf)
 	m.Settype(m0)
@@ -42115,7 +42115,7 @@ func NewTLsecureValueErrorReverseSide() *TLsecureValueErrorReverseSide {
 
 // CodecEncode:secureValueErrorReverseSide
 func (m *TLsecureValueErrorReverseSide) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-2037765467)
 	x.Bytes(m.Gettype().Encode())
 	x.Bytes(m.Getfile_hash())
@@ -42124,7 +42124,7 @@ func (m *TLsecureValueErrorReverseSide) Encode() []byte {
 }
 
 // CodecDecode:secureValueErrorReverseSide
-func (m *TLsecureValueErrorReverseSide) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLsecureValueErrorReverseSide) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &SecureValueType{}
 	m0.Decode(dbuf)
 	m.Settype(m0)
@@ -42142,7 +42142,7 @@ func NewTLsecureValueErrorSelfie() *TLsecureValueErrorSelfie {
 
 // CodecEncode:secureValueErrorSelfie
 func (m *TLsecureValueErrorSelfie) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-449327402)
 	x.Bytes(m.Gettype().Encode())
 	x.Bytes(m.Getfile_hash())
@@ -42151,7 +42151,7 @@ func (m *TLsecureValueErrorSelfie) Encode() []byte {
 }
 
 // CodecDecode:secureValueErrorSelfie
-func (m *TLsecureValueErrorSelfie) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLsecureValueErrorSelfie) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &SecureValueType{}
 	m0.Decode(dbuf)
 	m.Settype(m0)
@@ -42169,7 +42169,7 @@ func NewTLsecureValueErrorFile() *TLsecureValueErrorFile {
 
 // CodecEncode:secureValueErrorFile
 func (m *TLsecureValueErrorFile) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(2054162547)
 	x.Bytes(m.Gettype().Encode())
 	x.Bytes(m.Getfile_hash())
@@ -42178,7 +42178,7 @@ func (m *TLsecureValueErrorFile) Encode() []byte {
 }
 
 // CodecDecode:secureValueErrorFile
-func (m *TLsecureValueErrorFile) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLsecureValueErrorFile) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &SecureValueType{}
 	m0.Decode(dbuf)
 	m.Settype(m0)
@@ -42196,7 +42196,7 @@ func NewTLsecureValueErrorFiles() *TLsecureValueErrorFiles {
 
 // CodecEncode:secureValueErrorFiles
 func (m *TLsecureValueErrorFiles) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1717706985)
 	x.Bytes(m.Gettype().Encode())
 	x.Int(481674261)
@@ -42209,7 +42209,7 @@ func (m *TLsecureValueErrorFiles) Encode() []byte {
 }
 
 // CodecDecode:secureValueErrorFiles
-func (m *TLsecureValueErrorFiles) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLsecureValueErrorFiles) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &SecureValueType{}
 	m0.Decode(dbuf)
 	m.Settype(m0)
@@ -42236,7 +42236,7 @@ func NewTLsecureValueError() *TLsecureValueError {
 
 // CodecEncode:secureValueError
 func (m *TLsecureValueError) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-2036501105)
 	x.Bytes(m.Gettype().Encode())
 	x.Bytes(m.Gethash())
@@ -42245,7 +42245,7 @@ func (m *TLsecureValueError) Encode() []byte {
 }
 
 // CodecDecode:secureValueError
-func (m *TLsecureValueError) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLsecureValueError) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &SecureValueType{}
 	m0.Decode(dbuf)
 	m.Settype(m0)
@@ -42263,7 +42263,7 @@ func NewTLsecureValueErrorTranslationFile() *TLsecureValueErrorTranslationFile {
 
 // CodecEncode:secureValueErrorTranslationFile
 func (m *TLsecureValueErrorTranslationFile) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1592506512)
 	x.Bytes(m.Gettype().Encode())
 	x.Bytes(m.Getfile_hash())
@@ -42272,7 +42272,7 @@ func (m *TLsecureValueErrorTranslationFile) Encode() []byte {
 }
 
 // CodecDecode:secureValueErrorTranslationFile
-func (m *TLsecureValueErrorTranslationFile) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLsecureValueErrorTranslationFile) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &SecureValueType{}
 	m0.Decode(dbuf)
 	m.Settype(m0)
@@ -42290,7 +42290,7 @@ func NewTLsecureValueErrorTranslationFiles() *TLsecureValueErrorTranslationFiles
 
 // CodecEncode:secureValueErrorTranslationFiles
 func (m *TLsecureValueErrorTranslationFiles) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(878931416)
 	x.Bytes(m.Gettype().Encode())
 	x.Int(481674261)
@@ -42303,7 +42303,7 @@ func (m *TLsecureValueErrorTranslationFiles) Encode() []byte {
 }
 
 // CodecDecode:secureValueErrorTranslationFiles
-func (m *TLsecureValueErrorTranslationFiles) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLsecureValueErrorTranslationFiles) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &SecureValueType{}
 	m0.Decode(dbuf)
 	m.Settype(m0)
@@ -42330,7 +42330,7 @@ func NewTLinputGameID() *TLinputGameID {
 
 // CodecEncode:inputGameID
 func (m *TLinputGameID) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(53231223)
 	x.Long(m.Getid())
 	x.Long(m.Getaccess_hash())
@@ -42338,7 +42338,7 @@ func (m *TLinputGameID) Encode() []byte {
 }
 
 // CodecDecode:inputGameID
-func (m *TLinputGameID) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLinputGameID) Decode(dbuf *api.DecodeBuf) error {
 	m.Setid(dbuf.Long())
 	m.Setaccess_hash(dbuf.Long())
 	return dbuf.Err
@@ -42353,7 +42353,7 @@ func NewTLinputGameShortName() *TLinputGameShortName {
 
 // CodecEncode:inputGameShortName
 func (m *TLinputGameShortName) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1020139510)
 	x.Bytes(m.Getbot_id().Encode())
 	x.String(m.Getshort_name())
@@ -42361,7 +42361,7 @@ func (m *TLinputGameShortName) Encode() []byte {
 }
 
 // CodecDecode:inputGameShortName
-func (m *TLinputGameShortName) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLinputGameShortName) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &InputUser{}
 	m0.Decode(dbuf)
 	m.Setbot_id(m0)
@@ -42378,13 +42378,13 @@ func NewTLphoneCallDiscardReasonMissed() *TLphoneCallDiscardReasonMissed {
 
 // CodecEncode:phoneCallDiscardReasonMissed
 func (m *TLphoneCallDiscardReasonMissed) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-2048646399)
 	return x.Buf
 }
 
 // CodecDecode:phoneCallDiscardReasonMissed
-func (m *TLphoneCallDiscardReasonMissed) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLphoneCallDiscardReasonMissed) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -42397,13 +42397,13 @@ func NewTLphoneCallDiscardReasonDisconnect() *TLphoneCallDiscardReasonDisconnect
 
 // CodecEncode:phoneCallDiscardReasonDisconnect
 func (m *TLphoneCallDiscardReasonDisconnect) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-527056480)
 	return x.Buf
 }
 
 // CodecDecode:phoneCallDiscardReasonDisconnect
-func (m *TLphoneCallDiscardReasonDisconnect) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLphoneCallDiscardReasonDisconnect) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -42416,13 +42416,13 @@ func NewTLphoneCallDiscardReasonHangup() *TLphoneCallDiscardReasonHangup {
 
 // CodecEncode:phoneCallDiscardReasonHangup
 func (m *TLphoneCallDiscardReasonHangup) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1471006352)
 	return x.Buf
 }
 
 // CodecDecode:phoneCallDiscardReasonHangup
-func (m *TLphoneCallDiscardReasonHangup) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLphoneCallDiscardReasonHangup) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -42435,13 +42435,13 @@ func NewTLphoneCallDiscardReasonBusy() *TLphoneCallDiscardReasonBusy {
 
 // CodecEncode:phoneCallDiscardReasonBusy
 func (m *TLphoneCallDiscardReasonBusy) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-84416311)
 	return x.Buf
 }
 
 // CodecDecode:phoneCallDiscardReasonBusy
-func (m *TLphoneCallDiscardReasonBusy) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLphoneCallDiscardReasonBusy) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -42454,7 +42454,7 @@ func NewTLglobalPrivacySettings() *TLglobalPrivacySettings {
 
 // CodecEncode:globalPrivacySettings
 func (m *TLglobalPrivacySettings) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1096616924)
 	var flags uint32 = 0
 	if m.Getarchive_and_mute_new_noncontact_peers().Constructor != 0 {
@@ -42468,7 +42468,7 @@ func (m *TLglobalPrivacySettings) Encode() []byte {
 }
 
 // CodecDecode:globalPrivacySettings
-func (m *TLglobalPrivacySettings) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLglobalPrivacySettings) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	if (flags & (1 << 0)) != 0 {
@@ -42488,7 +42488,7 @@ func NewTLchannels_channelParticipant() *TLchannels_channelParticipant {
 
 // CodecEncode:channels_channelParticipant
 func (m *TLchannels_channelParticipant) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-791039645)
 	x.Bytes(m.Getparticipant().Encode())
 	x.Int(481674261)
@@ -42500,7 +42500,7 @@ func (m *TLchannels_channelParticipant) Encode() []byte {
 }
 
 // CodecDecode:channels_channelParticipant
-func (m *TLchannels_channelParticipant) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLchannels_channelParticipant) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &ChannelParticipant{}
 	m0.Decode(dbuf)
 	m.Setparticipant(m0)
@@ -42527,7 +42527,7 @@ func NewTLpayments_savedInfo() *TLpayments_savedInfo {
 
 // CodecEncode:payments_savedInfo
 func (m *TLpayments_savedInfo) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-74456004)
 	var flags uint32 = 0
 	if m.Gethas_saved_credentials() != false {
@@ -42544,7 +42544,7 @@ func (m *TLpayments_savedInfo) Encode() []byte {
 }
 
 // CodecDecode:payments_savedInfo
-func (m *TLpayments_savedInfo) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLpayments_savedInfo) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	if (flags & (1 << 0)) != 0 {
@@ -42567,13 +42567,13 @@ func NewTLchannelParticipantsRecent() *TLchannelParticipantsRecent {
 
 // CodecEncode:channelParticipantsRecent
 func (m *TLchannelParticipantsRecent) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-566281095)
 	return x.Buf
 }
 
 // CodecDecode:channelParticipantsRecent
-func (m *TLchannelParticipantsRecent) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLchannelParticipantsRecent) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -42586,13 +42586,13 @@ func NewTLchannelParticipantsAdmins() *TLchannelParticipantsAdmins {
 
 // CodecEncode:channelParticipantsAdmins
 func (m *TLchannelParticipantsAdmins) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1268741783)
 	return x.Buf
 }
 
 // CodecDecode:channelParticipantsAdmins
-func (m *TLchannelParticipantsAdmins) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLchannelParticipantsAdmins) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -42605,14 +42605,14 @@ func NewTLchannelParticipantsKicked() *TLchannelParticipantsKicked {
 
 // CodecEncode:channelParticipantsKicked
 func (m *TLchannelParticipantsKicked) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1548400251)
 	x.String(m.Getq())
 	return x.Buf
 }
 
 // CodecDecode:channelParticipantsKicked
-func (m *TLchannelParticipantsKicked) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLchannelParticipantsKicked) Decode(dbuf *api.DecodeBuf) error {
 	m.Setq(dbuf.String())
 	return dbuf.Err
 }
@@ -42626,13 +42626,13 @@ func NewTLchannelParticipantsBots() *TLchannelParticipantsBots {
 
 // CodecEncode:channelParticipantsBots
 func (m *TLchannelParticipantsBots) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1328445861)
 	return x.Buf
 }
 
 // CodecDecode:channelParticipantsBots
-func (m *TLchannelParticipantsBots) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLchannelParticipantsBots) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -42645,14 +42645,14 @@ func NewTLchannelParticipantsBanned() *TLchannelParticipantsBanned {
 
 // CodecEncode:channelParticipantsBanned
 func (m *TLchannelParticipantsBanned) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(338142689)
 	x.String(m.Getq())
 	return x.Buf
 }
 
 // CodecDecode:channelParticipantsBanned
-func (m *TLchannelParticipantsBanned) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLchannelParticipantsBanned) Decode(dbuf *api.DecodeBuf) error {
 	m.Setq(dbuf.String())
 	return dbuf.Err
 }
@@ -42666,14 +42666,14 @@ func NewTLchannelParticipantsSearch() *TLchannelParticipantsSearch {
 
 // CodecEncode:channelParticipantsSearch
 func (m *TLchannelParticipantsSearch) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(106343499)
 	x.String(m.Getq())
 	return x.Buf
 }
 
 // CodecDecode:channelParticipantsSearch
-func (m *TLchannelParticipantsSearch) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLchannelParticipantsSearch) Decode(dbuf *api.DecodeBuf) error {
 	m.Setq(dbuf.String())
 	return dbuf.Err
 }
@@ -42687,14 +42687,14 @@ func NewTLchannelParticipantsContacts() *TLchannelParticipantsContacts {
 
 // CodecEncode:channelParticipantsContacts
 func (m *TLchannelParticipantsContacts) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1150621555)
 	x.String(m.Getq())
 	return x.Buf
 }
 
 // CodecDecode:channelParticipantsContacts
-func (m *TLchannelParticipantsContacts) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLchannelParticipantsContacts) Decode(dbuf *api.DecodeBuf) error {
 	m.Setq(dbuf.String())
 	return dbuf.Err
 }
@@ -42708,7 +42708,7 @@ func NewTLchannelParticipantsMentions() *TLchannelParticipantsMentions {
 
 // CodecEncode:channelParticipantsMentions
 func (m *TLchannelParticipantsMentions) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-531931925)
 	var flags uint32 = 0
 	if m.Getq() != "" {
@@ -42728,7 +42728,7 @@ func (m *TLchannelParticipantsMentions) Encode() []byte {
 }
 
 // CodecDecode:channelParticipantsMentions
-func (m *TLchannelParticipantsMentions) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLchannelParticipantsMentions) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	if (flags & (1 << 0)) != 0 {
@@ -42749,14 +42749,14 @@ func NewTLinputDialogPeer() *TLinputDialogPeer {
 
 // CodecEncode:inputDialogPeer
 func (m *TLinputDialogPeer) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-55902537)
 	x.Bytes(m.Getpeer().Encode())
 	return x.Buf
 }
 
 // CodecDecode:inputDialogPeer
-func (m *TLinputDialogPeer) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLinputDialogPeer) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &InputPeer{}
 	m0.Decode(dbuf)
 	m.Setpeer(m0)
@@ -42772,14 +42772,14 @@ func NewTLinputDialogPeerFolder() *TLinputDialogPeerFolder {
 
 // CodecEncode:inputDialogPeerFolder
 func (m *TLinputDialogPeerFolder) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1684014375)
 	x.Int(m.Getfolder_id())
 	return x.Buf
 }
 
 // CodecDecode:inputDialogPeerFolder
-func (m *TLinputDialogPeerFolder) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLinputDialogPeerFolder) Decode(dbuf *api.DecodeBuf) error {
 	m.Setfolder_id(dbuf.Int())
 	return dbuf.Err
 }
@@ -42793,14 +42793,14 @@ func NewTLaccountDaysTTL() *TLaccountDaysTTL {
 
 // CodecEncode:accountDaysTTL
 func (m *TLaccountDaysTTL) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1194283041)
 	x.Int(m.Getdays())
 	return x.Buf
 }
 
 // CodecDecode:accountDaysTTL
-func (m *TLaccountDaysTTL) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLaccountDaysTTL) Decode(dbuf *api.DecodeBuf) error {
 	m.Setdays(dbuf.Int())
 	return dbuf.Err
 }
@@ -42814,13 +42814,13 @@ func NewTLpageBlockUnsupported() *TLpageBlockUnsupported {
 
 // CodecEncode:pageBlockUnsupported
 func (m *TLpageBlockUnsupported) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(324435594)
 	return x.Buf
 }
 
 // CodecDecode:pageBlockUnsupported
-func (m *TLpageBlockUnsupported) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLpageBlockUnsupported) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -42833,14 +42833,14 @@ func NewTLpageBlockTitle() *TLpageBlockTitle {
 
 // CodecEncode:pageBlockTitle
 func (m *TLpageBlockTitle) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1890305021)
 	x.Bytes(m.Gettext().Encode())
 	return x.Buf
 }
 
 // CodecDecode:pageBlockTitle
-func (m *TLpageBlockTitle) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLpageBlockTitle) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &RichText{}
 	m0.Decode(dbuf)
 	m.Settext(m0)
@@ -42856,14 +42856,14 @@ func NewTLpageBlockSubtitle() *TLpageBlockSubtitle {
 
 // CodecEncode:pageBlockSubtitle
 func (m *TLpageBlockSubtitle) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1879401953)
 	x.Bytes(m.Gettext().Encode())
 	return x.Buf
 }
 
 // CodecDecode:pageBlockSubtitle
-func (m *TLpageBlockSubtitle) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLpageBlockSubtitle) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &RichText{}
 	m0.Decode(dbuf)
 	m.Settext(m0)
@@ -42879,7 +42879,7 @@ func NewTLpageBlockAuthorDate() *TLpageBlockAuthorDate {
 
 // CodecEncode:pageBlockAuthorDate
 func (m *TLpageBlockAuthorDate) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1162877472)
 	x.Bytes(m.Getauthor().Encode())
 	x.Int(m.Getpublished_date())
@@ -42887,7 +42887,7 @@ func (m *TLpageBlockAuthorDate) Encode() []byte {
 }
 
 // CodecDecode:pageBlockAuthorDate
-func (m *TLpageBlockAuthorDate) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLpageBlockAuthorDate) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &RichText{}
 	m0.Decode(dbuf)
 	m.Setauthor(m0)
@@ -42904,14 +42904,14 @@ func NewTLpageBlockHeader() *TLpageBlockHeader {
 
 // CodecEncode:pageBlockHeader
 func (m *TLpageBlockHeader) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1076861716)
 	x.Bytes(m.Gettext().Encode())
 	return x.Buf
 }
 
 // CodecDecode:pageBlockHeader
-func (m *TLpageBlockHeader) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLpageBlockHeader) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &RichText{}
 	m0.Decode(dbuf)
 	m.Settext(m0)
@@ -42927,14 +42927,14 @@ func NewTLpageBlockSubheader() *TLpageBlockSubheader {
 
 // CodecEncode:pageBlockSubheader
 func (m *TLpageBlockSubheader) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-248793375)
 	x.Bytes(m.Gettext().Encode())
 	return x.Buf
 }
 
 // CodecDecode:pageBlockSubheader
-func (m *TLpageBlockSubheader) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLpageBlockSubheader) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &RichText{}
 	m0.Decode(dbuf)
 	m.Settext(m0)
@@ -42950,14 +42950,14 @@ func NewTLpageBlockParagraph() *TLpageBlockParagraph {
 
 // CodecEncode:pageBlockParagraph
 func (m *TLpageBlockParagraph) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1182402406)
 	x.Bytes(m.Gettext().Encode())
 	return x.Buf
 }
 
 // CodecDecode:pageBlockParagraph
-func (m *TLpageBlockParagraph) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLpageBlockParagraph) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &RichText{}
 	m0.Decode(dbuf)
 	m.Settext(m0)
@@ -42973,7 +42973,7 @@ func NewTLpageBlockPreformatted() *TLpageBlockPreformatted {
 
 // CodecEncode:pageBlockPreformatted
 func (m *TLpageBlockPreformatted) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1066346178)
 	x.Bytes(m.Gettext().Encode())
 	x.String(m.Getlanguage())
@@ -42981,7 +42981,7 @@ func (m *TLpageBlockPreformatted) Encode() []byte {
 }
 
 // CodecDecode:pageBlockPreformatted
-func (m *TLpageBlockPreformatted) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLpageBlockPreformatted) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &RichText{}
 	m0.Decode(dbuf)
 	m.Settext(m0)
@@ -42998,14 +42998,14 @@ func NewTLpageBlockFooter() *TLpageBlockFooter {
 
 // CodecEncode:pageBlockFooter
 func (m *TLpageBlockFooter) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1216809369)
 	x.Bytes(m.Gettext().Encode())
 	return x.Buf
 }
 
 // CodecDecode:pageBlockFooter
-func (m *TLpageBlockFooter) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLpageBlockFooter) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &RichText{}
 	m0.Decode(dbuf)
 	m.Settext(m0)
@@ -43021,13 +43021,13 @@ func NewTLpageBlockDivider() *TLpageBlockDivider {
 
 // CodecEncode:pageBlockDivider
 func (m *TLpageBlockDivider) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-618614392)
 	return x.Buf
 }
 
 // CodecDecode:pageBlockDivider
-func (m *TLpageBlockDivider) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLpageBlockDivider) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -43040,14 +43040,14 @@ func NewTLpageBlockAnchor() *TLpageBlockAnchor {
 
 // CodecEncode:pageBlockAnchor
 func (m *TLpageBlockAnchor) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-837994576)
 	x.String(m.Getname())
 	return x.Buf
 }
 
 // CodecDecode:pageBlockAnchor
-func (m *TLpageBlockAnchor) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLpageBlockAnchor) Decode(dbuf *api.DecodeBuf) error {
 	m.Setname(dbuf.String())
 	return dbuf.Err
 }
@@ -43061,7 +43061,7 @@ func NewTLpageBlockList() *TLpageBlockList {
 
 // CodecEncode:pageBlockList
 func (m *TLpageBlockList) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-454524911)
 	x.Int(481674261)
 	x.Int(int32(len(m.Getitems())))
@@ -43072,7 +43072,7 @@ func (m *TLpageBlockList) Encode() []byte {
 }
 
 // CodecDecode:pageBlockList
-func (m *TLpageBlockList) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLpageBlockList) Decode(dbuf *api.DecodeBuf) error {
 	c0 := dbuf.Int()
 	if c0 != 481674261 {
 		return dbuf.Err
@@ -43096,7 +43096,7 @@ func NewTLpageBlockBlockquote() *TLpageBlockBlockquote {
 
 // CodecEncode:pageBlockBlockquote
 func (m *TLpageBlockBlockquote) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(641563686)
 	x.Bytes(m.Gettext().Encode())
 	x.Bytes(m.Getcaption().Encode())
@@ -43104,7 +43104,7 @@ func (m *TLpageBlockBlockquote) Encode() []byte {
 }
 
 // CodecDecode:pageBlockBlockquote
-func (m *TLpageBlockBlockquote) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLpageBlockBlockquote) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &RichText{}
 	m0.Decode(dbuf)
 	m.Settext(m0)
@@ -43123,7 +43123,7 @@ func NewTLpageBlockPullquote() *TLpageBlockPullquote {
 
 // CodecEncode:pageBlockPullquote
 func (m *TLpageBlockPullquote) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1329878739)
 	x.Bytes(m.Gettext().Encode())
 	x.Bytes(m.Getcaption().Encode())
@@ -43131,7 +43131,7 @@ func (m *TLpageBlockPullquote) Encode() []byte {
 }
 
 // CodecDecode:pageBlockPullquote
-func (m *TLpageBlockPullquote) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLpageBlockPullquote) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &RichText{}
 	m0.Decode(dbuf)
 	m.Settext(m0)
@@ -43150,7 +43150,7 @@ func NewTLpageBlockPhoto() *TLpageBlockPhoto {
 
 // CodecEncode:pageBlockPhoto
 func (m *TLpageBlockPhoto) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(391759200)
 	var flags uint32 = 0
 	if m.Geturl() != "" {
@@ -43172,7 +43172,7 @@ func (m *TLpageBlockPhoto) Encode() []byte {
 }
 
 // CodecDecode:pageBlockPhoto
-func (m *TLpageBlockPhoto) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLpageBlockPhoto) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	m.Setphoto_id(dbuf.Long())
@@ -43197,7 +43197,7 @@ func NewTLpageBlockVideo() *TLpageBlockVideo {
 
 // CodecEncode:pageBlockVideo
 func (m *TLpageBlockVideo) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(2089805750)
 	var flags uint32 = 0
 	if m.Getautoplay() != false {
@@ -43213,7 +43213,7 @@ func (m *TLpageBlockVideo) Encode() []byte {
 }
 
 // CodecDecode:pageBlockVideo
-func (m *TLpageBlockVideo) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLpageBlockVideo) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	if (flags & (1 << 0)) != 0 {
@@ -43238,14 +43238,14 @@ func NewTLpageBlockCover() *TLpageBlockCover {
 
 // CodecEncode:pageBlockCover
 func (m *TLpageBlockCover) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(972174080)
 	x.Bytes(m.Getcover().Encode())
 	return x.Buf
 }
 
 // CodecDecode:pageBlockCover
-func (m *TLpageBlockCover) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLpageBlockCover) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &PageBlock{}
 	m0.Decode(dbuf)
 	m.Setcover(m0)
@@ -43261,7 +43261,7 @@ func NewTLpageBlockEmbed() *TLpageBlockEmbed {
 
 // CodecEncode:pageBlockEmbed
 func (m *TLpageBlockEmbed) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1468953147)
 	var flags uint32 = 0
 	if m.Getfull_width() != false {
@@ -43306,7 +43306,7 @@ func (m *TLpageBlockEmbed) Encode() []byte {
 }
 
 // CodecDecode:pageBlockEmbed
-func (m *TLpageBlockEmbed) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLpageBlockEmbed) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	if (flags & (1 << 0)) != 0 {
@@ -43345,7 +43345,7 @@ func NewTLpageBlockEmbedPost() *TLpageBlockEmbedPost {
 
 // CodecEncode:pageBlockEmbedPost
 func (m *TLpageBlockEmbedPost) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-229005301)
 	x.String(m.Geturl())
 	x.Long(m.Getwebpage_id())
@@ -43362,7 +43362,7 @@ func (m *TLpageBlockEmbedPost) Encode() []byte {
 }
 
 // CodecDecode:pageBlockEmbedPost
-func (m *TLpageBlockEmbedPost) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLpageBlockEmbedPost) Decode(dbuf *api.DecodeBuf) error {
 	m.Seturl(dbuf.String())
 	m.Setwebpage_id(dbuf.Long())
 	m.Setauthor_photo_id(dbuf.Long())
@@ -43394,7 +43394,7 @@ func NewTLpageBlockCollage() *TLpageBlockCollage {
 
 // CodecEncode:pageBlockCollage
 func (m *TLpageBlockCollage) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1705048653)
 	x.Int(481674261)
 	x.Int(int32(len(m.Getitems_26())))
@@ -43406,7 +43406,7 @@ func (m *TLpageBlockCollage) Encode() []byte {
 }
 
 // CodecDecode:pageBlockCollage
-func (m *TLpageBlockCollage) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLpageBlockCollage) Decode(dbuf *api.DecodeBuf) error {
 	c0 := dbuf.Int()
 	if c0 != 481674261 {
 		return dbuf.Err
@@ -43433,7 +43433,7 @@ func NewTLpageBlockSlideshow() *TLpageBlockSlideshow {
 
 // CodecEncode:pageBlockSlideshow
 func (m *TLpageBlockSlideshow) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(52401552)
 	x.Int(481674261)
 	x.Int(int32(len(m.Getitems_26())))
@@ -43445,7 +43445,7 @@ func (m *TLpageBlockSlideshow) Encode() []byte {
 }
 
 // CodecDecode:pageBlockSlideshow
-func (m *TLpageBlockSlideshow) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLpageBlockSlideshow) Decode(dbuf *api.DecodeBuf) error {
 	c0 := dbuf.Int()
 	if c0 != 481674261 {
 		return dbuf.Err
@@ -43472,14 +43472,14 @@ func NewTLpageBlockChannel() *TLpageBlockChannel {
 
 // CodecEncode:pageBlockChannel
 func (m *TLpageBlockChannel) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-283684427)
 	x.Bytes(m.Getchannel().Encode())
 	return x.Buf
 }
 
 // CodecDecode:pageBlockChannel
-func (m *TLpageBlockChannel) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLpageBlockChannel) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &Chat{}
 	m0.Decode(dbuf)
 	m.Setchannel(m0)
@@ -43495,7 +43495,7 @@ func NewTLpageBlockAudio() *TLpageBlockAudio {
 
 // CodecEncode:pageBlockAudio
 func (m *TLpageBlockAudio) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-2143067670)
 	x.Long(m.Getaudio_id())
 	x.Bytes(m.Getcaption_9().Encode())
@@ -43503,7 +43503,7 @@ func (m *TLpageBlockAudio) Encode() []byte {
 }
 
 // CodecDecode:pageBlockAudio
-func (m *TLpageBlockAudio) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLpageBlockAudio) Decode(dbuf *api.DecodeBuf) error {
 	m.Setaudio_id(dbuf.Long())
 	m1 := &PageCaption{}
 	m1.Decode(dbuf)
@@ -43520,14 +43520,14 @@ func NewTLpageBlockKicker() *TLpageBlockKicker {
 
 // CodecEncode:pageBlockKicker
 func (m *TLpageBlockKicker) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(504660880)
 	x.Bytes(m.Gettext().Encode())
 	return x.Buf
 }
 
 // CodecDecode:pageBlockKicker
-func (m *TLpageBlockKicker) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLpageBlockKicker) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &RichText{}
 	m0.Decode(dbuf)
 	m.Settext(m0)
@@ -43543,7 +43543,7 @@ func NewTLpageBlockTable() *TLpageBlockTable {
 
 // CodecEncode:pageBlockTable
 func (m *TLpageBlockTable) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1085412734)
 	var flags uint32 = 0
 	if m.Getbordered() != false {
@@ -43563,7 +43563,7 @@ func (m *TLpageBlockTable) Encode() []byte {
 }
 
 // CodecDecode:pageBlockTable
-func (m *TLpageBlockTable) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLpageBlockTable) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	if (flags & (1 << 0)) != 0 {
@@ -43598,7 +43598,7 @@ func NewTLpageBlockOrderedList() *TLpageBlockOrderedList {
 
 // CodecEncode:pageBlockOrderedList
 func (m *TLpageBlockOrderedList) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1702174239)
 	x.Int(481674261)
 	x.Int(int32(len(m.Getitems_33())))
@@ -43609,7 +43609,7 @@ func (m *TLpageBlockOrderedList) Encode() []byte {
 }
 
 // CodecDecode:pageBlockOrderedList
-func (m *TLpageBlockOrderedList) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLpageBlockOrderedList) Decode(dbuf *api.DecodeBuf) error {
 	c0 := dbuf.Int()
 	if c0 != 481674261 {
 		return dbuf.Err
@@ -43633,7 +43633,7 @@ func NewTLpageBlockDetails() *TLpageBlockDetails {
 
 // CodecEncode:pageBlockDetails
 func (m *TLpageBlockDetails) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1987480557)
 	var flags uint32 = 0
 	if m.Getopen() != false {
@@ -43650,7 +43650,7 @@ func (m *TLpageBlockDetails) Encode() []byte {
 }
 
 // CodecDecode:pageBlockDetails
-func (m *TLpageBlockDetails) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLpageBlockDetails) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	if (flags & (1 << 0)) != 0 {
@@ -43682,7 +43682,7 @@ func NewTLpageBlockRelatedArticles() *TLpageBlockRelatedArticles {
 
 // CodecEncode:pageBlockRelatedArticles
 func (m *TLpageBlockRelatedArticles) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(370236054)
 	x.Bytes(m.Gettitle().Encode())
 	x.Int(481674261)
@@ -43694,7 +43694,7 @@ func (m *TLpageBlockRelatedArticles) Encode() []byte {
 }
 
 // CodecDecode:pageBlockRelatedArticles
-func (m *TLpageBlockRelatedArticles) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLpageBlockRelatedArticles) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &RichText{}
 	m0.Decode(dbuf)
 	m.Settitle(m0)
@@ -43721,7 +43721,7 @@ func NewTLpageBlockMap() *TLpageBlockMap {
 
 // CodecEncode:pageBlockMap
 func (m *TLpageBlockMap) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1538310410)
 	x.Bytes(m.Getgeo().Encode())
 	x.Int(m.Getzoom())
@@ -43732,7 +43732,7 @@ func (m *TLpageBlockMap) Encode() []byte {
 }
 
 // CodecDecode:pageBlockMap
-func (m *TLpageBlockMap) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLpageBlockMap) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &GeoPoint{}
 	m0.Decode(dbuf)
 	m.Setgeo(m0)
@@ -43754,7 +43754,7 @@ func NewTLpayments_paymentReceipt() *TLpayments_paymentReceipt {
 
 // CodecEncode:payments_paymentReceipt
 func (m *TLpayments_paymentReceipt) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1342771681)
 	var flags uint32 = 0
 	if m.Getinfo().Constructor != 0 {
@@ -43786,7 +43786,7 @@ func (m *TLpayments_paymentReceipt) Encode() []byte {
 }
 
 // CodecDecode:payments_paymentReceipt
-func (m *TLpayments_paymentReceipt) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLpayments_paymentReceipt) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	m.Setdate(dbuf.Int())
@@ -43831,13 +43831,13 @@ func NewTLinputPrivacyValueAllowContacts() *TLinputPrivacyValueAllowContacts {
 
 // CodecEncode:inputPrivacyValueAllowContacts
 func (m *TLinputPrivacyValueAllowContacts) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(218751099)
 	return x.Buf
 }
 
 // CodecDecode:inputPrivacyValueAllowContacts
-func (m *TLinputPrivacyValueAllowContacts) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLinputPrivacyValueAllowContacts) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -43850,13 +43850,13 @@ func NewTLinputPrivacyValueAllowAll() *TLinputPrivacyValueAllowAll {
 
 // CodecEncode:inputPrivacyValueAllowAll
 func (m *TLinputPrivacyValueAllowAll) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(407582158)
 	return x.Buf
 }
 
 // CodecDecode:inputPrivacyValueAllowAll
-func (m *TLinputPrivacyValueAllowAll) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLinputPrivacyValueAllowAll) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -43869,7 +43869,7 @@ func NewTLinputPrivacyValueAllowUsers() *TLinputPrivacyValueAllowUsers {
 
 // CodecEncode:inputPrivacyValueAllowUsers
 func (m *TLinputPrivacyValueAllowUsers) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(320652927)
 	x.Int(481674261)
 	x.Int(int32(len(m.Getusers())))
@@ -43880,7 +43880,7 @@ func (m *TLinputPrivacyValueAllowUsers) Encode() []byte {
 }
 
 // CodecDecode:inputPrivacyValueAllowUsers
-func (m *TLinputPrivacyValueAllowUsers) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLinputPrivacyValueAllowUsers) Decode(dbuf *api.DecodeBuf) error {
 	c0 := dbuf.Int()
 	if c0 != 481674261 {
 		return dbuf.Err
@@ -43904,13 +43904,13 @@ func NewTLinputPrivacyValueDisallowContacts() *TLinputPrivacyValueDisallowContac
 
 // CodecEncode:inputPrivacyValueDisallowContacts
 func (m *TLinputPrivacyValueDisallowContacts) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(195371015)
 	return x.Buf
 }
 
 // CodecDecode:inputPrivacyValueDisallowContacts
-func (m *TLinputPrivacyValueDisallowContacts) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLinputPrivacyValueDisallowContacts) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -43923,13 +43923,13 @@ func NewTLinputPrivacyValueDisallowAll() *TLinputPrivacyValueDisallowAll {
 
 // CodecEncode:inputPrivacyValueDisallowAll
 func (m *TLinputPrivacyValueDisallowAll) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-697604407)
 	return x.Buf
 }
 
 // CodecDecode:inputPrivacyValueDisallowAll
-func (m *TLinputPrivacyValueDisallowAll) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLinputPrivacyValueDisallowAll) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -43942,7 +43942,7 @@ func NewTLinputPrivacyValueDisallowUsers() *TLinputPrivacyValueDisallowUsers {
 
 // CodecEncode:inputPrivacyValueDisallowUsers
 func (m *TLinputPrivacyValueDisallowUsers) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1877932953)
 	x.Int(481674261)
 	x.Int(int32(len(m.Getusers())))
@@ -43953,7 +43953,7 @@ func (m *TLinputPrivacyValueDisallowUsers) Encode() []byte {
 }
 
 // CodecDecode:inputPrivacyValueDisallowUsers
-func (m *TLinputPrivacyValueDisallowUsers) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLinputPrivacyValueDisallowUsers) Decode(dbuf *api.DecodeBuf) error {
 	c0 := dbuf.Int()
 	if c0 != 481674261 {
 		return dbuf.Err
@@ -43977,7 +43977,7 @@ func NewTLinputPrivacyValueAllowChatParticipants() *TLinputPrivacyValueAllowChat
 
 // CodecEncode:inputPrivacyValueAllowChatParticipants
 func (m *TLinputPrivacyValueAllowChatParticipants) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1283572154)
 	x.Int(481674261)
 	x.Int(int32(len(m.Getchats())))
@@ -43988,7 +43988,7 @@ func (m *TLinputPrivacyValueAllowChatParticipants) Encode() []byte {
 }
 
 // CodecDecode:inputPrivacyValueAllowChatParticipants
-func (m *TLinputPrivacyValueAllowChatParticipants) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLinputPrivacyValueAllowChatParticipants) Decode(dbuf *api.DecodeBuf) error {
 	m.Setchats(dbuf.VectorInt())
 	return dbuf.Err
 }
@@ -44002,7 +44002,7 @@ func NewTLinputPrivacyValueDisallowChatParticipants() *TLinputPrivacyValueDisall
 
 // CodecEncode:inputPrivacyValueDisallowChatParticipants
 func (m *TLinputPrivacyValueDisallowChatParticipants) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-668769361)
 	x.Int(481674261)
 	x.Int(int32(len(m.Getchats())))
@@ -44013,7 +44013,7 @@ func (m *TLinputPrivacyValueDisallowChatParticipants) Encode() []byte {
 }
 
 // CodecDecode:inputPrivacyValueDisallowChatParticipants
-func (m *TLinputPrivacyValueDisallowChatParticipants) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLinputPrivacyValueDisallowChatParticipants) Decode(dbuf *api.DecodeBuf) error {
 	m.Setchats(dbuf.VectorInt())
 	return dbuf.Err
 }
@@ -44027,7 +44027,7 @@ func NewTLupload_file() *TLupload_file {
 
 // CodecEncode:upload_file
 func (m *TLupload_file) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(157948117)
 	x.Bytes(m.Gettype().Encode())
 	x.Int(m.Getmtime())
@@ -44036,7 +44036,7 @@ func (m *TLupload_file) Encode() []byte {
 }
 
 // CodecDecode:upload_file
-func (m *TLupload_file) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLupload_file) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &Storage_FileType{}
 	m0.Decode(dbuf)
 	m.Settype(m0)
@@ -44054,7 +44054,7 @@ func NewTLupload_fileCdnRedirect() *TLupload_fileCdnRedirect {
 
 // CodecEncode:upload_fileCdnRedirect
 func (m *TLupload_fileCdnRedirect) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-242427324)
 	x.Int(m.Getdc_id())
 	x.Bytes(m.Getfile_token())
@@ -44069,7 +44069,7 @@ func (m *TLupload_fileCdnRedirect) Encode() []byte {
 }
 
 // CodecDecode:upload_fileCdnRedirect
-func (m *TLupload_fileCdnRedirect) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLupload_fileCdnRedirect) Decode(dbuf *api.DecodeBuf) error {
 	m.Setdc_id(dbuf.Int())
 	m.Setfile_token(dbuf.StringBytes())
 	m.Setencryption_key(dbuf.StringBytes())
@@ -44097,7 +44097,7 @@ func NewTLdialogFilterSuggested() *TLdialogFilterSuggested {
 
 // CodecEncode:dialogFilterSuggested
 func (m *TLdialogFilterSuggested) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(2004110666)
 	x.Bytes(m.Getfilter().Encode())
 	x.String(m.Getdescription())
@@ -44105,7 +44105,7 @@ func (m *TLdialogFilterSuggested) Encode() []byte {
 }
 
 // CodecDecode:dialogFilterSuggested
-func (m *TLdialogFilterSuggested) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLdialogFilterSuggested) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &DialogFilter{}
 	m0.Decode(dbuf)
 	m.Setfilter(m0)
@@ -44122,13 +44122,13 @@ func NewTLtextEmpty() *TLtextEmpty {
 
 // CodecEncode:textEmpty
 func (m *TLtextEmpty) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-599948721)
 	return x.Buf
 }
 
 // CodecDecode:textEmpty
-func (m *TLtextEmpty) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLtextEmpty) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -44141,14 +44141,14 @@ func NewTLtextPlain() *TLtextPlain {
 
 // CodecEncode:textPlain
 func (m *TLtextPlain) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1950782688)
 	x.String(m.Gettext())
 	return x.Buf
 }
 
 // CodecDecode:textPlain
-func (m *TLtextPlain) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLtextPlain) Decode(dbuf *api.DecodeBuf) error {
 	m.Settext(dbuf.String())
 	return dbuf.Err
 }
@@ -44162,14 +44162,14 @@ func NewTLtextBold() *TLtextBold {
 
 // CodecEncode:textBold
 func (m *TLtextBold) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1730456516)
 	x.Bytes(m.Gettext_2().Encode())
 	return x.Buf
 }
 
 // CodecDecode:textBold
-func (m *TLtextBold) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLtextBold) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &RichText{}
 	m0.Decode(dbuf)
 	m.Settext_2(m0)
@@ -44185,14 +44185,14 @@ func NewTLtextItalic() *TLtextItalic {
 
 // CodecEncode:textItalic
 func (m *TLtextItalic) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-653089380)
 	x.Bytes(m.Gettext_2().Encode())
 	return x.Buf
 }
 
 // CodecDecode:textItalic
-func (m *TLtextItalic) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLtextItalic) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &RichText{}
 	m0.Decode(dbuf)
 	m.Settext_2(m0)
@@ -44208,14 +44208,14 @@ func NewTLtextUnderline() *TLtextUnderline {
 
 // CodecEncode:textUnderline
 func (m *TLtextUnderline) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1054465340)
 	x.Bytes(m.Gettext_2().Encode())
 	return x.Buf
 }
 
 // CodecDecode:textUnderline
-func (m *TLtextUnderline) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLtextUnderline) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &RichText{}
 	m0.Decode(dbuf)
 	m.Settext_2(m0)
@@ -44231,14 +44231,14 @@ func NewTLtextStrike() *TLtextStrike {
 
 // CodecEncode:textStrike
 func (m *TLtextStrike) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1678197867)
 	x.Bytes(m.Gettext_2().Encode())
 	return x.Buf
 }
 
 // CodecDecode:textStrike
-func (m *TLtextStrike) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLtextStrike) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &RichText{}
 	m0.Decode(dbuf)
 	m.Settext_2(m0)
@@ -44254,14 +44254,14 @@ func NewTLtextFixed() *TLtextFixed {
 
 // CodecEncode:textFixed
 func (m *TLtextFixed) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1816074681)
 	x.Bytes(m.Gettext_2().Encode())
 	return x.Buf
 }
 
 // CodecDecode:textFixed
-func (m *TLtextFixed) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLtextFixed) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &RichText{}
 	m0.Decode(dbuf)
 	m.Settext_2(m0)
@@ -44277,7 +44277,7 @@ func NewTLtextUrl() *TLtextUrl {
 
 // CodecEncode:textUrl
 func (m *TLtextUrl) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1009288385)
 	x.Bytes(m.Gettext_2().Encode())
 	x.String(m.Geturl())
@@ -44286,7 +44286,7 @@ func (m *TLtextUrl) Encode() []byte {
 }
 
 // CodecDecode:textUrl
-func (m *TLtextUrl) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLtextUrl) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &RichText{}
 	m0.Decode(dbuf)
 	m.Settext_2(m0)
@@ -44304,7 +44304,7 @@ func NewTLtextEmail() *TLtextEmail {
 
 // CodecEncode:textEmail
 func (m *TLtextEmail) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-564523562)
 	x.Bytes(m.Gettext_2().Encode())
 	x.String(m.Getemail())
@@ -44312,7 +44312,7 @@ func (m *TLtextEmail) Encode() []byte {
 }
 
 // CodecDecode:textEmail
-func (m *TLtextEmail) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLtextEmail) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &RichText{}
 	m0.Decode(dbuf)
 	m.Settext_2(m0)
@@ -44329,7 +44329,7 @@ func NewTLtextConcat() *TLtextConcat {
 
 // CodecEncode:textConcat
 func (m *TLtextConcat) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(2120376535)
 	x.Int(481674261)
 	x.Int(int32(len(m.Gettexts())))
@@ -44340,7 +44340,7 @@ func (m *TLtextConcat) Encode() []byte {
 }
 
 // CodecDecode:textConcat
-func (m *TLtextConcat) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLtextConcat) Decode(dbuf *api.DecodeBuf) error {
 	c0 := dbuf.Int()
 	if c0 != 481674261 {
 		return dbuf.Err
@@ -44364,14 +44364,14 @@ func NewTLtextSubscript() *TLtextSubscript {
 
 // CodecEncode:textSubscript
 func (m *TLtextSubscript) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-311786236)
 	x.Bytes(m.Gettext_2().Encode())
 	return x.Buf
 }
 
 // CodecDecode:textSubscript
-func (m *TLtextSubscript) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLtextSubscript) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &RichText{}
 	m0.Decode(dbuf)
 	m.Settext_2(m0)
@@ -44387,14 +44387,14 @@ func NewTLtextSuperscript() *TLtextSuperscript {
 
 // CodecEncode:textSuperscript
 func (m *TLtextSuperscript) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-939827711)
 	x.Bytes(m.Gettext_2().Encode())
 	return x.Buf
 }
 
 // CodecDecode:textSuperscript
-func (m *TLtextSuperscript) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLtextSuperscript) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &RichText{}
 	m0.Decode(dbuf)
 	m.Settext_2(m0)
@@ -44410,14 +44410,14 @@ func NewTLtextMarked() *TLtextMarked {
 
 // CodecEncode:textMarked
 func (m *TLtextMarked) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(55281185)
 	x.Bytes(m.Gettext_2().Encode())
 	return x.Buf
 }
 
 // CodecDecode:textMarked
-func (m *TLtextMarked) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLtextMarked) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &RichText{}
 	m0.Decode(dbuf)
 	m.Settext_2(m0)
@@ -44433,7 +44433,7 @@ func NewTLtextPhone() *TLtextPhone {
 
 // CodecEncode:textPhone
 func (m *TLtextPhone) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(483104362)
 	x.Bytes(m.Gettext_2().Encode())
 	x.String(m.Getphone())
@@ -44441,7 +44441,7 @@ func (m *TLtextPhone) Encode() []byte {
 }
 
 // CodecDecode:textPhone
-func (m *TLtextPhone) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLtextPhone) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &RichText{}
 	m0.Decode(dbuf)
 	m.Settext_2(m0)
@@ -44458,7 +44458,7 @@ func NewTLtextImage() *TLtextImage {
 
 // CodecEncode:textImage
 func (m *TLtextImage) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(136105807)
 	x.Long(m.Getdocument_id())
 	x.Int(m.Getw())
@@ -44467,7 +44467,7 @@ func (m *TLtextImage) Encode() []byte {
 }
 
 // CodecDecode:textImage
-func (m *TLtextImage) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLtextImage) Decode(dbuf *api.DecodeBuf) error {
 	m.Setdocument_id(dbuf.Long())
 	m.Setw(dbuf.Int())
 	m.Seth(dbuf.Int())
@@ -44483,7 +44483,7 @@ func NewTLtextAnchor() *TLtextAnchor {
 
 // CodecEncode:textAnchor
 func (m *TLtextAnchor) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(894777186)
 	x.Bytes(m.Gettext_2().Encode())
 	x.String(m.Getname())
@@ -44491,7 +44491,7 @@ func (m *TLtextAnchor) Encode() []byte {
 }
 
 // CodecDecode:textAnchor
-func (m *TLtextAnchor) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLtextAnchor) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &RichText{}
 	m0.Decode(dbuf)
 	m.Settext_2(m0)
@@ -44508,13 +44508,13 @@ func NewTLsecureValueTypePersonalDetails() *TLsecureValueTypePersonalDetails {
 
 // CodecEncode:secureValueTypePersonalDetails
 func (m *TLsecureValueTypePersonalDetails) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1658158621)
 	return x.Buf
 }
 
 // CodecDecode:secureValueTypePersonalDetails
-func (m *TLsecureValueTypePersonalDetails) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLsecureValueTypePersonalDetails) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -44527,13 +44527,13 @@ func NewTLsecureValueTypePassport() *TLsecureValueTypePassport {
 
 // CodecEncode:secureValueTypePassport
 func (m *TLsecureValueTypePassport) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1034709504)
 	return x.Buf
 }
 
 // CodecDecode:secureValueTypePassport
-func (m *TLsecureValueTypePassport) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLsecureValueTypePassport) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -44546,13 +44546,13 @@ func NewTLsecureValueTypeDriverLicense() *TLsecureValueTypeDriverLicense {
 
 // CodecEncode:secureValueTypeDriverLicense
 func (m *TLsecureValueTypeDriverLicense) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(115615172)
 	return x.Buf
 }
 
 // CodecDecode:secureValueTypeDriverLicense
-func (m *TLsecureValueTypeDriverLicense) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLsecureValueTypeDriverLicense) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -44565,13 +44565,13 @@ func NewTLsecureValueTypeIdentityCard() *TLsecureValueTypeIdentityCard {
 
 // CodecEncode:secureValueTypeIdentityCard
 func (m *TLsecureValueTypeIdentityCard) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1596951477)
 	return x.Buf
 }
 
 // CodecDecode:secureValueTypeIdentityCard
-func (m *TLsecureValueTypeIdentityCard) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLsecureValueTypeIdentityCard) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -44584,13 +44584,13 @@ func NewTLsecureValueTypeInternalPassport() *TLsecureValueTypeInternalPassport {
 
 // CodecEncode:secureValueTypeInternalPassport
 func (m *TLsecureValueTypeInternalPassport) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1717268701)
 	return x.Buf
 }
 
 // CodecDecode:secureValueTypeInternalPassport
-func (m *TLsecureValueTypeInternalPassport) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLsecureValueTypeInternalPassport) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -44603,13 +44603,13 @@ func NewTLsecureValueTypeAddress() *TLsecureValueTypeAddress {
 
 // CodecEncode:secureValueTypeAddress
 func (m *TLsecureValueTypeAddress) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-874308058)
 	return x.Buf
 }
 
 // CodecDecode:secureValueTypeAddress
-func (m *TLsecureValueTypeAddress) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLsecureValueTypeAddress) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -44622,13 +44622,13 @@ func NewTLsecureValueTypeUtilityBill() *TLsecureValueTypeUtilityBill {
 
 // CodecEncode:secureValueTypeUtilityBill
 func (m *TLsecureValueTypeUtilityBill) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-63531698)
 	return x.Buf
 }
 
 // CodecDecode:secureValueTypeUtilityBill
-func (m *TLsecureValueTypeUtilityBill) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLsecureValueTypeUtilityBill) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -44641,13 +44641,13 @@ func NewTLsecureValueTypeBankStatement() *TLsecureValueTypeBankStatement {
 
 // CodecEncode:secureValueTypeBankStatement
 func (m *TLsecureValueTypeBankStatement) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1995211763)
 	return x.Buf
 }
 
 // CodecDecode:secureValueTypeBankStatement
-func (m *TLsecureValueTypeBankStatement) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLsecureValueTypeBankStatement) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -44660,13 +44660,13 @@ func NewTLsecureValueTypeRentalAgreement() *TLsecureValueTypeRentalAgreement {
 
 // CodecEncode:secureValueTypeRentalAgreement
 func (m *TLsecureValueTypeRentalAgreement) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1954007928)
 	return x.Buf
 }
 
 // CodecDecode:secureValueTypeRentalAgreement
-func (m *TLsecureValueTypeRentalAgreement) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLsecureValueTypeRentalAgreement) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -44679,13 +44679,13 @@ func NewTLsecureValueTypePassportRegistration() *TLsecureValueTypePassportRegist
 
 // CodecEncode:secureValueTypePassportRegistration
 func (m *TLsecureValueTypePassportRegistration) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1713143702)
 	return x.Buf
 }
 
 // CodecDecode:secureValueTypePassportRegistration
-func (m *TLsecureValueTypePassportRegistration) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLsecureValueTypePassportRegistration) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -44698,13 +44698,13 @@ func NewTLsecureValueTypeTemporaryRegistration() *TLsecureValueTypeTemporaryRegi
 
 // CodecEncode:secureValueTypeTemporaryRegistration
 func (m *TLsecureValueTypeTemporaryRegistration) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-368907213)
 	return x.Buf
 }
 
 // CodecDecode:secureValueTypeTemporaryRegistration
-func (m *TLsecureValueTypeTemporaryRegistration) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLsecureValueTypeTemporaryRegistration) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -44717,13 +44717,13 @@ func NewTLsecureValueTypePhone() *TLsecureValueTypePhone {
 
 // CodecEncode:secureValueTypePhone
 func (m *TLsecureValueTypePhone) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1289704741)
 	return x.Buf
 }
 
 // CodecDecode:secureValueTypePhone
-func (m *TLsecureValueTypePhone) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLsecureValueTypePhone) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -44736,13 +44736,13 @@ func NewTLsecureValueTypeEmail() *TLsecureValueTypeEmail {
 
 // CodecEncode:secureValueTypeEmail
 func (m *TLsecureValueTypeEmail) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1908627474)
 	return x.Buf
 }
 
 // CodecDecode:secureValueTypeEmail
-func (m *TLsecureValueTypeEmail) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLsecureValueTypeEmail) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -44755,7 +44755,7 @@ func NewTLmessages_inactiveChats() *TLmessages_inactiveChats {
 
 // CodecEncode:messages_inactiveChats
 func (m *TLmessages_inactiveChats) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1456996667)
 	x.Int(481674261)
 	x.Int(int32(len(m.Getdates())))
@@ -44776,7 +44776,7 @@ func (m *TLmessages_inactiveChats) Encode() []byte {
 }
 
 // CodecDecode:messages_inactiveChats
-func (m *TLmessages_inactiveChats) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessages_inactiveChats) Decode(dbuf *api.DecodeBuf) error {
 	m.Setdates(dbuf.VectorInt())
 	c1 := dbuf.Int()
 	if c1 != 481674261 {
@@ -44812,7 +44812,7 @@ func NewTLhelp_countryCode() *TLhelp_countryCode {
 
 // CodecEncode:help_countryCode
 func (m *TLhelp_countryCode) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1107543535)
 	var flags uint32 = 0
 	if m.Getprefixes() != 0 {
@@ -44841,7 +44841,7 @@ func (m *TLhelp_countryCode) Encode() []byte {
 }
 
 // CodecDecode:help_countryCode
-func (m *TLhelp_countryCode) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLhelp_countryCode) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	m.Setcountry_code(dbuf.String())
@@ -44863,7 +44863,7 @@ func NewTLaccount_authorizations() *TLaccount_authorizations {
 
 // CodecEncode:account_authorizations
 func (m *TLaccount_authorizations) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(307276766)
 	x.Int(481674261)
 	x.Int(int32(len(m.Getauthorizations())))
@@ -44874,7 +44874,7 @@ func (m *TLaccount_authorizations) Encode() []byte {
 }
 
 // CodecDecode:account_authorizations
-func (m *TLaccount_authorizations) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLaccount_authorizations) Decode(dbuf *api.DecodeBuf) error {
 	c0 := dbuf.Int()
 	if c0 != 481674261 {
 		return dbuf.Err
@@ -44898,14 +44898,14 @@ func NewTLchatOnlines() *TLchatOnlines {
 
 // CodecEncode:chatOnlines
 func (m *TLchatOnlines) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-264117680)
 	x.Int(m.Getonlines())
 	return x.Buf
 }
 
 // CodecDecode:chatOnlines
-func (m *TLchatOnlines) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLchatOnlines) Decode(dbuf *api.DecodeBuf) error {
 	m.Setonlines(dbuf.Int())
 	return dbuf.Err
 }
@@ -44919,13 +44919,13 @@ func NewTLinputPhotoEmpty() *TLinputPhotoEmpty {
 
 // CodecEncode:inputPhotoEmpty
 func (m *TLinputPhotoEmpty) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(483901197)
 	return x.Buf
 }
 
 // CodecDecode:inputPhotoEmpty
-func (m *TLinputPhotoEmpty) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLinputPhotoEmpty) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -44938,7 +44938,7 @@ func NewTLinputPhoto() *TLinputPhoto {
 
 // CodecEncode:inputPhoto
 func (m *TLinputPhoto) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1001634122)
 	x.Long(m.Getid())
 	x.Long(m.Getaccess_hash())
@@ -44947,7 +44947,7 @@ func (m *TLinputPhoto) Encode() []byte {
 }
 
 // CodecDecode:inputPhoto
-func (m *TLinputPhoto) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLinputPhoto) Decode(dbuf *api.DecodeBuf) error {
 	m.Setid(dbuf.Long())
 	m.Setaccess_hash(dbuf.Long())
 	m.Setfile_reference(dbuf.StringBytes())
@@ -44963,7 +44963,7 @@ func NewTLchannelAdminLogEventsFilter() *TLchannelAdminLogEventsFilter {
 
 // CodecEncode:channelAdminLogEventsFilter
 func (m *TLchannelAdminLogEventsFilter) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-368018716)
 	var flags uint32 = 0
 	if m.Getjoin() != false {
@@ -45016,7 +45016,7 @@ func (m *TLchannelAdminLogEventsFilter) Encode() []byte {
 }
 
 // CodecDecode:channelAdminLogEventsFilter
-func (m *TLchannelAdminLogEventsFilter) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLchannelAdminLogEventsFilter) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	if (flags & (1 << 0)) != 0 {
@@ -45076,14 +45076,14 @@ func NewTLchatEmpty() *TLchatEmpty {
 
 // CodecEncode:chatEmpty
 func (m *TLchatEmpty) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1683826688)
 	x.Int(m.Getid())
 	return x.Buf
 }
 
 // CodecDecode:chatEmpty
-func (m *TLchatEmpty) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLchatEmpty) Decode(dbuf *api.DecodeBuf) error {
 	m.Setid(dbuf.Int())
 	return dbuf.Err
 }
@@ -45097,7 +45097,7 @@ func NewTLchat() *TLchat {
 
 // CodecEncode:chat
 func (m *TLchat) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1004149726)
 	var flags uint32 = 0
 	if m.Getcreator() != false {
@@ -45147,7 +45147,7 @@ func (m *TLchat) Encode() []byte {
 }
 
 // CodecDecode:chat
-func (m *TLchat) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLchat) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	if (flags & (1 << 0)) != 0 {
@@ -45203,7 +45203,7 @@ func NewTLchatForbidden() *TLchatForbidden {
 
 // CodecEncode:chatForbidden
 func (m *TLchatForbidden) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(120753115)
 	x.Int(m.Getid())
 	x.String(m.Gettitle())
@@ -45211,7 +45211,7 @@ func (m *TLchatForbidden) Encode() []byte {
 }
 
 // CodecDecode:chatForbidden
-func (m *TLchatForbidden) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLchatForbidden) Decode(dbuf *api.DecodeBuf) error {
 	m.Setid(dbuf.Int())
 	m.Settitle(dbuf.String())
 	return dbuf.Err
@@ -45226,7 +45226,7 @@ func NewTLchannel() *TLchannel {
 
 // CodecEncode:channel
 func (m *TLchannel) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-753232354)
 	var flags uint32 = 0
 	if m.Getcreator() != false {
@@ -45327,7 +45327,7 @@ func (m *TLchannel) Encode() []byte {
 }
 
 // CodecDecode:channel
-func (m *TLchannel) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLchannel) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	if (flags & (1 << 0)) != 0 {
@@ -45428,7 +45428,7 @@ func NewTLchannelForbidden() *TLchannelForbidden {
 
 // CodecEncode:channelForbidden
 func (m *TLchannelForbidden) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(681420594)
 	var flags uint32 = 0
 	if m.Getbroadcast() != false {
@@ -45451,7 +45451,7 @@ func (m *TLchannelForbidden) Encode() []byte {
 }
 
 // CodecDecode:channelForbidden
-func (m *TLchannelForbidden) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLchannelForbidden) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	if (flags & (1 << 0)) != 0 {
@@ -45478,7 +45478,7 @@ func NewTLurlAuthResultRequest() *TLurlAuthResultRequest {
 
 // CodecEncode:urlAuthResultRequest
 func (m *TLurlAuthResultRequest) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1831650802)
 	var flags uint32 = 0
 	if m.Getrequest_write_access() != false {
@@ -45491,7 +45491,7 @@ func (m *TLurlAuthResultRequest) Encode() []byte {
 }
 
 // CodecDecode:urlAuthResultRequest
-func (m *TLurlAuthResultRequest) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLurlAuthResultRequest) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	if (flags & (1 << 0)) != 0 {
@@ -45513,14 +45513,14 @@ func NewTLurlAuthResultAccepted() *TLurlAuthResultAccepted {
 
 // CodecEncode:urlAuthResultAccepted
 func (m *TLurlAuthResultAccepted) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1886646706)
 	x.String(m.Geturl())
 	return x.Buf
 }
 
 // CodecDecode:urlAuthResultAccepted
-func (m *TLurlAuthResultAccepted) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLurlAuthResultAccepted) Decode(dbuf *api.DecodeBuf) error {
 	m.Seturl(dbuf.String())
 	return dbuf.Err
 }
@@ -45534,13 +45534,13 @@ func NewTLurlAuthResultDefault() *TLurlAuthResultDefault {
 
 // CodecEncode:urlAuthResultDefault
 func (m *TLurlAuthResultDefault) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1445536993)
 	return x.Buf
 }
 
 // CodecDecode:urlAuthResultDefault
-func (m *TLurlAuthResultDefault) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLurlAuthResultDefault) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -45553,7 +45553,7 @@ func NewTLsecureData() *TLsecureData {
 
 // CodecEncode:secureData
 func (m *TLsecureData) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1964327229)
 	x.Bytes(m.Getdata())
 	x.Bytes(m.Getdata_hash())
@@ -45562,7 +45562,7 @@ func (m *TLsecureData) Encode() []byte {
 }
 
 // CodecDecode:secureData
-func (m *TLsecureData) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLsecureData) Decode(dbuf *api.DecodeBuf) error {
 	m.Setdata(dbuf.StringBytes())
 	m.Setdata_hash(dbuf.StringBytes())
 	m.Setsecret(dbuf.StringBytes())
@@ -45578,13 +45578,13 @@ func NewTLmessages_foundStickerSetsNotModified() *TLmessages_foundStickerSetsNot
 
 // CodecEncode:messages_foundStickerSetsNotModified
 func (m *TLmessages_foundStickerSetsNotModified) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(223655517)
 	return x.Buf
 }
 
 // CodecDecode:messages_foundStickerSetsNotModified
-func (m *TLmessages_foundStickerSetsNotModified) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessages_foundStickerSetsNotModified) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -45597,7 +45597,7 @@ func NewTLmessages_foundStickerSets() *TLmessages_foundStickerSets {
 
 // CodecEncode:messages_foundStickerSets
 func (m *TLmessages_foundStickerSets) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1359533640)
 	x.Int(m.Gethash())
 	x.Int(481674261)
@@ -45609,7 +45609,7 @@ func (m *TLmessages_foundStickerSets) Encode() []byte {
 }
 
 // CodecDecode:messages_foundStickerSets
-func (m *TLmessages_foundStickerSets) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessages_foundStickerSets) Decode(dbuf *api.DecodeBuf) error {
 	m.Sethash(dbuf.Int())
 	c1 := dbuf.Int()
 	if c1 != 481674261 {
@@ -45634,7 +45634,7 @@ func NewTLpayments_bankCardData() *TLpayments_bankCardData {
 
 // CodecEncode:payments_bankCardData
 func (m *TLpayments_bankCardData) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1042605427)
 	x.String(m.Gettitle())
 	x.Int(481674261)
@@ -45646,7 +45646,7 @@ func (m *TLpayments_bankCardData) Encode() []byte {
 }
 
 // CodecDecode:payments_bankCardData
-func (m *TLpayments_bankCardData) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLpayments_bankCardData) Decode(dbuf *api.DecodeBuf) error {
 	m.Settitle(dbuf.String())
 	c1 := dbuf.Int()
 	if c1 != 481674261 {
@@ -45671,7 +45671,7 @@ func NewTLmessageInteractionCounters() *TLmessageInteractionCounters {
 
 // CodecEncode:messageInteractionCounters
 func (m *TLmessageInteractionCounters) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-1387279939)
 	x.Int(m.Getmsg_id())
 	x.Int(m.Getviews())
@@ -45680,7 +45680,7 @@ func (m *TLmessageInteractionCounters) Encode() []byte {
 }
 
 // CodecDecode:messageInteractionCounters
-func (m *TLmessageInteractionCounters) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessageInteractionCounters) Decode(dbuf *api.DecodeBuf) error {
 	m.Setmsg_id(dbuf.Int())
 	m.Setviews(dbuf.Int())
 	m.Setforwards(dbuf.Int())
@@ -45696,14 +45696,14 @@ func NewTLphotoSizeEmpty() *TLphotoSizeEmpty {
 
 // CodecEncode:photoSizeEmpty
 func (m *TLphotoSizeEmpty) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(236446268)
 	x.String(m.Gettype())
 	return x.Buf
 }
 
 // CodecDecode:photoSizeEmpty
-func (m *TLphotoSizeEmpty) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLphotoSizeEmpty) Decode(dbuf *api.DecodeBuf) error {
 	m.Settype(dbuf.String())
 	return dbuf.Err
 }
@@ -45717,7 +45717,7 @@ func NewTLphotoSize() *TLphotoSize {
 
 // CodecEncode:photoSize
 func (m *TLphotoSize) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(2009052699)
 	x.String(m.Gettype())
 	x.Bytes(m.Getlocation().Encode())
@@ -45728,7 +45728,7 @@ func (m *TLphotoSize) Encode() []byte {
 }
 
 // CodecDecode:photoSize
-func (m *TLphotoSize) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLphotoSize) Decode(dbuf *api.DecodeBuf) error {
 	m.Settype(dbuf.String())
 	m1 := &FileLocation{}
 	m1.Decode(dbuf)
@@ -45748,7 +45748,7 @@ func NewTLphotoCachedSize() *TLphotoCachedSize {
 
 // CodecEncode:photoCachedSize
 func (m *TLphotoCachedSize) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-374917894)
 	x.String(m.Gettype())
 	x.Bytes(m.Getlocation().Encode())
@@ -45759,7 +45759,7 @@ func (m *TLphotoCachedSize) Encode() []byte {
 }
 
 // CodecDecode:photoCachedSize
-func (m *TLphotoCachedSize) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLphotoCachedSize) Decode(dbuf *api.DecodeBuf) error {
 	m.Settype(dbuf.String())
 	m1 := &FileLocation{}
 	m1.Decode(dbuf)
@@ -45779,7 +45779,7 @@ func NewTLphotoStrippedSize() *TLphotoStrippedSize {
 
 // CodecEncode:photoStrippedSize
 func (m *TLphotoStrippedSize) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-525288402)
 	x.String(m.Gettype())
 	x.Bytes(m.Getbytes())
@@ -45787,7 +45787,7 @@ func (m *TLphotoStrippedSize) Encode() []byte {
 }
 
 // CodecDecode:photoStrippedSize
-func (m *TLphotoStrippedSize) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLphotoStrippedSize) Decode(dbuf *api.DecodeBuf) error {
 	m.Settype(dbuf.String())
 	m.Setbytes(dbuf.StringBytes())
 	return dbuf.Err
@@ -45802,7 +45802,7 @@ func NewTLphotoSizeProgressive() *TLphotoSizeProgressive {
 
 // CodecEncode:photoSizeProgressive
 func (m *TLphotoSizeProgressive) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1520986705)
 	x.String(m.Gettype())
 	x.Bytes(m.Getlocation().Encode())
@@ -45817,7 +45817,7 @@ func (m *TLphotoSizeProgressive) Encode() []byte {
 }
 
 // CodecDecode:photoSizeProgressive
-func (m *TLphotoSizeProgressive) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLphotoSizeProgressive) Decode(dbuf *api.DecodeBuf) error {
 	m.Settype(dbuf.String())
 	m1 := &FileLocation{}
 	m1.Decode(dbuf)
@@ -45837,7 +45837,7 @@ func NewTLphotoPathSize() *TLphotoPathSize {
 
 // CodecEncode:photoPathSize
 func (m *TLphotoPathSize) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-668906175)
 	x.String(m.Gettype())
 	x.Bytes(m.Getbytes())
@@ -45845,7 +45845,7 @@ func (m *TLphotoPathSize) Encode() []byte {
 }
 
 // CodecDecode:photoPathSize
-func (m *TLphotoPathSize) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLphotoPathSize) Decode(dbuf *api.DecodeBuf) error {
 	m.Settype(dbuf.String())
 	m.Setbytes(dbuf.StringBytes())
 	return dbuf.Err
@@ -45860,7 +45860,7 @@ func NewTLexportedMessageLink() *TLexportedMessageLink {
 
 // CodecEncode:exportedMessageLink
 func (m *TLexportedMessageLink) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1571494644)
 	x.String(m.Getlink())
 	x.String(m.Gethtml())
@@ -45868,7 +45868,7 @@ func (m *TLexportedMessageLink) Encode() []byte {
 }
 
 // CodecDecode:exportedMessageLink
-func (m *TLexportedMessageLink) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLexportedMessageLink) Decode(dbuf *api.DecodeBuf) error {
 	m.Setlink(dbuf.String())
 	m.Sethtml(dbuf.String())
 	return dbuf.Err
@@ -45883,13 +45883,13 @@ func NewTLmessages_stickersNotModified() *TLmessages_stickersNotModified {
 
 // CodecEncode:messages_stickersNotModified
 func (m *TLmessages_stickersNotModified) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-244016606)
 	return x.Buf
 }
 
 // CodecDecode:messages_stickersNotModified
-func (m *TLmessages_stickersNotModified) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessages_stickersNotModified) Decode(dbuf *api.DecodeBuf) error {
 	return dbuf.Err
 }
 
@@ -45902,7 +45902,7 @@ func NewTLmessages_stickers() *TLmessages_stickers {
 
 // CodecEncode:messages_stickers
 func (m *TLmessages_stickers) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-463889475)
 	x.Int(m.Gethash())
 	x.Int(481674261)
@@ -45914,7 +45914,7 @@ func (m *TLmessages_stickers) Encode() []byte {
 }
 
 // CodecDecode:messages_stickers
-func (m *TLmessages_stickers) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessages_stickers) Decode(dbuf *api.DecodeBuf) error {
 	m.Sethash(dbuf.Int())
 	c1 := dbuf.Int()
 	if c1 != 481674261 {
@@ -45939,7 +45939,7 @@ func NewTLpageCaption() *TLpageCaption {
 
 // CodecEncode:pageCaption
 func (m *TLpageCaption) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1869903447)
 	x.Bytes(m.Gettext().Encode())
 	x.Bytes(m.Getcredit().Encode())
@@ -45947,7 +45947,7 @@ func (m *TLpageCaption) Encode() []byte {
 }
 
 // CodecDecode:pageCaption
-func (m *TLpageCaption) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLpageCaption) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &RichText{}
 	m0.Decode(dbuf)
 	m.Settext(m0)
@@ -45966,7 +45966,7 @@ func NewTLmessages_archivedStickers() *TLmessages_archivedStickers {
 
 // CodecEncode:messages_archivedStickers
 func (m *TLmessages_archivedStickers) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1338747336)
 	x.Int(m.Getcount())
 	x.Int(481674261)
@@ -45978,7 +45978,7 @@ func (m *TLmessages_archivedStickers) Encode() []byte {
 }
 
 // CodecDecode:messages_archivedStickers
-func (m *TLmessages_archivedStickers) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessages_archivedStickers) Decode(dbuf *api.DecodeBuf) error {
 	m.Setcount(dbuf.Int())
 	c1 := dbuf.Int()
 	if c1 != 481674261 {
@@ -46003,7 +46003,7 @@ func NewTLauth_loginToken() *TLauth_loginToken {
 
 // CodecEncode:auth_loginToken
 func (m *TLauth_loginToken) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1654593920)
 	x.Int(m.Getexpires())
 	x.Bytes(m.Gettoken())
@@ -46011,7 +46011,7 @@ func (m *TLauth_loginToken) Encode() []byte {
 }
 
 // CodecDecode:auth_loginToken
-func (m *TLauth_loginToken) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLauth_loginToken) Decode(dbuf *api.DecodeBuf) error {
 	m.Setexpires(dbuf.Int())
 	m.Settoken(dbuf.StringBytes())
 	return dbuf.Err
@@ -46026,7 +46026,7 @@ func NewTLauth_loginTokenMigrateTo() *TLauth_loginTokenMigrateTo {
 
 // CodecEncode:auth_loginTokenMigrateTo
 func (m *TLauth_loginTokenMigrateTo) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(110008598)
 	x.Int(m.Getdc_id())
 	x.Bytes(m.Gettoken())
@@ -46034,7 +46034,7 @@ func (m *TLauth_loginTokenMigrateTo) Encode() []byte {
 }
 
 // CodecDecode:auth_loginTokenMigrateTo
-func (m *TLauth_loginTokenMigrateTo) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLauth_loginTokenMigrateTo) Decode(dbuf *api.DecodeBuf) error {
 	m.Setdc_id(dbuf.Int())
 	m.Settoken(dbuf.StringBytes())
 	return dbuf.Err
@@ -46049,14 +46049,14 @@ func NewTLauth_loginTokenSuccess() *TLauth_loginTokenSuccess {
 
 // CodecEncode:auth_loginTokenSuccess
 func (m *TLauth_loginTokenSuccess) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(957176926)
 	x.Bytes(m.Getauthorization().Encode())
 	return x.Buf
 }
 
 // CodecDecode:auth_loginTokenSuccess
-func (m *TLauth_loginTokenSuccess) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLauth_loginTokenSuccess) Decode(dbuf *api.DecodeBuf) error {
 	m0 := &Auth_Authorization{}
 	m0.Decode(dbuf)
 	m.Setauthorization(m0)
@@ -46072,7 +46072,7 @@ func NewTLmessageViews() *TLmessageViews {
 
 // CodecEncode:messageViews
 func (m *TLmessageViews) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(1163625789)
 	var flags uint32 = 0
 	if m.Getviews() != 0 {
@@ -46098,7 +46098,7 @@ func (m *TLmessageViews) Encode() []byte {
 }
 
 // CodecDecode:messageViews
-func (m *TLmessageViews) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessageViews) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	if (flags & (1 << 0)) != 0 {
@@ -46124,7 +46124,7 @@ func NewTLmessages_discussionMessage() *TLmessages_discussionMessage {
 
 // CodecEncode:messages_discussionMessage
 func (m *TLmessages_discussionMessage) Encode() []byte {
-	x := code.NewEncodeBuf(512)
+	x := api.NewEncodeBuf(512)
 	x.Int(-170029155)
 	var flags uint32 = 0
 	if m.Getmax_id() != 0 {
@@ -46165,7 +46165,7 @@ func (m *TLmessages_discussionMessage) Encode() []byte {
 }
 
 // CodecDecode:messages_discussionMessage
-func (m *TLmessages_discussionMessage) Decode(dbuf *code.DecodeBuf) error {
+func (m *TLmessages_discussionMessage) Decode(dbuf *api.DecodeBuf) error {
 	flags := dbuf.UInt()
 	_ = flags
 	c0 := dbuf.Int()

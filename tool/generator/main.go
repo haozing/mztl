@@ -19,8 +19,8 @@ func main() {
 	ConstructorsExtractionType()
 
 	//接口结构
-	ToTarsProto()
-	GoSaveFile("tarstl/api.tars")
+	ToGoProto()
+	GoSaveFile("go/api.go")
 	//类型结构
 
 }

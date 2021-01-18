@@ -19,7 +19,7 @@ package common
 
 import (
 	"fmt"
-	"github.com/haozing/mztl/pkg/code"
+	"github.com/haozing/mztl/tl/api"
 )
 
 type MessageBase interface {
@@ -99,9 +99,9 @@ type UnencryptedRawMessage struct {
 
 func (m *UnencryptedRawMessage) Encode() []byte {
 	// 一次性分配
-	x := code.NewEncodeBuf(20 + len(m.MessageData))
+	x := api.NewEncodeBuf(20 + len(m.MessageData))
 	x.Long(0)
-	m.MessageId = code.GenerateMessageId()
+	m.MessageId = api.GenerateMessageId()
 	x.Long(m.MessageId)
 	x.Int(int32(len(m.MessageData)))
 	x.Bytes(m.MessageData)
@@ -109,7 +109,7 @@ func (m *UnencryptedRawMessage) Encode() []byte {
 }
 
 func (m *UnencryptedRawMessage) Decode(b []byte) error {
-	dbuf := code.NewDecodeBuf(b)
+	dbuf := api.NewDecodeBuf(b)
 	m.MessageId = dbuf.Long()
 	messageLen := dbuf.Int()
 	if int(messageLen) != dbuf.Size-12 {
@@ -135,7 +135,7 @@ func NewEncryptedRawMessage(authKeyId int64) *EncryptedRawMessage {
 
 func (m *EncryptedRawMessage) Encode() []byte {
 	// 一次性分配
-	x := code.NewEncodeBuf(24 + len(m.EncryptedData))
+	x := api.NewEncodeBuf(24 + len(m.EncryptedData))
 	x.Long(m.AuthKeyId)
 	x.Bytes(m.MsgKey)
 	x.Bytes(m.EncryptedData)
@@ -143,7 +143,7 @@ func (m *EncryptedRawMessage) Encode() []byte {
 }
 
 func (m *EncryptedRawMessage) Decode(b []byte) error {
-	dbuf := code.NewDecodeBuf(b)
+	dbuf := api.NewDecodeBuf(b)
 	m.MsgKey = dbuf.Bytes(16)
 	m.EncryptedData = dbuf.Bytes(len(b) - 16)
 	return dbuf.Err
